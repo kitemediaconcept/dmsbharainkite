@@ -7423,6 +7423,72 @@ input, select, textarea {
 
   </section>
 
+
+  <!-- TRUSTED BY SECTORS -->
+  <section class="tp-v2" aria-labelledby="tp-title">
+    <h2 id="tp-title" class="tp-title">Trusted by global leading partners</h2>
+    <ul class="tp-grid">
+        <li class="tp-card" tabindex="0" style="--i:0">
+          <span class="tp-name">Petroleum<br>Companies</span>
+          <svg class="tp-ico tp-ico-petroleum" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 44h40"/><path d="M14 44 19 22h4l5 22"/><path d="M16.5 33h9M15.5 38h11"/><path d="M5 18 36 9"/><path d="M5 18c-2.5 0-3.5 3-2 6l3 4"/><path d="M36 9v8"/><circle cx="6" cy="34" r="1.6"/><path d="M6 30v14"/><rect x="31" y="27" width="12" height="17" rx="1.5"/><path d="M37 32c-1.6 2-2.4 3.2-2.4 4.2a2.4 2.4 0 0 0 4.8 0c0-1-.8-2.2-2.4-4.2z"/></svg>
+        </li>
+        <li class="tp-card" tabindex="0" style="--i:1">
+          <span class="tp-name">Corporate</span>
+          <svg class="tp-ico tp-ico-corporate" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 44h40"/><rect x="16" y="8" width="16" height="36"/><path d="M20 4h8v4"/><rect x="6" y="18" width="10" height="26"/><rect x="32" y="18" width="10" height="26"/><path d="M20 14h2M26 14h2M20 19h2M26 19h2M9 23h2M9 28h2M37 23h2M37 28h2"/><circle cx="24" cy="30" r="3"/><path d="M19 44v-4a5 5 0 0 1 10 0v4"/></svg>
+        </li>
+        <li class="tp-card" tabindex="0" style="--i:2">
+          <span class="tp-name">Schools</span>
+          <svg class="tp-ico tp-ico-school" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 44h40"/><path d="M8 44V24h32v20"/><path d="M5 24 24 12l19 12"/><path d="M24 12V3h7l-2 2.5 2 2.5h-7"/><circle cx="24" cy="24" r="4"/><path d="M24 22v2.2l1.4 1"/><path d="M21 44v-8h6v8"/><path d="M12 29h5v4h-5zM31 29h5v4h-5zM12 36h5v4h-5zM31 36h5v4h-5z"/></svg>
+        </li>
+        <li class="tp-card" tabindex="0" style="--i:3">
+          <span class="tp-name">Investment<br>Banks</span>
+          <svg class="tp-ico tp-ico-invest" viewBox="0 0 48 48" aria-hidden="true"><circle cx="26" cy="16" r="8"/><path d="M28.5 12.5c-.6-1-1.5-1.5-2.7-1.5-1.6 0-2.8.9-2.8 2.2 0 3.2 5.7 1.6 5.7 4.8 0 1.3-1.2 2.3-2.9 2.3-1.3 0-2.4-.6-3-1.6M25.8 9.5v13"/><path d="M26 2v3M21 3l.8 2.6M31 3l-.8 2.6"/><path d="M4 32h7v13H4z"/><path d="M11 34h6c2 0 3.5 1 4.5 2.5H29a3 3 0 0 1 0 6H18"/><path d="M29 39.5 40 33a3 3 0 0 1 4 4.5L30 45H11"/></svg>
+        </li>
+        <li class="tp-card" tabindex="0" style="--i:4">
+          <span class="tp-name">Commercial<br>Banks</span>
+          <svg class="tp-ico tp-ico-bank" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 44h40M6 40h36"/><path d="M5 18 24 6l19 12z"/><circle cx="24" cy="13" r="2"/><path d="M6 18h36v3H6z"/><path d="M11 21v19M17 21v19M24 21v19M31 21v19M37 21v19"/></svg>
+        </li>
+    </ul>
+  </section>
+  <style>
+    .tp-v2 { width:min(1400px, calc(100% - 64px)); margin:clamp(32px,4vw,56px) auto clamp(48px,6vw,88px); padding:0 0 0 3%; font-family:Inter, "Helvetica Neue", Arial, sans-serif; color:#111; }
+    .tp-v2 *, .tp-v2 *::before, .tp-v2 *::after { box-sizing:border-box; }
+    .tp-v2 .tp-title { margin:0 0 18px; font-size:clamp(17px,1.5vw,21px); font-weight:500; letter-spacing:-.4px; color:#222; }
+    .tp-v2 .tp-grid { list-style:none; margin:0; padding:10px; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; border-radius:20px; box-shadow:0 0 0 1px #eee9e3; background:#fbfaf8; }
+    .tp-v2 .tp-card { position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:space-between; gap:14px; padding:18px 12px 20px; min-height:150px; border-radius:14px; background:#f6f4f1; box-shadow:0 0 0 1px #ece7e0; text-align:center; cursor:pointer; outline:none;
+      transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, background .35s ease; }
+    .tp-v2 .tp-card::after { content:""; position:absolute; right:-40%; top:10%; width:80%; height:80%; border-radius:50%; background:radial-gradient(closest-side, rgb(13 155 73 / 18%), rgb(150 120 230 / 10%) 55%, transparent); opacity:0; transform:translateX(30%); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1); pointer-events:none; }
+    .tp-v2 .tp-name { position:relative; z-index:1; font-size:13.5px; font-weight:500; line-height:1.3; letter-spacing:-.2px; color:#2b2b2b; }
+    .tp-v2 .tp-ico { position:relative; z-index:1; width:54px; height:54px; fill:none; stroke:#2b2b2b; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; transition:transform .5s cubic-bezier(.22,1,.36,1), stroke .3s ease; }
+    .tp-v2 .tp-card:hover, .tp-v2 .tp-card:focus-visible, .tp-v2 .tp-card.is-active { transform:translateY(-4px); background:#fff; box-shadow:0 0 0 1px #e3ddd5, 0 12px 24px rgb(48 39 31 / 7%); }
+    .tp-v2 .tp-card:hover::after, .tp-v2 .tp-card:focus-visible::after, .tp-v2 .tp-card.is-active::after { opacity:1; transform:none; }
+    .tp-v2 .tp-card:hover .tp-ico, .tp-v2 .tp-card:focus-visible .tp-ico, .tp-v2 .tp-card.is-active .tp-ico { stroke:#073f2c; transform:translateY(-3px) scale(1.06); }
+    .tp-v2 .tp-card:focus-visible { box-shadow:0 0 0 2px #0d9b49, 0 12px 24px rgb(48 39 31 / 7%); }
+    .tp-v2 .tp-card:active { transform:translateY(-1px) scale(.98); }
+    .tp-v2.tp-anim .tp-card { opacity:0; transform:translateY(14px); }
+    .tp-v2.tp-in .tp-card { opacity:1; transform:none; transition:opacity .6s ease calc(var(--i) * 70ms), transform .6s cubic-bezier(.16,1,.3,1) calc(var(--i) * 70ms), box-shadow .35s ease, background .35s ease; }
+    .tp-v2.tp-in .tp-card:hover, .tp-v2.tp-in .tp-card.is-active { transform:translateY(-4px); transition-delay:0s; }
+    @media (max-width:900px) { .tp-v2 .tp-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+    @media (max-width:560px) { .tp-v2 { width:calc(100% - 32px); padding:0; } .tp-v2 .tp-grid { grid-template-columns:repeat(2,minmax(0,1fr)); padding:8px; gap:8px; } .tp-v2 .tp-card { min-height:132px; } .tp-v2 .tp-ico { width:46px; height:46px; } .tp-v2 .tp-card:last-child { grid-column:1 / -1; } }
+    @media (prefers-reduced-motion: reduce) { .tp-v2 *, .tp-v2 *::after { transition:none !important; } .tp-v2.tp-anim .tp-card { opacity:1; transform:none; } }
+  </style>
+  <script>
+  (() => {
+    const sec = document.querySelector(".tp-v2"); if (!sec) return;
+    const cards = [...sec.querySelectorAll(".tp-card")];
+    cards.forEach((c) => {
+      const act = () => { cards.forEach((o) => o !== c && o.classList.remove("is-active")); c.classList.toggle("is-active"); };
+      c.addEventListener("click", act);
+      c.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); act(); } });
+    });
+    if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      sec.classList.add("tp-anim");
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { sec.classList.add("tp-in"); io.disconnect(); } }), { threshold: 0.2 });
+      io.observe(sec);
+    }
+  })();
+  </script>
+
   <!-- REFINED DMS SERVICES SECTION (User Specification) -->
   <section class="dms-services-section" id="services" aria-label="DMS services">
 
