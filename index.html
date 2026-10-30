@@ -6777,6 +6777,19 @@ input, select, textarea {
     }
 
 
+
+    /* ---- Equal height for all three stacked cards (desktop) ---- */
+    @media (min-width: 901px) {
+      .dms-gold-stack .dgs-card,
+      .dms-gold-stack .dgs-card-attestation,
+      .dgs-card-global-visa { height:570px; min-height:570px; }
+      .dms-gold-stack .dgs-card-attestation { justify-content:stretch; }
+      .dms-gold-stack .dgs-attestation-grid { flex:1; height:100%; min-height:0; }
+      .dms-gold-stack .dgs-attestation-visual { min-height:0; }
+      .dgs-card-global-visa .visa-card { height:100%; min-height:0; }
+      .dgs-card-global-visa .visa-content { min-height:0; }
+    }
+
     /* REFLECTIVE GOLD VISUAL */
     .dms-gold-stack .dgs-visual {
       text-align: center;
