@@ -1,0 +1,1967 @@
+/* ==========================================================================
+   DIPLOMAT MANAGEMENT SERVICES (DMS) — MOLLIE DESIGN SYSTEM
+   Editorial white canvas, Oat cream cards (#f7f4f1), oversized display typography,
+   monospace eyebrows (IBM Plex Mono), 9999px pill buttons, and DMS Green (#006837).
+   Reference: https://www.mollie.com/ & design-reference/DESIGN.md
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Mollie Core Surfaces */
+  --surface-paper: #ffffff;
+  --surface-oat: #f7f4f1;
+  --surface-oat-hover: #efebe6;
+  --surface-espresso: #111111;
+  --surface-espresso-panel: #1a1918;
+
+  /* Typography Colors */
+  --color-ink: #000000;
+  --color-near-black: #111111;
+  --color-quiet-graphite: #595959;
+  --color-soft-gray: #919191;
+  --color-hairline: #e5e7eb;
+  --color-hairline-subtle: #f0ede8;
+
+  /* DMS Brand Green Accent Palette */
+  --brand-primary: #006837;
+  --brand-primary-hover: #00502a;
+  --brand-primary-light: #e8f5e9;
+  --brand-primary-surface: #f0fdf4;
+  --brand-primary-border: #bbf7d0;
+
+  /* Accent commerce link */
+  --color-copper-link: #006837;
+
+  /* Mollie Typography Tokens */
+  --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radii */
+  --radius-cards: 16px;
+  --radius-media: 24px;
+  --radius-pills: 9999px;
+  --radius-sm: 6px;
+
+  /* Layout */
+  --container-max-w: 1240px;
+  --container-wide-w: 1360px;
+  --header-height: 72px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--surface-paper);
+  color: var(--color-ink);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.container-wide {
+  width: 100%;
+  max-width: var(--container-wide-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+/* ==========================================================================
+   TOP ANNOUNCEMENT BAR (MOLLIE STYLE)
+   ========================================================================== */
+.announcement-banner {
+  background-color: var(--surface-oat);
+  color: var(--color-near-black);
+  font-size: 0.825rem;
+  font-weight: 600;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1001;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--color-hairline-subtle);
+  transition: all var(--transition-base);
+}
+
+.announcement-banner.hidden {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+}
+
+.announcement-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.announcement-pill {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--surface-paper);
+  border: 1px solid var(--color-hairline);
+  color: var(--brand-primary);
+  padding: 2px 8px;
+  border-radius: var(--radius-pills);
+}
+
+.announcement-link {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+.banner-close-btn {
+  position: absolute;
+  right: 20px;
+  color: var(--color-soft-gray);
+  padding: 4px;
+}
+
+.banner-close-btn:hover {
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   MOLLIE PUBLIC NAVIGATION BAR
+   54px-72px Paper bar with wordmark, tight-tracked links, and 9999px pill button
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-hairline-subtle);
+  transition: all var(--transition-base);
+}
+
+.site-header.scrolled {
+  background-color: #ffffff;
+  border-bottom-color: var(--color-hairline);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+.nav-wrapper {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo-link:hover .brand-logo-img {
+  transform: scale(1.01);
+}
+
+/* Center Floating Pill Navigation Capsule (Matching Mollie & BridgeAI style) */
+.nav-floating-capsule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface-paper);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-pills);
+  padding: 5px 6px 5px 24px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.nav-floating-capsule:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.nav-floating-capsule .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.885rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-quiet-graphite);
+  padding: 8px 12px;
+  border-radius: var(--radius-pills);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.nav-floating-capsule .nav-link:hover {
+  color: var(--color-ink);
+  background-color: var(--surface-oat);
+}
+
+.nav-floating-capsule .nav-item {
+  position: relative;
+}
+
+.nav-floating-capsule .nav-link.has-dropdown svg {
+  transition: transform var(--transition-fast);
+}
+
+.nav-floating-capsule .nav-item:hover .nav-link.has-dropdown svg {
+  transform: rotate(180deg);
+}
+
+/* Mollie-style conversion pill embedded in capsule */
+.capsule-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  font-size: 0.885rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 10px 22px;
+  border-radius: var(--radius-pills);
+  box-shadow: 0 2px 8px rgba(0, 104, 55, 0.25);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.capsule-cta-btn:hover {
+  background-color: var(--brand-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 104, 55, 0.35);
+}
+
+/* Nav Dropdown Menu */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  min-width: 290px;
+  background: var(--surface-paper);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-cards);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  padding: 8px;
+  display: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  z-index: 1010;
+}
+
+.nav-floating-capsule .nav-item:hover .nav-dropdown {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: background-color var(--transition-fast);
+}
+
+.dropdown-item:hover {
+  background-color: var(--surface-oat);
+}
+
+.dropdown-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--brand-primary-light);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dropdown-text h4 {
+  font-size: 0.885rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.dropdown-text p {
+  font-size: 0.775rem;
+  color: var(--color-quiet-graphite);
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+/* Nav Right Actions */
+.nav-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.btn-elementor-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--surface-oat);
+  color: var(--color-near-black);
+  border: 1px solid var(--color-hairline);
+  padding: 8px 18px;
+  border-radius: var(--radius-pills);
+  transition: all var(--transition-fast);
+}
+
+.btn-elementor-pill:hover {
+  background: #eae5df;
+  transform: translateY(-1px);
+}
+
+.nav-link-secondary {
+  font-size: 0.885rem;
+  font-weight: 600;
+  color: var(--color-quiet-graphite);
+  padding: 8px 12px;
+  transition: color var(--transition-fast);
+}
+
+.nav-link-secondary:hover {
+  color: var(--color-ink);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+
+.mobile-menu-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--color-ink);
+  transition: all var(--transition-fast);
+}
+
+/* ==========================================================================
+   MOLLIE DISPLAY HERO SECTION
+   Oversized, confident headline, monospace eyebrow, split paragraph & pill CTAs
+   ========================================================================== */
+.mollie-hero {
+  padding: 72px 0 88px;
+  background: var(--surface-paper);
+  position: relative;
+}
+
+.hero-eyebrow-mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.hero-eyebrow-mono::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+}
+
+.hero-editorial-row {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 48px;
+  align-items: flex-end;
+  margin-bottom: 56px;
+}
+
+.hero-display-title {
+  font-family: var(--font-display);
+  font-size: 4.25rem;
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--color-ink);
+}
+
+.hero-display-title .highlight-brand {
+  color: var(--brand-primary);
+}
+
+.hero-editorial-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-lead-text {
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--color-quiet-graphite);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.hero-pill-buttons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Mollie Filled Pill CTA Button (Ledger / Brand Green) */
+.btn-mollie-pill-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 14px 28px;
+  border-radius: var(--radius-pills);
+  box-shadow: 0 4px 16px rgba(0, 104, 55, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.btn-mollie-pill-primary:hover {
+  background-color: var(--brand-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 104, 55, 0.35);
+}
+
+/* Mollie Oat Surface Pill Button */
+.btn-mollie-pill-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--surface-oat);
+  color: var(--color-ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 14px 28px;
+  border-radius: var(--radius-pills);
+  transition: all var(--transition-fast);
+}
+
+.btn-mollie-pill-secondary:hover {
+  background-color: var(--surface-oat-hover);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   MOLLIE SHOWCASE FRAME (CONTAINED PRODUCT & REGULATORY CANVAS)
+   16px radius, warm oat canvas, data points, status indicators
+   ========================================================================== */
+.hero-contained-canvas {
+  background: var(--surface-oat);
+  border-radius: var(--radius-media);
+  padding: 36px;
+  border: 1px solid var(--color-hairline-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.canvas-top-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.canvas-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-quiet-graphite);
+}
+
+.canvas-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  background: var(--surface-paper);
+  border: 1px solid var(--brand-primary-border);
+  padding: 4px 12px;
+  border-radius: var(--radius-pills);
+}
+
+.canvas-live-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+}
+
+.canvas-grid-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 32px;
+}
+
+/* Service Pathway Selector Card */
+.canvas-card-white {
+  background: var(--surface-paper);
+  border-radius: var(--radius-cards);
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.canvas-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+}
+
+.canvas-card-sub {
+  font-size: 0.9rem;
+  color: var(--color-quiet-graphite);
+  margin-bottom: 22px;
+}
+
+.mollie-selector-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mollie-option-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--surface-oat);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.mollie-option-item.active, .mollie-option-item:hover {
+  background: var(--surface-paper);
+  border-color: var(--brand-primary-border);
+  box-shadow: 0 4px 14px rgba(0, 104, 55, 0.08);
+}
+
+.option-left-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.option-mono-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  background: var(--brand-primary-light);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.option-label-text {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.option-sla-pill {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  background: var(--brand-primary-light);
+  padding: 3px 8px;
+  border-radius: var(--radius-pills);
+}
+
+/* Right Panel: Transactional / Pipeline Demonstration */
+.canvas-panel-dark {
+  background: var(--surface-espresso);
+  color: #ffffff;
+  border-radius: var(--radius-cards);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.panel-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.panel-mono-badge {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  color: #a3a3a3;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.panel-milestones-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.milestone-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+}
+
+.milestone-row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 26px;
+  bottom: -10px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.milestone-check-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.milestone-text h5 {
+  font-size: 0.885rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.milestone-text p {
+  font-size: 0.775rem;
+  color: #a3a3a3;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.panel-footer-action {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-officer-info {
+  font-size: 0.8rem;
+  color: #a3a3a3;
+}
+
+.panel-officer-info strong {
+  color: #ffffff;
+}
+
+.btn-panel-action {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-size: 0.825rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: var(--radius-pills);
+  transition: all var(--transition-fast);
+}
+
+.btn-panel-action:hover {
+  background: var(--brand-primary);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   MOLLIE SOCIAL PROOF & REGULATORY STRIP
+   ========================================================================== */
+.social-proof-strip {
+  padding: 48px 0 56px;
+  background-color: var(--surface-paper);
+  border-top: 1px solid var(--color-hairline-subtle);
+  border-bottom: 1px solid var(--color-hairline-subtle);
+}
+
+.social-proof-heading {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--color-quiet-graphite);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 28px;
+}
+
+.marquee-container {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  gap: 40px;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  min-width: 100%;
+  animation: scrollMarquee 35s linear infinite;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #525252;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.marquee-item .item-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--surface-oat);
+  border: 1px solid var(--color-hairline);
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   MOLLIE 11 CORE SERVICES SECTION
+   Oat Surface cards (#f7f4f1), 16px radius, monospace labels, inline copper/green links
+   ========================================================================== */
+.services-section {
+  padding: 96px 0;
+  background-color: var(--surface-paper);
+}
+
+.section-head-mollie {
+  max-width: 840px;
+  margin-bottom: 56px;
+}
+
+.section-mono-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-primary);
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.section-title-mollie {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: var(--color-ink);
+  margin-bottom: 18px;
+}
+
+.section-desc-mollie {
+  font-size: 1.15rem;
+  color: var(--color-quiet-graphite);
+  line-height: 1.55;
+}
+
+/* Filter pills */
+.services-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  padding: 9px 20px;
+  border-radius: var(--radius-pills);
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: var(--surface-oat);
+  color: var(--color-quiet-graphite);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.filter-pill:hover, .filter-pill.active {
+  background: var(--color-ink);
+  color: #ffffff;
+}
+
+/* Services 11 Grid — Mollie Oat Surface Feature Cards */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--surface-oat);
+  border-radius: var(--radius-cards);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-base), background-color var(--transition-base);
+  border: 1px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  background: #f2ede8;
+}
+
+.service-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.service-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  background: var(--surface-paper);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--color-hairline);
+}
+
+.service-category-tag {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-quiet-graphite);
+  letter-spacing: 0.05em;
+}
+
+.service-card-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.service-card-desc {
+  font-size: 0.95rem;
+  color: var(--color-quiet-graphite);
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+.service-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 26px;
+}
+
+.service-feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--color-near-black);
+  font-weight: 500;
+}
+
+.service-feature-list li svg {
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+.service-card-footer {
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Mollie Inline Link style (Copper / Brand Green) */
+.service-action-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap var(--transition-fast);
+}
+
+.service-action-link:hover {
+  gap: 10px;
+  color: var(--brand-primary-hover);
+}
+
+.service-timeline-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-quiet-graphite);
+}
+
+/* ==========================================================================
+   MOLLIE COMPARISON: TRADITIONAL PRO VS DIPLOMAT
+   ========================================================================== */
+.comparison-section {
+  padding: 96px 0;
+  background-color: var(--surface-paper);
+}
+
+.comparison-wrapper {
+  background: var(--surface-oat);
+  border-radius: var(--radius-media);
+  padding: 56px 48px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+}
+
+.comparison-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 0.925rem;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table th.col-feature {
+  width: 28%;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-quiet-graphite);
+}
+
+.comparison-table th.col-traditional {
+  width: 36%;
+  color: var(--color-quiet-graphite);
+}
+
+.comparison-table th.col-diplomat {
+  width: 36%;
+  color: var(--brand-primary);
+  font-weight: 800;
+}
+
+.comparison-table td {
+  padding: 22px 20px;
+  font-size: 0.925rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  vertical-align: middle;
+}
+
+.comparison-table td.col-traditional {
+  color: var(--color-quiet-graphite);
+}
+
+.comparison-table td.col-diplomat {
+  color: var(--color-ink);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.6);
+  border-left: 2px solid var(--brand-primary);
+}
+
+/* ==========================================================================
+   MOLLIE STORY & FOUNDING PRINCIPLES SECTION
+   ========================================================================== */
+.story-section {
+  padding: 100px 0;
+  background-color: var(--surface-paper);
+  border-top: 1px solid var(--color-hairline-subtle);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.story-year-pill {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-primary);
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.story-title {
+  font-family: var(--font-display);
+  font-size: 2.85rem;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: var(--color-ink);
+  margin-bottom: 24px;
+}
+
+.story-body-text {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--color-quiet-graphite);
+  margin-bottom: 24px;
+}
+
+.story-quote-card {
+  background: var(--surface-oat);
+  border-left: 4px solid var(--brand-primary);
+  padding: 24px 28px;
+  border-radius: 0 var(--radius-cards) var(--radius-cards) 0;
+  margin-bottom: 28px;
+}
+
+.quote-text {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  line-height: 1.45;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.quote-author {
+  font-family: var(--font-mono);
+  font-size: 0.775rem;
+  color: var(--brand-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* 4 Core Principles Cards */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.principle-card {
+  background: var(--surface-oat);
+  border-radius: var(--radius-cards);
+  padding: 24px;
+  transition: transform var(--transition-fast);
+}
+
+.principle-card:hover {
+  transform: translateY(-2px);
+  background: #f0ebe4;
+}
+
+.principle-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.principle-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 6px;
+}
+
+.principle-card p {
+  font-size: 0.885rem;
+  color: var(--color-quiet-graphite);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   MOLLIE METRICS STRIP
+   ========================================================================== */
+.metrics-section {
+  padding: 80px 0;
+  background-color: var(--surface-espresso);
+  color: #ffffff;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px;
+}
+
+.metric-item {
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  padding-left: 24px;
+}
+
+.metric-number {
+  font-family: var(--font-display);
+  font-size: 3.25rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.metric-number .metric-accent {
+  color: #4ade80;
+}
+
+.metric-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f5f5f5;
+  margin-bottom: 4px;
+}
+
+.metric-sub {
+  font-family: var(--font-mono);
+  font-size: 0.775rem;
+  color: #a3a3a3;
+}
+
+/* ==========================================================================
+   MOLLIE HIGH-IMPACT CTA BANNER
+   ========================================================================== */
+.cta-banner-section {
+  padding: 88px 0;
+  background: var(--surface-paper);
+}
+
+.cta-banner-card {
+  background: var(--surface-oat);
+  border-radius: var(--radius-media);
+  padding: 72px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner-card h2 {
+  font-family: var(--font-display);
+  font-size: 3.25rem;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: var(--color-ink);
+  margin-bottom: 20px;
+}
+
+.cta-banner-card p {
+  font-size: 1.2rem;
+  color: var(--color-quiet-graphite);
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+
+.cta-btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   MOLLIE FOOTER
+   Clean, structured multi-column minimalist footer
+   ========================================================================== */
+.site-footer {
+  background-color: var(--surface-paper);
+  border-top: 1px solid var(--color-hairline-subtle);
+  padding: 80px 0 40px;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1.2fr;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+
+.footer-brand-col .footer-logo-img {
+  height: 48px;
+  width: auto;
+  margin-bottom: 22px;
+}
+
+.footer-brand-col p {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--color-quiet-graphite);
+  margin-bottom: 22px;
+  max-width: 320px;
+}
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-oat);
+  border: 1px solid var(--color-hairline);
+  padding: 6px 14px;
+  border-radius: var(--radius-pills);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-near-black);
+}
+
+.footer-col-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-ink);
+  margin-bottom: 22px;
+}
+
+.footer-link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link-list a {
+  font-size: 0.925rem;
+  color: var(--color-quiet-graphite);
+  transition: color var(--transition-fast);
+}
+
+.footer-link-list a:hover {
+  color: var(--brand-primary);
+}
+
+.footer-contact-info {
+  font-size: 0.885rem;
+  line-height: 1.65;
+  color: var(--color-quiet-graphite);
+}
+
+.footer-contact-info strong {
+  color: var(--color-ink);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid var(--color-hairline-subtle);
+  padding-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-soft-gray);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   MODAL 1: ELEMENTOR TEMPLATE KIT HUB
+   ========================================================================== */
+.elementor-hub-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.elementor-hub-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-dialog {
+  background: var(--surface-paper);
+  border-radius: var(--radius-cards);
+  max-width: 840px;
+  width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  transform: translateY(16px);
+  transition: transform var(--transition-base);
+  overflow: hidden;
+}
+
+.elementor-hub-modal.open .modal-dialog {
+  transform: translateY(0);
+}
+
+.modal-header {
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--color-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header-title h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-header-title p {
+  font-size: 0.85rem;
+  color: var(--color-quiet-graphite);
+  margin-top: 4px;
+}
+
+.modal-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-quiet-graphite);
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: var(--surface-oat);
+  color: var(--color-ink);
+}
+
+.modal-body {
+  padding: 24px 28px;
+  overflow-y: auto;
+}
+
+.elementor-files-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.elementor-files-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-quiet-graphite);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.elementor-files-table td {
+  padding: 14px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--surface-oat);
+}
+
+.file-name-cell {
+  font-weight: 600;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-badge-pill {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--surface-oat);
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: var(--color-near-black);
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.file-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-file-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--brand-primary);
+  color: #ffffff;
+  font-size: 0.775rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius-pills);
+  transition: background var(--transition-fast);
+}
+
+.btn-file-download:hover {
+  background: var(--brand-primary-hover);
+}
+
+.btn-file-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface-oat);
+  color: var(--color-ink);
+  font-size: 0.775rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius-pills);
+  transition: all var(--transition-fast);
+}
+
+.btn-file-copy:hover {
+  background: #eae5df;
+}
+
+/* ==========================================================================
+   MODAL 2: INQUIRY MODAL
+   ========================================================================== */
+.inquiry-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 2050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.inquiry-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.inquiry-dialog {
+  background: var(--surface-paper);
+  border-radius: var(--radius-cards);
+  max-width: 580px;
+  width: 100%;
+  padding: 40px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transform: translateY(16px);
+  transition: transform var(--transition-base);
+}
+
+.inquiry-modal.open .inquiry-dialog {
+  transform: translateY(0);
+}
+
+.inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  border: 1px solid var(--color-hairline);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-size: 0.925rem;
+  color: var(--color-ink);
+  outline: none;
+  background: var(--surface-paper);
+  transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(0, 104, 55, 0.1);
+}
+
+/* ==========================================================================
+   MOLLIE BLOG & REGULATORY INSIGHTS SECTION
+   ========================================================================== */
+.mollie-blog-section {
+  padding: 100px 0;
+  background-color: var(--surface-paper);
+  border-top: 1px solid var(--color-hairline-subtle);
+}
+
+.blog-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.blog-card {
+  background: var(--surface-oat);
+  border-radius: var(--radius-cards);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-base), background-color var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid transparent;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  background: var(--surface-oat-hover);
+  border-color: rgba(0,0,0,0.04);
+}
+
+.blog-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--brand-primary);
+  background: #ffffff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 18px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.blog-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.3;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.blog-card p {
+  font-size: 0.95rem;
+  color: var(--color-quiet-graphite);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.blog-card-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-soft-gray);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   MOLLIE ON-PAGE CONTACT DESK SECTION
+   ========================================================================== */
+.mollie-contact-section {
+  padding: 108px 0;
+  background-color: var(--surface-paper);
+  border-top: 1px solid var(--color-hairline-subtle);
+}
+
+.contact-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+.contact-info-col h2 {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.contact-info-col p.contact-desc {
+  font-size: 1.1rem;
+  color: var(--color-quiet-graphite);
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.contact-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-card-box {
+  background: var(--surface-oat);
+  border-radius: 14px;
+  padding: 22px 26px;
+  transition: transform var(--transition-fast);
+}
+
+.contact-card-box:hover {
+  transform: translateX(4px);
+}
+
+.contact-card-box strong {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+}
+
+.contact-card-box h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 2px;
+}
+
+.contact-card-box span {
+  font-size: 0.875rem;
+  color: var(--color-quiet-graphite);
+}
+
+.contact-form-panel {
+  background: var(--surface-oat);
+  border-radius: 20px;
+  padding: 44px 40px;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.contact-form-panel h3 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.contact-form-panel p {
+  font-size: 0.925rem;
+  color: var(--color-quiet-graphite);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contact-form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+}
+
+.contact-form-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid var(--color-hairline);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #ffffff;
+  color: var(--color-ink);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contact-form-input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(0, 104, 55, 0.12);
+}
+
+.btn-contact-submit {
+  width: 100%;
+  background: var(--brand-primary);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: var(--radius-pills);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  margin-top: 10px;
+}
+
+.btn-contact-submit:hover {
+  background: var(--brand-primary-hover);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 992px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+  .blog-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .contact-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .contact-form-panel {
+    padding: 32px 24px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-editorial-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-display-title {
+    font-size: 3.25rem;
+  }
+  .canvas-grid-layout {
+    grid-template-columns: 1fr;
+  }
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-floating-capsule {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .hero-display-title {
+    font-size: 2.5rem;
+  }
+  .hero-pill-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-mollie-pill-primary, .btn-mollie-pill-secondary {
+    justify-content: center;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+  .cta-banner-card {
+    padding: 44px 24px;
+  }
+  .cta-banner-card h2 {
+    font-size: 2.25rem;
+  }
+}

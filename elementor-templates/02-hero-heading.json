@@ -1,0 +1,37 @@
+{
+  "version": "0.4",
+  "title": "DMS - Hero Display Heading (82px Inter Variable)",
+  "type": "section",
+  "content": [
+    {
+      "id": "sec_eq4j0ti",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "10"
+      },
+      "elements": [
+        {
+          "id": "col_32l5qpq",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "wid_ea7h922",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<!-- DMS Mollie Display Hero Section -->\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap\" rel=\"stylesheet\">\n<style>\n.dms-hero-wrap {\n  max-width: 1280px;\n  margin: 72px auto 48px;\n  padding: 0 32px;\n  display: grid;\n  grid-template-columns: minmax(0, 1fr) 320px;\n  align-items: end;\n  gap: 64px;\n  box-sizing: border-box;\n  font-family: 'Inter', sans-serif;\n  background: #ffffff;\n}\n.dms-hero-wrap * { box-sizing: border-box; }\n.dms-hero-wrap .eyebrow {\n  margin: 0 0 14px;\n  font-family: 'IBM Plex Mono', monospace;\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 16.9px;\n  letter-spacing: 0.04em;\n  text-transform: uppercase;\n  color: #595959;\n}\n.dms-hero-wrap h1 {\n  margin: 0;\n  max-width: 820px;\n  font-family: 'Inter', sans-serif;\n  font-size: clamp(44px, 5.2vw, 82px);\n  line-height: 1;\n  font-weight: 400;\n  letter-spacing: -2.4px;\n  color: #000000;\n}\n.dms-hero-wrap .hero-description p {\n  margin: 0 0 24px;\n  color: #595959;\n  font-size: 16px;\n  line-height: 1.35;\n  letter-spacing: -0.4px;\n}\n.dms-hero-wrap .hero-actions {\n  display: flex;\n  gap: 12px;\n  flex-wrap: wrap;\n}\n.dms-hero-wrap .btn-primary {\n  min-height: 44px;\n  padding: 0 24px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background: #073f2c;\n  color: #ffffff;\n  border-radius: 9999px;\n  font-size: 14px;\n  font-weight: 500;\n  text-decoration: none;\n  letter-spacing: -0.2px;\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);\n}\n.dms-hero-wrap .btn-primary:hover { background: #0b4e37; }\n.dms-hero-wrap .btn-secondary {\n  min-height: 44px;\n  padding: 0 24px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background: #f7f4f1;\n  color: #000000;\n  border-radius: 9999px;\n  font-size: 14px;\n  font-weight: 500;\n  text-decoration: none;\n  letter-spacing: -0.2px;\n}\n.dms-hero-wrap .btn-secondary:hover { background: #eeeae4; }\n@media (max-width: 768px) {\n  .dms-hero-wrap {\n    display: block;\n    margin: 40px auto 28px;\n    padding: 0 20px;\n  }\n  .dms-hero-wrap h1 {\n    font-size: clamp(38px, 9vw, 54px);\n    line-height: 1.05;\n    letter-spacing: -1.4px;\n  }\n  .dms-hero-wrap .hero-description {\n    margin-top: 24px;\n  }\n}\n</style>\n<section class=\"dms-hero-wrap\" id=\"hero-section\">\n  <div>\n    <p class=\"eyebrow\">Your next chapter in Bahrain</p>\n    <h1>Strategic visas, corporate setup, and residency solutions in Bahrain.</h1>\n  </div>\n  <div class=\"hero-description\">\n    <p>Expert guidance for your visa, business setup, and residency journey — with clear support at every step.</p>\n    <div class=\"hero-actions\">\n      <a class=\"btn-primary\" href=\"#contact\">Get started now</a>\n      <a class=\"btn-secondary\" href=\"#contact\">Contact us</a>\n    </div>\n  </div>\n</section>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

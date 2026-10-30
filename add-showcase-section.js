@@ -1,0 +1,1119 @@
+const fs = require('fs');
+const path = require('path');
+
+const showcaseCss = `
+    /* ==========================================================================
+       DMS DUAL INTERACTIVE FEATURE SHOWCASE SECTION (Drift Wall & Folder)
+       ========================================================================== */
+    .dms-section,
+    .dms-section *,
+    .dms-preview,
+    .dms-preview * {
+      box-sizing: border-box;
+    }
+
+    .dms-section {
+      width: 100%;
+      max-width: 1368px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      font-family: Inter, "Inter Placeholder", sans-serif;
+      color: #111;
+    }
+
+    .dms-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 36px;
+    }
+
+    .dms-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      min-height: 580px;
+      overflow: hidden;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f3faf5 0%, #e1f0e6 100%);
+    }
+
+    .dms-card-content {
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+      padding: 40px 40px 16px;
+    }
+
+    .dms-label {
+      margin: 0 0 10px;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 11px;
+      line-height: 16px;
+      letter-spacing: 0.6px;
+      color: #54705e;
+    }
+
+    .dms-heading {
+      margin: 0 0 18px;
+      font-size: clamp(25px, 2.3vw, 32px);
+      font-weight: 400;
+      line-height: 1.22;
+      letter-spacing: -1.2px;
+      color: #111;
+    }
+
+    .dms-tagline {
+      max-width: 440px;
+      margin: 0 0 18px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: -0.48px;
+      color: #58675d;
+    }
+
+    .dms-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 44px;
+      margin-block: -8px;
+      padding-block: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 19px;
+      letter-spacing: -0.48px;
+      color: #256344;
+      text-decoration: none;
+    }
+
+    .dms-link span {
+      text-decoration: underline;
+      text-decoration-color: #9fbea9;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+
+    .dms-link svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 200ms ease;
+    }
+
+    .dms-link:focus-visible {
+      outline: 2px solid #256344;
+      outline-offset: 4px;
+      border-radius: 3px;
+    }
+
+    /* LEFT CARD: DRIFT WALL */
+    .dms-drift {
+      --tile-width: 155px;
+      --tile-height: 105px;
+      --tile-gap: 16px;
+
+      position: relative;
+      flex: 1;
+      min-height: 320px;
+      overflow: hidden;
+      isolation: isolate;
+
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        #000 25%,
+        #000 80%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        #000 25%,
+        #000 80%,
+        transparent 100%
+      );
+    }
+
+    .dms-drift-scene {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      perspective: 1200px;
+    }
+
+    .dms-drift-plane {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      gap: var(--tile-gap);
+      width: max-content;
+      height: 160%;
+      transform-style: preserve-3d;
+      transform:
+        translate(-50%, -50%)
+        scale(1.18)
+        rotateX(16deg)
+        rotateY(-14deg)
+        translateZ(-120px);
+    }
+
+    .dms-drift-column {
+      flex: 0 0 var(--tile-width);
+      width: var(--tile-width);
+    }
+
+    .dms-drift-track {
+      display: flex;
+      flex-direction: column;
+      gap: var(--tile-gap);
+      will-change: transform;
+    }
+
+    .dms-drift-tile {
+      flex: 0 0 var(--tile-height);
+      width: var(--tile-width);
+      height: var(--tile-height);
+      overflow: hidden;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #dcebe0, #a7c8b2);
+      box-shadow: 0 5px 16px rgb(23 52 34 / 10%);
+    }
+
+    .dms-drift-tile img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* RIGHT CARD: FOLDER */
+    .dms-folder-area {
+      flex: 1;
+      min-height: 370px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 125px 16px 28px;
+      overflow: hidden;
+      background: radial-gradient(
+        ellipse at 50% 70%,
+        rgba(37, 99, 68, 0.12),
+        transparent 65%
+      );
+    }
+
+    .dms-folder {
+      position: relative;
+      width: min(270px, 74%);
+      aspect-ratio: 270 / 190;
+      flex-shrink: 0;
+      perspective: 1100px;
+      isolation: isolate;
+    }
+
+    .dms-folder-back {
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      background: linear-gradient(150deg, #3984ee, #1c59b1);
+      box-shadow: 0 18px 32px -18px rgba(22, 54, 100, 0.4);
+    }
+
+    .dms-folder-back::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: -23px;
+      width: 46%;
+      height: 35px;
+      border-radius: 12px 12px 0 0;
+      background: #3984ee;
+    }
+
+    .dms-folder-back > span {
+      position: absolute;
+      top: -16px;
+      right: 15px;
+      z-index: 1;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .dms-folder-papers {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+
+    .dms-paper {
+      position: absolute;
+      left: 20%;
+      bottom: 10%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 60%;
+      height: 98%;
+      padding: 15px;
+      border: 1px solid #e5e8ec;
+      border-radius: 8px;
+      background: #fff;
+      color: #263347;
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(22, 40, 70, 0.12);
+      transition:
+        transform 650ms cubic-bezier(0.22, 1.3, 0.36, 1),
+        box-shadow 250ms ease;
+    }
+
+    .dms-paper:nth-child(1) {
+      transform: translate(-12%, -3%) rotate(-6deg);
+    }
+
+    .dms-paper:nth-child(2) {
+      transform: translate(12%, -6%) rotate(5deg);
+    }
+
+    .dms-paper:nth-child(3) {
+      transform: translateY(-9%);
+    }
+
+    .dms-paper-number {
+      font-size: 10px;
+      color: #8694a7;
+    }
+
+    .dms-paper strong {
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .dms-paper-block {
+      display: block;
+      min-height: 30px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #edf4ff, #d8e8ff);
+    }
+
+    .dms-paper-line {
+      display: block;
+      height: 4px;
+      flex-shrink: 0;
+      border-radius: 4px;
+      background: #e6ebf1;
+    }
+
+    .dms-paper-line.short {
+      width: 65%;
+    }
+
+    .dms-paper-stamp {
+      margin-top: auto;
+      color: #3977c8;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .dms-folder-front {
+      position: absolute;
+      inset: 16% 0 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 24px;
+      border: 0;
+      border-radius: 12px;
+      color: #fff;
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+      background: linear-gradient(
+        155deg,
+        #65a6ff,
+        #3d8bff 48%,
+        #2368cf
+      );
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 12px 24px -14px rgba(31, 79, 150, 0.4);
+      transform-origin: center bottom;
+      transition: transform 650ms cubic-bezier(0.22, 1.2, 0.36, 1);
+    }
+
+    .dms-folder-brand {
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -1.2px;
+    }
+
+    .dms-folder-caption {
+      margin-top: 5px;
+      font-size: 10px;
+      opacity: 0.85;
+    }
+
+    .dms-folder-toggle {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 24px;
+    }
+
+    .dms-folder.is-open .dms-folder-front {
+      transform: rotateX(-52deg);
+    }
+
+    .dms-folder.is-open .dms-paper:nth-child(1) {
+      transform: translate(-55%, -49%) rotate(-17deg);
+    }
+
+    .dms-folder.is-open .dms-paper:nth-child(2) {
+      transform: translate(55%, -49%) rotate(17deg);
+    }
+
+    .dms-folder.is-open .dms-paper:nth-child(3) {
+      transform: translateY(-66%);
+    }
+
+    .dms-folder.is-open .dms-paper:hover,
+    .dms-folder.is-open .dms-paper:focus-visible {
+      z-index: 5;
+      box-shadow: 0 12px 24px rgba(22, 40, 70, 0.22);
+    }
+
+    .dms-folder-front:focus-visible,
+    .dms-paper:focus-visible {
+      outline: 2px solid #153d75;
+      outline-offset: 4px;
+    }
+
+    .dms-folder-hint {
+      margin: 26px 0 0;
+      font-size: 12px;
+      line-height: 18px;
+      color: #58675d;
+      text-align: center;
+    }
+
+    /* DOCUMENT PREVIEW MODAL */
+    .dms-preview {
+      width: min(380px, calc(100% - 32px));
+      max-height: calc(100dvh - 48px);
+      padding: 40px 28px;
+      overflow: auto;
+      border: 0;
+      border-radius: 16px;
+      background: #fff;
+      color: #111;
+      font-family: Inter, "Inter Placeholder", sans-serif;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+    }
+
+    .dms-preview::backdrop {
+      background: rgba(16, 27, 40, 0.4);
+    }
+
+    .dms-preview-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 50%;
+      background: #f3f5f7;
+      color: #111;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .dms-preview-label {
+      margin: 0 0 14px;
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      color: #3977c8;
+    }
+
+    .dms-preview h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.7px;
+    }
+
+    .dms-preview-description {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .dms-preview-lines {
+      display: grid;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .dms-preview-lines span {
+      height: 7px;
+      border-radius: 4px;
+      background: #edf0f4;
+    }
+
+    .dms-preview-lines span:last-child {
+      width: 65%;
+    }
+
+    @media (hover: hover) {
+      .dms-link:hover svg {
+        transform: translateX(3px);
+      }
+
+      .dms-link:hover span {
+        text-decoration-color: currentColor;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .dms-grid {
+        gap: 24px;
+      }
+
+      .dms-card-content {
+        padding: 30px 28px 16px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .dms-section {
+        padding: 24px 16px;
+      }
+
+      .dms-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .dms-card {
+        min-height: 540px;
+      }
+
+      .dms-card-content {
+        padding: 28px 24px 16px;
+      }
+
+      .dms-heading {
+        font-size: 27px;
+        line-height: 1.25;
+        letter-spacing: -0.9px;
+      }
+
+      .dms-drift {
+        --tile-width: 130px;
+        --tile-height: 92px;
+        --tile-gap: 12px;
+        min-height: 290px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dms-link svg,
+      .dms-paper,
+      .dms-folder-front {
+        transition: none;
+      }
+
+      .dms-drift-track {
+        will-change: auto;
+      }
+    }
+`;
+
+const showcaseHtml = `  <!-- DMS DUAL INTERACTIVE FEATURE SHOWCASE SECTION -->
+  <section class="dms-section" id="showcase" aria-label="Explore DMS services">
+    <div class="dms-grid">
+
+      <!-- LEFT CARD: 3D DRIFT WALL -->
+      <article class="dms-card">
+        <div class="dms-card-content">
+          <h2 class="dms-heading">
+            Bahrain Visa &amp; Residence Permit Services
+          </h2>
+
+          <p class="dms-tagline">
+            Expert Bahrain Ministry services for hassle-free
+            approvals and assistance.
+          </p>
+
+          <a class="dms-link" href="services.html#residency">
+            <span>Explore Bahrain visa services</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="dms-drift" data-drift>
+          <div class="dms-drift-scene" aria-hidden="true">
+            <div class="dms-drift-plane"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RIGHT CARD: 3D INTERACTIVE FOLDER -->
+      <article class="dms-card">
+        <div class="dms-card-content">
+          <p class="dms-label">VISA &amp; RESIDENCY</p>
+
+          <h2 class="dms-heading">
+            Your next chapter in Bahrain
+            starts with the right support
+          </h2>
+
+          <a class="dms-link" href="services.html#residency">
+            <span>Explore visa &amp; residency</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="dms-folder-area">
+          <div class="dms-folder" data-folder>
+            <div class="dms-folder-back" aria-hidden="true">
+              <span>Documents</span>
+            </div>
+
+            <div class="dms-folder-papers" id="dms-papers" inert>
+              <button
+                class="dms-paper"
+                type="button"
+                data-title="Visa application"
+                data-description="Keep your visa application documents together."
+                aria-label="Preview visa application"
+              >
+                <span class="dms-paper-number">01</span>
+                <strong>Visa application</strong>
+                <span class="dms-paper-block"></span>
+                <span class="dms-paper-line"></span>
+                <span class="dms-paper-line short"></span>
+                <span class="dms-paper-stamp">DMS</span>
+              </button>
+
+              <button
+                class="dms-paper"
+                type="button"
+                data-title="Residence permit"
+                data-description="Organise your residence permit documents."
+                aria-label="Preview residence permit"
+              >
+                <span class="dms-paper-number">02</span>
+                <strong>Residence permit</strong>
+                <span class="dms-paper-block"></span>
+                <span class="dms-paper-line"></span>
+                <span class="dms-paper-line short"></span>
+                <span class="dms-paper-stamp">DMS</span>
+              </button>
+
+              <button
+                class="dms-paper"
+                type="button"
+                data-title="Supporting documents"
+                data-description="Keep supporting documents ready for your application."
+                aria-label="Preview supporting documents"
+              >
+                <span class="dms-paper-number">03</span>
+                <strong>Supporting documents</strong>
+                <span class="dms-paper-block"></span>
+                <span class="dms-paper-line"></span>
+                <span class="dms-paper-line short"></span>
+                <span class="dms-paper-stamp">DMS</span>
+              </button>
+            </div>
+
+            <button
+              class="dms-folder-front"
+              type="button"
+              aria-expanded="false"
+              aria-controls="dms-papers"
+              aria-label="Open documents folder"
+            >
+              <span class="dms-folder-brand">DMS</span>
+              <span class="dms-folder-caption">
+                Your documents, together.
+              </span>
+              <span class="dms-folder-toggle" aria-hidden="true">+</span>
+            </button>
+          </div>
+
+          <p class="dms-folder-hint">Click the folder to explore</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Illustrative document preview modal -->
+  <dialog class="dms-preview" aria-labelledby="dms-preview-title">
+    <button
+      class="dms-preview-close"
+      type="button"
+      aria-label="Close document preview"
+    >×</button>
+
+    <p class="dms-preview-label">DOCUMENT PREVIEW</p>
+    <h3 id="dms-preview-title"></h3>
+    <p class="dms-preview-description"></p>
+
+    <div class="dms-preview-lines" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </dialog>`;
+
+const showcaseScript = `
+    // ==========================================
+    // DMS DUAL INTERACTIVE FEATURE SHOWCASE SCRIPT
+    // ==========================================
+    (() => {
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+
+      /* LEFT: AUTOMATIC DRIFT WALL */
+      document.querySelectorAll("[data-drift]").forEach((wall) => {
+        const images = [
+          "assets/ministry.svg",
+          "assets/attestation.svg",
+          "assets/saudi-visa.svg",
+          "assets/residency.svg",
+          "assets/global-visa.svg"
+        ];
+
+        const plane = wall.querySelector(".dms-drift-plane");
+        if (!plane) return;
+
+        let tracks = [];
+        let frameId = 0;
+        let lastTime = null;
+        let inView = true;
+        let pointer = { x: 0, y: 0 };
+        let damped = { x: 0, y: 0 };
+
+        function setPlane(x = 0, y = 0) {
+          plane.style.transform =
+            "translate(-50%, -50%) scale(1.18) " +
+            \`rotateX(\${16 + y}deg) \` +
+            \`rotateY(\${-14 + x}deg) translateZ(-120px)\`;
+        }
+
+        function stop() {
+          cancelAnimationFrame(frameId);
+          frameId = 0;
+          lastTime = null;
+        }
+
+        function canAnimate() {
+          return !reducedMotion.matches && inView && !document.hidden;
+        }
+
+        function tick(time) {
+          frameId = 0;
+          if (!canAnimate()) return;
+
+          const dt = lastTime === null
+            ? 0
+            : Math.min((time - lastTime) / 1000, 0.05);
+
+          lastTime = time;
+
+          const smoothing = 1 - Math.exp(-dt / 0.12);
+
+          damped.x += (pointer.x * 4.8 - damped.x) * smoothing;
+          damped.y += (-pointer.y * 4.8 - damped.y) * smoothing;
+
+          setPlane(damped.x, damped.y);
+
+          tracks.forEach((track) => {
+            track.offset =
+              ((track.offset + track.velocity * dt) % track.period +
+                track.period) % track.period;
+
+            track.element.style.transform =
+              \`translate3d(0, \${-track.offset}px, 0)\`;
+          });
+
+          frameId = requestAnimationFrame(tick);
+        }
+
+        function syncPlayback() {
+          stop();
+
+          if (reducedMotion.matches) {
+            pointer = { x: 0, y: 0 };
+            damped = { x: 0, y: 0 };
+            setPlane();
+          }
+
+          if (canAnimate() && tracks.length) {
+            frameId = requestAnimationFrame(tick);
+          }
+        }
+
+        function build() {
+          stop();
+          plane.replaceChildren();
+          tracks = [];
+
+          if (!images.length) return;
+
+          const styles = getComputedStyle(wall);
+
+          const tileHeight = parseFloat(
+            styles.getPropertyValue("--tile-height")
+          ) || 105;
+
+          const gap = parseFloat(
+            styles.getPropertyValue("--tile-gap")
+          ) || 16;
+
+          const unit = tileHeight + gap;
+
+          for (let columnIndex = 0; columnIndex < 5; columnIndex++) {
+            const column = document.createElement("div");
+            column.className = "dms-drift-column";
+
+            const track = document.createElement("div");
+            track.className = "dms-drift-track";
+
+            const period = images.length * unit;
+            const copies = Math.max(
+              3,
+              Math.ceil((wall.clientHeight || 320) * 2 / period) + 2
+            );
+
+            for (let copy = 0; copy < copies; copy++) {
+              images.forEach((_, imageIndex) => {
+                const tile = document.createElement("div");
+                tile.className = "dms-drift-tile";
+
+                const image = document.createElement("img");
+                image.src = images[
+                  (imageIndex + columnIndex) % images.length
+                ];
+
+                image.alt = "";
+                image.decoding = "async";
+                image.draggable = false;
+
+                image.addEventListener("error", () => {
+                  image.remove();
+                }, { once: true });
+
+                tile.append(image);
+                track.append(tile);
+              });
+            }
+
+            column.append(track);
+            plane.append(column);
+
+            const pseudo =
+              ((columnIndex * 0.6180339887 + 0.35) % 1) * 2 - 1;
+
+            const velocity =
+              42 * (1 + 0.45 * pseudo) *
+              (columnIndex % 2 === 0 ? 1 : -1);
+
+            const offset = period * ((columnIndex * 0.37) % 1);
+
+            track.style.transform =
+              \`translate3d(0, \${-offset}px, 0)\`;
+
+            tracks.push({
+              element: track,
+              velocity,
+              offset,
+              period
+            });
+          }
+
+          syncPlayback();
+        }
+
+        wall.addEventListener("pointermove", (event) => {
+          if (
+            event.pointerType !== "mouse" ||
+            reducedMotion.matches
+          ) return;
+
+          const rect = wall.getBoundingClientRect();
+
+          pointer = {
+            x: (event.clientX - rect.left) / rect.width - 0.5,
+            y: (event.clientY - rect.top) / rect.height - 0.5
+          };
+        });
+
+        wall.addEventListener("pointerleave", () => {
+          pointer = { x: 0, y: 0 };
+        });
+
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(([entry]) => {
+            inView = entry.isIntersecting;
+            syncPlayback();
+          });
+
+          observer.observe(wall);
+        }
+
+        if ("ResizeObserver" in window) {
+          let previousSize = "";
+
+          const resizeObserver = new ResizeObserver(([entry]) => {
+            const size =
+              \`\${entry.contentRect.width}:\${entry.contentRect.height}\`;
+
+            if (size === previousSize) return;
+
+            previousSize = size;
+            build();
+          });
+
+          resizeObserver.observe(wall);
+        } else {
+          window.addEventListener("resize", build);
+        }
+
+        reducedMotion.addEventListener("change", syncPlayback);
+        document.addEventListener("visibilitychange", syncPlayback);
+
+        build();
+      });
+
+      /* RIGHT: FOLDER + AUTOMATIC SCROLL OPEN */
+      const folder = document.querySelector("[data-folder]");
+      const dialog = document.querySelector(".dms-preview");
+      if (!folder || !dialog) return;
+
+      const toggle = folder.querySelector(".dms-folder-front");
+      const papers = folder.querySelector(".dms-folder-papers");
+      const paperButtons = [...papers.querySelectorAll(".dms-paper")];
+      const hint = document.querySelector(".dms-folder-hint");
+      const closeButton = dialog.querySelector(".dms-preview-close");
+
+      let open = false;
+      let lastPaper = null;
+      let folderInView = false;
+
+      function setOpen(value) {
+        open = value;
+
+        folder.classList.toggle("is-open", open);
+        papers.inert = !open;
+
+        paperButtons.forEach((paper) => {
+          paper.tabIndex = open ? 0 : -1;
+        });
+
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute(
+          "aria-label",
+          open ? "Close documents folder" : "Open documents folder"
+        );
+
+        const toggleIcon = toggle.querySelector(".dms-folder-toggle");
+        if (toggleIcon) toggleIcon.textContent = open ? "−" : "+";
+
+        if (hint) {
+          hint.textContent = open
+            ? "Select a document to preview"
+            : "Click the folder to explore";
+        }
+      }
+
+      toggle.addEventListener("click", () => {
+        setOpen(!open);
+      });
+
+      paperButtons.forEach((paper) => {
+        paper.addEventListener("click", () => {
+          if (!open) return;
+
+          lastPaper = paper;
+
+          dialog.querySelector("#dms-preview-title").textContent =
+            paper.dataset.title;
+
+          dialog.querySelector(".dms-preview-description").textContent =
+            paper.dataset.description;
+
+          dialog.showModal();
+        });
+      });
+
+      if (closeButton) {
+        closeButton.addEventListener("click", () => {
+          dialog.close();
+        });
+      }
+
+      dialog.addEventListener("click", (event) => {
+        if (event.target !== dialog) return;
+
+        const rect = dialog.getBoundingClientRect();
+
+        if (
+          event.clientX < rect.left ||
+          event.clientX > rect.right ||
+          event.clientY < rect.top ||
+          event.clientY > rect.bottom
+        ) {
+          dialog.close();
+        }
+      });
+
+      dialog.addEventListener("close", () => {
+        if (lastPaper) {
+          setOpen(true);
+          lastPaper.focus({ preventScroll: true });
+        }
+      });
+
+      folder.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !dialog.open) {
+          toggle.focus({ preventScroll: true });
+          setOpen(false);
+        }
+      });
+
+      folder.addEventListener("focusout", () => {
+        requestAnimationFrame(() => {
+          if (
+            !folderInView &&
+            !dialog.open &&
+            !folder.contains(document.activeElement)
+          ) {
+            setOpen(false);
+          }
+        });
+      });
+
+      setOpen(false);
+
+      if ("IntersectionObserver" in window) {
+        const folderObserver = new IntersectionObserver(([entry]) => {
+          folderInView = entry.isIntersecting;
+
+          if (folderInView) {
+            setOpen(true);
+          } else if (
+            !dialog.open &&
+            !folder.contains(document.activeElement)
+          ) {
+            setOpen(false);
+          }
+        }, {
+          threshold: 0,
+          rootMargin: "0px 0px -15% 0px"
+        });
+
+        folderObserver.observe(folder);
+      }
+    })();
+`;
+
+// 1. Read index.html
+let indexContent = fs.readFileSync('g:/DMS WEB/index.html', 'utf8');
+
+// 2. Add showcase CSS before </style>
+indexContent = indexContent.replace('</style>', showcaseCss + '\n  </style>');
+
+// 3. Insert showcase HTML right after </section> of .dms-services-section
+const servicesSectionEnd = '</nav>\n  </section>';
+const servicesSectionAltEnd = '</section>';
+
+const servicesIdx = indexContent.indexOf('class="dms-services-section"');
+if (servicesIdx !== -1) {
+  const afterServicesIdx = indexContent.indexOf('</section>', servicesIdx) + 10;
+  const before = indexContent.slice(0, afterServicesIdx);
+  const after = indexContent.slice(afterServicesIdx);
+  indexContent = before + '\n\n' + showcaseHtml + '\n\n' + after;
+  console.log('Inserted showcase section right after services section');
+}
+
+// 4. Add script before </body>
+indexContent = indexContent.replace('</body>', '<script>' + showcaseScript + '</script>\n</body>');
+
+fs.writeFileSync('g:/DMS WEB/index.html', indexContent);
+console.log('Successfully updated index.html with interactive showcase section');
+
+// 5. Generate Elementor Option B Template
+const elementorDir = 'g:/DMS WEB/elementor-templates';
+const standaloneHtml = '<style>' + showcaseCss + '</style>\n' + showcaseHtml + '\n<script>' + showcaseScript + '</script>';
+
+fs.writeFileSync(path.join(elementorDir, '05-interactive-showcase.html'), standaloneHtml);
+
+function createSectionJson(title, html) {
+  const sectionId = 'sec_' + Math.random().toString(36).substring(2, 9);
+  const columnId = 'col_' + Math.random().toString(36).substring(2, 9);
+  const widgetId = 'wid_' + Math.random().toString(36).substring(2, 9);
+
+  return JSON.stringify({
+    version: "0.4",
+    title: title,
+    type: "section",
+    content: [
+      {
+        id: sectionId,
+        elType: "section",
+        isInner: false,
+        settings: {
+          layout: "full_width",
+          gap: "no",
+          structure: "10"
+        },
+        elements: [
+          {
+            id: columnId,
+            elType: "column",
+            isInner: false,
+            settings: {
+              _column_size: 100
+            },
+            elements: [
+              {
+                id: widgetId,
+                elType: "widget",
+                widgetType: "html",
+                settings: {
+                  html: html
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }, null, 2);
+}
+
+fs.writeFileSync(path.join(elementorDir, '05-interactive-showcase.json'), createSectionJson('DMS - Interactive 3D Showcase (Drift Wall & Documents Folder)', standaloneHtml));
+console.log('Saved 05-interactive-showcase.json and .html');

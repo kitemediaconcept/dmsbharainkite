@@ -1,0 +1,37 @@
+{
+  "version": "0.4",
+  "title": "DMS - Header Navigation (Sticky Glassmorphism)",
+  "type": "section",
+  "content": [
+    {
+      "id": "sec_sf00n33",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "structure": "10"
+      },
+      "elements": [
+        {
+          "id": "col_zqicwgx",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100
+          },
+          "elements": [
+            {
+              "id": "wid_1n0w4lr",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<!-- DMS Mollie Header with Sticky Glassmorphism after Hero -->\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap\" rel=\"stylesheet\">\n<style>\n.dms-nav-container {\n  position: relative;\n  width: 100%;\n  height: 64px;\n  z-index: 1000;\n  box-sizing: border-box;\n}\n.dms-mollie-nav {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  max-width: 1280px;\n  min-height: 64px;\n  margin: 0 auto;\n  padding: 12px 32px;\n  display: flex;\n  align-items: center;\n  gap: 48px;\n  background: #ffffff;\n  border-radius: 0;\n  border: 1px solid transparent;\n  box-shadow: none;\n  font-family: 'Inter', sans-serif;\n  box-sizing: border-box;\n  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);\n  z-index: 1000;\n}\n.dms-mollie-nav.is-scrolled {\n  top: 14px;\n  max-width: 1120px;\n  min-height: 56px;\n  padding: 8px 24px;\n  border-radius: 9999px;\n  background: rgba(255, 255, 255, 0.82);\n  backdrop-filter: blur(20px);\n  -webkit-backdrop-filter: blur(20px);\n  border: 1px solid rgba(0, 0, 0, 0.08);\n  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);\n}\n.dms-mollie-nav * { box-sizing: border-box; }\n.dms-mollie-nav .logo img { width: 140px; height: 38px; object-fit: contain; transition: all 300ms ease; }\n.dms-mollie-nav.is-scrolled .logo img { width: 125px; height: 32px; }\n.dms-mollie-nav .nav-links { display: flex; align-items: center; gap: 32px; }\n.dms-mollie-nav .nav-links a { font-size: 14px; font-weight: 500; line-height: 18.2px; letter-spacing: -0.32px; color: #000000; text-decoration: none; transition: color 0.15s ease; }\n.dms-mollie-nav .nav-links a:hover { color: #0d9b49; }\n.dms-mollie-nav .nav-actions { margin-left: auto; display: flex; align-items: center; gap: 20px; }\n.dms-mollie-nav .nav-contact { font-size: 14px; font-weight: 500; letter-spacing: -0.32px; color: #000000; text-decoration: none; }\n.dms-mollie-nav .button-pill { min-height: 40px; padding: 0 22px; display: inline-flex; align-items: center; justify-content: center; background: #073f2c; color: #ffffff; border-radius: 9999px; font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: -0.2px; transition: all 0.2s ease; }\n.dms-mollie-nav .button-pill:hover { background: #0b4e37; }\n.dms-mollie-nav.is-scrolled .button-pill { min-height: 36px; padding: 0 18px; font-size: 12px; }\n@media (max-width: 768px) {\n  .dms-mollie-nav { padding: 12px 20px; }\n  .dms-mollie-nav.is-scrolled { top: 10px; max-width: calc(100% - 24px); border-radius: 20px; padding: 8px 16px; }\n  .dms-mollie-nav .nav-links, .dms-mollie-nav .nav-contact { display: none; }\n}\n</style>\n<div class=\"dms-nav-container\">\n  <header class=\"dms-mollie-nav\" id=\"dms-elementor-nav\">\n    <a class=\"logo\" href=\"/\">\n      <img src=\"DMSLOGO.png\" alt=\"Diplomat Management Services\" onerror=\"this.outerHTML='<strong style=\\'color:#073f2c;font-size:24px;\\'>DMS</strong>'\">\n    </a>\n    <nav class=\"nav-links\">\n      <a href=\"#hero-section\">Home</a>\n      <a href=\"#story\">About us</a>\n      <a href=\"#services\">Our services</a>\n      <a href=\"#blog\">Insights</a>\n    </nav>\n    <div class=\"nav-actions\">\n      <a class=\"nav-contact\" href=\"#contact\">Contact</a>\n      <a class=\"button-pill\" href=\"#contact\">Get started</a>\n    </div>\n  </header>\n</div>\n<script>\n(function() {\n  const nav = document.getElementById(\"dms-elementor-nav\");\n  function checkScroll() {\n    if (!nav) return;\n    const hero = document.getElementById(\"hero-banner\") || document.querySelector(\".banner\") || document.querySelector(\".dms-hero-wrap\");\n    const threshold = hero ? (hero.offsetTop + hero.offsetHeight - 80) : 400;\n    if (window.scrollY > threshold) {\n      nav.classList.add(\"is-scrolled\");\n    } else {\n      nav.classList.remove(\"is-scrolled\");\n    }\n  }\n  window.addEventListener(\"scroll\", checkScroll, { passive: true });\n  checkScroll();\n})();\n</script>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

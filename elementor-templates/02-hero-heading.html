@@ -1,0 +1,110 @@
+<!-- DMS Mollie Display Hero Section -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+.dms-hero-wrap {
+  max-width: 1280px;
+  margin: 72px auto 48px;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: end;
+  gap: 64px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+}
+.dms-hero-wrap * { box-sizing: border-box; }
+.dms-hero-wrap .eyebrow {
+  margin: 0 0 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16.9px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #595959;
+}
+.dms-hero-wrap h1 {
+  margin: 0;
+  max-width: 820px;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(44px, 5.2vw, 82px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -2.4px;
+  color: #000000;
+}
+.dms-hero-wrap .hero-description p {
+  margin: 0 0 24px;
+  color: #595959;
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: -0.4px;
+}
+.dms-hero-wrap .hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.dms-hero-wrap .btn-primary {
+  min-height: 44px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #073f2c;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: -0.2px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.dms-hero-wrap .btn-primary:hover { background: #0b4e37; }
+.dms-hero-wrap .btn-secondary {
+  min-height: 44px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f4f1;
+  color: #000000;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: -0.2px;
+}
+.dms-hero-wrap .btn-secondary:hover { background: #eeeae4; }
+@media (max-width: 768px) {
+  .dms-hero-wrap {
+    display: block;
+    margin: 40px auto 28px;
+    padding: 0 20px;
+  }
+  .dms-hero-wrap h1 {
+    font-size: clamp(38px, 9vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -1.4px;
+  }
+  .dms-hero-wrap .hero-description {
+    margin-top: 24px;
+  }
+}
+</style>
+<section class="dms-hero-wrap" id="hero-section">
+  <div>
+    <p class="eyebrow">Your next chapter in Bahrain</p>
+    <h1>Strategic visas, corporate setup, and residency solutions in Bahrain.</h1>
+  </div>
+  <div class="hero-description">
+    <p>Expert guidance for your visa, business setup, and residency journey — with clear support at every step.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#contact">Get started now</a>
+      <a class="btn-secondary" href="#contact">Contact us</a>
+    </div>
+  </div>
+</section>

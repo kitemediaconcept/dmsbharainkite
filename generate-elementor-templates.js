@@ -1,0 +1,518 @@
+const fs = require('fs');
+const path = require('path');
+
+const targetDir = path.join(__dirname, 'elementor-templates');
+if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+
+function createSectionJson(title, htmlContent) {
+  const sectionId = 'sec_' + Math.random().toString(36).substring(2, 9);
+  const columnId = 'col_' + Math.random().toString(36).substring(2, 9);
+  const widgetId = 'wid_' + Math.random().toString(36).substring(2, 9);
+
+  return JSON.stringify({
+    version: "0.4",
+    title: title,
+    type: "section",
+    content: [
+      {
+        id: sectionId,
+        elType: "section",
+        isInner: false,
+        settings: {
+          layout: "full_width",
+          gap: "no",
+          structure: "10"
+        },
+        elements: [
+          {
+            id: columnId,
+            elType: "column",
+            isInner: false,
+            settings: {
+              _column_size: 100
+            },
+            elements: [
+              {
+                id: widgetId,
+                elType: "widget",
+                widgetType: "html",
+                settings: {
+                  html: htmlContent
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }, null, 2);
+}
+
+// 1. Navigation / Header Section with Sticky Glassmorphism and Border Radius
+const navHtml = `<!-- DMS Mollie Header with Sticky Glassmorphism after Hero -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.dms-nav-container {
+  position: relative;
+  width: 100%;
+  height: 64px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+.dms-mollie-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 1280px;
+  min-height: 64px;
+  margin: 0 auto;
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  background: #ffffff;
+  border-radius: 0;
+  border: 1px solid transparent;
+  box-shadow: none;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
+}
+.dms-mollie-nav.is-scrolled {
+  top: 14px;
+  max-width: 1120px;
+  min-height: 56px;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+.dms-mollie-nav * { box-sizing: border-box; }
+.dms-mollie-nav .logo img { width: 140px; height: 38px; object-fit: contain; transition: all 300ms ease; }
+.dms-mollie-nav.is-scrolled .logo img { width: 125px; height: 32px; }
+.dms-mollie-nav .nav-links { display: flex; align-items: center; gap: 32px; }
+.dms-mollie-nav .nav-links a { font-size: 14px; font-weight: 500; line-height: 18.2px; letter-spacing: -0.32px; color: #000000; text-decoration: none; transition: color 0.15s ease; }
+.dms-mollie-nav .nav-links a:hover { color: #0d9b49; }
+.dms-mollie-nav .nav-actions { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+.dms-mollie-nav .nav-contact { font-size: 14px; font-weight: 500; letter-spacing: -0.32px; color: #000000; text-decoration: none; }
+.dms-mollie-nav .button-pill { min-height: 40px; padding: 0 22px; display: inline-flex; align-items: center; justify-content: center; background: #073f2c; color: #ffffff; border-radius: 9999px; font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: -0.2px; transition: all 0.2s ease; }
+.dms-mollie-nav .button-pill:hover { background: #0b4e37; }
+.dms-mollie-nav.is-scrolled .button-pill { min-height: 36px; padding: 0 18px; font-size: 12px; }
+@media (max-width: 768px) {
+  .dms-mollie-nav { padding: 12px 20px; }
+  .dms-mollie-nav.is-scrolled { top: 10px; max-width: calc(100% - 24px); border-radius: 20px; padding: 8px 16px; }
+  .dms-mollie-nav .nav-links, .dms-mollie-nav .nav-contact { display: none; }
+}
+</style>
+<div class="dms-nav-container">
+  <header class="dms-mollie-nav" id="dms-elementor-nav">
+    <a class="logo" href="/">
+      <img src="DMSLOGO.png" alt="Diplomat Management Services" onerror="this.outerHTML='<strong style=\\'color:#073f2c;font-size:24px;\\'>DMS</strong>'">
+    </a>
+    <nav class="nav-links">
+      <a href="#hero-section">Home</a>
+      <a href="#story">About us</a>
+      <a href="#services">Our services</a>
+      <a href="#blog">Insights</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-contact" href="#contact">Contact</a>
+      <a class="button-pill" href="#contact">Get started</a>
+    </div>
+  </header>
+</div>
+<script>
+(function() {
+  const nav = document.getElementById("dms-elementor-nav");
+  function checkScroll() {
+    if (!nav) return;
+    const hero = document.getElementById("hero-banner") || document.querySelector(".banner") || document.querySelector(".dms-hero-wrap");
+    const threshold = hero ? (hero.offsetTop + hero.offsetHeight - 80) : 400;
+    if (window.scrollY > threshold) {
+      nav.classList.add("is-scrolled");
+    } else {
+      nav.classList.remove("is-scrolled");
+    }
+  }
+  window.addEventListener("scroll", checkScroll, { passive: true });
+  checkScroll();
+})();
+</script>`;
+
+// 2. Hero Headline Section (Inter Variable 82px)
+const heroHeadlineHtml = `<!-- DMS Mollie Display Hero Section -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+.dms-hero-wrap {
+  max-width: 1280px;
+  margin: 72px auto 48px;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: end;
+  gap: 64px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+}
+.dms-hero-wrap * { box-sizing: border-box; }
+.dms-hero-wrap .eyebrow {
+  margin: 0 0 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16.9px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #595959;
+}
+.dms-hero-wrap h1 {
+  margin: 0;
+  max-width: 820px;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(44px, 5.2vw, 82px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -2.4px;
+  color: #000000;
+}
+.dms-hero-wrap .hero-description p {
+  margin: 0 0 24px;
+  color: #595959;
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: -0.4px;
+}
+.dms-hero-wrap .hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.dms-hero-wrap .btn-primary {
+  min-height: 44px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #073f2c;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: -0.2px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.dms-hero-wrap .btn-primary:hover { background: #0b4e37; }
+.dms-hero-wrap .btn-secondary {
+  min-height: 44px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f4f1;
+  color: #000000;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: -0.2px;
+}
+.dms-hero-wrap .btn-secondary:hover { background: #eeeae4; }
+@media (max-width: 768px) {
+  .dms-hero-wrap {
+    display: block;
+    margin: 40px auto 28px;
+    padding: 0 20px;
+  }
+  .dms-hero-wrap h1 {
+    font-size: clamp(38px, 9vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -1.4px;
+  }
+  .dms-hero-wrap .hero-description {
+    margin-top: 24px;
+  }
+}
+</style>
+<section class="dms-hero-wrap" id="hero-section">
+  <div>
+    <p class="eyebrow">Your next chapter in Bahrain</p>
+    <h1>Strategic visas, corporate setup, and residency solutions in Bahrain.</h1>
+  </div>
+  <div class="hero-description">
+    <p>Expert guidance for your visa, business setup, and residency journey — with clear support at every step.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#contact">Get started now</a>
+      <a class="btn-secondary" href="#contact">Contact us</a>
+    </div>
+  </div>
+</section>`;
+
+// 3. Hero Carousel Banner Section
+const heroBannerHtml = `<!-- DMS Mollie Interactive Carousel Banner Section -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+.dms-banner-container {
+  position: relative;
+  width: calc(100% - 64px);
+  max-width: 1280px;
+  aspect-ratio: 2 / 1;
+  margin: 0 auto 56px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #163f30;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+.dms-banner-container * { box-sizing: border-box; }
+.dms-banner-track { display: flex; height: 100%; transition: transform 850ms cubic-bezier(0.22, 0.61, 0.36, 1); }
+.dms-banner-slide { position: relative; flex: 0 0 100%; height: 100%; overflow: hidden; background: #1e3f30; }
+.dms-banner-slide > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dms-banner-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.18) 43%, rgba(0,0,0,0.08) 100%);
+}
+.dms-banner-badges {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  z-index: 2;
+}
+.dms-banner-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  background: rgba(15, 24, 18, 0.68);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.dms-badge-icon { color: #46ad82; font-size: 13px; }
+.dms-banner-caption {
+  position: absolute;
+  left: 34px;
+  bottom: 135px;
+  z-index: 2;
+}
+.dms-banner-caption .eyebrow {
+  margin: 0 0 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.11px;
+}
+.dms-banner-caption h2 {
+  margin: 0;
+  font-size: clamp(26px, 3.4vw, 44px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -1.2px;
+}
+.dms-banner-controls {
+  position: absolute;
+  top: 30px;
+  right: 32px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+.dms-control-btn {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  cursor: pointer;
+}
+.dms-thumbnails-wrap {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  width: 680px;
+  max-width: calc(100% - 48px);
+  overflow-x: auto;
+  scrollbar-width: none;
+  z-index: 2;
+}
+.dms-thumbnail {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: left;
+  cursor: pointer;
+}
+.dms-thumb-label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.dms-thumb-pic {
+  display: block;
+  height: 56px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  background: #315640;
+  opacity: 0.55;
+  transition: opacity 200ms ease;
+}
+.dms-thumb-pic img { width: 100%; height: 100%; object-fit: cover; }
+.dms-thumbnail[aria-current="true"] { color: #ffffff; }
+.dms-thumbnail[aria-current="true"] .dms-thumb-pic { opacity: 1; border-color: #ffffff; }
+.dms-thumb-progress {
+  display: block;
+  height: 3px;
+  margin-top: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+}
+.dms-thumb-progress span { display: block; width: 0%; height: 100%; background: #ffffff; }
+@media (max-width: 768px) {
+  .dms-banner-container { width: calc(100% - 32px); height: 520px; aspect-ratio: auto; }
+  .dms-banner-caption { bottom: 190px; left: 20px; }
+  .dms-banner-controls { top: auto; right: 20px; bottom: 140px; }
+  .dms-thumbnails-wrap { width: 100%; }
+}
+</style>
+<div class="dms-banner-container" id="hero-banner">
+  <div class="dms-banner-track"></div>
+  <div class="dms-banner-overlay"></div>
+  <div class="dms-banner-badges">
+    <div class="dms-banner-badge"><span class="dms-badge-icon">✓</span><span>Clear guidance. Every step.</span></div>
+    <div class="dms-banner-badge"><span class="dms-badge-icon">▤</span><span>Document review and application support</span></div>
+    <div class="dms-banner-badge"><span class="dms-badge-icon">↗</span><span>Solutions for your next chapter</span></div>
+  </div>
+  <div class="dms-banner-caption">
+    <p class="eyebrow">DMS Bahrain</p>
+    <h2>Bahrain Ministry Services</h2>
+  </div>
+  <div class="dms-banner-controls">
+    <button class="dms-control-btn prev" type="button" aria-label="Previous">←</button>
+    <button class="dms-control-btn pause" type="button" aria-label="Pause">Ⅱ</button>
+    <button class="dms-control-btn next" type="button" aria-label="Next">→</button>
+  </div>
+  <div class="dms-thumbnails-wrap"></div>
+</div>
+<script>
+(function() {
+  const slides = [
+    { title: "Bahrain Ministry Services", label: "MINISTRY SERVICES", image: "assets/ministry.svg", color: "#1e3f30" },
+    { title: "Document Attestation", label: "ATTESTATION", image: "assets/attestation.svg", color: "#283b32" },
+    { title: "Saudi Visa Assistance", label: "SAUDI VISA", image: "assets/saudi-visa.svg", color: "#163428" },
+    { title: "Self-Sponsorship Residency", label: "SELF SPONSORSHIP", image: "assets/residency.svg", color: "#1d3a33" },
+    { title: "Global Visa Assistance", label: "GLOBAL VISA", image: "assets/global-visa.svg", color: "#253b2e" }
+  ];
+  const root = document.getElementById("hero-banner");
+  if (!root) return;
+  const track = root.querySelector(".dms-banner-track");
+  const thumbsWrap = root.querySelector(".dms-thumbnails-wrap");
+  const captionH2 = root.querySelector(".dms-banner-caption h2");
+  const pauseBtn = root.querySelector(".pause");
+  let current = 0, elapsed = 0, prevTime = 0, paused = false;
+
+  slides.forEach((s, idx) => {
+    const slide = document.createElement("div");
+    slide.className = "dms-banner-slide";
+    slide.innerHTML = \`<img src="\${s.image}" alt="\${s.title}">\`;
+    track.appendChild(slide);
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "dms-thumbnail";
+    btn.innerHTML = \`
+      <span class="dms-thumb-label">\${s.label}</span>
+      <span class="dms-thumb-pic"><img src="\${s.image}" alt=""></span>
+      <span class="dms-thumb-progress"><span></span></span>\`;
+    btn.onclick = () => selectSlide(idx);
+    thumbsWrap.appendChild(btn);
+  });
+
+  function selectSlide(idx) {
+    current = (idx + slides.length) % slides.length;
+    elapsed = 0;
+    track.style.transform = \`translateX(-\${current * 100}%)\`;
+    captionH2.textContent = slides[current].title;
+    [...thumbsWrap.children].forEach((b, i) => {
+      b.setAttribute("aria-current", String(i === current));
+      b.querySelector(".dms-thumb-progress span").style.width = "0%";
+    });
+  }
+
+  root.querySelector(".next").onclick = () => selectSlide(current + 1);
+  root.querySelector(".prev").onclick = () => selectSlide(current - 1);
+  pauseBtn.onclick = () => { paused = !paused; pauseBtn.textContent = paused ? "▶" : "Ⅱ"; };
+
+  function loop(t) {
+    const delta = prevTime ? Math.min(t - prevTime, 100) : 0;
+    prevTime = t;
+    if (!paused) {
+      elapsed += delta;
+      if (elapsed >= 5000) selectSlide(current + 1);
+      const curProg = thumbsWrap.children[current]?.querySelector(".dms-thumb-progress span");
+      if (curProg) curProg.style.width = \`\${(elapsed / 5000) * 100}%\`;
+    }
+    requestAnimationFrame(loop);
+  }
+  selectSlide(0);
+  requestAnimationFrame(loop);
+})();
+</script>`;
+
+// Write all templates
+const templates = [
+  { name: '01-header-nav', title: 'DMS - Header Navigation (Sticky Glassmorphism)', html: navHtml },
+  { name: '02-hero-heading', title: 'DMS - Hero Display Heading (82px Inter Variable)', html: heroHeadlineHtml },
+  { name: '03-hero-carousel', title: 'DMS - Hero Automatic Banner Carousel', html: heroBannerHtml }
+];
+
+templates.forEach(t => {
+  const htmlPath = path.join(targetDir, `${t.name}.html`);
+  const jsonPath = path.join(targetDir, `${t.name}.json`);
+  fs.writeFileSync(htmlPath, t.html);
+  fs.writeFileSync(jsonPath, createSectionJson(t.title, t.html));
+  console.log(`Generated ${t.name}.html and ${t.name}.json`);
+});
+
+// Also create a combined hero + nav package
+const fullHeroHtml = navHtml + '\n\n' + heroHeadlineHtml + '\n\n' + heroBannerHtml;
+fs.writeFileSync(path.join(targetDir, '00-full-hero-navbar-bundle.html'), fullHeroHtml);
+fs.writeFileSync(path.join(targetDir, '00-full-hero-navbar-bundle.json'), createSectionJson('DMS - Combined Navbar + Hero Section Bundle', fullHeroHtml));
+console.log('Generated full bundle template.');

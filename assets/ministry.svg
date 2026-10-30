@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="bg_ministry.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e3a27"/>
+      <stop offset="60%" stop-color="#072418"/>
+      <stop offset="100%" stop-color="#03120c"/>
+    </linearGradient>
+    <radialGradient id="radial_ministry.svg" cx="80%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#0d9b49" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#0d9b49" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ambient_ministry.svg" cx="20%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#145338" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#145338" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg_ministry.svg)"/>
+  <rect width="1280" height="640" fill="url(#radial_ministry.svg)"/>
+  <rect width="1280" height="640" fill="url(#ambient_ministry.svg)"/>
+  
+  <!-- Subtle geometric background grid & radar circles -->
+  <g opacity="0.16" stroke="#0d9b49" fill="none">
+    <circle cx="980" cy="320" r="140" stroke-width="1.5"/>
+    <circle cx="980" cy="320" r="240" stroke-width="1"/>
+    <circle cx="980" cy="320" r="360" stroke-dasharray="8,8" stroke-width="1"/>
+  </g>
+
+  <!-- Watermark Icon Graphic on Right -->
+  <g transform="translate(980, 320) scale(4.5)" opacity="0.22">
+    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#46ad82" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+</svg>

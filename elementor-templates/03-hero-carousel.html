@@ -1,0 +1,235 @@
+<!-- DMS Mollie Interactive Carousel Banner Section -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+.dms-banner-container {
+  position: relative;
+  width: calc(100% - 64px);
+  max-width: 1280px;
+  aspect-ratio: 2 / 1;
+  margin: 0 auto 56px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #163f30;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+.dms-banner-container * { box-sizing: border-box; }
+.dms-banner-track { display: flex; height: 100%; transition: transform 850ms cubic-bezier(0.22, 0.61, 0.36, 1); }
+.dms-banner-slide { position: relative; flex: 0 0 100%; height: 100%; overflow: hidden; background: #1e3f30; }
+.dms-banner-slide > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dms-banner-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.18) 43%, rgba(0,0,0,0.08) 100%);
+}
+.dms-banner-badges {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  z-index: 2;
+}
+.dms-banner-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  background: rgba(15, 24, 18, 0.68);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.dms-badge-icon { color: #46ad82; font-size: 13px; }
+.dms-banner-caption {
+  position: absolute;
+  left: 34px;
+  bottom: 135px;
+  z-index: 2;
+}
+.dms-banner-caption .eyebrow {
+  margin: 0 0 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.11px;
+}
+.dms-banner-caption h2 {
+  margin: 0;
+  font-size: clamp(26px, 3.4vw, 44px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -1.2px;
+}
+.dms-banner-controls {
+  position: absolute;
+  top: 30px;
+  right: 32px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+.dms-control-btn {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  cursor: pointer;
+}
+.dms-thumbnails-wrap {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  width: 680px;
+  max-width: calc(100% - 48px);
+  overflow-x: auto;
+  scrollbar-width: none;
+  z-index: 2;
+}
+.dms-thumbnail {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: left;
+  cursor: pointer;
+}
+.dms-thumb-label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.dms-thumb-pic {
+  display: block;
+  height: 56px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  background: #315640;
+  opacity: 0.55;
+  transition: opacity 200ms ease;
+}
+.dms-thumb-pic img { width: 100%; height: 100%; object-fit: cover; }
+.dms-thumbnail[aria-current="true"] { color: #ffffff; }
+.dms-thumbnail[aria-current="true"] .dms-thumb-pic { opacity: 1; border-color: #ffffff; }
+.dms-thumb-progress {
+  display: block;
+  height: 3px;
+  margin-top: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+}
+.dms-thumb-progress span { display: block; width: 0%; height: 100%; background: #ffffff; }
+@media (max-width: 768px) {
+  .dms-banner-container { width: calc(100% - 32px); height: 520px; aspect-ratio: auto; }
+  .dms-banner-caption { bottom: 190px; left: 20px; }
+  .dms-banner-controls { top: auto; right: 20px; bottom: 140px; }
+  .dms-thumbnails-wrap { width: 100%; }
+}
+</style>
+<div class="dms-banner-container" id="hero-banner">
+  <div class="dms-banner-track"></div>
+  <div class="dms-banner-overlay"></div>
+  <div class="dms-banner-badges">
+    <div class="dms-banner-badge"><span class="dms-badge-icon">✓</span><span>Clear guidance. Every step.</span></div>
+    <div class="dms-banner-badge"><span class="dms-badge-icon">▤</span><span>Document review and application support</span></div>
+    <div class="dms-banner-badge"><span class="dms-badge-icon">↗</span><span>Solutions for your next chapter</span></div>
+  </div>
+  <div class="dms-banner-caption">
+    <p class="eyebrow">DMS Bahrain</p>
+    <h2>Bahrain Ministry Services</h2>
+  </div>
+  <div class="dms-banner-controls">
+    <button class="dms-control-btn prev" type="button" aria-label="Previous">←</button>
+    <button class="dms-control-btn pause" type="button" aria-label="Pause">Ⅱ</button>
+    <button class="dms-control-btn next" type="button" aria-label="Next">→</button>
+  </div>
+  <div class="dms-thumbnails-wrap"></div>
+</div>
+<script>
+(function() {
+  const slides = [
+    { title: "Bahrain Ministry Services", label: "MINISTRY SERVICES", image: "assets/ministry.svg", color: "#1e3f30" },
+    { title: "Document Attestation", label: "ATTESTATION", image: "assets/attestation.svg", color: "#283b32" },
+    { title: "Saudi Visa Assistance", label: "SAUDI VISA", image: "assets/saudi-visa-documents.png", color: "#ffffff" },
+    { title: "Global Visa Assistance", label: "GLOBAL VISA", image: "assets/global-visa.svg", color: "#ffffff" }
+  ];
+  const root = document.getElementById("hero-banner");
+  if (!root) return;
+  const track = root.querySelector(".dms-banner-track");
+  const thumbsWrap = root.querySelector(".dms-thumbnails-wrap");
+  const captionH2 = root.querySelector(".dms-banner-caption h2");
+  const pauseBtn = root.querySelector(".pause");
+  let current = 0, elapsed = 0, prevTime = 0, paused = false;
+
+  slides.forEach((s, idx) => {
+    const slide = document.createElement("div");
+    slide.className = "dms-banner-slide";
+    slide.innerHTML = `<img src="${s.image}" alt="${s.title}">`;
+    track.appendChild(slide);
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "dms-thumbnail";
+    btn.innerHTML = `
+      <span class="dms-thumb-label">${s.label}</span>
+      <span class="dms-thumb-pic"><img src="${s.image}" alt=""></span>
+      <span class="dms-thumb-progress"><span></span></span>`;
+    btn.onclick = () => selectSlide(idx);
+    thumbsWrap.appendChild(btn);
+  });
+
+  function selectSlide(idx) {
+    current = (idx + slides.length) % slides.length;
+    elapsed = 0;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    captionH2.textContent = slides[current].title;
+    [...thumbsWrap.children].forEach((b, i) => {
+      b.setAttribute("aria-current", String(i === current));
+      b.querySelector(".dms-thumb-progress span").style.width = "0%";
+    });
+  }
+
+  root.querySelector(".next").onclick = () => selectSlide(current + 1);
+  root.querySelector(".prev").onclick = () => selectSlide(current - 1);
+  pauseBtn.onclick = () => { paused = !paused; pauseBtn.textContent = paused ? "▶" : "Ⅱ"; };
+
+  function loop(t) {
+    const delta = prevTime ? Math.min(t - prevTime, 100) : 0;
+    prevTime = t;
+    if (!paused) {
+      elapsed += delta;
+      if (elapsed >= 5000) selectSlide(current + 1);
+      const curProg = thumbsWrap.children[current]?.querySelector(".dms-thumb-progress span");
+      if (curProg) curProg.style.width = `${(elapsed / 5000) * 100}%`;
+    }
+    requestAnimationFrame(loop);
+  }
+  selectSlide(0);
+  requestAnimationFrame(loop);
+})();
+</script>

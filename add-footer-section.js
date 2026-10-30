@@ -1,0 +1,657 @@
+const fs = require('fs');
+const path = require('path');
+
+const footerCss = `
+    /* ==========================================================================
+       DMS MODERN BRANDED FOOTER SECTION
+       ========================================================================== */
+    .dms-footer,
+    .dms-footer * {
+      box-sizing: border-box;
+    }
+
+    .dms-footer {
+      --df-green: #28543c;
+      --df-text: #171717;
+      --df-muted: #858585;
+      --df-line: #ecece8;
+
+      width: 100%;
+      background: #fff;
+      color: var(--df-text);
+
+      font-family: Inter, "Inter Placeholder", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: -0.3px;
+    }
+
+    .dms-footer .df-inner {
+      width: 100%;
+      max-width: 1368px;
+      margin: 0 auto;
+      padding: 58px 24px 28px;
+    }
+
+    /* Main five-column layout */
+    .dms-footer .df-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 38px;
+    }
+
+    .dms-footer .df-column {
+      min-width: 0;
+    }
+
+    .dms-footer .df-group + .df-group {
+      margin-top: 30px;
+    }
+
+    .dms-footer .df-title {
+      margin: 0 0 17px;
+      color: #737770;
+      font-family: inherit;
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 16px;
+      letter-spacing: 1.15px;
+      text-transform: uppercase;
+    }
+
+    .dms-footer .df-list {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .dms-footer .df-list li {
+      margin: 0;
+      padding: 0;
+    }
+
+    .dms-footer a {
+      color: var(--df-text);
+      font-family: inherit;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    .dms-footer .df-list a {
+      display: inline-block;
+      padding: 2px 0;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: -0.25px;
+      overflow-wrap: anywhere;
+    }
+
+    .dms-footer a:hover {
+      color: var(--df-green);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .dms-footer a:focus-visible,
+    .dms-footer button:focus-visible {
+      outline: 2px solid var(--df-green);
+      outline-offset: 5px;
+      border-radius: 3px;
+    }
+
+    /* Brand and location row */
+    .dms-footer .df-middle {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 36px;
+      margin-top: 55px;
+    }
+
+    .dms-footer .df-brand {
+      max-width: 340px;
+    }
+
+    .dms-footer .df-wordmark {
+      display: inline-block;
+      color: var(--df-green);
+      font-size: 29px;
+      font-weight: 600;
+      line-height: 34px;
+      letter-spacing: -1.5px;
+    }
+
+    .dms-footer .df-wordmark:hover {
+      text-decoration: none;
+    }
+
+    .dms-footer .df-brand p {
+      margin: 10px 0 0;
+      color: var(--df-muted);
+      font-size: 12px;
+      line-height: 20px;
+      letter-spacing: -0.1px;
+    }
+
+    .dms-footer .df-location {
+      width: 240px;
+      max-width: 100%;
+    }
+
+    .dms-footer .df-location .df-title {
+      margin-bottom: 12px;
+    }
+
+    .dms-footer .df-location-value {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid #e0e2dc;
+      border-radius: 8px;
+      color: #535b50;
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    .dms-footer .df-location-value svg {
+      flex: 0 0 17px;
+      width: 17px;
+      height: 17px;
+      fill: none;
+      stroke: #899181;
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Legal and back-to-top row */
+    .dms-footer .df-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px 24px;
+      margin-top: 38px;
+      padding-top: 22px;
+      border-top: 1px solid var(--df-line);
+    }
+
+    .dms-footer .df-legal {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+    }
+
+    .dms-footer .df-copyright,
+    .dms-footer .df-legal a {
+      margin: 0;
+      color: #898989;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: -0.1px;
+    }
+
+    .dms-footer .df-legal a:hover {
+      color: var(--df-green);
+    }
+
+    .dms-footer .df-top {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 8px 0;
+
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      color: #737b6e;
+
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: -0.1px;
+      cursor: pointer;
+    }
+
+    .dms-footer .df-top svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 200ms ease;
+    }
+
+    .dms-footer .df-top:hover {
+      background: transparent;
+      color: var(--df-green);
+    }
+
+    .dms-footer .df-top:hover svg {
+      transform: translateY(-3px);
+    }
+
+    .dms-footer .df-note {
+      max-width: 1080px;
+      margin: 26px 0 0;
+      color: #92968f;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: -0.1px;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .dms-footer .df-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 34px;
+      }
+
+      .dms-footer .df-middle {
+        margin-top: 40px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .dms-footer .df-inner {
+        padding: 34px 20px 24px;
+      }
+
+      .dms-footer .df-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 24px;
+      }
+
+      .dms-footer .df-title {
+        margin-bottom: 12px;
+        font-size: 9px;
+        letter-spacing: 1px;
+      }
+
+      .dms-footer .df-list {
+        gap: 4px;
+      }
+
+      .dms-footer .df-list a {
+        padding: 6px 0;
+        font-size: 12px;
+        line-height: 19px;
+      }
+
+      .dms-footer .df-group + .df-group {
+        margin-top: 24px;
+      }
+
+      .dms-footer .df-middle {
+        flex-direction: column;
+        gap: 26px;
+        margin-top: 34px;
+      }
+
+      .dms-footer .df-brand {
+        max-width: 100%;
+      }
+
+      .dms-footer .df-location {
+        width: 100%;
+      }
+
+      .dms-footer .df-bottom {
+        align-items: flex-start;
+        margin-top: 28px;
+        padding-top: 18px;
+      }
+
+      .dms-footer .df-legal {
+        gap: 10px 16px;
+      }
+
+      .dms-footer .df-copyright {
+        flex-basis: 100%;
+      }
+
+      .dms-footer .df-legal a {
+        padding: 5px 0;
+      }
+
+      .dms-footer .df-note {
+        margin-top: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dms-footer *,
+      .dms-footer *::before,
+      .dms-footer *::after {
+        transition: none !important;
+      }
+    }
+`;
+
+const footerHtml = `
+  <!-- DMS MODERN BRANDED FOOTER -->
+  <footer class="dms-footer" aria-label="DMS footer">
+    <div class="df-inner">
+
+      <nav class="df-grid" aria-label="Footer navigation">
+
+        <div class="df-column">
+          <div class="df-group">
+            <h2 class="df-title">Our services</h2>
+
+            <ul class="df-list">
+              <li>
+                <a href="#services">
+                  Government Relations
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Bahrain Ministry Services
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Document Attestation
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Corporate Setup
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Documentation Assistance
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="df-column">
+          <div class="df-group">
+            <h2 class="df-title">Visa & residency</h2>
+
+            <ul class="df-list">
+              <li>
+                <a href="#services">
+                  Bahrain Visa Services
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Residence Permit Services
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Bahrain Golden Visa
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Self-Sponsorship Visa
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Saudi Visa Services
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Global Visa Services
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="df-column">
+          <div class="df-group">
+            <h2 class="df-title">Business support</h2>
+
+            <ul class="df-list">
+              <li>
+                <a href="#services">
+                  Starting a Business
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Government Process Support
+                </a>
+              </li>
+              <li>
+                <a href="#services">
+                  Business Documentation
+                </a>
+              </li>
+              <li>
+                <a href="#contact">
+                  Discuss Your Requirements
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="df-column">
+          <div class="df-group">
+            <h2 class="df-title">Company</h2>
+
+            <ul class="df-list">
+              <li><a href="#hero-section">Home</a></li>
+              <li><a href="#story">About DMS</a></li>
+              <li><a href="#services">Our Services</a></li>
+              <li><a href="#blog">Blog</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="df-column">
+          <div class="df-group">
+            <h2 class="df-title">Support</h2>
+
+            <ul class="df-list">
+              <li><a href="#contact">Talk to Our Team</a></li>
+              <li><a href="#contact">Service Enquiries</a></li>
+              <li><a href="#contact">Application Assistance</a></li>
+              <li><a href="#contact">Request a Consultation</a></li>
+            </ul>
+          </div>
+
+          <div class="df-group">
+            <h2 class="df-title">Resources</h2>
+
+            <ul class="df-list">
+              <li><a href="#blog">Articles & Updates</a></li>
+              <li><a href="#services">Explore Our Services</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </nav>
+
+      <div class="df-middle">
+
+        <div class="df-brand">
+          <a class="df-wordmark" href="#hero-section" aria-label="DMS home">
+            DMS<span aria-hidden="true">.</span>
+          </a>
+
+          <p>
+            Strategic visas, corporate setup,<br>
+            and residency solutions in Bahrain.
+          </p>
+        </div>
+
+        <div class="df-location">
+          <h2 class="df-title">Based in Bahrain</h2>
+
+          <div class="df-location-value">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/>
+              <circle cx="12" cy="10" r="2.5"/>
+            </svg>
+
+            <span>Kingdom of Bahrain</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="df-bottom">
+        <div class="df-legal">
+          <p class="df-copyright">
+            © <span class="df-year">2026</span> DMS Bahrain.
+            All rights reserved.
+          </p>
+
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms & Conditions</a>
+        </div>
+
+        <button class="df-top" type="button">
+          Back to top
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 19V5m-6 6 6-6 6 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <p class="df-note">
+        DMS supports individuals, families and businesses with government
+        relations, visa services, residency solutions and documentation
+        assistance in Bahrain.
+      </p>
+
+    </div>
+  </footer>
+`;
+
+const footerScript = `
+    /* DMS MODERN BRANDED FOOTER INTERACTIVITY */
+    (() => {
+      const footer = document.querySelector(".dms-footer");
+      if (!footer) return;
+      if (footer.dataset.initialized === "true") return;
+
+      footer.dataset.initialized = "true";
+
+      const year = footer.querySelector(".df-year");
+      const topButton = footer.querySelector(".df-top");
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+
+      if (year) year.textContent = new Date().getFullYear();
+
+      if (topButton) {
+        topButton.hidden = false;
+        topButton.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: reducedMotion.matches ? "instant" : "smooth"
+          });
+        });
+      }
+    })();
+`;
+
+// Read index.html
+let indexContent = fs.readFileSync('g:/DMS WEB/index.html', 'utf8');
+
+// 1. Add CSS to <style>
+if (indexContent.includes('</style>')) {
+  indexContent = indexContent.replace('</style>', '\n' + footerCss + '\n</style>');
+}
+
+// 2. Insert HTML right after the contact-overview section
+const contactEnd = indexContent.indexOf('</section>', indexContent.indexOf('class="dms-contact-section"'));
+if (contactEnd !== -1) {
+  const insertPos = contactEnd + '</section>'.length;
+  const before = indexContent.slice(0, insertPos);
+  const after = indexContent.slice(insertPos);
+  indexContent = before + '\n\n' + footerHtml + '\n\n' + after;
+  console.log('Inserted Footer section right after Contact section');
+} else {
+  console.error('Could not find Contact section end');
+}
+
+// 3. Add script before </body>
+indexContent = indexContent.replace('</body>', '<script>' + footerScript + '</script>\n</body>');
+
+fs.writeFileSync('g:/DMS WEB/index.html', indexContent);
+console.log('Successfully updated index.html with Modern Footer section');
+
+// 4. Generate Elementor Option B Templates
+const elementorDir = 'g:/DMS WEB/elementor-templates';
+const standaloneHtml = '<style>' + footerCss + '</style>\n' + footerHtml + '\n<script>' + footerScript + '</script>';
+
+fs.writeFileSync(path.join(elementorDir, '09-modern-footer.html'), standaloneHtml);
+
+function createSectionJson(title, html) {
+  const sectionId = 'sec_' + Math.random().toString(36).substring(2, 9);
+  const columnId = 'col_' + Math.random().toString(36).substring(2, 9);
+  const widgetId = 'wid_' + Math.random().toString(36).substring(2, 9);
+
+  return JSON.stringify({
+    version: "0.4",
+    title: title,
+    type: "section",
+    content: [
+      {
+        id: sectionId,
+        elType: "section",
+        isInner: false,
+        settings: {
+          layout: "full_width",
+          gap: "no",
+          structure: "10"
+        },
+        elements: [
+          {
+            id: columnId,
+            elType: "column",
+            isInner: false,
+            settings: {
+              _column_size: 100
+            },
+            elements: [
+              {
+                id: widgetId,
+                elType: "widget",
+                widgetType: "html",
+                settings: {
+                  html: html
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }, null, 2);
+}
+
+fs.writeFileSync(path.join(elementorDir, '09-modern-footer.json'), createSectionJson('DMS - Modern Branded Footer', standaloneHtml));
+console.log('Saved 09-modern-footer.json and 09-modern-footer.html');
