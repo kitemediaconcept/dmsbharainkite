@@ -3671,6 +3671,11 @@ input, select, textarea {
       filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.06));
     }
 
+
+    /* About: no watermark, logo flush-left with text */
+    .dms-about-user::before { content:none; display:none; }
+    .dms-about-user .anniversary { width:clamp(200px, 19vw, 270px); margin:0 0 20px 0; padding:0; filter:none; object-position:left center; }
+
     .dms-about-user .subtitle {
       max-width: 480px;
       margin: 0 0 18px;
@@ -3926,7 +3931,7 @@ input, select, textarea {
       }
 
       .dms-about-user .anniversary {
-        width: 240px;
+        width: 210px;
         max-width: 85%;
         margin-left: 0;
       }
@@ -3946,13 +3951,9 @@ input, select, textarea {
 
       .dms-about-user .about {
         margin: 0;
-        padding: 22px 20px;
-        border-radius: 15px;
-        background: linear-gradient(
-          120deg,
-          rgba(53, 68, 59, 0.95),
-          rgba(26, 46, 39, 0.97)
-        );
+        padding: 0;
+        border-radius: 0;
+        background: none;
       }
 
       .dms-about-user .about-header {
@@ -7351,10 +7352,10 @@ input, select, textarea {
     <section class="intro" aria-labelledby="about-title">
       <img
         class="anniversary"
-        src="assets/40-years-excellence.png"
+        src="assets/40-years-excellence-trim.png"
         alt="Diplomat — 40 years of excellence"
-        width="2172"
-        height="724"
+        width="861"
+        height="245"
         loading="lazy"
       >
 
