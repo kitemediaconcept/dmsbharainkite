@@ -3592,6 +3592,29 @@ input, select, textarea {
       .dms-authorities__logo--wps img { max-height:42px; }
     }
 
+
+    /* ---- Logo marquee (continuous slide) ---- */
+    .dms-marquee { position:relative; overflow:hidden; padding:6px 0;
+      -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%); mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%); }
+    .dms-authorities__logos.dms-marquee__track { display:flex; flex-wrap:nowrap; width:max-content; gap:0; animation:dms-marquee 32s linear infinite; }
+    .dms-marquee__track .dms-authorities__logo, .dms-marquee__track .dms-authorities__logo:nth-child(4), .dms-marquee__track .dms-authorities__logo:nth-child(5) { flex:0 0 auto; width:auto; height:80px; padding:0 40px; grid-column:auto; }
+    .dms-marquee__track .dms-authorities__logo img { max-width:none; width:auto; height:auto; max-height:40px; }
+    .dms-marquee__track .dms-authorities__logo--wps img { max-height:52px; }
+    .dms-marquee__track .dms-authorities__logo--moi img, .dms-marquee__track .dms-authorities__logo--embassy img { max-height:42px; }
+    .dms-marquee:hover .dms-marquee__track { animation-play-state:paused; }
+    @keyframes dms-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    @media (max-width:640px) {
+      .dms-authorities__logos.dms-marquee__track { animation-duration:24s; }
+      .dms-marquee__track .dms-authorities__logo, .dms-marquee__track .dms-authorities__logo:nth-child(4), .dms-marquee__track .dms-authorities__logo:nth-child(5) { height:64px; padding:0 24px; }
+      .dms-marquee__track .dms-authorities__logo img { max-height:30px; } .dms-marquee__track .dms-authorities__logo--wps img { max-height:42px; }
+      .dms-marquee__track .dms-authorities__logo--moi img, .dms-marquee__track .dms-authorities__logo--embassy img { max-height:32px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .dms-authorities__logos.dms-marquee__track { animation:none; flex-wrap:wrap; justify-content:center; width:auto; }
+      .dms-marquee__track [aria-hidden="true"] { display:none; }
+      .dms-marquee { -webkit-mask-image:none; mask-image:none; }
+    }
+
     /* ==========================================================================
        DMS ABOUT US SECTION (User Specification - City Theme)
        ========================================================================== */
@@ -7223,7 +7246,8 @@ input, select, textarea {
         </h2>
       </header>
 
-      <ul class="dms-authorities__logos" aria-label="Entities and authorities">
+      <div class="dms-marquee">
+        <ul class="dms-authorities__logos dms-marquee__track" aria-label="Entities and authorities">
         <li class="dms-authorities__logo dms-authorities__logo--wps">
           <img src="assets/authorities/wps.png" alt="WPS – Wages Protection System" loading="lazy" decoding="async" />
         </li>
@@ -7242,7 +7266,26 @@ input, select, textarea {
         <li class="dms-authorities__logo dms-authorities__logo--chamber">
           <img src="assets/authorities/chamber.png" alt="Bahrain Chamber" loading="lazy" decoding="async" />
         </li>
-      </ul>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--wps">
+          <img src="assets/authorities/wps.png" alt="" data-alt="WPS – Wages Protection System" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--moic">
+          <img src="assets/authorities/moic.png" alt="" data-alt="Ministry of Industry and Commerce" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--lmra">
+          <img src="assets/authorities/lmra.png" alt="" data-alt="Labour Market Regulatory Authority" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--moi">
+          <img src="assets/authorities/moi-npra.png" alt="" data-alt="Ministry of Interior – Nationality, Passports &amp; Residence Affairs" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--embassy">
+          <img src="assets/authorities/ksa-embassy.png" alt="" data-alt="Embassy of the Kingdom of Saudi Arabia" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--chamber">
+          <img src="assets/authorities/chamber.png" alt="" data-alt="Bahrain Chamber" loading="lazy" decoding="async" />
+        </li>
+        </ul>
+      </div>
 
     </div>
   </section>
