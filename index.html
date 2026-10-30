@@ -645,8 +645,8 @@
     .vh-hero { position:relative; isolation:isolate; overflow:hidden; width:100%; height:100vh; height:100svh; min-height:560px; max-height:1100px; margin:calc(-1 * var(--vh-navh, 60px)) 0 0; border-radius:0; background:#cfd4d2 url("assets/video/dms-hero-poster.jpg") center/cover; display:flex; align-items:center; justify-content:center; font-family:Inter, "Helvetica Neue", Arial, sans-serif; }
     .vh-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0; transition:opacity 1.2s ease; }
     .vh-video.is-ready { opacity:1; }
-    .vh-shade { position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(180deg, rgba(10,14,12,.45) 0%, rgba(10,14,12,.16) 36%, rgba(10,14,12,0) 55%, rgba(10,14,12,.32) 100%); }
-    .vh-center { position:absolute; left:50%; top:clamp(120px, 24%, 240px); transform:translateX(-50%); width:min(760px, 88%); text-align:center; }
+    .vh-shade { position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(180deg, rgba(10,14,12,.45) 0%, rgba(10,14,12,.16) 36%, rgba(10,14,12,0) 45%, rgba(10,14,12,.48) 100%); }
+    .vh-center { position:absolute; left:50%; top:auto; bottom:calc(clamp(22px, 5%, 44px) + 76px); transform:translateX(-50%); width:min(760px, 88%); text-align:center; }
     .vh-title { margin:0; font-size:clamp(26px, 3.2vw, 46px); font-weight:500; line-height:1.12; letter-spacing:-1.2px; color:#fff; text-shadow:0 2px 24px rgba(0,0,0,.28); opacity:0; transform:translateY(16px); animation:vh-up 1s cubic-bezier(.16,1,.3,1) .2s forwards; }
     .vh-title .fx-typewriter { color:#fff; border-right-color:#9fe0b8; font-weight:600; vertical-align:bottom; text-shadow:none; background:none; }
     .vh-title { text-shadow:0 1px 18px rgba(0,0,0,.22); }
@@ -664,7 +664,7 @@
     @keyframes vh-up { to { opacity:1; transform:none; } }
     @keyframes vh-fade { to { opacity:1; } }
     @keyframes vh-shake { 0%,100% { transform:translateX(-50%); } 25% { transform:translateX(calc(-50% - 6px)); } 75% { transform:translateX(calc(-50% + 6px)); } }
-    @media (max-width:760px) { .vh-hero { min-height:520px; } .vh-center { top:120px; } .vh-form { bottom:76px; } .vh-toggle { right:50%; transform:translateX(50%); bottom:24px; } .vh-title { letter-spacing:-.6px; }  }
+    @media (max-width:760px) { .vh-hero { min-height:520px; } .vh-center { top:auto; bottom:148px; } .vh-form { bottom:76px; } .vh-toggle { right:50%; transform:translateX(50%); bottom:24px; } .vh-title { letter-spacing:-.6px; }  }
     @media (prefers-reduced-motion: reduce) { .vh-title, .vh-form { animation:none; opacity:1; transform:none; } .vh-form { transform:translateX(-50%); } }
 
     /* Typewriter animation for "Bahrain." */
