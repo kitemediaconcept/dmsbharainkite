@@ -3572,6 +3572,26 @@ input, select, textarea {
       }
     }
 
+
+    /* ---- 6 local logos, evenly aligned ---- */
+    .dms-authorities__logos { grid-template-columns:repeat(6,minmax(0,1fr)); gap:28px; align-items:center; justify-items:center; }
+    .dms-authorities__logo { width:100%; height:88px; padding:0; }
+    .dms-authorities__logo img, .dms-authorities__logo--embassy img { width:auto; height:auto; max-width:100%; max-height:44px; object-fit:contain; }
+    .dms-authorities__logo--wps img { max-height:74px; }
+    .dms-authorities__logo--moi img, .dms-authorities__logo--embassy img { max-height:46px; }
+    @media (max-width:1000px) {
+      .dms-authorities__logos { grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px 28px; }
+      .dms-authorities__logo { height:80px; }
+      .dms-authorities__logo img, .dms-authorities__logo--embassy img { max-height:42px; }
+      .dms-authorities__logo--wps img { max-height:70px; }
+    }
+    @media (max-width:640px) {
+      .dms-authorities__logos { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 20px; }
+      .dms-authorities__logo, .dms-authorities__logo:nth-child(4), .dms-authorities__logo:nth-child(5) { grid-column:auto; height:70px; }
+      .dms-authorities__logo img, .dms-authorities__logo--embassy img { max-height:34px; }
+      .dms-authorities__logo--wps img { max-height:62px; }
+    }
+
     /* ==========================================================================
        DMS ABOUT US SECTION (User Specification - City Theme)
        ========================================================================== */
@@ -7190,7 +7210,7 @@ input, select, textarea {
       <p class="sr-only slide-status" aria-live="polite"></p>
     </section>
 
-      <!-- DMS AUTHORITIES & REGULATORY ENTITIES (5 ICONS) -->
+      <!-- DMS AUTHORITIES & REGULATORY ENTITIES (6 LOGOS) -->
   <section class="dms-authorities" aria-labelledby="authorities-heading">
     <div class="dms-authorities__container">
 
@@ -7205,48 +7225,22 @@ input, select, textarea {
 
       <ul class="dms-authorities__logos" aria-label="Entities and authorities">
         <li class="dms-authorities__logo dms-authorities__logo--wps">
-          <img
-            src="https://dmsbharain.wasmer.app/wp-content/uploads/2026/10/wps-b.png"
-            alt="WPS"
-            loading="lazy"
-            decoding="async"
-          />
+          <img src="assets/authorities/wps.png" alt="WPS – Wages Protection System" loading="lazy" decoding="async" />
         </li>
-
         <li class="dms-authorities__logo dms-authorities__logo--moic">
-          <img
-            src="https://dmsbharain.wasmer.app/wp-content/uploads/2026/10/moic-svg-5-512x77-1.png"
-            alt="Ministry of Industry and Commerce"
-            loading="lazy"
-            decoding="async"
-          />
+          <img src="assets/authorities/moic.png" alt="Ministry of Industry and Commerce" loading="lazy" decoding="async" />
         </li>
-
         <li class="dms-authorities__logo dms-authorities__logo--lmra">
-          <img
-            src="https://dmsbharain.wasmer.app/wp-content/uploads/2026/10/labour-market-regulatory-authority-secondary-variation-512x75-1.png"
-            alt="Labour Market Regulatory Authority"
-            loading="lazy"
-            decoding="async"
-          />
+          <img src="assets/authorities/lmra.png" alt="Labour Market Regulatory Authority" loading="lazy" decoding="async" />
         </li>
-
+        <li class="dms-authorities__logo dms-authorities__logo--moi">
+          <img src="assets/authorities/moi-npra.png" alt="Ministry of Interior – Nationality, Passports &amp; Residence Affairs" loading="lazy" decoding="async" />
+        </li>
         <li class="dms-authorities__logo dms-authorities__logo--embassy">
-          <img
-            src="https://dmsbharain.wasmer.app/wp-content/uploads/2026/10/EMBASSY_KSA-removebg-preview.png"
-            alt="Embassy of Saudi Arabia"
-            loading="lazy"
-            decoding="async"
-          />
+          <img src="assets/authorities/ksa-embassy.png" alt="Embassy of the Kingdom of Saudi Arabia" loading="lazy" decoding="async" />
         </li>
-
         <li class="dms-authorities__logo dms-authorities__logo--chamber">
-          <img
-            src="https://dmsbharain.wasmer.app/wp-content/uploads/2026/10/bahrain-chamber-preview-512x107-1.png"
-            alt="Bahrain Chamber"
-            loading="lazy"
-            decoding="async"
-          />
+          <img src="assets/authorities/chamber.png" alt="Bahrain Chamber" loading="lazy" decoding="async" />
         </li>
       </ul>
 
