@@ -210,12 +210,14 @@
 
     .dms-glass-nav .dg-logo img {
       display: block;
-      width: 135px;
-      height: 38px;
+      width: 175px;
+      height: 48px;
       object-fit: contain;
       object-position: left center;
       transition: transform 200ms ease;
     }
+
+    @media (max-width: 1000px) { .dms-glass-nav .dg-logo img { width:150px; height:42px; } }
 
     .dms-glass-nav .dg-logo:hover img {
       transform: scale(1.02);
@@ -7154,7 +7156,7 @@ input, select, textarea {
         <div class="dg-bar">
 
           <a class="dg-logo" href="/" aria-label="DMS home">
-            <img class="dg-logo-image" src="DMSLOGO.png" alt="Diplomat Management Services" width="135" height="38" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <img class="dg-logo-image" src="DMSLOGO.png" alt="Diplomat Management Services" width="175" height="48" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
             <span class="dg-wordmark" hidden>DMS.</span>
           </a>
 
@@ -7174,6 +7176,8 @@ input, select, textarea {
             <div class="dg-links">
 
               <a class="dg-link" href="#hero-section">Home</a>
+
+              <a class="dg-link" href="about.html">About</a>
 
               <div class="dg-dropdown">
                 <button class="dg-trigger" type="button"
@@ -8382,6 +8386,7 @@ input, select, textarea {
 
             <ul class="df-list">
               <li><a href="#hero-section">Home</a></li>
+              <li><a href="about.html">About us</a></li>
               <li><a href="#story">About DMS</a></li>
               <li><a href="#services">Our Services</a></li>
               <li><a href="#blog">Blog</a></li>
