@@ -11708,6 +11708,7 @@ input, select, textarea {
   }
   // Messages open the visitor's email app, addressed to the email shown above.
   const form = document.getElementById("ct-form"), note = document.getElementById("ct-note");
+  try { const pe = new URLSearchParams(location.search).get("email"); if (pe) form.querySelector('[name="email"]').value = pe; } catch (e) {}
   const to = (sec.querySelector('[data-field="email"]').getAttribute("href") || "").replace(/^mailto:/, "");
   form.addEventListener("submit", (ev) => {
     ev.preventDefault();

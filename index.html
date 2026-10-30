@@ -640,6 +640,33 @@
       color: var(--color-ink);
     }
 
+
+    /* ===== VIDEO HERO ===== */
+    .vh-hero { position:relative; isolation:isolate; overflow:hidden; width:min(1400px, calc(100% - 32px)); height:clamp(540px, calc(100vh - 190px), 820px); margin:96px auto 0; border-radius:28px; background:#cfd4d2 url("assets/video/dms-hero-poster.jpg") center/cover; display:flex; align-items:center; justify-content:center; font-family:Inter, "Helvetica Neue", Arial, sans-serif; }
+    .vh-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0; transition:opacity 1.2s ease; }
+    .vh-video.is-ready { opacity:1; }
+    .vh-shade { position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(180deg, rgba(10,14,12,.42) 0%, rgba(10,14,12,.12) 34%, rgba(10,14,12,0) 55%, rgba(10,14,12,.32) 100%); }
+    .vh-center { position:absolute; left:50%; top:clamp(70px, 16%, 150px); transform:translateX(-50%); width:min(760px, 88%); text-align:center; }
+    .vh-title { margin:0; font-size:clamp(26px, 3.2vw, 46px); font-weight:500; line-height:1.12; letter-spacing:-1.2px; color:#fff; text-shadow:0 2px 24px rgba(0,0,0,.28); opacity:0; transform:translateY(16px); animation:vh-up 1s cubic-bezier(.16,1,.3,1) .2s forwards; }
+    .vh-title .fx-typewriter { color:#fff; border-right-color:#9fe0b8; font-weight:600; vertical-align:bottom; text-shadow:none; background:none; }
+    .vh-title { text-shadow:0 1px 18px rgba(0,0,0,.22); }
+    .vh-form { position:absolute; left:50%; bottom:clamp(22px, 5%, 44px); transform:translateX(-50%); display:flex; align-items:center; gap:6px; width:min(330px, calc(100% - 40px)); padding:5px 5px 5px 18px; border-radius:16px; background:rgba(40,30,26,.38); -webkit-backdrop-filter:blur(14px) saturate(140%); backdrop-filter:blur(14px) saturate(140%); box-shadow:inset 0 0 0 1px rgba(255,255,255,.18), 0 10px 30px rgba(0,0,0,.18); opacity:0; animation:vh-fade .9s ease .55s forwards; }
+    .vh-form input { flex:1; min-width:0; border:0; outline:none; background:transparent; color:#fff; font:inherit; font-size:15px; padding:10px 0; }
+    .vh-form input::placeholder { color:rgba(255,255,255,.72); }
+    .vh-form button { flex-shrink:0; border:0; border-radius:12px; padding:11px 16px; background:#fff; color:#111; font:inherit; font-size:15px; font-weight:500; cursor:pointer; transition:background .25s ease, transform .2s ease; }
+    .vh-form button:hover { background:#f1efeb; } .vh-form button:active { transform:scale(.97); }
+    .vh-form:focus-within { box-shadow:inset 0 0 0 1px rgba(255,255,255,.45), 0 0 0 3px rgba(13,155,73,.45), 0 10px 30px rgba(0,0,0,.18); }
+    .vh-form.vh-bad { animation:vh-shake .4s ease; box-shadow:inset 0 0 0 1px rgba(255,140,130,.9), 0 10px 30px rgba(0,0,0,.18); }
+    .vh-toggle { position:absolute; right:18px; bottom:18px; width:36px; height:36px; border:0; border-radius:50%; display:grid; place-items:center; background:rgba(0,0,0,.28); color:#fff; cursor:pointer; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); opacity:.75; transition:opacity .2s ease; }
+    .vh-toggle:hover, .vh-toggle:focus-visible { opacity:1; } .vh-toggle svg { width:15px; height:15px; fill:currentColor; }
+    .vh-toggle .vh-play { display:none; } .vh-toggle[aria-pressed="true"] .vh-play { display:block; } .vh-toggle[aria-pressed="true"] .vh-pause { display:none; }
+    .vh-hero .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+    @keyframes vh-up { to { opacity:1; transform:none; } }
+    @keyframes vh-fade { to { opacity:1; } }
+    @keyframes vh-shake { 0%,100% { transform:translateX(-50%); } 25% { transform:translateX(calc(-50% - 6px)); } 75% { transform:translateX(calc(-50% + 6px)); } }
+    @media (max-width:760px) { .vh-hero { margin-top:88px; border-radius:20px; height:clamp(520px, 78vh, 700px); } .vh-center { top:56px; } .vh-title { letter-spacing:-.6px; } .vh-toggle { bottom:auto; top:14px; right:14px; } }
+    @media (prefers-reduced-motion: reduce) { .vh-title, .vh-form { animation:none; opacity:1; transform:none; } .vh-form { transform:translateX(-50%); } }
+
     /* Typewriter animation for "Bahrain." */
     .fx-typewriter {
       display: inline-block;
@@ -7227,91 +7254,29 @@ input, select, textarea {
   </div>
 
   <main>
-    <!-- HEADING SECTION (Exact Mollie 82px / -2.4px Typography) -->
-    <section class="hero-intro" id="hero-section" aria-labelledby="hero-heading">
-      <div>
-        <p class="eyebrow">Your next chapter in Bahrain</p>
+    <!-- VIDEO HERO -->
+    <section class="vh-hero" id="hero-section" aria-labelledby="hero-heading">
+      <video class="vh-video" autoplay muted loop playsinline preload="auto" poster="assets/video/dms-hero-poster.jpg" aria-hidden="true" tabindex="-1">
+        <source src="assets/video/dms-hero-960.mp4" type="video/mp4" media="(max-width: 760px)">
+        <source src="assets/video/dms-hero.mp4" type="video/mp4">
+      </video>
+      <div class="vh-shade" aria-hidden="true"></div>
 
-        <h1 id="hero-heading">
+      <div class="vh-center">
+        <h1 id="hero-heading" class="vh-title">
           Strategic visas, corporate setup, and residency solutions in <span class="fx-typewriter">Bahrain.</span>
         </h1>
       </div>
 
-      <div class="hero-description">
-        <p>
-          Expert guidance for your visa, business setup, and residency
-          journey — with clear support at every step.
-        </p>
+      <form class="vh-form" id="vh-form" action="bahrain-ministry-services.html#contact" novalidate>
+        <label class="sr-only" for="vh-email">Your email</label>
+        <input id="vh-email" name="email" type="email" placeholder="Your email" autocomplete="email" required>
+        <button type="submit">Get started</button>
+      </form>
 
-        <div class="hero-actions">
-          <a class="button" href="#contact">Get started now</a>
-          <a class="button light" href="#contact">Contact sales</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- AUTOMATIC BANNER (Exact Mollie In-Media Proof & Controls) -->
-    <section
-      class="banner"
-      data-theme="light"
-      id="hero-banner"
-      aria-label="DMS services"
-      aria-roledescription="carousel"
-    >
-      <div class="banner-track"></div>
-      <div class="banner-overlay"></div>
-
-      <div class="banner-badges">
-        <div class="banner-badge">
-          <span class="badge-icon" aria-hidden="true">✓</span>
-          <span>Official Ministry &amp; Embassy Attestation</span>
-        </div>
-
-        <div class="banner-badge">
-          <span class="badge-icon" aria-hidden="true">▤</span>
-          <span>MOFA Legalization &amp; Consular Authentication</span>
-        </div>
-
-        <div class="banner-badge">
-          <span class="badge-icon" aria-hidden="true">↗</span>
-          <span>Certified Translation &amp; Expedited Clearance</span>
-        </div>
-      </div>
-
-      <div class="banner-caption">
-        <p class="eyebrow">DMS Bahrain</p>
-        <h2>Document Attestation</h2>
-        <a class="banner-cta-button" href="#contact">
-          <span>Get started now</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M5 12h14m-6-6 6 6-6 6"/>
-          </svg>
-        </a>
-      </div>
-
-      <div class="banner-controls">
-        <button
-          class="control-button previous"
-          type="button"
-          aria-label="Previous slide"
-        >←</button>
-
-        <button
-          class="control-button pause"
-          type="button"
-          aria-label="Pause automatic slides"
-        >Ⅱ</button>
-
-        <button
-          class="control-button next"
-          type="button"
-          aria-label="Next slide"
-        >→</button>
-      </div>
-
-      <div class="banner-thumbnails" aria-label="Choose a service"></div>
-      <div class="banner-dots" aria-label="Slide pagination" role="tablist"></div>
-      <p class="sr-only slide-status" aria-live="polite"></p>
+      <button class="vh-toggle" type="button" aria-label="Pause background video" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path class="vh-pause" d="M8 5h3v14H8zM13 5h3v14h-3z"/><path class="vh-play" d="M8 5v14l11-7z"/></svg>
+      </button>
     </section>
 
       <!-- DMS AUTHORITIES & REGULATORY ENTITIES (6 LOGOS) -->
@@ -8543,6 +8508,8 @@ input, select, textarea {
   </main>
 
   <script>
+  if (document.querySelector(".banner")) {
+
     // ==========================================
     // MODERN GLASS DROPDOWN NAVBAR INTERACTION
     // ==========================================
@@ -9236,7 +9203,9 @@ input, select, textarea {
         }
       });
     }
-  </script>
+  
+  }
+</script>
 <script>
     // ==========================================
     // DMS REFINED SERVICES GRID ANIMATION SCRIPT
@@ -10351,6 +10320,28 @@ input, select, textarea {
     new IntersectionObserver((es) => es.forEach((e) => { inView = e.isIntersecting; if (inView) { start(); if (globe && !raf) loop(); } }), { rootMargin: "150px" }).observe(wrap);
     let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if (globe) { globe.destroy(); globe = null; cancelAnimationFrame(raf); raf = 0; start(); } }, 250); });
   }
+</script>
+
+<script>
+  /* VIDEO HERO: smooth start, pause toggle, email → contact */
+  (() => {
+    const hero = document.querySelector(".vh-hero"); if (!hero) return;
+    const v = hero.querySelector(".vh-video"), t = hero.querySelector(".vh-toggle"), f = hero.querySelector(".vh-form");
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+    const show = () => v.classList.add("is-ready");
+    if (v.readyState >= 3) show(); else v.addEventListener("canplay", show, { once: true });
+    const setPaused = (p) => { t.setAttribute("aria-pressed", String(p)); t.setAttribute("aria-label", p ? "Play background video" : "Pause background video"); };
+    if (reduce.matches) { v.removeAttribute("autoplay"); v.pause(); setPaused(true); show(); }
+    else { const p = v.play(); if (p && p.catch) p.catch(() => setPaused(true)); }
+    t.addEventListener("click", () => { if (v.paused) { v.play(); setPaused(false); } else { v.pause(); setPaused(true); } });
+    new IntersectionObserver((es) => es.forEach((e) => { if (t.getAttribute("aria-pressed") === "true") return; e.isIntersecting ? v.play().catch(() => {}) : v.pause(); }), { threshold: 0.05 }).observe(hero);
+    f.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const em = f.querySelector("input").value.trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) { f.classList.remove("vh-bad"); void f.offsetWidth; f.classList.add("vh-bad"); f.querySelector("input").focus(); return; }
+      location.href = "bahrain-ministry-services.html?email=" + encodeURIComponent(em) + "#contact";
+    });
+  })();
 </script>
 </body>
 </html>
