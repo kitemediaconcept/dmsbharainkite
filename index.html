@@ -6805,6 +6805,13 @@ input, select, textarea {
       .dgs-card-global-visa .visa-content { min-height:0; }
     }
 
+
+    /* FOURTH CARD: Family visa (KSA Iqama) */
+    .dms-gold-stack .dgs-card-family .dgs-family-visual { background:radial-gradient(ellipse at 60% 85%, #e9efe9 0%, #f3f2ee 45%, var(--card-bg) 75%); }
+    .dms-gold-stack .dgs-card-family .dgs-family-img { inset:auto 0 0 0; top:6%; height:94%; object-fit:contain; object-position:center bottom; filter:drop-shadow(0 18px 24px rgba(40,35,25,.14)); }
+    .dms-gold-stack .dgs-card-family:hover .dgs-family-img { transform:scale(1.03); transform-origin:center bottom; }
+    @media (max-width: 900px) { .dms-gold-stack .dgs-card-family .dgs-family-visual { min-height:320px; } }
+
     /* REFLECTIVE GOLD VISUAL */
     .dms-gold-stack .dgs-visual {
       text-align: center;
@@ -7797,6 +7804,45 @@ input, select, textarea {
                 height="1254"
                 decoding="async"
                 draggable="false"
+              >
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dgs-slot" style="--i: 3;">
+        <!-- FOURTH CARD: FAMILY VISA FOR KSA IQAMA HOLDERS -->
+        <article class="dgs-card dgs-card-attestation dgs-card-family">
+          <div class="dgs-attestation-grid">
+            <div class="dgs-attestation-copy">
+              <span class="dgs-eyebrow">SERVICES FOR KSA IQAMA HOLDERS</span>
+              <h2 class="dgs-heading">
+                Family Visa for<br>
+                KSA Iqama Holders.
+              </h2>
+              <p class="dgs-description">
+                Bring your family to Bahrain with confidence. We assist KSA Iqama holders and their dependents with family joining visas, document preparation and application support.
+              </p>
+              <ul class="dgs-benefits">
+                <li>Family joining visa for dependents</li>
+                <li>Multiple entry visa assistance</li>
+                <li>Document preparation &amp; review</li>
+              </ul>
+              <a class="dgs-link" href="#contact">
+                Explore Family Visa Services
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="dgs-attestation-visual dgs-family-visual">
+              <!-- EDIT: change this image to update the card -->
+              <img
+                class="dgs-attestation-img dgs-family-img"
+                src="assets/family-joining.png"
+                alt="Family travelling together on a Bahrain family visa"
+                loading="lazy"
               >
             </div>
           </div>
