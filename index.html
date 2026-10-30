@@ -4316,6 +4316,11 @@ input, select, textarea {
       object-fit: cover;
     }
 
+
+    /* Drift wall: white logo tiles */
+    .dms-drift .dms-drift-tile { display:flex; align-items:center; justify-content:center; padding:16px 14px; background:#fff; box-shadow:0 0 0 1px #e9efea, 0 6px 16px rgb(23 52 34 / 8%); }
+    .dms-drift .dms-drift-tile img { width:auto; height:auto; max-width:100%; max-height:100%; object-fit:contain; }
+
     /* RIGHT CARD: FOLDER */
     .dms-folder-area {
       flex: 1;
@@ -9122,11 +9127,12 @@ input, select, textarea {
       /* LEFT: AUTOMATIC DRIFT WALL */
       document.querySelectorAll("[data-drift]").forEach((wall) => {
         const images = [
-          "assets/ministry.svg",
-          "assets/attestation.svg",
-          "assets/saudi-visa.svg",
-          "assets/residency.svg",
-          "assets/global-visa.svg"
+          "assets/authorities/wps.png",
+          "assets/authorities/moic.png",
+          "assets/authorities/lmra.png",
+          "assets/authorities/moi-npra.png",
+          "assets/authorities/ksa-embassy.png",
+          "assets/authorities/chamber.png"
         ];
 
         const plane = wall.querySelector(".dms-drift-plane");
