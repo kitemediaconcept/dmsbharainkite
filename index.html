@@ -6497,6 +6497,15 @@ input, select, textarea {
       }
     }
 
+
+    /* Interactive COBE globe (grey) */
+    .dgs-card-global-visa .visa-globe-stage { position:absolute; top:50%; left:50%; width:min(112%, 640px); aspect-ratio:1; transform:translate(-50%,-50%); z-index:2; opacity:0; transition:opacity 1s ease; pointer-events:auto; }
+    .dgs-card-global-visa .visa-globe-canvas { display:block; width:100%; height:100%; cursor:grab; touch-action:pan-y; }
+    .dgs-card-global-visa .visa-globe-canvas:active { cursor:grabbing; }
+    .dgs-card-global-visa .visa-globe.is-live .visa-globe-stage { opacity:1; }
+    .dgs-card-global-visa .visa-globe.is-live .visa-globe-image { opacity:0; transition:opacity .6s ease; }
+    @media (max-width:900px) { .dgs-card-global-visa .visa-globe-stage { width:min(100%, 460px); } }
+
     @media (max-width: 900px) {
       .dgs-card-global-visa .visa-card {
         flex-direction: column;
@@ -7779,6 +7788,7 @@ input, select, textarea {
             </div>
 
             <div class="visa-globe" aria-hidden="true">
+              <div class="visa-globe-stage"><canvas class="visa-globe-canvas" data-cobe-globe></canvas></div>
               <img
                 class="visa-globe-image"
                 src="assets/global-visa-reference.png"
@@ -10072,6 +10082,63 @@ input, select, textarea {
 
       updateStack();
     })();
+</script>
+
+<script type="module">
+  // Grey interactive globe for the Global Visa card (COBE, MIT licence)
+  import createGlobe from "./assets/vendor/cobe.js";
+  const canvas = document.querySelector("[data-cobe-globe]");
+  if (canvas) {
+    const wrap = canvas.closest(".visa-globe");
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+    const BH = [26.07, 50.55];
+    const places = [BH, [24.71, 46.68], [25.2, 55.27], [51.51, -0.13], [19.08, 72.88], [9.93, 76.27], [14.6, 120.98], [30.04, 31.24], [40.71, -74.0], [1.35, 103.82]];
+    const markers = places.map((l, i) => ({ location: l, size: i === 0 ? 0.075 : 0.045 }));
+    const arcs = places.slice(1).map((to) => ({ from: BH, to }));
+    let globe = null, raf = 0, inView = false, phi = 4.05, theta = 0.32, vel = 0, drag = null, speed = 1;
+    const sizeNow = () => Math.max(200, Math.round(canvas.closest(".visa-globe-stage").getBoundingClientRect().width));
+    function start() {
+      if (globe) return;
+      try {
+        const s = sizeNow(), dpr = Math.min(window.devicePixelRatio || 1, innerWidth < 640 ? 1.8 : 2);
+                globe = createGlobe(canvas, {
+          devicePixelRatio: dpr, width: s, height: s, phi, theta,
+          dark: 0, diffuse: 1.25, mapSamples: 16000, mapBrightness: 5.2, mapBaseBrightness: 0,
+          baseColor: [0.98, 0.98, 0.985], markerColor: [0.32, 0.33, 0.35], glowColor: [0.93, 0.93, 0.94],
+          markers, arcs, arcColor: [0.55, 0.56, 0.58], arcWidth: 0.5, arcHeight: 0.25, markerElevation: 0.02,
+          opacity: 0.86, scale: 1, offset: [0, 0]
+        });
+        wrap.classList.add("is-live");
+        loop();
+      } catch (e) { globe = null; }
+    }
+    function loop() {
+      cancelAnimationFrame(raf);
+      const tick = () => {
+        if (!globe || !inView) { raf = 0; return; }
+        if (!drag) {
+          if (!reduce.matches) phi += 0.003 * speed;
+          if (Math.abs(vel) > 0.0001) { phi += vel; vel *= 0.95; }
+        }
+        globe.update({ phi, theta });
+        raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+    }
+    canvas.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, phi, t: performance.now(), lx: e.clientX }; canvas.setPointerCapture(e.pointerId); });
+    canvas.addEventListener("pointermove", (e) => {
+      if (!drag) return;
+      phi = drag.phi + (e.clientX - drag.x) / 220;
+      const now = performance.now(); vel = Math.max(-0.12, Math.min(0.12, ((e.clientX - drag.lx) / Math.max(now - drag.t, 1)) * 0.25));
+      drag.lx = e.clientX; drag.t = now;
+    });
+    const end = () => { drag = null; };
+    canvas.addEventListener("pointerup", end); canvas.addEventListener("pointercancel", end);
+    canvas.addEventListener("pointerenter", () => { speed = 0.6; });
+    canvas.addEventListener("pointerleave", () => { speed = 1; });
+    new IntersectionObserver((es) => es.forEach((e) => { inView = e.isIntersecting; if (inView) { start(); if (globe && !raf) loop(); } }), { rootMargin: "150px" }).observe(wrap);
+    let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if (globe) { globe.destroy(); globe = null; cancelAnimationFrame(raf); raf = 0; start(); } }, 250); });
+  }
 </script>
 </body>
 </html>
