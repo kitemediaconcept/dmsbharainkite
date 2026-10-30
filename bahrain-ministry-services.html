@@ -8900,7 +8900,7 @@ input, select, textarea {
         </svg>
       </a>
 
-      <a class="service-pill" href="#lmra-services" aria-label="Bahrain Municipality Services">
+      <a class="service-pill" href="#municipality-services" aria-label="Bahrain Municipality Services">
         <span>Municipality Services</span>
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M3 21V3h11v18M14 9h7v12M1 21h22"/>
@@ -8908,7 +8908,7 @@ input, select, textarea {
         </svg>
       </a>
 
-      <a class="service-pill" href="#lmra-services" aria-label="Electricity and Water Services">
+      <a class="service-pill" href="#ewa-services" aria-label="Electricity and Water Services">
         <span>Electricity &amp; Water</span>
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="m9 2-7 11h6l-1 9 7-12H8l1-8z"/>
@@ -11429,6 +11429,191 @@ input, select, textarea {
   sec.querySelectorAll(".bx-card, .bx-head").forEach((el) => io.observe(el));
 })();
     </script>
+
+    <style>
+  /* ===== MUNICIPALITY & UTILITY SERVICES BENTO — DMS theme ===== */
+  .ut-v2 { background:#fff; color:#111; font-family:Inter, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased; }
+  .ut-v2 *, .ut-v2 *::before, .ut-v2 *::after { box-sizing:border-box; }
+  .ut-v2 h2, .ut-v2 h3, .ut-v2 p { margin:0; }
+  .ut-v2 .ut-wrap { width:min(1200px,100%); margin:0 auto; padding:24px 24px 90px; }
+  .ut-v2 .ut-head { max-width:760px; margin:0 0 36px; }
+  .ut-v2 .ut-kicker { display:block; font:500 13px/1.3 "IBM Plex Mono", ui-monospace, monospace; letter-spacing:.4px; text-transform:uppercase; color:#0d9b49; margin-bottom:14px; }
+  .ut-v2 .ut-title { font-size:clamp(32px,4.4vw,58px); font-weight:500; line-height:1.05; letter-spacing:-1.9px; color:#5f6467;
+    background:linear-gradient(180deg,#22272a 0%,#8d9296 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .ut-v2 .ut-sub { margin-top:14px; max-width:620px; font-size:clamp(15px,1.4vw,18px); line-height:1.45; letter-spacing:-.3px; color:#595959; }
+  .ut-v2 .ut-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:20px; }
+  .ut-v2 .ut-card { position:relative; overflow:hidden; display:flex; flex-direction:column; min-height:380px; padding:30px; background:#fff; border-radius:24px; box-shadow:0 0 0 1px #ece6df; transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease; scroll-margin-top:110px; }
+  .ut-v2 .ut-s6 { grid-column:span 6; } .ut-v2 .ut-s7 { grid-column:span 7; } .ut-v2 .ut-s5 { grid-column:span 5; }
+  .ut-v2 .ut-card h3 { font-size:clamp(20px,1.8vw,25px); font-weight:500; line-height:1.15; letter-spacing:-.6px; color:#111; }
+  .ut-v2 .ut-card p { margin-top:6px; font-size:15px; line-height:1.45; letter-spacing:-.25px; color:#4a4a4a; }
+  .ut-v2 .ut-stage { flex:1; display:flex; align-items:center; justify-content:center; padding:24px 0 6px; }
+  .ut-v2 .ut-i { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+
+  .ut-v2 .ut-lease, .ut-v2 .ut-acct, .ut-v2 .ut-book { width:min(100%,360px); padding:22px; border-radius:18px; background:#fff; box-shadow:0 0 0 1px #efe9e2, 0 16px 32px rgb(48 39 31 / 7%); }
+  .ut-v2 .ut-lease { text-align:center; }
+  .ut-v2 .ut-tag { display:inline-block; font:500 10.5px/1 "IBM Plex Mono", monospace; letter-spacing:.3px; text-transform:uppercase; padding:5px 9px; border-radius:99px; background:#fdf0d6; color:#8b6900; }
+  .ut-v2 .ut-lease strong { display:block; margin-top:12px; font-size:24px; font-weight:600; letter-spacing:-.6px; }
+  .ut-v2 .ut-lease small, .ut-v2 .ut-acct small { display:block; margin-top:3px; font-size:12px; color:#7a7a7a; }
+  .ut-v2 .ut-btn { position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:6px; margin-top:16px; padding:11px; border-radius:12px; background:#073f2c; color:#fff; font-size:14px; font-weight:500; }
+  .ut-v2 .ut-btn::after { content:""; position:absolute; inset:0; background:linear-gradient(100deg,transparent 30%,rgb(255 255 255 / 30%) 50%,transparent 70%); transform:translateX(-120%); }
+  .ut-v2 .ut-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; padding-top:16px; border-top:1px solid #f1ece6; }
+  .ut-v2 .ut-chip { font-size:12.5px; padding:6px 11px; border-radius:9px; background:#f6f3ef; color:#333; }
+
+  .ut-v2 .ut-acct-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:22px; }
+  .ut-v2 .ut-crest-box { width:68px; height:68px; border-radius:18px; background:#f9f1e8; display:grid; place-items:center; box-shadow:inset 0 0 0 1px #efe2d2; }
+  .ut-v2 .ut-crest { width:42px; }
+  .ut-v2 .ut-stamp-box { width:48px; height:48px; border-radius:14px; background:#f6efe5; color:#6e5d51; display:grid; place-items:center; box-shadow:inset 0 0 0 1px #ebe0d1; }
+  .ut-v2 .ut-stamp-box .ut-i { width:22px; height:22px; }
+  .ut-v2 .ut-acct strong { display:block; font-size:22px; font-weight:600; letter-spacing:-.5px; }
+  .ut-v2 .ut-acts { display:flex; gap:8px; margin-top:16px; padding-top:14px; border-top:1px solid #f1ece6; }
+  .ut-v2 .ut-acts span { flex:1; text-align:center; font-size:12.5px; font-weight:500; padding:8px 0; border-radius:10px; background:#f4f1ed; color:#333; }
+
+  .ut-v2 .ut-table { margin:24px -30px 0 0; border-radius:16px 0 0 16px; box-shadow:0 0 0 1px #efe9e2; overflow:hidden; background:#fff; }
+  .ut-v2 .ut-th, .ut-v2 .ut-tr { display:grid; grid-template-columns:1.5fr 1fr 1.2fr; align-items:center; gap:10px; padding:13px 20px; }
+  .ut-v2 .ut-th { font-size:12.5px; color:#555; background:#faf9f7; border-bottom:1px solid #f0ebe5; }
+  .ut-v2 .ut-tr { font-size:14px; border-bottom:1px solid #f3efea; transition:background .3s ease; }
+  .ut-v2 .ut-tr:last-child { border-bottom:0; }
+  .ut-v2 .ut-tn { display:flex; align-items:center; gap:9px; } .ut-v2 .ut-ti { width:16px; height:16px; fill:none; stroke:#0d9b49; stroke-width:2; stroke-linecap:round; }
+  .ut-v2 .ut-st { justify-self:start; font-size:12px; padding:3px 10px; border-radius:99px; }
+  .ut-v2 .ut-ok { background:#e3f4e9; color:#1e681d; } .ut-v2 .ut-wip { background:#fdf0d6; color:#8b6900; } .ut-v2 .ut-done { background:#e8eef9; color:#2b4c8c; }
+  .ut-v2 .ut-ty { font-size:13px; color:#777; }
+  .ut-v2 .ut-meter { position:absolute; right:26px; top:26px; display:flex; gap:8px; }
+  .ut-v2 .ut-mi { width:38px; height:38px; border-radius:12px; display:grid; place-items:center; background:#fff7dc; color:#c58a00; box-shadow:inset 0 0 0 1px #f4e3b0; }
+  .ut-v2 .ut-mi.ut-water { background:#e8f2fc; color:#2f74c0; box-shadow:inset 0 0 0 1px #cfe2f6; }
+
+  .ut-v2 .ut-req { flex:1; display:flex; align-items:center; justify-content:center; margin-top:24px; border:1.5px dashed #d9cfc4; border-radius:18px; background:#fcfbf9; min-height:170px; }
+  .ut-v2 .ut-req-btn { display:inline-flex; align-items:center; gap:8px; padding:15px 24px; border-radius:14px; background:#073f2c; color:#fff; font-size:16px; font-weight:500; text-decoration:none; box-shadow:0 10px 20px rgb(7 63 44 / 22%); transition:transform .25s ease, background .25s ease; }
+  .ut-v2 .ut-req-btn:hover { background:#0a5a3e; transform:translateY(-2px); }
+  .ut-v2 .ut-req-btn:focus-visible { outline:2px solid #0d9b49; outline-offset:3px; }
+  .ut-v2 .ut-req-btn .ut-i { width:18px; height:18px; }
+
+  .ut-v2 .ut-qr-box { position:relative; width:200px; height:200px; padding:16px; border-radius:20px; background:#fff; box-shadow:0 0 0 1px #efe9e2, 0 16px 32px rgb(48 39 31 / 8%); overflow:hidden; }
+  .ut-v2 .ut-qr { width:100%; height:100%; display:block; }
+  .ut-v2 .ut-scan { position:absolute; left:10px; right:10px; top:0; height:3px; border-radius:3px; background:linear-gradient(90deg,transparent,#0d9b49,transparent); box-shadow:0 0 12px rgb(13 155 73 / 55%); opacity:0; }
+
+  .ut-v2 .ut-book { width:min(100%,430px); padding:18px; }
+  .ut-v2 .ut-book-top { display:flex; align-items:center; gap:12px; padding-bottom:12px; margin-bottom:6px; border-bottom:1px solid #f1ece6; }
+  .ut-v2 .ut-book-top b { display:block; font-size:14px; font-weight:600; } .ut-v2 .ut-book-top small { font-size:12px; color:#7a7a7a; }
+  .ut-v2 .ut-plane { width:42px; height:42px; border-radius:12px; display:grid; place-items:center; background:#073f2c; color:#9fd8b6; }
+  .ut-v2 .ut-plane .ut-i { width:20px; height:20px; }
+  .ut-v2 .ut-opt { display:grid; grid-template-columns:30px 1fr 14px; align-items:center; gap:10px; padding:9px 8px; border-radius:10px; transition:background .3s ease; }
+  .ut-v2 .ut-oi { width:30px; height:30px; border-radius:9px; display:grid; place-items:center; background:#f4f1ed; color:#3b281d; }
+  .ut-v2 .ut-opt b { display:block; font-size:13.5px; font-weight:500; } .ut-v2 .ut-opt small { font-size:11.5px; color:#7a7a7a; }
+  .ut-v2 .ut-oc { width:14px; fill:none; stroke:#aaa; stroke-width:2; }
+  .ut-v2 .ut-book-foot { display:flex; justify-content:space-between; align-items:center; margin-top:8px; padding-top:12px; border-top:1px solid #f1ece6; font-size:13px; }
+  .ut-v2 .ut-book-foot b { font-size:15px; font-weight:600; } .ut-v2 .ut-book-foot span { display:inline-flex; align-items:center; gap:4px; color:#333; }
+
+  /* motion */
+  .ut-v2.ut-anim .ut-card, .ut-v2.ut-anim .ut-head { opacity:0; transform:translateY(24px); }
+  .ut-v2.ut-anim .ut-in { opacity:1 !important; transform:none !important; transition:opacity .8s ease var(--d,0ms), transform .8s cubic-bezier(.16,1,.3,1) var(--d,0ms), box-shadow .35s ease; }
+  .ut-v2 .ut-in .ut-lease, .ut-v2 .ut-in .ut-acct, .ut-v2 .ut-in .ut-book { animation:ut-float 6s ease-in-out 1s infinite; }
+  .ut-v2 .ut-in .ut-btn::after { animation:ut-shine 3.4s ease-in-out 1.2s infinite; }
+  .ut-v2 .ut-in .ut-chip { animation:ut-pop .5s cubic-bezier(.3,1.5,.5,1) calc(var(--i) * 80ms + 300ms) both; }
+  .ut-v2 .ut-in .ut-crest-box { animation:ut-bob 4.5s ease-in-out 1s infinite; }
+  .ut-v2 .ut-in .ut-stamp-box { animation:ut-stamp 4.5s ease-in-out 1.6s infinite; }
+  .ut-v2 .ut-in .ut-acts span { animation:ut-act 6s ease-in-out infinite; }
+  .ut-v2 .ut-in .ut-acts span:nth-child(2) { animation-delay:2s; } .ut-v2 .ut-in .ut-acts span:nth-child(3) { animation-delay:4s; }
+  .ut-v2 .ut-in .ut-tr { animation:ut-rowin .5s ease calc(var(--i) * 90ms + 250ms) both, ut-hl 7.5s ease-in-out calc(var(--i) * 2.5s + 1.2s) infinite; }
+  .ut-v2 .ut-in .ut-wip { animation:ut-blink 2.4s ease-in-out infinite; }
+  .ut-v2 .ut-in .ut-mi { animation:ut-bob 4s ease-in-out 1s infinite; } .ut-v2 .ut-in .ut-water { animation-delay:1.6s; }
+  .ut-v2 .ut-in .ut-req-btn { animation:ut-pulse 2.8s ease-out 1.2s infinite; }
+  .ut-v2 .ut-in .ut-scan { animation:ut-scan 3.2s cubic-bezier(.4,0,.2,1) 1s infinite; }
+  .ut-v2 .ut-in .ut-opt { animation:ut-rowin .5s ease calc(var(--i) * 90ms + 300ms) both, ut-hl 7.5s ease-in-out calc(var(--i) * 2.5s + 1.5s) infinite; }
+  .ut-v2 .ut-in .ut-plane { animation:ut-tilt 4s ease-in-out 1s infinite; }
+  @keyframes ut-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
+  @keyframes ut-bob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+  @keyframes ut-stamp { 0%,60%,100% { transform:translateY(0); } 70% { transform:translateY(-8px); } 78% { transform:translateY(2px) scale(.95); } 86% { transform:translateY(0); } }
+  @keyframes ut-shine { 0%,60% { transform:translateX(-120%); } 100% { transform:translateX(120%); } }
+  @keyframes ut-pop { from { opacity:0; transform:scale(.8); } to { opacity:1; transform:none; } }
+  @keyframes ut-act { 0%,8%,30%,100% { background:#f4f1ed; color:#333; } 12%,26% { background:#073f2c; color:#fff; } }
+  @keyframes ut-rowin { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+  @keyframes ut-hl { 0%,8%,30%,100% { background:transparent; } 14%,24% { background:#eef7f1; } }
+  @keyframes ut-blink { 0%,100% { opacity:1; } 50% { opacity:.55; } }
+  @keyframes ut-pulse { 0% { box-shadow:0 10px 20px rgb(7 63 44 / 22%), 0 0 0 0 rgb(13 155 73 / 40%); } 100% { box-shadow:0 10px 20px rgb(7 63 44 / 22%), 0 0 0 16px rgb(13 155 73 / 0%); } }
+  @keyframes ut-scan { 0% { top:6px; opacity:0; } 15% { opacity:1; } 85% { opacity:1; } 100% { top:calc(100% - 9px); opacity:0; } }
+  @keyframes ut-tilt { 0%,100% { transform:rotate(0); } 50% { transform:rotate(-8deg) translateY(-2px); } }
+  @media (hover:hover) and (pointer:fine) { .ut-v2 .ut-card:hover { transform:translateY(-4px) !important; box-shadow:0 0 0 1px #e3dcd4, 0 20px 36px rgb(48 39 31 / 7%); } }
+  @media (max-width:1000px) { .ut-v2 .ut-s6, .ut-v2 .ut-s7, .ut-v2 .ut-s5 { grid-column:span 6; } .ut-v2 .ut-th, .ut-v2 .ut-tr { grid-template-columns:1.6fr 1fr; } .ut-v2 .ut-ty, .ut-v2 .ut-th span:last-child { display:none; } }
+  @media (max-width:700px) {
+    .ut-v2 .ut-wrap { padding:16px 16px 60px; } .ut-v2 .ut-title { letter-spacing:-1.1px; }
+    .ut-v2 .ut-grid { grid-template-columns:1fr; gap:16px; } .ut-v2 .ut-s6, .ut-v2 .ut-s7, .ut-v2 .ut-s5 { grid-column:auto; }
+    .ut-v2 .ut-card { padding:24px; min-height:0; border-radius:20px; } .ut-v2 .ut-table { margin-right:-24px; } .ut-v2 .ut-meter { position:static; order:1; margin-top:14px; } .ut-v2 .ut-table { order:2; }
+    .ut-v2 .ut-th, .ut-v2 .ut-tr { padding:12px 14px; font-size:13px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .ut-v2 *, .ut-v2 *::before, .ut-v2 *::after { animation:none !important; transition:none !important; } .ut-v2.ut-anim .ut-card, .ut-v2.ut-anim .ut-head { opacity:1; transform:none; } }
+    </style>
+    <!-- MUNICIPALITY & UTILITY SERVICES BENTO -->
+    <section class="ut-v2" id="municipality-utility-services" aria-labelledby="ut-title">
+      <div class="ut-wrap">
+        <header class="ut-head">
+          <span class="ut-kicker">Government services</span>
+          <h2 id="ut-title" class="ut-title">Streamline your government and utility services.</h2>
+          <p class="ut-sub">Effortlessly manage municipal affairs, utility connections, and cross-border logistics in one seamless workflow.</p>
+        </header>
+        <div class="ut-grid">
+          <article class="ut-card ut-s6" id="municipality-services" style="--d:0ms">
+            <div class="ut-copy"><h3>Bahrain Municipality Services</h3><p>Lease registration and official municipal documents</p></div>
+            <div class="ut-stage" aria-hidden="true">
+              <div class="ut-lease">
+                <span class="ut-tag">Registration</span>
+                <strong>Lease Agreement</strong>
+                <small>Municipal registration</small>
+                <span class="ut-btn">Register lease <svg class="ut-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></span>
+              </div>
+            </div>
+            <div class="ut-chips"><span class="ut-chip" style="--i:0">Municipality letter</span><span class="ut-chip" style="--i:1">Lease agreement registration</span><span class="ut-chip" style="--i:2">Account opening &amp; closing</span><span class="ut-chip" style="--i:3">Update municipality account</span></div>
+          </article>
+          <article class="ut-card ut-s6" style="--d:100ms">
+            <div class="ut-copy"><h3>Municipality Account Management</h3><p>Open, close, or update municipality records</p></div>
+            <div class="ut-stage" aria-hidden="true">
+              <div class="ut-acct">
+                <div class="ut-acct-top"><span class="ut-crest-box"><svg class="ut-crest" viewBox="0 0 100 100" aria-hidden="true"><defs><clipPath id="ut-sh"><path d="M50 6 88 20v34c0 21-16 34-38 40C28 88 12 75 12 54V20z"/></clipPath></defs><g clip-path="url(#ut-sh)"><rect width="100" height="100" fill="#ce1126"/><path d="M0 0h40l12 8-12 8 12 8-12 8 12 8-12 8 12 8-12 8 12 8-12 8 12 8-12 8 12 4H0z" fill="#fff"/></g><path d="M50 6 88 20v34c0 21-16 34-38 40C28 88 12 75 12 54V20z" fill="none" stroke="#c9a54a" stroke-width="3"/></svg></span><span class="ut-stamp-box"><svg class="ut-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6v5l2 2v3H7v-3l2-2z"/><path d="M5 17h14v3H5z"/></svg></span></div>
+                <strong>Bahrain Municipality</strong>
+                <small>Municipality account services</small>
+                <div class="ut-acts"><span>Open</span><span>Update</span><span>Close</span></div>
+              </div>
+            </div>
+          </article>
+          <article class="ut-card ut-s7" id="ewa-services" style="--d:0ms">
+            <div class="ut-copy"><h3>Electricity &amp; Water Services</h3><p>Track and manage utility connections</p></div>
+            <div class="ut-table" aria-hidden="true">
+              <div class="ut-th"><span>Service</span><span>Status</span><span>Utility</span></div>
+              <div class="ut-tr" style="--i:0"><span class="ut-tn"><svg class="ut-ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v8"/><path d="M6.4 7.5a8 8 0 1 0 11.2 0"/></svg>New account opening</span><span class="ut-st ut-ok">Active</span><span class="ut-ty">Electricity &amp; water</span></div><div class="ut-tr" style="--i:1"><span class="ut-tn"><svg class="ut-ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v8"/><path d="M6.4 7.5a8 8 0 1 0 11.2 0"/><path d="M4 4l16 16"/></svg>Disconnection service</span><span class="ut-st ut-wip">In progress</span><span class="ut-ty">Electricity</span></div><div class="ut-tr" style="--i:2"><span class="ut-tn"><svg class="ut-ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8"/><path d="M4 3v5h5"/><path d="M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M20 21v-5h-5"/></svg>Transfer &amp; update</span><span class="ut-st ut-done">Completed</span><span class="ut-ty">Electricity &amp; water</span></div>
+            </div>
+            <div class="ut-meter" aria-hidden="true"><span class="ut-mi"><svg class="ut-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span class="ut-mi ut-water"><svg class="ut-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span></div>
+          </article>
+          <article class="ut-card ut-s5" style="--d:100ms">
+            <div class="ut-copy"><h3>Quick Utility Request</h3><p>Start an account transfer or new connection</p></div>
+            <div class="ut-req"><a class="ut-req-btn" href="index.html#contact-overview"><svg class="ut-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> New utility request</a></div>
+          </article>
+          <article class="ut-card ut-s5" style="--d:0ms">
+            <div class="ut-copy"><h3>Document Verification &amp; Translation</h3><p>Verified translations and official certificates</p></div>
+            <div class="ut-stage" aria-hidden="true"><div class="ut-qr-box"><svg class="ut-qr" viewBox="0 0 100 100" aria-hidden="true"><g fill="#141413"><rect x="4" y="4" width="28" height="28" rx="5"/><rect x="8" y="8" width="20" height="20" rx="3" fill="#fff"/><rect x="12" y="12" width="12" height="12" rx="2"/><rect x="68" y="4" width="28" height="28" rx="5"/><rect x="72" y="8" width="20" height="20" rx="3" fill="#fff"/><rect x="76" y="12" width="12" height="12" rx="2"/><rect x="4" y="68" width="28" height="28" rx="5"/><rect x="8" y="72" width="20" height="20" rx="3" fill="#fff"/><rect x="12" y="76" width="12" height="12" rx="2"/><rect x="10" y="46" width="5" height="5" rx="1"/><rect x="16" y="40" width="5" height="5" rx="1"/><rect x="16" y="46" width="5" height="5" rx="1"/><rect x="16" y="52" width="5" height="5" rx="1"/><rect x="22" y="40" width="5" height="5" rx="1"/><rect x="28" y="40" width="5" height="5" rx="1"/><rect x="28" y="46" width="5" height="5" rx="1"/><rect x="28" y="58" width="5" height="5" rx="1"/><rect x="28" y="64" width="5" height="5" rx="1"/><rect x="34" y="40" width="5" height="5" rx="1"/><rect x="34" y="46" width="5" height="5" rx="1"/><rect x="34" y="58" width="5" height="5" rx="1"/><rect x="40" y="34" width="5" height="5" rx="1"/><rect x="40" y="88" width="5" height="5" rx="1"/><rect x="40" y="94" width="5" height="5" rx="1"/><rect x="46" y="4" width="5" height="5" rx="1"/><rect x="46" y="10" width="5" height="5" rx="1"/><rect x="46" y="22" width="5" height="5" rx="1"/><rect x="46" y="34" width="5" height="5" rx="1"/><rect x="46" y="76" width="5" height="5" rx="1"/><rect x="46" y="82" width="5" height="5" rx="1"/><rect x="52" y="10" width="5" height="5" rx="1"/><rect x="52" y="16" width="5" height="5" rx="1"/><rect x="52" y="34" width="5" height="5" rx="1"/><rect x="52" y="64" width="5" height="5" rx="1"/><rect x="52" y="70" width="5" height="5" rx="1"/><rect x="52" y="88" width="5" height="5" rx="1"/><rect x="52" y="94" width="5" height="5" rx="1"/><rect x="58" y="4" width="5" height="5" rx="1"/><rect x="58" y="10" width="5" height="5" rx="1"/><rect x="58" y="22" width="5" height="5" rx="1"/><rect x="58" y="34" width="5" height="5" rx="1"/><rect x="58" y="64" width="5" height="5" rx="1"/><rect x="58" y="76" width="5" height="5" rx="1"/><rect x="58" y="88" width="5" height="5" rx="1"/><rect x="58" y="94" width="5" height="5" rx="1"/><rect x="64" y="4" width="5" height="5" rx="1"/><rect x="64" y="10" width="5" height="5" rx="1"/><rect x="64" y="28" width="5" height="5" rx="1"/><rect x="64" y="40" width="5" height="5" rx="1"/><rect x="64" y="46" width="5" height="5" rx="1"/><rect x="64" y="64" width="5" height="5" rx="1"/><rect x="64" y="76" width="5" height="5" rx="1"/><rect x="64" y="82" width="5" height="5" rx="1"/><rect x="64" y="94" width="5" height="5" rx="1"/><rect x="70" y="40" width="5" height="5" rx="1"/><rect x="70" y="46" width="5" height="5" rx="1"/><rect x="70" y="52" width="5" height="5" rx="1"/><rect x="70" y="64" width="5" height="5" rx="1"/><rect x="70" y="76" width="5" height="5" rx="1"/><rect x="76" y="52" width="5" height="5" rx="1"/><rect x="76" y="58" width="5" height="5" rx="1"/><rect x="76" y="76" width="5" height="5" rx="1"/><rect x="76" y="82" width="5" height="5" rx="1"/><rect x="82" y="40" width="5" height="5" rx="1"/><rect x="82" y="64" width="5" height="5" rx="1"/><rect x="82" y="70" width="5" height="5" rx="1"/><rect x="82" y="76" width="5" height="5" rx="1"/><rect x="82" y="88" width="5" height="5" rx="1"/><rect x="88" y="40" width="5" height="5" rx="1"/><rect x="88" y="58" width="5" height="5" rx="1"/><rect x="88" y="64" width="5" height="5" rx="1"/><rect x="88" y="76" width="5" height="5" rx="1"/><rect x="88" y="82" width="5" height="5" rx="1"/><rect x="94" y="46" width="5" height="5" rx="1"/><rect x="94" y="58" width="5" height="5" rx="1"/><rect x="94" y="64" width="5" height="5" rx="1"/><rect x="94" y="70" width="5" height="5" rx="1"/><rect x="94" y="76" width="5" height="5" rx="1"/><rect x="94" y="82" width="5" height="5" rx="1"/><rect x="94" y="88" width="5" height="5" rx="1"/><rect x="94" y="94" width="5" height="5" rx="1"/></g><rect x="38" y="38" width="24" height="24" rx="7" fill="#fff"/><path d="M42 46h6l4 4 4-4h2v8h-2l-4-4-4 4h-6z" fill="#0d9b49"/></svg><span class="ut-scan"></span></div></div>
+          </article>
+          <article class="ut-card ut-s7" style="--d:100ms">
+            <div class="ut-copy"><h3>Travel &amp; Concierge Services</h3><p>Flight and hotel booking, and travel insurance through third-party providers</p></div>
+            <div class="ut-stage" aria-hidden="true">
+              <div class="ut-book">
+                <div class="ut-book-top"><span class="ut-plane"><svg class="ut-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 13.5 21 6.5l-3.5 9-5-2-3 3.5-.5-4.5z"/><path d="m9 16.5 3.5-3"/></svg></span><div><b>Travel &amp; Lodging</b><small>Third-party concierge</small></div></div>
+                <div class="ut-opt" style="--i:0"><span class="ut-oi"><svg class="ut-i" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span><div><b>Travel insurance</b><small>Through a third-party provider</small></div><svg class="ut-oc" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></div><div class="ut-opt" style="--i:1"><span class="ut-oi"><svg class="ut-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18V7M3 13h18v5M21 18v-3a3 3 0 0 0-3-3h-7v1"/><circle cx="7" cy="10" r="1.6"/></svg></span><div><b>Hotel &amp; flight booking</b><small>Reservation for visa applications</small></div><svg class="ut-oc" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></div><div class="ut-opt" style="--i:2"><span class="ut-oi"><svg class="ut-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><div><b>Document translation</b><small>Through a third-party provider</small></div><svg class="ut-oc" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></div>
+                <div class="ut-book-foot"><b>Travel booking</b><span><svg class="ut-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add document</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <script>
+(() => {
+  const sec = document.getElementById("municipality-utility-services");
+  if (!sec || !("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  sec.classList.add("ut-anim");
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("ut-in"); io.unobserve(e.target); } }), { threshold: 0.12 });
+  sec.querySelectorAll(".ut-card, .ut-head").forEach((el) => io.observe(el));
+})();
+    </script>
+
 
 
 
