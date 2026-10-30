@@ -11614,6 +11614,109 @@ input, select, textarea {
 })();
     </script>
 
+    <style>
+  /* ===== GET IN TOUCH — DMS theme ===== */
+  .ct-v2 { background:#fff; color:#111; font-family:Inter, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased; scroll-margin-top:100px; }
+  .ct-v2 *, .ct-v2 *::before, .ct-v2 *::after { box-sizing:border-box; }
+  .ct-v2 h2, .ct-v2 p, .ct-v2 dl, .ct-v2 dd { margin:0; }
+  .ct-v2 .ct-wrap { width:min(1200px,100%); margin:0 auto; padding:40px 24px 100px; display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:56px; align-items:start; }
+  .ct-v2 .ct-kicker { display:block; font:500 13px/1.3 "IBM Plex Mono", ui-monospace, monospace; letter-spacing:.4px; text-transform:uppercase; color:#0d9b49; margin-bottom:14px; }
+  .ct-v2 .ct-title { font-size:clamp(38px,5vw,64px); font-weight:500; line-height:1; letter-spacing:-2px; color:#5f6467;
+    background:linear-gradient(180deg,#22272a 0%,#8d9296 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .ct-v2 .ct-list { margin-top:34px; display:grid; gap:22px; }
+  .ct-v2 dt, .ct-v2 .ct-dt { display:block; font-size:13px; color:#7a7a7a; margin-bottom:5px; }
+  .ct-v2 dd { font-size:17px; line-height:1.45; letter-spacing:-.3px; color:#111; }
+  .ct-v2 .ct-link { color:inherit; text-decoration:none; background:linear-gradient(#0d9b49,#0d9b49) 0 100%/0 1.5px no-repeat; transition:background-size .35s ease, color .25s ease; }
+  .ct-v2 .ct-link:hover { color:#073f2c; background-size:100% 1.5px; }
+  .ct-v2 .ct-follow { margin-top:30px; }
+  .ct-v2 .ct-socials { display:flex; gap:10px; }
+  .ct-v2 .ct-soc { width:40px; height:40px; border-radius:50%; display:grid; place-items:center; background:#111; color:#fff; transition:background .25s ease, transform .25s ease; }
+  .ct-v2 .ct-soc svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .ct-v2 .ct-soc[data-social="facebook"] svg, .ct-v2 .ct-soc[data-social="linkedin"] svg { fill:currentColor; stroke:none; }
+  .ct-v2 .ct-soc:hover { background:#073f2c; transform:translateY(-3px); }
+  .ct-v2 .ct-soc:focus-visible, .ct-v2 .ct-send:focus-visible { outline:2px solid #0d9b49; outline-offset:3px; }
+  .ct-v2 .ct-form { display:grid; gap:18px; padding-top:6px; }
+  .ct-v2 .ct-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .ct-v2 .ct-field { display:grid; gap:8px; }
+  .ct-v2 .ct-field span { font-size:13.5px; font-weight:500; color:#222; }
+  .ct-v2 .ct-field input, .ct-v2 .ct-field textarea { width:100%; font:inherit; font-size:15px; color:#111; padding:14px 16px; border-radius:12px; border:1px solid transparent; background:#f4f2ef; outline:none; resize:vertical; transition:background .25s ease, border-color .25s ease, box-shadow .25s ease; }
+  .ct-v2 .ct-field textarea { min-height:170px; }
+  .ct-v2 .ct-field input::placeholder, .ct-v2 .ct-field textarea::placeholder { color:#9a9690; }
+  .ct-v2 .ct-field input:focus, .ct-v2 .ct-field textarea:focus { background:#fff; border-color:#0d9b49; box-shadow:0 0 0 4px rgb(13 155 73 / 12%); }
+  .ct-v2 .ct-field .ct-bad { border-color:#c4302b; background:#fff7f6; }
+  .ct-v2 .ct-send { position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:16px; border:0; border-radius:12px; background:#111; color:#fff; font:inherit; font-size:15.5px; font-weight:500; cursor:pointer; transition:background .25s ease, transform .2s ease; }
+  .ct-v2 .ct-send svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:transform .25s ease; }
+  .ct-v2 .ct-send:hover { background:#073f2c; } .ct-v2 .ct-send:hover svg { transform:translateX(4px); } .ct-v2 .ct-send:active { transform:scale(.99); }
+  .ct-v2 .ct-send::after { content:""; position:absolute; inset:0; background:linear-gradient(100deg,transparent 30%,rgb(255 255 255 / 18%) 50%,transparent 70%); transform:translateX(-120%); }
+  .ct-v2 .ct-note { min-height:20px; font-size:13.5px; color:#595959; }
+  .ct-v2 .ct-note.ct-err { color:#b0281f; }
+  /* motion */
+  .ct-v2.ct-anim .ct-info > *, .ct-v2.ct-anim .ct-form > * { opacity:0; transform:translateY(18px); }
+  .ct-v2.ct-in .ct-info > *, .ct-v2.ct-in .ct-form > * { opacity:1; transform:none; transition:opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+  .ct-v2.ct-in .ct-info > :nth-child(2) { transition-delay:.08s; } .ct-v2.ct-in .ct-info > :nth-child(3) { transition-delay:.16s; } .ct-v2.ct-in .ct-info > :nth-child(4) { transition-delay:.24s; }
+  .ct-v2.ct-in .ct-form > :nth-child(1) { transition-delay:.12s; } .ct-v2.ct-in .ct-form > :nth-child(2) { transition-delay:.2s; } .ct-v2.ct-in .ct-form > :nth-child(3) { transition-delay:.28s; }
+  .ct-v2.ct-in .ct-send::after { animation:ct-shine 3.6s ease-in-out 1.4s infinite; }
+  .ct-v2.ct-in .ct-soc { animation:ct-pop .5s cubic-bezier(.3,1.6,.5,1) both; } .ct-v2.ct-in .ct-soc:nth-child(2) { animation-delay:.08s; } .ct-v2.ct-in .ct-soc:nth-child(3) { animation-delay:.16s; } .ct-v2.ct-in .ct-soc:nth-child(4) { animation-delay:.24s; }
+  @keyframes ct-shine { 0%,60% { transform:translateX(-120%); } 100% { transform:translateX(120%); } }
+  @keyframes ct-pop { from { transform:scale(.6); opacity:0; } to { transform:none; opacity:1; } }
+  @media (max-width:860px) { .ct-v2 .ct-wrap { grid-template-columns:1fr; gap:36px; padding:24px 16px 64px; } .ct-v2 .ct-title { letter-spacing:-1.3px; } }
+  @media (max-width:520px) { .ct-v2 .ct-row { grid-template-columns:1fr; } }
+  @media (prefers-reduced-motion: reduce) { .ct-v2 *, .ct-v2 *::before, .ct-v2 *::after { animation:none !important; transition:none !important; } .ct-v2.ct-anim .ct-info > *, .ct-v2.ct-anim .ct-form > * { opacity:1; transform:none; } }
+    </style>
+    <!-- GET IN TOUCH -->
+    <section class="ct-v2" id="contact" aria-labelledby="ct-title">
+      <div class="ct-wrap">
+        <div class="ct-info">
+          <span class="ct-kicker">Contact</span>
+          <h2 id="ct-title" class="ct-title">Get in touch</h2>
+          <!-- EDIT: replace the three placeholder values below with DMS contact details -->
+          <dl class="ct-list">
+            <div class="ct-item" style="--i:0"><dt>Email</dt><dd><a class="ct-link" data-field="email" href="mailto:info@example.com">info@example.com</a></dd></div>
+            <div class="ct-item" style="--i:1"><dt>Phone</dt><dd><a class="ct-link" data-field="phone" href="tel:+97300000000">+973 0000 0000</a></dd></div>
+            <div class="ct-item" style="--i:2"><dt>Address</dt><dd data-field="address">Office address, Building, Road, Block<br>Manama, Kingdom of Bahrain</dd></div>
+          </dl>
+          <div class="ct-item ct-follow" style="--i:3"><span class="ct-dt">Follow us</span><div class="ct-socials"><a class="ct-soc" href="#" data-social="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r=".9" fill="currentColor"/></svg></a><a class="ct-soc" href="#" data-social="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h2.5V4.5H14a4 4 0 0 0-4 4V11H7.5v3.5H10V21h3.5v-6.5H16l.5-3.5h-3V8.8c0-.5.3-.8.5-.8z"/></svg></a><a class="ct-soc" href="#" data-social="linkedin" aria-label="Linkedin"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="3.5" height="11"/><circle cx="5.75" cy="5.5" r="1.9"/><path d="M11 9h3.3v1.6c.6-1 1.8-1.9 3.6-1.9 3 0 3.6 2 3.6 4.6V20H18v-5.9c0-1.4-.1-2.9-1.9-2.9s-2.1 1.4-2.1 2.8V20H11z"/></svg></a><a class="ct-soc" href="#" data-social="x" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4.5l11.5 16h-4.5z"/><path d="M19.5 4 13.6 10.6M4.5 20l5.9-6.6"/></svg></a></div></div>
+        </div>
+        <form class="ct-form" id="ct-form" novalidate>
+          <div class="ct-row">
+            <label class="ct-field"><span>Your name</span><input name="name" type="text" placeholder="Your full name" autocomplete="name" required></label>
+            <label class="ct-field"><span>Email address</span><input name="email" type="email" placeholder="Your email address" autocomplete="email" required></label>
+          </div>
+          <label class="ct-field"><span>Message</span><textarea name="message" rows="6" placeholder="Write something..." required></textarea></label>
+          <button class="ct-send" type="submit">Send message <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button>
+          <p class="ct-note" id="ct-note" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <script>
+(() => {
+  const sec = document.getElementById("contact");
+  if (!sec || !sec.classList.contains("ct-v2")) return;
+  if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    sec.classList.add("ct-anim");
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { sec.classList.add("ct-in"); io.disconnect(); } }), { threshold: 0.15 });
+    io.observe(sec);
+  }
+  // Messages open the visitor's email app, addressed to the email shown above.
+  const form = document.getElementById("ct-form"), note = document.getElementById("ct-note");
+  const to = (sec.querySelector('[data-field="email"]').getAttribute("href") || "").replace(/^mailto:/, "");
+  form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    let ok = true;
+    form.querySelectorAll("input, textarea").forEach((el) => { const bad = !el.value.trim() || (el.type === "email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim())); el.classList.toggle("ct-bad", bad); if (bad) ok = false; });
+    if (!ok) { note.textContent = "Please fill in your name, a valid email and a message."; note.className = "ct-note ct-err"; return; }
+    const d = new FormData(form);
+    const body = d.get("message") + "\n\n" + d.get("name") + " (" + d.get("email") + ")";
+    window.location.href = "mailto:" + to + "?subject=" + encodeURIComponent("Website enquiry from " + d.get("name")) + "&body=" + encodeURIComponent(body);
+    note.textContent = "Your email app should open with your message ready to send.";
+    note.className = "ct-note";
+  });
+  form.querySelectorAll("input, textarea").forEach((el) => el.addEventListener("input", () => el.classList.remove("ct-bad")));
+})();
+    </script>
+
+
 
 
 
