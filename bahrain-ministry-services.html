@@ -467,6 +467,20 @@
       text-underline-offset: 4px;
     }
 
+
+    /* Mobile menu open: rounded panel instead of pill */
+    @media (max-width: 1000px) {
+      .dms-glass-nav.dg-mobile-open,
+      .dms-glass-nav.dg-mobile-open .dg-bar-glass { border-radius: 24px !important; }
+      .dms-glass-nav.dg-mobile-open .dg-bar-glass { background: rgba(255,255,255,.97) !important; animation: none; }
+    }
+
+
+    /* Keep page from shifting when the mobile menu opens */
+    .dms-nav-outer-container { height: 60px; }
+    @media (max-width: 1000px) { .dms-nav-outer-container { height: 62px; } }
+    .dms-glass-nav .dg-mobile-toggle svg[hidden] { display: none !important; }
+
     /* Mobile toggle */
     .dms-glass-nav .dg-mobile-toggle {
       display: none;
@@ -476,6 +490,13 @@
       height: 44px;
       padding: 10px;
       margin-left: auto;
+    }
+
+    .dms-glass-nav .dg-mobile-toggle,
+    .dms-glass-nav .dg-mobile-toggle:hover,
+    .dms-glass-nav .dg-mobile-toggle:focus,
+    .dms-glass-nav .dg-mobile-toggle:active {
+      margin-left: auto !important;
     }
 
     .dms-glass-nav .dg-mobile-toggle svg {
@@ -12294,8 +12315,8 @@ input, select, textarea {
           open ? "Close navigation" : "Open navigation"
         );
 
-        openIcon.hidden = open;
-        closeIcon.hidden = !open;
+        openIcon.toggleAttribute("hidden", open);
+        closeIcon.toggleAttribute("hidden", !open);
 
         if (!open) setDropdown(null);
         if (returnFocus) mobileButton.focus();
