@@ -7414,6 +7414,11 @@ input, select, textarea {
           </button>
         </div>
       </section>
+      <dl class="ab-stats" aria-label="DMS in numbers">
+        <div class="ab-stat"><dt><span data-count="40">40</span>+</dt><dd>Years in the market</dd></div>
+        <div class="ab-stat"><dt><span data-count="10000">10,000</span>+</dt><dd>Corporate clients served</dd></div>
+        <div class="ab-stat"><dt><span data-count="12000">12,000</span>+</dt><dd>Individual clients served</dd></div>
+      </dl>
     </section>
 
     <div class="visual">
@@ -7427,6 +7432,32 @@ input, select, textarea {
 
   </section>
 
+
+
+  <style>
+    .dms-about-user .ab-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:28px 0 0; padding:18px 0 0; border-top:1px solid #e3ece7; max-width:520px; font-family:Inter, "Helvetica Neue", Arial, sans-serif; }
+    .dms-about-user .ab-stat { margin:0; padding:0 16px; }
+    .dms-about-user .ab-stat:first-child { padding-left:0; }
+    .dms-about-user .ab-stat + .ab-stat { border-left:1px solid #e3ece7; }
+    .dms-about-user .ab-stat dt { margin:0; font-size:clamp(24px,2.3vw,32px); font-weight:600; letter-spacing:-1px; line-height:1; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .dms-about-user .ab-stat dd { margin:8px 0 0; font-size:13px; line-height:1.35; color:#6b6f72; }
+    @media (max-width:520px) { .dms-about-user .ab-stat { padding:0 10px; } .dms-about-user .ab-stat dt { font-size:22px; letter-spacing:-.6px; } .dms-about-user .ab-stat dd { font-size:12px; } }
+  </style>
+  <script>
+    (() => {
+      const els = document.querySelectorAll(".ab-stats [data-count]");
+      const fmt = (n) => n.toLocaleString("en-US");
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+      els.forEach(el => el.textContent = "0");
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        if (!e.isIntersecting) return; io.unobserve(e.target);
+        const el = e.target, end = +el.dataset.count, t0 = performance.now(), dur = 1800;
+        const step = (t) => { const p = Math.min(1, (t - t0) / dur); el.textContent = fmt(Math.round(end * (1 - Math.pow(1 - p, 3)))); if (p < 1) requestAnimationFrame(step); };
+        requestAnimationFrame(step);
+      }), { threshold: 0.6 });
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
 
   <!-- TRUSTED BY SECTORS -->
   <section class="tp-v2" aria-labelledby="tp-title">
