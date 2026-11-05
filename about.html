@@ -7299,6 +7299,8 @@ input, select, textarea {
     .abx-card-dark { color:#fff; background:radial-gradient(ellipse 80% 70% at 100% 0%, rgba(25,179,90,.42), transparent 60%), linear-gradient(150deg,#0b5a3d,#06321f); box-shadow:none; }
     .abx-card-dark .abx-ico { background:rgba(255,255,255,.12); color:#fff; }
     .abx-card-dark p { color:rgba(255,255,255,.8); }
+    .abx-card-dark h3, .abx-card-dark p { position:relative; z-index:1; }
+    @media (max-width:600px) { .abx-card svg.abx-flow { width:170px; top:-30px; } }
     .abx-card svg.abx-ring { position:absolute; right:-70px; top:-70px; width:240px; height:240px; opacity:.18; animation:abx-spin 60s linear infinite; }
     @keyframes abx-spin { to { transform:rotate(360deg); } }
     .abx-cta { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:clamp(28px,3.6vw,44px) clamp(24px,4vw,52px); border-radius:28px; box-shadow:0 0 0 1px #e6ebe7; }
@@ -7340,6 +7342,13 @@ input, select, textarea {
     .abw-cap svg { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
     @media (max-width:1000px) { .abw-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .abw-top { grid-template-columns:1fr; } }
     @media (max-width:600px) { .abw-grid { grid-template-columns:1fr; } .abw-top { padding:26px 22px; border-radius:22px; } .abw-big { letter-spacing:-5px; } .abw-rec-grid { grid-template-columns:1fr; } .abw-logo { height:64px; } .abw-logo img { max-height:64px; } .abw-cap { font-size:14px; } }
+  
+    .abx-card svg.abx-flow { position:absolute; right:-14px; top:-34px; width:clamp(190px,21vw,270px); height:auto; pointer-events:none; overflow:visible; }
+    .abx-flow path { fill:none; stroke:#fff; stroke-linecap:round; stroke-linejoin:round; }
+    .abx-flow-base { stroke-width:14; opacity:.07; }
+    .abx-flow-line { stroke-width:14; opacity:.16; stroke-dasharray:100; stroke-dashoffset:100; animation:abx-flow 6s cubic-bezier(.6,0,.3,1) infinite; }
+    @keyframes abx-flow { 0% { stroke-dashoffset:100; } 45%,60% { stroke-dashoffset:0; } 100% { stroke-dashoffset:-100; } }
+    @media (prefers-reduced-motion: reduce) { .abx-flow-line { animation:none; stroke-dashoffset:0; } }
   </style>
 
   <main id="main">
@@ -7394,8 +7403,8 @@ input, select, textarea {
           <p>To be recognized as the premier provider of government relations services and global visa assistance in the Kingdom, delivering unparalleled efficiency in navigating complex governmental processes.</p>
         </article>
         <article class="abx-card abx-card-dark abx-rv" style="--i:1">
-          <svg class="abx-ring" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="110" fill="none" stroke="#fff" stroke-dasharray="3 8"/><circle cx="120" cy="120" r="70" fill="none" stroke="#fff" stroke-dasharray="3 8"/></svg>
-          <span class="abx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/><path d="m15 9 6-6M18 3h3v3"/></svg></span>
+          <svg class="abx-flow" viewBox="0 0 340 240" preserveAspectRatio="xMaxYMin meet" aria-hidden="true"><path class="abx-flow-base" d="M10 205 C 60 185, 95 150, 112 112 C 130 70, 120 30, 92 30 C 62 30, 58 75, 92 98 C 130 124, 185 92, 225 70 C 260 52, 300 48, 340 56"/><path class="abx-flow-line" pathLength="100" d="M10 205 C 60 185, 95 150, 112 112 C 130 70, 120 30, 92 30 C 62 30, 58 75, 92 98 C 130 124, 185 92, 225 70 C 260 52, 300 48, 340 56"/></svg>
+          <span class="abx-ico" style="position:relative;z-index:1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/><path d="m15 9 6-6M18 3h3v3"/></svg></span>
           <h3>Mission</h3>
           <p>To deliver exceptional and secure services that go beyond our clients’ expectations. With our experienced team, we are dedicated to maintaining the highest levels of confidentiality and responsibility, ensuring every client is fully satisfied with our work.</p>
         </article>
