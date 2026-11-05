@@ -6858,7 +6858,9 @@ input, select, textarea {
 
     /* FOURTH CARD: Family visa (KSA Iqama) */
     .dms-gold-stack .dgs-card-family .dgs-family-visual { background:radial-gradient(ellipse at 60% 85%, #e9efe9 0%, #f3f2ee 45%, var(--card-bg) 75%); }
-    .dms-gold-stack .dgs-card-family .dgs-family-img { inset:auto 0 0 0; top:6%; height:94%; object-fit:contain; object-position:center bottom; filter:drop-shadow(0 18px 24px rgba(40,35,25,.14)); }
+    .dms-gold-stack .dgs-card-family .dgs-family-visual { overflow:visible; position:relative; z-index:2; }
+    .dms-gold-stack .dgs-card-family .dgs-family-img { inset:auto 0 0 auto; width:112%; max-width:none; height:auto; object-fit:contain; -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 14%, #000 94%, transparent 100%); mask-image:linear-gradient(90deg, transparent 0, #000 14%, #000 94%, transparent 100%); }
+    @media (max-width: 900px) { .dms-gold-stack .dgs-card-family .dgs-family-img { width:100%; } }
     .dms-gold-stack .dgs-card-family:hover .dgs-family-img { transform:scale(1.03); transform-origin:center bottom; }
     @media (max-width: 900px) { .dms-gold-stack .dgs-card-family .dgs-family-visual { min-height:320px; } }
 
@@ -7896,8 +7898,8 @@ input, select, textarea {
               <!-- EDIT: change this image to update the card -->
               <img
                 class="dgs-attestation-img dgs-family-img"
-                src="assets/family-joining.png"
-                alt="Family travelling together on a Bahrain family visa"
+                src="assets/family-joining-bahrain.webp"
+                alt="Family enjoying the beach in Bahrain with the Manama skyline behind"
                 loading="lazy"
               >
             </div>
