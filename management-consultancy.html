@@ -7308,6 +7308,35 @@ input, select, textarea {
     @media (max-width:760px) { .crh { margin-top:-62px; min-height:640px; } .crh-bg { object-position:62% 30%; } .crh-title { letter-spacing:-1px; } .crh-pill-1 { left:6%; top:15%; } .crh-pill-2 { right:6%; top:22%; } .crh-btn { min-width:0; padding:14px 22px; font-size:15px; } }
     @media (prefers-reduced-motion: reduce) { .crh-bg, .crh-pill, .crh-copy > * { animation:none; opacity:1; transform:none; } }
 
+
+    /* Light hero (towers) */
+    .mch { position:relative; overflow:hidden; margin:-60px 0 clamp(48px,6vw,90px); padding:clamp(120px,11vw,150px) 0 0; text-align:center; font-family:Inter, "Helvetica Neue", Arial, sans-serif; color:#111;
+      background:radial-gradient(ellipse 60% 50% at 15% 20%, #e9f6ef 0%, transparent 70%), radial-gradient(ellipse 60% 55% at 90% 30%, #e7eef8 0%, transparent 70%), linear-gradient(180deg,#f6faf8 0%,#eef3f6 100%); }
+    .mch-copy { width:min(1100px, 92%); margin:0 auto; position:relative; z-index:2; }
+    .mch-kicker { margin:0 0 14px; font:500 13px/1.3 "IBM Plex Mono", ui-monospace, monospace; letter-spacing:.5px; text-transform:uppercase; color:#0d9b49; }
+    .mch-title { margin:0; font-size:clamp(32px,4.6vw,66px); font-weight:500; line-height:1.06; letter-spacing:-2px; color:#111; }
+    .mch-tag { margin:16px auto 0; max-width:640px; font-size:clamp(15px,1.4vw,19px); line-height:1.45; color:#4a4a4a; }
+    .mch-actions { display:flex; justify-content:center; align-items:center; gap:28px; margin-top:24px; }
+    .mch-btn { padding:13px 26px; border-radius:9999px; background:linear-gradient(180deg,#19b35a,#0d9b49); color:#fff; font-size:16px; font-weight:500; text-decoration:none; box-shadow:0 10px 22px rgba(13,155,73,.28); transition:transform .25s ease, box-shadow .25s ease; }
+    .mch-btn:hover { transform:translateY(-2px); box-shadow:0 14px 26px rgba(13,155,73,.34); }
+    .mch-link { color:#333; font-size:16px; text-decoration:none; } .mch-link:hover { color:#073f2c; text-decoration:underline; text-underline-offset:4px; }
+    .mch-btn:focus-visible, .mch-link:focus-visible { outline:2px solid #0d9b49; outline-offset:3px; }
+    .mch-stage { position:relative; width:min(1180px, 100%); margin:clamp(10px,2vw,24px) auto 0; }
+    .mch-art { display:block; width:100%; height:auto; -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%), linear-gradient(180deg,transparent 0,#000 14%); -webkit-mask-composite:source-in; mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%), linear-gradient(180deg,transparent 0,#000 14%); mask-composite:intersect; animation:mch-rise 1.2s cubic-bezier(.16,1,.3,1) .2s both; }
+    .mch-card { position:absolute; display:flex; align-items:center; gap:14px; padding:16px 22px; border-radius:16px; background:rgba(255,255,255,.96); box-shadow:0 18px 40px rgba(30,50,40,.12), 0 0 0 1px rgba(0,0,0,.03); text-align:left; animation:mch-pop .8s cubic-bezier(.3,1.4,.5,1) both, mch-float 6s ease-in-out infinite; }
+    .mch-card svg { flex:0 0 30px; width:30px; height:30px; fill:none; stroke:#0d9b49; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .mch-card b { display:block; font-size:clamp(14px,1.25vw,18px); font-weight:600; letter-spacing:-.3px; } .mch-card small { display:block; margin-top:2px; font-size:clamp(12px,1vw,15px); color:#666; }
+    .mch-c1 { left:21%; top:16%; transform:rotate(3deg); animation-delay:.6s, 1.4s; } .mch-c2 { right:19%; top:22%; transform:rotate(-3deg); animation-delay:.75s, 2.2s; } .mch-c3 { left:19%; top:58%; transform:rotate(2deg); animation-delay:.9s, 3s; }
+    .mch-spark { position:absolute; width:14px; height:14px; background:#fff; transform:rotate(45deg); border-radius:3px; box-shadow:0 2px 8px rgba(0,0,0,.06); animation:mch-twinkle 3s ease-in-out infinite; } .mch-s1 { left:16.5%; top:16%; } .mch-s2 { right:16.5%; top:28%; animation-delay:1.5s; }
+    .mch-copy > * { opacity:0; transform:translateY(16px); animation:mch-up .9s cubic-bezier(.16,1,.3,1) forwards; }
+    .mch-copy > :nth-child(2) { animation-delay:.08s; } .mch-copy > :nth-child(3) { animation-delay:.16s; } .mch-copy > :nth-child(4) { animation-delay:.24s; }
+    @keyframes mch-up { to { opacity:1; transform:none; } }
+    @keyframes mch-rise { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:none; } }
+    @keyframes mch-pop { from { opacity:0; scale:.85; } to { opacity:1; scale:1; } }
+    @keyframes mch-float { 0%,100% { translate:0 0; } 50% { translate:0 -8px; } }
+    @keyframes mch-twinkle { 0%,100% { opacity:.4; scale:.8; } 50% { opacity:1; scale:1.1; } }
+    @media (max-width:760px) { .mch { margin-top:-62px; } .mch-title { letter-spacing:-1.1px; } .mch-stage { margin-top:20px; } .mch-card { padding:7px 10px; gap:7px; border-radius:10px; } .mch-card svg { width:16px; height:16px; flex-basis:16px; } .mch-card b { font-size:11.5px; } .mch-card small { display:none; } .mch-c1 { left:1%; top:10%; } .mch-c2 { right:1%; top:30%; } .mch-c3 { left:1%; top:56%; } .mch-spark { display:none; } }
+    @media (prefers-reduced-motion: reduce) { .mch-art, .mch-card, .mch-spark, .mch-copy > * { animation:none; opacity:1; transform:none; } .mch-c1 { transform:rotate(3deg); } .mch-c2 { transform:rotate(-3deg); } .mch-c3 { transform:rotate(2deg); } }
     .mc-bg { object-position:center 35%; }
     .mc-item b { display:block; font-weight:600; font-size:16px; letter-spacing:-.3px; }
     .mc-item small { display:block; margin-top:3px; font-size:14px; line-height:1.45; color:#595959; }
@@ -7317,20 +7346,23 @@ input, select, textarea {
 
   <main id="main">
     <!-- MANAGEMENT CONSULTANCY HERO -->
-    <section class="crh" aria-labelledby="mc-title">
-      <!-- EDIT: hero background image -->
-      <img class="crh-bg mc-bg" src="assets/management-consultancy-hero.jpg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
-      <div class="crh-shade" aria-hidden="true"></div>
-      <span class="crh-pill crh-pill-1" aria-hidden="true">Clear guidance</span>
-      <span class="crh-pill crh-pill-2" aria-hidden="true">Confident management</span>
-      <div class="crh-copy">
-        <p class="crh-kicker">Management and Administration Consultancy</p>
-        <h1 id="mc-title" class="crh-title">Clear Guidance. Informed Decisions.<br>Confident Management.</h1>
-        <p class="crh-tag">Consultation on requirements and policies, so your management can comply with government regulations.</p>
-        <div class="crh-actions">
-          <a class="crh-btn crh-btn-white" href="#mc-services">Explore services</a>
-          <a class="crh-btn crh-btn-ghost" href="bahrain-ministry-services.html#contact">Talk to DMS</a>
+    <section class="mch" aria-labelledby="mc-title">
+      <div class="mch-copy">
+        <p class="mch-kicker">Management and Administration Consultancy</p>
+        <h1 id="mc-title" class="mch-title">Clear Guidance. Informed Decisions.<br>Confident Management.</h1>
+        <p class="mch-tag">Consultation on requirements and policies, so your management can comply with government regulations.</p>
+        <div class="mch-actions">
+          <a class="mch-btn" href="#mc-services">Explore services</a>
+          <a class="mch-link" href="bahrain-ministry-services.html#contact">Talk to DMS</a>
         </div>
+      </div>
+      <div class="mch-stage">
+        <!-- EDIT: hero artwork -->
+        <img class="mch-art" src="assets/management-consultancy-art.jpg" alt="Bahrain World Trade Center towers with DMS documents" width="1585" height="692" fetchpriority="high" decoding="async">
+        <div class="mch-card mch-c1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.2 5.6L20 9l-4.5 3.8L17 19l-5-3.2L7 19l1.5-6.2L4 9l5.8-.4z"/></svg><span><b>Clear guidance</b><small>Requirements explained</small></span></div>
+        <div class="mch-card mch-c2"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.7 2.7L16 9.5"/></svg><span><b>Compliance in view</b><small>Policies made clear</small></span></div>
+        <div class="mch-card mch-c3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg><span><b>Confident management</b><small>Right decisions, right time</small></span></div>
+        <span class="mch-spark mch-s1" aria-hidden="true"></span><span class="mch-spark mch-s2" aria-hidden="true"></span>
       </div>
     </section>
 
