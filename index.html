@@ -6345,7 +6345,7 @@ input, select, textarea {
     }
 
     .dms-gold-stack {
-      --card-bg: #ffffff;
+      --card-bg: #f1f8f4;
       --radius: 28px;
       --stack-top: 90px;
       --stack-step: 22px;
@@ -6804,9 +6804,9 @@ input, select, textarea {
       background: linear-gradient(
         to right,
         var(--card-bg) 0%,
-        rgba(255, 255, 255, 0.95) 12%,
-        rgba(255, 255, 255, 0.6) 28%,
-        rgba(255, 255, 255, 0.15) 45%,
+        rgba(241, 248, 244, 0.95) 12%,
+        rgba(241, 248, 244, 0.6) 28%,
+        rgba(241, 248, 244, 0.15) 45%,
         transparent 65%
       );
     }
@@ -6847,7 +6847,7 @@ input, select, textarea {
         background: linear-gradient(
           to bottom,
           var(--card-bg) 0%,
-          rgba(255, 255, 255, 0.7) 20%,
+          rgba(241, 248, 244, 0.7) 20%,
           transparent 50%
         );
       }
@@ -6859,7 +6859,7 @@ input, select, textarea {
     @media (min-width: 901px) {
       .dms-gold-stack .dgs-card,
       .dms-gold-stack .dgs-card-attestation,
-      .dgs-card-global-visa { height:570px; min-height:570px; }
+      .dgs-card-global-visa { height:500px; min-height:500px; }
       .dms-gold-stack .dgs-card-attestation { justify-content:stretch; }
       .dms-gold-stack .dgs-attestation-grid { flex:1; height:100%; min-height:0; }
       .dms-gold-stack .dgs-attestation-visual { min-height:0; }
@@ -6868,8 +6868,14 @@ input, select, textarea {
     }
 
 
+
+    /* Stack cards: compact, theme green gradient */
+    .dms-gold-stack .dgs-card { background:linear-gradient(115deg,#f1f8f4 0%,#f1f8f4 40%,#e4f3ea 78%,#d8eee1 100%); box-shadow:0 0 0 1px rgba(13,155,73,.13), 0 3px 10px rgb(7 63 44 / 3%), 0 14px 32px rgb(7 63 44 / 6%); }
+    .dms-gold-stack .dgs-card-family .dgs-family-visual { background:transparent; }
+    .dgs-card-global-visa .visa-card { background:transparent; }
+    .dms-gold-stack .dgs-heading, .dgs-card-global-visa .visa-heading { font-size:clamp(28px,3vw,40px); }
     /* FOURTH CARD: Family visa (KSA Iqama) */
-    .dms-gold-stack .dgs-card-family .dgs-family-visual { background:#fff; }
+    .dms-gold-stack .dgs-card-family .dgs-family-visual { background:transparent; }
     .dms-gold-stack .dgs-card-family .dgs-family-visual { overflow:visible; position:relative; z-index:2; }
     .dms-gold-stack .dgs-card-family .dgs-family-img { inset:auto 0 0 auto; width:112%; max-width:none; height:auto; object-fit:contain; -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 14%, #000 94%, transparent 100%); mask-image:linear-gradient(90deg, transparent 0, #000 14%, #000 94%, transparent 100%); }
     @media (max-width: 900px) { .dms-gold-stack .dgs-card-family .dgs-family-img { width:100%; } }
