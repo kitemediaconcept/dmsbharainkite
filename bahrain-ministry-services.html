@@ -11695,16 +11695,15 @@ input, select, textarea {
   @media (prefers-reduced-motion: reduce) { .ct-v2 *, .ct-v2 *::before, .ct-v2 *::after { animation:none !important; transition:none !important; } .ct-v2.ct-anim .ct-info > *, .ct-v2.ct-anim .ct-form > * { opacity:1; transform:none; } }
     </style>
     <!-- GET IN TOUCH -->
-    <section class="ct-v2" id="contact" aria-labelledby="ct-title">
+    <section class="ct-v2" id="contact" aria-labelledby="gt-title">
       <div class="ct-wrap">
         <div class="ct-info">
           <span class="ct-kicker">Contact</span>
-          <h2 id="ct-title" class="ct-title">Get in touch</h2>
-          <!-- EDIT: replace the three placeholder values below with DMS contact details -->
+          <h2 id="gt-title" class="ct-title">Get in touch</h2>
           <dl class="ct-list">
-            <div class="ct-item" style="--i:0"><dt>Email</dt><dd><a class="ct-link" data-field="email" href="mailto:info@example.com">info@example.com</a></dd></div>
-            <div class="ct-item" style="--i:1"><dt>Phone</dt><dd><a class="ct-link" data-field="phone" href="tel:+97300000000">+973 0000 0000</a></dd></div>
-            <div class="ct-item" style="--i:2"><dt>Address</dt><dd data-field="address">Office address, Building, Road, Block<br>Manama, Kingdom of Bahrain</dd></div>
+            <div class="ct-item" style="--i:0"><dt>Email</dt><dd><a class="ct-link" data-field="email" href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></dd></div>
+            <div class="ct-item" style="--i:1"><dt>Phone</dt><dd><a class="ct-link" data-field="phone" href="tel:+97317290001">+973 17290001</a></dd></div>
+            <div class="ct-item" style="--i:2"><dt>Address</dt><dd data-field="address">Office No 21, Building 08, Road 1901, Block 319<br>Kingdom Tower, Manama, Bahrain</dd></div>
           </dl>
           <div class="ct-item ct-follow" style="--i:3"><span class="ct-dt">Follow us</span><div class="ct-socials"><a class="ct-soc" href="#" data-social="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r=".9" fill="currentColor"/></svg></a><a class="ct-soc" href="#" data-social="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h2.5V4.5H14a4 4 0 0 0-4 4V11H7.5v3.5H10V21h3.5v-6.5H16l.5-3.5h-3V8.8c0-.5.3-.8.5-.8z"/></svg></a><a class="ct-soc" href="#" data-social="linkedin" aria-label="Linkedin"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="3.5" height="11"/><circle cx="5.75" cy="5.5" r="1.9"/><path d="M11 9h3.3v1.6c.6-1 1.8-1.9 3.6-1.9 3 0 3.6 2 3.6 4.6V20H18v-5.9c0-1.4-.1-2.9-1.9-2.9s-2.1 1.4-2.1 2.8V20H11z"/></svg></a><a class="ct-soc" href="#" data-social="x" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4.5l11.5 16h-4.5z"/><path d="M19.5 4 13.6 10.6M4.5 20l5.9-6.6"/></svg></a></div></div>
         </div>
@@ -12386,6 +12385,7 @@ input, select, textarea {
       });
     })();
 
+  if (document.querySelector(".banner-track")) {
     // ==========================================
     // BANNER CAROUSEL SCRIPT
     // ==========================================
@@ -12740,6 +12740,7 @@ input, select, textarea {
     showSlide(0);
     updatePauseButton();
     requestAnimationFrame(animate);
+  }
 
     // Mobile navbar
     const menuButton = document.querySelector(".menu-toggle");
