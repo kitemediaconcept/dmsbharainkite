@@ -7390,73 +7390,107 @@ input, select, textarea {
     </div>
   </section>
 
-  <!-- DMS ABOUT US SECTION (User Specification - City Theme) -->
-  <section class="dms-about-user" id="about" aria-label="About Diplomat Management Services">
+  <!-- DMS ABOUT US SECTION (ribbon design) -->
+  <section class="abr" id="about" aria-label="About Diplomat Management Services">
+    <svg class="abr-ribbon" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="abr-g" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#0b5a3d"/><stop offset=".35" stop-color="#19b35a"/><stop offset=".55" stop-color="#0d9b49"/><stop offset=".8" stop-color="#2fc56d"/><stop offset="1" stop-color="#073f2c"/>
+        </linearGradient>
+        <linearGradient id="abr-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      </defs>
+      <path class="abr-shadow" pathLength="1" d="M -60 640 C 250 640, 470 560, 560 400 C 640 250, 610 50, 530 56 C 440 64, 480 300, 660 345 C 820 378, 930 250, 985 150 C 1040 50, 1130 0, 1270 -40"/>
+      <path class="abr-band" pathLength="1" d="M -60 640 C 250 640, 470 560, 560 400 C 640 250, 610 50, 530 56 C 440 64, 480 300, 660 345 C 820 378, 930 250, 985 150 C 1040 50, 1130 0, 1270 -40"/>
+      <path class="abr-shine" pathLength="1" d="M -60 640 C 250 640, 470 560, 560 400 C 640 250, 610 50, 530 56 C 440 64, 480 300, 660 345 C 820 378, 930 250, 985 150 C 1040 50, 1130 0, 1270 -40"/>
+    </svg>
 
-    <section class="intro" aria-labelledby="about-title">
-      <img
-        class="anniversary"
-        src="assets/40-years-excellence-trim.png"
-        alt="Diplomat — 40 years of excellence"
-        width="861"
-        height="245"
-        loading="lazy"
-      >
-
-      <p class="subtitle">
-        Business support, government relations and global visa assistance.
-      </p>
-
-      <section class="about" aria-label="About DMS">
-        <div class="description">
-          <p style="margin: 0;">
-            More than 40 years of experience helping businesses and individuals navigate compliance, employee administration and government procedures in Bahrain.
-          </p>
-          <div class="read-more-text" id="about-read-more-content">
-            <p style="margin: 8px 0 0;">
-              Founded with a commitment to excellence, Diplomat Management Services provides comprehensive corporate structuring, full liaison with ministries, licensing, and end-to-end immigration solutions tailored to multinational corporations and ambitious enterprises in the Kingdom of Bahrain.
-            </p>
-          </div>
-          <button
-            type="button"
-            class="read-more-toggle"
-            id="read-more"
-            onclick="var c = document.getElementById('about-read-more-content'); var isExp = c.style.display === 'block'; c.style.display = isExp ? 'none' : 'block'; this.textContent = isExp ? 'Read more \u2192' : 'Read less \u2191'; this.setAttribute('aria-expanded', !isExp);"
-            aria-expanded="false"
-            aria-controls="about-read-more-content"
-          >
-            Read more &rarr;
-          </button>
+    <div class="abr-inner">
+      <div class="abr-left">
+        <span class="abr-pill">About us</span>
+        <h2 class="abr-title">Your strategic partner in Bahrain.</h2>
+        <div class="abr-forty" aria-label="40 years of excellence">
+          <span class="abr-num" data-count40="40" aria-hidden="true">40</span>
+          <span class="abr-years">Years of excellence</span>
         </div>
-      </section>
-      <dl class="ab-stats" aria-label="DMS in numbers">
-        <div class="ab-stat"><dt><span data-count="40">40</span>+</dt><dd>Years in the market</dd></div>
-        <div class="ab-stat"><dt><span data-count="10000">10,000</span>+</dt><dd>Corporate clients served</dd></div>
-        <div class="ab-stat"><dt><span data-count="12000">12,000</span>+</dt><dd>Individual clients served</dd></div>
-      </dl>
-    </section>
+      </div>
 
-    <div class="visual">
-      <img
-        class="skyline"
-        src="assets/Mint%20Logo%20Over%20Twin-Tower%20Waterfront%20Skyline.png"
-        alt="Mint Logo Over Twin-Tower Waterfront Skyline"
-        loading="lazy"
-      >
+      <div class="abr-glass">
+        <p class="subtitle">Business support, government relations and global visa assistance.</p>
+        <div class="description">
+          <p>More than 40 years of experience helping businesses and individuals navigate compliance, employee administration and government procedures in Bahrain.</p>
+          <div class="read-more-text" id="about-read-more-content">
+            <p>Founded with a commitment to excellence, Diplomat Management Services provides comprehensive corporate structuring, full liaison with ministries, licensing, and end-to-end immigration solutions tailored to multinational corporations and ambitious enterprises in the Kingdom of Bahrain.</p>
+          </div>
+          <button type="button" class="read-more-toggle" id="read-more" aria-expanded="false" aria-controls="about-read-more-content"
+            onclick="var c=document.getElementById('about-read-more-content');var x=c.style.display==='block';c.style.display=x?'none':'block';this.textContent=x?'Read more \u2192':'Read less \u2191';this.setAttribute('aria-expanded',!x);">Read more &rarr;</button>
+        </div>
+        <dl class="ab-stats" aria-label="DMS in numbers">
+          <div class="ab-stat"><dt><span data-count="40">40</span>+</dt><dd>Years in the market</dd></div>
+          <div class="ab-stat"><dt><span data-count="10000">10,000</span>+</dt><dd>Corporate clients served</dd></div>
+          <div class="ab-stat"><dt><span data-count="12000">12,000</span>+</dt><dd>Individual clients served</dd></div>
+        </dl>
+      </div>
     </div>
-
   </section>
 
-
+  <style>
+    .abr { position:relative; overflow:hidden; isolation:isolate; padding:clamp(70px,8vw,120px) 0 clamp(110px,11vw,160px); background:#fff; font-family:Inter, "Helvetica Neue", Arial, sans-serif; color:#111; }
+    .abr-ribbon { position:absolute; inset:0; width:100%; height:100%; z-index:0; overflow:visible; pointer-events:none; }
+    .abr-ribbon path { fill:none; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1 1; stroke-dashoffset:var(--abr-off,1); }
+    .abr-shadow { stroke:rgba(7,63,44,.18); stroke-width:96; filter:blur(10px); transform:translate(0,14px); }
+    .abr-band { stroke:url(#abr-g); stroke-width:84; }
+    .abr-shine { stroke:url(#abr-h); stroke-width:20; opacity:.7; transform:translate(-6px,-14px); }
+    .abr-inner { position:relative; z-index:1; width:min(1200px, calc(100% - 48px)); margin:0 auto; display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(28px,5vw,80px); align-items:center; }
+    .abr-pill { display:inline-block; padding:10px 22px; border-radius:9999px; color:#fff; font-size:17px; font-weight:500; background:linear-gradient(135deg,#19b35a,#0d9b49 50%,#073f2c); box-shadow:0 8px 20px rgba(13,155,73,.22); }
+    .abr-title { margin:18px 0 0; max-width:420px; font-size:clamp(30px,3.4vw,46px); font-weight:500; line-height:1.08; letter-spacing:-1.4px; color:#111; }
+    .abr-forty { margin-top:clamp(18px,2.4vw,30px); display:inline-flex; flex-direction:column; }
+    .abr-num { font-size:clamp(130px,16vw,220px); font-weight:600; line-height:.82; letter-spacing:-10px; color:#0d9b49; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-variant-numeric:tabular-nums; }
+    .abr-years { margin-top:12px; font-size:clamp(15px,1.5vw,22px); font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:#1d2124; text-shadow:0 0 12px #fff, 0 0 4px #fff; }
+    .abr-glass { padding:clamp(22px,2.8vw,36px); border-radius:26px; background:rgba(255,255,255,.62); -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%); box-shadow:inset 0 0 0 1px rgba(255,255,255,.7), 0 20px 50px rgba(7,63,44,.10); }
+    .abr-glass .subtitle { margin:0; font-size:clamp(18px,1.7vw,22px); line-height:1.35; letter-spacing:-.4px; color:#111; }
+    .abr-glass .description p { margin:16px 0 0; font-size:15px; line-height:1.6; color:#3d4245; }
+    .abr-glass .read-more-text { display:none; }
+    .abr-glass .read-more-toggle { margin-top:14px; padding:0; border:0; background:none; font:inherit; font-size:14px; font-weight:600; color:#0d6b3a; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+    .abr-glass .ab-stats { max-width:none; margin-top:22px; border-top-color:rgba(13,155,73,.18); }
+    .abr-glass .ab-stat + .ab-stat { border-left-color:rgba(13,155,73,.18); }
+    @media (max-width:600px) { .abr-ribbon { opacity:.28; } .abr .ab-stat dt { font-size:17px !important; letter-spacing:-.4px !important; } .abr .ab-stat { padding:0 6px !important; } .abr .ab-stat:first-child { padding-left:0 !important; } .abr-glass { padding:20px 18px; } }
+    @media (max-width:900px) { .abr-inner { grid-template-columns:1fr; } .abr-num { letter-spacing:-6px; } .abr-shadow { stroke-width:70; } .abr-band { stroke-width:60; } .abr-shine { stroke-width:14; } }
+    @media (prefers-reduced-motion: reduce) { .abr-ribbon path { --abr-off:0; } }
+  </style>
+  <script>
+    (() => {
+      const sec = document.querySelector(".abr"); if (!sec) return;
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      // ribbon draws from first end to last end as the section scrolls through
+      const upd = () => {
+        const r = sec.getBoundingClientRect(), vh = innerHeight;
+        const p = reduce ? 1 : Math.max(0, Math.min(1, (vh - r.top) / (vh * .55 + r.height * .6)));
+        sec.style.setProperty("--abr-off", (1 - p).toFixed(4));
+      };
+      addEventListener("scroll", upd, { passive:true }); addEventListener("resize", upd); upd();
+      // big 40 count-up
+      const n = sec.querySelector("[data-count40]");
+      if (n && !reduce && "IntersectionObserver" in window) {
+        n.textContent = "0";
+        const io = new IntersectionObserver(es => es.forEach(e => {
+          if (!e.isIntersecting) return; io.disconnect();
+          const t0 = performance.now(), d = 1800;
+          const step = t => { const q = Math.min(1, (t - t0) / d); n.textContent = Math.round(40 * (1 - Math.pow(1 - q, 3))); if (q < 1) requestAnimationFrame(step); };
+          requestAnimationFrame(step);
+        }), { threshold: .5 });
+        io.observe(n);
+      }
+    })();
+  </script>
 
   <style>
-    .dms-about-user .ab-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:28px 0 0; padding:18px 0 0; border-top:1px solid #e3ece7; max-width:520px; font-family:Inter, "Helvetica Neue", Arial, sans-serif; }
-    .dms-about-user .ab-stat { margin:0; padding:0 16px; }
-    .dms-about-user .ab-stat:first-child { padding-left:0; }
-    .dms-about-user .ab-stat + .ab-stat { border-left:1px solid #e3ece7; }
-    .dms-about-user .ab-stat dt { margin:0; font-size:clamp(24px,2.3vw,32px); font-weight:600; letter-spacing:-1px; line-height:1; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-variant-numeric:tabular-nums; white-space:nowrap; }
-    .dms-about-user .ab-stat dd { margin:8px 0 0; font-size:13px; line-height:1.35; color:#6b6f72; }
-    @media (max-width:520px) { .dms-about-user .ab-stat { padding:0 10px; } .dms-about-user .ab-stat dt { font-size:22px; letter-spacing:-.6px; } .dms-about-user .ab-stat dd { font-size:12px; } }
+    .abr .ab-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:28px 0 0; padding:18px 0 0; border-top:1px solid #e3ece7; max-width:520px; font-family:Inter, "Helvetica Neue", Arial, sans-serif; }
+    .abr .ab-stat { margin:0; padding:0 16px; }
+    .abr .ab-stat:first-child { padding-left:0; }
+    .abr .ab-stat + .ab-stat { border-left:1px solid #e3ece7; }
+    .abr .ab-stat dt { margin:0; font-size:clamp(24px,2.3vw,32px); font-weight:600; letter-spacing:-1px; line-height:1; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .abr .ab-stat dd { margin:8px 0 0; font-size:13px; line-height:1.35; color:#6b6f72; }
+    @media (max-width:520px) { .abr .ab-stat { padding:0 10px; } .abr .ab-stat dt { font-size:22px; letter-spacing:-.6px; } .abr .ab-stat dd { font-size:12px; } }
   </style>
   <script>
     (() => {
