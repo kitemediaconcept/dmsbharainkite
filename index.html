@@ -7408,9 +7408,9 @@ input, select, textarea {
       <div class="abr-left">
         <span class="abr-pill">About us</span>
         <h2 class="abr-title">Your strategic partner in Bahrain.</h2>
-        <div class="abr-forty" aria-label="40 years of excellence">
-          <span class="abr-num" data-count40="40" aria-hidden="true">40</span>
-          <span class="abr-years">Years of excellence</span>
+        <div class="abr-forty" role="img" aria-label="40 years of excellence">
+          <img src="assets/forty-excellence.png" alt="" width="436" height="245" loading="lazy">
+          <span class="abr-count" aria-hidden="true"><span data-count40="40">0</span></span>
         </div>
       </div>
 
@@ -7443,9 +7443,11 @@ input, select, textarea {
     .abr-inner { position:relative; z-index:1; width:min(1200px, calc(100% - 48px)); margin:0 auto; display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(28px,5vw,80px); align-items:center; }
     .abr-pill { display:inline-block; padding:10px 22px; border-radius:9999px; color:#fff; font-size:17px; font-weight:500; background:linear-gradient(135deg,#19b35a,#0d9b49 50%,#073f2c); box-shadow:0 8px 20px rgba(13,155,73,.22); }
     .abr-title { margin:18px 0 0; max-width:420px; font-size:clamp(30px,3.4vw,46px); font-weight:500; line-height:1.08; letter-spacing:-1.4px; color:#111; }
-    .abr-forty { margin-top:clamp(18px,2.4vw,30px); display:inline-flex; flex-direction:column; }
-    .abr-num { font-size:clamp(130px,16vw,220px); font-weight:600; line-height:.82; letter-spacing:-10px; color:#0d9b49; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-variant-numeric:tabular-nums; }
-    .abr-years { margin-top:12px; font-size:clamp(15px,1.5vw,22px); font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:#1d2124; text-shadow:0 0 12px #fff, 0 0 4px #fff; }
+    .abr-forty { --w:clamp(250px,30vw,430px); position:relative; display:block; width:var(--w); margin-top:clamp(22px,2.6vw,34px); }
+    .abr-forty img { display:block; width:100%; height:auto; }
+    .abr-count { position:absolute; left:0; top:0; width:84%; height:84%; display:flex; align-items:flex-end; justify-content:center; background:#fff; transition:opacity .45s ease; }
+    .abr-count span { font-family:Inter, "Helvetica Neue", Arial, sans-serif; font-size:calc(var(--w) * .58); font-weight:800; line-height:.74; letter-spacing:-.05em; color:#0a9442; font-variant-numeric:tabular-nums; transform:translateY(2%); }
+    .abr-count.is-done { opacity:0; pointer-events:none; }
     .abr-glass { padding:clamp(22px,2.8vw,36px); border-radius:26px; background:rgba(255,255,255,.62); -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%); box-shadow:inset 0 0 0 1px rgba(255,255,255,.7), 0 20px 50px rgba(7,63,44,.10); }
     .abr-glass .subtitle { margin:0; font-size:clamp(18px,1.7vw,22px); line-height:1.35; letter-spacing:-.4px; color:#111; }
     .abr-glass .description p { margin:16px 0 0; font-size:15px; line-height:1.6; color:#3d4245; }
@@ -7454,7 +7456,7 @@ input, select, textarea {
     .abr-glass .ab-stats { max-width:none; margin-top:22px; border-top-color:rgba(13,155,73,.18); }
     .abr-glass .ab-stat + .ab-stat { border-left-color:rgba(13,155,73,.18); }
     @media (max-width:600px) { .abr-ribbon { opacity:.28; } .abr .ab-stat dt { font-size:17px !important; letter-spacing:-.4px !important; } .abr .ab-stat { padding:0 6px !important; } .abr .ab-stat:first-child { padding-left:0 !important; } .abr-glass { padding:20px 18px; } }
-    @media (max-width:900px) { .abr-inner { grid-template-columns:1fr; } .abr-num { letter-spacing:-6px; } .abr-shadow { stroke-width:70; } .abr-band { stroke-width:60; } .abr-shine { stroke-width:14; } }
+    @media (max-width:900px) { .abr-inner { grid-template-columns:1fr; } .abr-shadow { stroke-width:70; } .abr-band { stroke-width:60; } .abr-shine { stroke-width:14; } }
     @media (prefers-reduced-motion: reduce) { .abr-ribbon path { --abr-off:0; } }
   </style>
   <script>
@@ -7468,17 +7470,17 @@ input, select, textarea {
         sec.style.setProperty("--abr-off", (1 - p).toFixed(4));
       };
       addEventListener("scroll", upd, { passive:true }); addEventListener("resize", upd); upd();
-      // big 40 count-up
-      const n = sec.querySelector("[data-count40]");
-      if (n && !reduce && "IntersectionObserver" in window) {
-        n.textContent = "0";
+      // big 40 count-up, then reveal the exact 40 artwork
+      const cnt = sec.querySelector(".abr-count"), n = sec.querySelector("[data-count40]");
+      if (!cnt || reduce || !("IntersectionObserver" in window)) { cnt && cnt.classList.add("is-done"); }
+      else {
         const io = new IntersectionObserver(es => es.forEach(e => {
           if (!e.isIntersecting) return; io.disconnect();
-          const t0 = performance.now(), d = 1800;
-          const step = t => { const q = Math.min(1, (t - t0) / d); n.textContent = Math.round(40 * (1 - Math.pow(1 - q, 3))); if (q < 1) requestAnimationFrame(step); };
+          const t0 = performance.now(), d = 1600;
+          const step = t => { const q = Math.min(1, (t - t0) / d); n.textContent = Math.round(40 * (1 - Math.pow(1 - q, 3))); if (q < 1) requestAnimationFrame(step); else setTimeout(() => cnt.classList.add("is-done"), 120); };
           requestAnimationFrame(step);
         }), { threshold: .5 });
-        io.observe(n);
+        io.observe(cnt);
       }
     })();
   </script>
