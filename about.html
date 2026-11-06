@@ -7370,6 +7370,21 @@ input, select, textarea {
     .abx-card:hover .abx-photo img { transform:translateY(-4px) rotate(-2deg); }
     .abx-card-dark .abx-photo img { filter:drop-shadow(0 16px 24px rgba(0,0,0,.35)); }
     .abx-card .abx-photo + h3 { margin-top:14px; }
+  
+    /* Vision/Mission: image as cover, glass text panel */
+    .abx-vm .abx-card { min-height:clamp(440px,40vw,520px); display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(16px,1.6vw,22px) !important; background:#fff !important; box-shadow:0 0 0 1px #e6ebe7, 0 18px 40px rgba(7,63,44,.06) !important; overflow:hidden; }
+    .abx-vm .abx-card-dark { background:#fff !important; color:#111; }
+    .abx-vm .abx-flow { display:none; }
+    .abx-vm .abx-photo { position:absolute; inset:0 0 auto 0; z-index:0; width:100%; height:78%; margin:0; display:flex; align-items:center; justify-content:center; padding:18px 18px 0; }
+    .abx-vm .abx-photo img { width:auto; height:100%; max-width:100%; object-fit:contain; object-position:center; filter:none; }
+    .abx-vm .abx-card:hover .abx-photo img { transform:scale(1.04); }
+    .abx-vm .abx-glass { position:relative; z-index:1; padding:clamp(20px,2.4vw,28px); border-radius:20px; background:rgba(255,255,255,.55); -webkit-backdrop-filter:blur(16px) saturate(150%); backdrop-filter:blur(16px) saturate(150%); box-shadow:inset 0 0 0 1px rgba(255,255,255,.75), 0 12px 30px rgba(7,63,44,.10); }
+    .abx-vm .abx-card-dark .abx-glass { background:rgba(7,63,44,.72); box-shadow:inset 0 0 0 1px rgba(255,255,255,.14), 0 14px 32px rgba(7,63,44,.25); color:#fff; }
+    .abx-vm .abx-glass h3 { margin:0 !important; }
+    .abx-vm .abx-glass p { margin-top:10px; }
+    .abx-vm .abx-card-dark .abx-glass p { color:rgba(255,255,255,.86); }
+    .abx-vm .abx-card:not(.abx-card-dark) .abx-glass h3 { color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 60%,#2fbf6a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    @media (max-width:600px) { .abx-vm .abx-card { min-height:0; } .abx-vm .abx-photo { position:relative; height:250px; padding:10px 10px 0; margin-bottom:-34px; } }
   </style>
 
   <main id="main">
@@ -7420,14 +7435,14 @@ input, select, textarea {
       <div class="abx-vm">
         <article class="abx-card abx-rv" style="--i:0">
           <span class="abx-photo"><img src="assets/vision-hand.webp" alt="" width="520" height="492" loading="lazy"></span>
-          <h3>Vision</h3>
-          <p>To be recognized as the premier provider of government relations services and global visa assistance in the Kingdom, delivering unparalleled efficiency in navigating complex governmental processes.</p>
+          <div class="abx-glass"><h3>Vision</h3>
+          <p>To be recognized as the premier provider of government relations services and global visa assistance in the Kingdom, delivering unparalleled efficiency in navigating complex governmental processes.</p></div>
         </article>
         <article class="abx-card abx-card-dark abx-rv" style="--i:1">
           <svg class="abx-flow" viewBox="0 0 340 240" preserveAspectRatio="xMaxYMin meet" aria-hidden="true"><path class="abx-flow-base" d="M10 205 C 60 185, 95 150, 112 112 C 130 70, 120 30, 92 30 C 62 30, 58 75, 92 98 C 130 124, 185 92, 225 70 C 260 52, 300 48, 340 56"/><path class="abx-flow-line" pathLength="100" d="M10 205 C 60 185, 95 150, 112 112 C 130 70, 120 30, 92 30 C 62 30, 58 75, 92 98 C 130 124, 185 92, 225 70 C 260 52, 300 48, 340 56"/></svg>
           <span class="abx-photo"><img src="assets/mission-hand.webp" alt="" width="518" height="520" loading="lazy"></span>
-          <h3>Mission</h3>
-          <p>To deliver exceptional and secure services that go beyond our clients’ expectations. With our experienced team, we are dedicated to maintaining the highest levels of confidentiality and responsibility, ensuring every client is fully satisfied with our work.</p>
+          <div class="abx-glass"><h3>Mission</h3>
+          <p>To deliver exceptional and secure services that go beyond our clients’ expectations. With our experienced team, we are dedicated to maintaining the highest levels of confidentiality and responsibility, ensuring every client is fully satisfied with our work.</p></div>
         </article>
       </div>
     </section>
