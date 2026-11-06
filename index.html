@@ -7733,76 +7733,14 @@ input, select, textarea {
           </a>
         </div>
 
-        <div class="dms-folder-area">
-          <div class="dms-folder" data-folder>
-            <div class="dms-folder-back" aria-hidden="true">
-              <span>Documents</span>
-            </div>
-
-            <div class="dms-folder-papers" id="dms-papers" inert>
-              <button
-                class="dms-paper"
-                type="button"
-                data-title="Visa application"
-                data-description="Keep your visa application documents together."
-                aria-label="Preview visa application"
-              >
-                <span class="dms-paper-number">01</span>
-                <strong>Visa application</strong>
-                <span class="dms-paper-block"></span>
-                <span class="dms-paper-line"></span>
-                <span class="dms-paper-line short"></span>
-                <span class="dms-paper-stamp">DMS</span>
-              </button>
-
-              <button
-                class="dms-paper"
-                type="button"
-                data-title="Residence permit"
-                data-description="Organise your residence permit documents."
-                aria-label="Preview residence permit"
-              >
-                <span class="dms-paper-number">02</span>
-                <strong>Residence permit</strong>
-                <span class="dms-paper-block"></span>
-                <span class="dms-paper-line"></span>
-                <span class="dms-paper-line short"></span>
-                <span class="dms-paper-stamp">DMS</span>
-              </button>
-
-              <button
-                class="dms-paper"
-                type="button"
-                data-title="Supporting documents"
-                data-description="Keep supporting documents ready for your application."
-                aria-label="Preview supporting documents"
-              >
-                <span class="dms-paper-number">03</span>
-                <strong>Supporting documents</strong>
-                <span class="dms-paper-block"></span>
-                <span class="dms-paper-line"></span>
-                <span class="dms-paper-line short"></span>
-                <span class="dms-paper-stamp">DMS</span>
-              </button>
-            </div>
-
-            <button
-              class="dms-folder-front"
-              type="button"
-              aria-expanded="false"
-              aria-controls="dms-papers"
-              aria-label="Open documents folder"
-            >
-              <span class="dms-folder-brand">DMS</span>
-              <span class="dms-folder-caption">
-                Your documents, together.
-              </span>
-              <span class="dms-folder-toggle" aria-hidden="true">+</span>
-            </button>
-          </div>
-
-          <p class="dms-folder-hint">Click the folder to explore</p>
+        <div class="dms-folder-area dms-photo-area">
+          <img class="dms-photo" src="assets/multitask-professional.webp" alt="Professional in a thobe working efficiently across multiple tasks" width="1200" height="745" loading="lazy" decoding="async">
         </div>
+        <style>
+          .dms-photo-area { display:flex !important; align-items:flex-end; justify-content:center; padding:0 !important; overflow:hidden; background:none !important; }
+          .dms-photo-area .dms-photo { display:block; width:100%; max-width:640px; height:auto; transform:scale(1.02); transition:transform .6s cubic-bezier(.22,1,.36,1); }
+          .dms-card:hover .dms-photo-area .dms-photo { transform:scale(1.06); }
+        </style>
       </article>
 
     </div>
