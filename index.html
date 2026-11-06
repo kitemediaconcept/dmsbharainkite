@@ -7524,6 +7524,19 @@ input, select, textarea {
     })();
   </script>
 
+
+  <style id="tp-green">
+    .tp-v2 .tp-grid { background:linear-gradient(170deg,#f7fcf9,#eef8f2) !important; box-shadow:0 0 0 1px rgba(13,155,73,.12) !important; }
+    .tp-v2 .tp-card { background:linear-gradient(120deg,#f6fbf8 0%,#e4f4ea 35%,#d3eedd 50%,#e4f4ea 65%,#f6fbf8 100%) !important; background-size:300% 100% !important; animation:tp-flow 9s ease-in-out infinite; animation-delay:calc(var(--i,0) * -1.2s); box-shadow:0 0 0 1px rgba(13,155,73,.14) !important; }
+    .tp-v2 .tp-card:hover, .tp-v2 .tp-card:focus-visible, .tp-v2 .tp-card.is-active { background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%) !important; background-size:100% 100% !important; box-shadow:0 14px 30px rgba(13,155,73,.28) !important; }
+    .tp-v2 .tp-card::after { background:radial-gradient(closest-side, rgba(60,207,122,.35), transparent) !important; }
+    .tp-v2 .tp-name { color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 60%,#2fbf6a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-weight:500; }
+    .tp-v2 .tp-ico { stroke:#0d9b49 !important; }
+    .tp-v2 .tp-card:hover .tp-name, .tp-v2 .tp-card:focus-visible .tp-name, .tp-v2 .tp-card.is-active .tp-name { background:none; -webkit-text-fill-color:#fff; color:#fff; }
+    .tp-v2 .tp-card:hover .tp-ico, .tp-v2 .tp-card:focus-visible .tp-ico, .tp-v2 .tp-card.is-active .tp-ico { stroke:#fff !important; }
+    @keyframes tp-flow { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
+    @media (prefers-reduced-motion: reduce) { .tp-v2 .tp-card { animation:none; } }
+  </style>
   <!-- TRUSTED BY SECTORS -->
   <section class="tp-v2" aria-labelledby="tp-title">
     <h2 id="tp-title" class="tp-title">Trusted by global leading partners</h2>
