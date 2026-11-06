@@ -6874,6 +6874,12 @@ input, select, textarea {
     .dms-gold-stack .dgs-card-family .dgs-family-visual { background:transparent; }
     .dgs-card-global-visa .visa-card { background:transparent; }
     .dms-gold-stack .dgs-heading, .dgs-card-global-visa .visa-heading { font-size:clamp(28px,3vw,40px); }
+
+    /* Golden visa card: man holding the card */
+    .dms-gold-stack .dgs-golden-img-visual .dgs-golden-card-container { max-width:640px; }
+    @media (min-width:901px) { .dms-gold-stack .dgs-golden-img-visual { justify-content:flex-end; align-self:end; margin-bottom:-24px; } .dms-gold-stack .dgs-golden-card-img[src*="golden-visa-man"] { width:118%; max-width:none; max-height:none; margin-left:-10%; } }
+    .dms-gold-stack .dgs-golden-card-img[src*="golden-visa-man"] { max-height:430px; width:100%; height:auto; filter:drop-shadow(0 22px 30px rgba(7,63,44,.16)); -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%); mask-image:linear-gradient(180deg,#000 82%,transparent 100%); }
+    @media (max-width:900px) { .dms-gold-stack .dgs-golden-layout { align-content:start; } .dms-gold-stack .dgs-card:first-child { height:auto !important; min-height:0 !important; } .dms-gold-stack .dgs-card:first-child .dgs-golden-img-visual { min-height:0 !important; height:auto !important; margin-top:8px; } }
     /* FOURTH CARD: Family visa (KSA Iqama) */
     .dms-gold-stack .dgs-card-family .dgs-family-visual { background:transparent; }
     .dms-gold-stack .dgs-card-family .dgs-family-visual { overflow:visible; position:relative; z-index:2; }
@@ -7858,8 +7864,9 @@ input, select, textarea {
               <div class="dgs-golden-card-container">
                 <img
                   class="dgs-golden-card-img"
-                  src="assets/Embossed Golden Bahrain Visa Card.png"
-                  alt="Embossed Golden Bahrain Visa Card held in hand"
+                  src="assets/golden-visa-man.webp"
+                  alt="Smiling man in a thobe holding a Kingdom of Bahrain Golden Visa card"
+                  width="1100" height="714"
                   loading="lazy"
                 >
               </div>
