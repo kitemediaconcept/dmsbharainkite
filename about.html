@@ -7364,6 +7364,12 @@ input, select, textarea {
     .abx-flow-line { stroke-width:14; opacity:.16; stroke-dasharray:100; stroke-dashoffset:100; animation:abx-flow 6s cubic-bezier(.6,0,.3,1) infinite; }
     @keyframes abx-flow { 0% { stroke-dashoffset:100; } 45%,60% { stroke-dashoffset:0; } 100% { stroke-dashoffset:-100; } }
     @media (prefers-reduced-motion: reduce) { .abx-flow-line { animation:none; stroke-dashoffset:0; } }
+  
+    .abx-photo { position:relative; z-index:1; display:block; width:clamp(120px,13vw,170px); height:clamp(110px,12vw,150px); margin:-8px 0 0 -10px; }
+    .abx-photo img { width:100%; height:100%; object-fit:contain; object-position:left bottom; filter:drop-shadow(0 14px 20px rgba(7,63,44,.18)); transition:transform .6s cubic-bezier(.22,1,.36,1); }
+    .abx-card:hover .abx-photo img { transform:translateY(-4px) rotate(-2deg); }
+    .abx-card-dark .abx-photo img { filter:drop-shadow(0 16px 24px rgba(0,0,0,.35)); }
+    .abx-card .abx-photo + h3 { margin-top:14px; }
   </style>
 
   <main id="main">
@@ -7413,13 +7419,13 @@ input, select, textarea {
     <section class="abx" aria-label="Vision and mission">
       <div class="abx-vm">
         <article class="abx-card abx-rv" style="--i:0">
-          <span class="abx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <span class="abx-photo"><img src="assets/vision-hand.webp" alt="" width="520" height="492" loading="lazy"></span>
           <h3>Vision</h3>
           <p>To be recognized as the premier provider of government relations services and global visa assistance in the Kingdom, delivering unparalleled efficiency in navigating complex governmental processes.</p>
         </article>
         <article class="abx-card abx-card-dark abx-rv" style="--i:1">
           <svg class="abx-flow" viewBox="0 0 340 240" preserveAspectRatio="xMaxYMin meet" aria-hidden="true"><path class="abx-flow-base" d="M10 205 C 60 185, 95 150, 112 112 C 130 70, 120 30, 92 30 C 62 30, 58 75, 92 98 C 130 124, 185 92, 225 70 C 260 52, 300 48, 340 56"/><path class="abx-flow-line" pathLength="100" d="M10 205 C 60 185, 95 150, 112 112 C 130 70, 120 30, 92 30 C 62 30, 58 75, 92 98 C 130 124, 185 92, 225 70 C 260 52, 300 48, 340 56"/></svg>
-          <span class="abx-ico" style="position:relative;z-index:1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/><path d="m15 9 6-6M18 3h3v3"/></svg></span>
+          <span class="abx-photo"><img src="assets/mission-hand.webp" alt="" width="518" height="520" loading="lazy"></span>
           <h3>Mission</h3>
           <p>To deliver exceptional and secure services that go beyond our clients’ expectations. With our experienced team, we are dedicated to maintaining the highest levels of confidentiality and responsibility, ensuring every client is fully satisfied with our work.</p>
         </article>
