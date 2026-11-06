@@ -7573,6 +7573,15 @@ input, select, textarea {
       .gd-who { grid-template-columns:1fr 1fr; gap:10px; } .gd-who li { min-height:200px; padding:18px 16px; border-radius:18px; } .gd-who b { font-size:16px; } .gd-who-ico { width:44px; height:44px; border-radius:13px; } .gd-who-ico svg { width:21px; height:21px; } .gd-who-n { font-size:40px; right:14px; top:14px; } .gd-who small { font-size:9.5px; }
     }
     @media (prefers-reduced-motion: reduce) { .gd-ring, .gd-glow, .gd-card, .gd-card::after, .gd-chip, .gd-spark { animation:none; opacity:1; } .gd-card::after { display:none; } }
+  
+    .gd-photo { position:absolute; left:50%; top:50%; width:clamp(190px,17vw,240px); aspect-ratio:720/959; translate:-50% -50%; transform:perspective(900px) rotateX(8deg) rotateY(-14deg) rotate(6deg); filter:drop-shadow(0 34px 44px rgba(120,85,20,.32)); animation:gd-in2 1.3s cubic-bezier(.16,1,.3,1) .2s both, gd-tilt2 8s ease-in-out 1.5s infinite; }
+    .gd-photo img { display:block; width:100%; height:100%; object-fit:contain; }
+    .gd-photo-shine { position:absolute; inset:2% 3%; border-radius:6%; overflow:hidden; pointer-events:none; -webkit-mask-image:url(assets/golden-visa-card.webp); mask-image:url(assets/golden-visa-card.webp); -webkit-mask-size:106% 104%; mask-size:106% 104%; -webkit-mask-position:center; mask-position:center; }
+    .gd-photo-shine::after { content:""; position:absolute; top:-10%; bottom:-10%; left:-70%; width:45%; background:linear-gradient(100deg, transparent, rgba(255,255,255,.65), transparent); transform:skewX(-18deg); animation:gd-shine 4.5s ease-in-out 1.6s infinite; }
+    @keyframes gd-in2 { from { opacity:0; transform:perspective(900px) rotateX(28deg) rotateY(-30deg) rotate(6deg) translateY(60px); } to { opacity:1; transform:perspective(900px) rotateX(8deg) rotateY(-14deg) rotate(6deg); } }
+    @keyframes gd-tilt2 { 0%,100% { transform:perspective(900px) rotateX(8deg) rotateY(-14deg) rotate(6deg); } 50% { transform:perspective(900px) rotateX(3deg) rotateY(-4deg) rotate(3deg) translateY(-10px); } }
+    @media (max-width:760px) { .gd-photo { width:170px; } }
+    @media (prefers-reduced-motion: reduce) { .gd-photo, .gd-photo-shine::after { animation:none; } }
   </style>
 
   <main id="main">
@@ -7591,11 +7600,7 @@ input, select, textarea {
         <span class="gd-ring gd-ring-2"><i></i></span>
         <span class="gd-ring gd-ring-1"><i></i></span>
         <span class="gd-glow"></span>
-        <div class="gd-card">
-          <div class="gd-card-top"><span><small>Kingdom of Bahrain</small><b>Golden Residency</b></span><svg class="gd-emblem" viewBox="0 0 48 48"><path d="M24 4l4.5 11.5L40 17l-9 8 2.8 12L24 30.5 14.2 37 17 25l-9-8 11.5-1.5z"/><circle cx="24" cy="24" r="21"/></svg></div>
-          <span class="gd-chipset"></span>
-          <div class="gd-card-bot"><span>GOLDEN VISA</span><span>BH</span></div>
-        </div>
+        <div class="gd-photo"><img src="assets/golden-visa-card.webp" alt="Kingdom of Bahrain Golden Visa card" width="720" height="959" fetchpriority="high"><span class="gd-photo-shine"></span></div>
         <div class="gd-chip gd-c1"><span class="gd-chip-ico"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg></span>Employees</div>
         <div class="gd-chip gd-c2"><span class="gd-chip-ico"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>Property owners</div>
         <div class="gd-chip gd-c3"><span class="gd-chip-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Retired individuals</div>
