@@ -10717,6 +10717,11 @@ input, select, textarea {
   @media (hover:hover) and (pointer:fine) { .imm-v2 .imm-card:hover .imm-family-photo { scale:1.04; } }
   @keyframes imm-family-breathe { 0%,100% { transform:translate(-50%,0) scale(1); } 50% { transform:translate(-50%,-4px) scale(1.015); } }
   @media (max-width:520px) { .imm-v2 .imm-family-photo-art { height:330px; } }
+  .imm-v2 .imm-family-photo.imm-fam-beach { left:0; top:0; width:100%; height:100%; object-fit:cover; object-position:center 35%; transform:none; -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%); mask-image:linear-gradient(180deg,transparent 0,#000 22%); }
+  .imm-v2 .imm-reveal-ready .imm-family-photo.imm-fam-beach { transform:translateY(30px); }
+  .imm-v2 .imm-is-visible .imm-family-photo.imm-fam-beach { animation:imm-fam-in 1s cubic-bezier(.2,.7,.2,1) .3s both; }
+  @keyframes imm-fam-in { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-family-photo.imm-fam-beach { transform:none !important; } }
   @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-family-photo { animation:none !important; opacity:1 !important; transform:translateX(-50%) !important; } }
 
   /* Card 4 photo: plane in hand */
@@ -10841,7 +10846,7 @@ input, select, textarea {
         </div>
 
         <div class="imm-art imm-family-photo-art" aria-hidden="true">
-          <img class="imm-family-photo" src="assets/family-joining.png" width="561" height="1000" alt="" loading="lazy" decoding="async">
+          <img class="imm-family-photo imm-fam-beach" src="assets/family-beach-ministry.webp" width="834" height="762" alt="" loading="lazy" decoding="async">
         </div>
       </article>
 
