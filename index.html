@@ -8375,6 +8375,75 @@ input, select, textarea {
     .dms-contact-section .dc-cta-heading { font-size:clamp(24px,2.6vw,36px) !important; line-height:1.12 !important; letter-spacing:-1px !important; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
     .dms-contact-section .dc-cta .dc-cta-note { border-color:rgba(13,155,73,.22) !important; }
   </style>
+
+  <!-- ADVISORY CONSULTATION POPUP -->
+  <dialog class="cq" id="cq" aria-labelledby="cq-title">
+    <form class="cq-card" id="cq-form" method="dialog" novalidate>
+      <button class="cq-x" type="button" aria-label="Close" data-cq-close><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      <span class="cq-kicker">Advisory consultation</span>
+      <h2 id="cq-title" class="cq-title">Schedule an Advisory Consultation</h2>
+      <p class="cq-lead">Connect with our senior government relations advisors for tailored compliance and visa execution in Bahrain.</p>
+      <label class="cq-f"><span>Full Name</span><input name="name" type="text" placeholder="e.g. Mohammed Al Khalifa" autocomplete="name" required></label>
+      <label class="cq-f"><span>Corporate Email or Phone</span><input name="contact" type="text" placeholder="e.g. name@company.com or +973 3969XXXX" autocomplete="email" required></label>
+      <label class="cq-f"><span>Interested Practice Area</span><select name="area"><option>Bahrain Visa &amp; Residence Permits</option><option>Bahrain Ministry Services (LMRA, CIO, GOSI, MOIC)</option><option>Company Registration Services</option><option>Management and Administration Consultancy</option><option>Document Attestation Services</option><option>Annual Compliance Services</option><option>WPS Full Setup and Support</option><option>Bahrain Golden Visa</option><option>Family Joining Visa for KSA Residence Holders</option><option>Self-Sponsorship Visa</option><option>Saudi Visa Services</option><option>Global Visa Assistance</option><option>Other</option></select></label>
+      <label class="cq-f"><span>Specific Details / Requirement</span><textarea name="details" rows="3" placeholder="Briefly describe your business requirement..."></textarea></label>
+      <button class="cq-send" type="submit">Submit Consultation Request <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></button>
+      <p class="cq-note" id="cq-note" role="status" aria-live="polite"></p>
+    </form>
+  </dialog>
+  <style>
+    .cq { position:fixed; inset:0; margin:auto; height:fit-content; width:min(560px, calc(100% - 24px)); max-height:calc(100dvh - 24px); padding:0; border:0; border-radius:26px; background:transparent; overflow:visible; font-family:Inter, "Helvetica Neue", Arial, sans-serif; }
+    .cq::backdrop { background:rgba(6,30,20,.45); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); }
+    .cq[open] { animation:cq-in .45s cubic-bezier(.16,1,.3,1); }
+    @keyframes cq-in { from { opacity:0; transform:translateY(18px) scale(.98); } to { opacity:1; transform:none; } }
+    .cq-card { position:relative; display:grid; gap:14px; max-height:calc(100dvh - 24px); overflow:auto; padding:clamp(24px,3.4vw,36px); border-radius:26px; color:#111; background:radial-gradient(ellipse 80% 40% at 100% 0%, rgba(60,207,122,.18), transparent 60%), linear-gradient(175deg,#ffffff 0%,#f3faf6 100%); box-shadow:0 0 0 1px rgba(13,155,73,.14), 0 40px 80px rgba(7,63,44,.25); }
+    .cq-x { position:absolute; right:16px; top:16px; width:38px; height:38px; border:0; border-radius:12px; display:grid; place-items:center; background:#e6f4ed; color:#073f2c; cursor:pointer; transition:background .2s ease; }
+    .cq-x:hover { background:#d3ecdf; } .cq-x svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; }
+    .cq-kicker { font:500 12px/1.3 "IBM Plex Mono", ui-monospace, monospace; letter-spacing:.8px; text-transform:uppercase; color:#0d9b49; }
+    .cq-title { margin:-6px 48px 0 0; font-size:clamp(23px,2.6vw,30px); font-weight:600; line-height:1.15; letter-spacing:-.8px; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 60%,#2fbf6a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .cq-lead { margin:-4px 0 4px; font-size:15px; line-height:1.55; color:#5a5f62; }
+    .cq-f { display:grid; gap:7px; }
+    .cq-f span { font-size:13.5px; font-weight:600; color:#1d2124; }
+    .cq-f input, .cq-f select, .cq-f textarea { width:100%; box-sizing:border-box; padding:13px 15px; border:1px solid #dfe9e3; border-radius:14px; background:#fff; color:#111; font:inherit; font-size:15px; outline:none; transition:border-color .2s ease, box-shadow .2s ease; }
+    .cq-f textarea { resize:vertical; min-height:88px; }
+    .cq-f select { appearance:none; background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23073f2c' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 14px center/16px no-repeat; padding-right:40px; }
+    .cq-f input:focus, .cq-f select:focus, .cq-f textarea:focus { border-color:#0d9b49; box-shadow:0 0 0 4px rgba(13,155,73,.14); }
+    .cq-f .cq-bad { border-color:#d14b3d; box-shadow:0 0 0 4px rgba(209,75,61,.12); }
+    .cq-send { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:6px; padding:15px 20px; border:0; border-radius:16px; color:#fff; font:inherit; font-size:16px; font-weight:600; cursor:pointer; background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%); box-shadow:0 12px 26px rgba(13,155,73,.26); transition:transform .25s ease, box-shadow .25s ease; }
+    .cq-send span { width:30px; height:30px; border-radius:9px; display:grid; place-items:center; background:rgba(255,255,255,.18); }
+    .cq-send svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+    .cq-send:hover { transform:translateY(-2px); box-shadow:0 16px 32px rgba(13,155,73,.34); }
+    .cq-send:focus-visible, .cq-x:focus-visible { outline:2px solid #0d9b49; outline-offset:3px; }
+    .cq-note { margin:0; min-height:18px; font-size:13.5px; color:#5a5f62; text-align:center; }
+    .cq-note.cq-err { color:#b0281f; }
+    @media (prefers-reduced-motion: reduce) { .cq[open] { animation:none; } }
+  </style>
+  <script>
+    (() => {
+      const d = document.getElementById("cq"), f = document.getElementById("cq-form"), note = document.getElementById("cq-note");
+      if (!d || !f) return;
+      const TO = "info@dmsbahrain.com";
+      window.dmsOpenConsult = (email) => {
+        f.reset(); note.textContent = ""; note.className = "cq-note";
+        f.querySelectorAll(".cq-bad").forEach(el => el.classList.remove("cq-bad"));
+        if (email) f.contact.value = email;
+        if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", "");
+        setTimeout(() => f.name.focus(), 60);
+      };
+      const close = () => d.close ? d.close() : d.removeAttribute("open");
+      d.querySelector("[data-cq-close]").addEventListener("click", close);
+      d.addEventListener("click", (e) => { if (e.target === d) close(); });
+      f.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let ok = true;
+        [f.name, f.contact].forEach(el => { const bad = !el.value.trim(); el.classList.toggle("cq-bad", bad); if (bad) ok = false; });
+        if (!ok) { note.textContent = "Please add your name and an email or phone number."; note.className = "cq-note cq-err"; return; }
+        const body = "Full name: " + f.name.value.trim() + "\nEmail / phone: " + f.contact.value.trim() + "\nPractice area: " + f.area.value + "\n\nDetails:\n" + (f.details.value.trim() || "-");
+        window.location.href = "mailto:" + TO + "?subject=" + encodeURIComponent("Advisory consultation request – " + f.area.value) + "&body=" + encodeURIComponent(body);
+        note.textContent = "Your email app should open with your request ready to send to " + TO + ".";
+      });
+    })();
+  </script>
 <footer class="dms-footer" aria-label="DMS footer">
     <div class="df-inner">
 
@@ -10409,7 +10478,7 @@ input, select, textarea {
       e.preventDefault();
       const em = f.querySelector("input").value.trim();
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) { f.classList.remove("vh-bad"); void f.offsetWidth; f.classList.add("vh-bad"); f.querySelector("input").focus(); return; }
-      const ce = document.querySelector('#ct-form [name="email"]'); if (ce) { ce.value = em; document.getElementById("contact").scrollIntoView({ behavior: "smooth" }); setTimeout(() => { const n = document.querySelector('#ct-form [name="name"]'); n && n.focus({ preventScroll: true }); }, 700); } else { location.href = "contact.html"; }
+      if (window.dmsOpenConsult) { window.dmsOpenConsult(em); } else { location.href = "contact.html"; }
     });
   })();
 </script>
