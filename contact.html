@@ -9010,5 +9010,102 @@ input, select, textarea {
     io.observe(p);
   })();
 </script>
+<!-- DMS HELP WIDGET (WhatsApp + assistant) -->
+<div class="hw" id="hw">
+  <span class="hw-tip" id="hw-tip" role="status">What can I help you with?<button type="button" aria-label="Dismiss" data-hw-dismiss>×</button></span>
+  <div class="hw-panel" id="hw-panel" role="dialog" aria-label="DMS help" hidden>
+    <div class="hw-head">
+      <span class="hw-av" aria-hidden="true"><img src="assets/dms-mark.png" alt=""></span>
+      <span><b>DMS Assistant</b><small><i></i>Usually replies within minutes</small></span>
+      <button class="hw-x" type="button" aria-label="Close" data-hw-close><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="hw-log" id="hw-log" aria-live="polite"></div>
+    <div class="hw-chips" id="hw-chips"></div>
+    <form class="hw-in" id="hw-in" autocomplete="off">
+      <input id="hw-q" type="text" placeholder="Type your question…" aria-label="Type your question">
+      <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+    </form>
+    <a class="hw-wa" href="https://wa.me/97317290001?text=Hello%20DMS%2C%20I%20need%20help%20with%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z" fill="currentColor"/></svg>Chat on WhatsApp</a>
+  </div>
+  <button class="hw-fab" id="hw-fab" type="button" aria-expanded="false" aria-controls="hw-panel" aria-label="Help: WhatsApp and assistant">
+    <svg class="hw-o" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>
+    <svg class="hw-c" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+  </button>
+</div>
+<style>
+  .hw { position:fixed; right:18px; bottom:18px; z-index:9990; display:flex; flex-direction:column; align-items:flex-end; gap:10px; font-family:Inter, "Helvetica Neue", Arial, sans-serif; }
+  .hw-fab { width:54px; height:54px; border:0; border-radius:50%; display:grid; place-items:center; color:#fff; cursor:pointer; background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%); box-shadow:0 12px 28px rgba(7,63,44,.32); transition:transform .25s ease; position:relative; }
+  .hw-fab::after { content:""; position:absolute; inset:0; border-radius:50%; box-shadow:0 0 0 0 rgba(13,155,73,.45); animation:hw-pulse 2.6s ease-out infinite; }
+  .hw-fab:hover { transform:translateY(-2px) scale(1.04); }
+  .hw-fab:focus-visible { outline:2px solid #0d9b49; outline-offset:3px; }
+  .hw-fab svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+  .hw-fab .hw-c, .hw.is-open .hw-fab .hw-o { display:none; } .hw.is-open .hw-fab .hw-c { display:block; } .hw.is-open .hw-fab::after { animation:none; }
+  @keyframes hw-pulse { 0% { box-shadow:0 0 0 0 rgba(13,155,73,.45); } 70%,100% { box-shadow:0 0 0 14px rgba(13,155,73,0); } }
+  .hw-tip { position:relative; display:inline-flex; align-items:center; gap:8px; padding:10px 12px 10px 14px; border-radius:14px 14px 4px 14px; background:#fff; color:#073f2c; font-size:13.5px; font-weight:500; box-shadow:0 10px 26px rgba(7,63,44,.16), 0 0 0 1px rgba(13,155,73,.12); opacity:0; transform:translateY(8px); pointer-events:none; transition:opacity .4s ease, transform .4s ease; }
+  .hw-tip.show { opacity:1; transform:none; pointer-events:auto; }
+  .hw-tip button { border:0; background:none; color:#8a948f; font-size:16px; line-height:1; cursor:pointer; padding:0 2px; }
+  .hw-panel { width:min(340px, calc(100vw - 36px)); max-height:min(520px, calc(100dvh - 110px)); display:flex; flex-direction:column; border-radius:20px; overflow:hidden; background:#fff; box-shadow:0 24px 60px rgba(7,63,44,.25), 0 0 0 1px rgba(13,155,73,.12); animation:hw-in .3s cubic-bezier(.16,1,.3,1); }
+  .hw-panel[hidden] { display:none; }
+  @keyframes hw-in { from { opacity:0; transform:translateY(12px) scale(.98); } to { opacity:1; transform:none; } }
+  .hw-head { display:flex; align-items:center; gap:10px; padding:12px 12px 12px 14px; color:#fff; background:linear-gradient(135deg,#0d9b49,#073f2c); }
+  .hw-av { width:34px; height:34px; border-radius:10px; background:#fff; display:grid; place-items:center; } .hw-av img { width:24px; }
+  .hw-head b { display:block; font-size:14.5px; font-weight:600; } .hw-head small { display:flex; align-items:center; gap:6px; font-size:11.5px; opacity:.85; } .hw-head small i { width:7px; height:7px; border-radius:50%; background:#5ee08f; }
+  .hw-x { margin-left:auto; width:30px; height:30px; border:0; border-radius:9px; background:rgba(255,255,255,.14); color:#fff; display:grid; place-items:center; cursor:pointer; }
+  .hw-x svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; }
+  .hw-log { flex:1; overflow:auto; padding:14px; display:flex; flex-direction:column; gap:8px; background:linear-gradient(180deg,#f7fcf9,#fff); }
+  .hw-m { max-width:86%; padding:9px 12px; border-radius:14px; font-size:13.5px; line-height:1.45; }
+  .hw-m.bot { align-self:flex-start; background:#fff; color:#1d2124; box-shadow:0 0 0 1px #e3ece7; border-bottom-left-radius:4px; }
+  .hw-m.me { align-self:flex-end; color:#fff; background:linear-gradient(135deg,#19b35a,#0d9b49); border-bottom-right-radius:4px; }
+  .hw-m a { color:#0b6b3d; font-weight:600; }
+  .hw-chips { display:flex; flex-wrap:wrap; gap:6px; padding:0 14px 10px; }
+  .hw-chips button { border:0; padding:7px 11px; border-radius:9999px; background:#e6f4ed; color:#073f2c; font:inherit; font-size:12.5px; font-weight:500; cursor:pointer; transition:background .2s ease; }
+  .hw-chips button:hover { background:#d3ecdf; }
+  .hw-in { display:flex; gap:6px; padding:8px 10px; border-top:1px solid #eef1ef; }
+  .hw-in input { flex:1; min-width:0; border:0; outline:none; padding:9px 10px; border-radius:10px; background:#f3f6f4; font:inherit; font-size:13.5px; }
+  .hw-in button { width:36px; border:0; border-radius:10px; color:#fff; background:linear-gradient(135deg,#19b35a,#073f2c); cursor:pointer; display:grid; place-items:center; }
+  .hw-in button svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .hw-wa { display:flex; align-items:center; justify-content:center; gap:8px; padding:11px; color:#fff; background:#1fa855; font-size:13.5px; font-weight:600; text-decoration:none; }
+  .hw-wa:hover { background:#17944a; } .hw-wa svg { width:18px; height:18px; }
+  @media (max-width:600px) { .hw { right:12px; bottom:12px; } .hw-fab { width:50px; height:50px; } }
+  @media (prefers-reduced-motion: reduce) { .hw-fab::after, .hw-panel { animation:none; } }
+</style>
+<script>
+(() => {
+  const w = document.getElementById("hw"); if (!w) return;
+  const fab = document.getElementById("hw-fab"), panel = document.getElementById("hw-panel"), log = document.getElementById("hw-log"), chips = document.getElementById("hw-chips"), tip = document.getElementById("hw-tip"), form = document.getElementById("hw-in"), q = document.getElementById("hw-q");
+  const WA = "https://wa.me/97317290001?text=";
+  const S = [
+    { k:"Golden Visa", re:/golden/i, u:"golden-visa.html", t:"We help eligible employees, property owners, retirees and talented individuals apply for the Bahrain Golden Visa." },
+    { k:"Visa & residency", re:/visa|residen|iqama|family|sponsor/i, u:"services.html", t:"We support Bahrain residence permits, Golden Visa, self-sponsorship, family joining, Saudi and global visas." },
+    { k:"Company registration", re:/compan|register|registration|\bcr\b|formation|share|moa|aoa/i, u:"company-registration.html", t:"We handle company formation and amendments – shares, activities, address and board changes." },
+    { k:"Ministry services", re:/ministry|lmra|cio|gosi|npra|moic|chamber|bcci|municipal|electric|water|work permit/i, u:"bahrain-ministry-services.html", t:"LMRA, CIO, immigration, GOSI, Chamber, MOIC, municipality and utility services – handled for you." },
+    { k:"Attestation", re:/attest|legali|certif|document/i, u:"document-attestation.html", t:"We attest educational and commercial documents with the Ministries, Chamber and embassies." },
+    { k:"Saudi visa", re:/saudi|ksa/i, u:"saudi-visa.html", t:"Work, business, family visit, tourist, cargo and escort visas for Saudi Arabia." },
+    { k:"WPS & compliance", re:/wps|wage|payroll|complian|renewal|ubo|audit/i, u:"annual-compliance.html", t:"WPS setup and monthly submissions, plus annual renewals and filings so you stay compliant." }
+  ];
+  const add = (html, who) => { const d = document.createElement("div"); d.className = "hw-m " + who; d.innerHTML = html; log.appendChild(d); log.scrollTop = log.scrollHeight; };
+  const answer = (s) => add(s.t + ' <a href="' + s.u + '">View service →</a> or <a href="' + WA + encodeURIComponent("Hello DMS, I need help with " + s.k) + '" target="_blank" rel="noopener">ask on WhatsApp</a>.', "bot");
+  let started = false;
+  const start = () => {
+    if (started) return; started = true;
+    add("Hi! 👋 What can I help you with today?", "bot");
+    S.slice(0,6).forEach(s => { const b = document.createElement("button"); b.type = "button"; b.textContent = s.k; b.onclick = () => { add(s.k, "me"); setTimeout(() => answer(s), 350); }; chips.appendChild(b); });
+    const p = document.createElement("button"); p.type = "button"; p.textContent = "Talk to a person"; p.onclick = () => { add("Talk to a person", "me"); setTimeout(() => add('Our team is happy to help. <a href="' + WA + encodeURIComponent("Hello DMS, I would like to speak to someone") + '" target="_blank" rel="noopener">Chat on WhatsApp</a>, call <a href="tel:+97317290001">+973 17290001</a> or email <a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a>.', "bot"), 350); }; chips.appendChild(p);
+  };
+  const open = (v) => { w.classList.toggle("is-open", v); panel.hidden = !v; fab.setAttribute("aria-expanded", v); tip.classList.remove("show"); if (v) { start(); setTimeout(() => q.focus({ preventScroll:true }), 60); } };
+  fab.addEventListener("click", () => open(panel.hidden));
+  panel.querySelector("[data-hw-close]").addEventListener("click", () => open(false));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !panel.hidden) open(false); });
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); const t = q.value.trim(); if (!t) return; q.value = ""; add(t.replace(/</g,"&lt;"), "me");
+    const s = [S[3], S[0], S[5], S[2], S[4], S[6], S[1]].find(x => x.re.test(t));
+    setTimeout(() => s ? answer(s) : add('Thanks! For this, our team can help directly – <a href="' + WA + encodeURIComponent("Hello DMS, " + t) + '" target="_blank" rel="noopener">continue on WhatsApp</a> or <a href="services.html">see all services</a>.', "bot"), 400);
+  });
+  tip.querySelector("[data-hw-dismiss]").addEventListener("click", (e) => { e.stopPropagation(); tip.classList.remove("show"); try { sessionStorage.setItem("hwTip", "1"); } catch (_) {} });
+  tip.addEventListener("click", () => open(true));
+  let seen = false; try { seen = sessionStorage.getItem("hwTip") === "1"; } catch (_) {}
+  if (!seen) setTimeout(() => { if (panel.hidden) tip.classList.add("show"); }, 4000);
+})();
+</script>
 </body>
 </html>
