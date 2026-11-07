@@ -7205,6 +7205,18 @@ input, select, textarea {
   .as-card:hover .as-go svg { transform:translateX(3px); }
   @media (max-width:980px) { .as-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
   @media (max-width:600px) { .as-grid { grid-template-columns:1fr; gap:12px; } .as-count { margin-left:0; } }
+
+  .as-media { position:relative; display:block; height:clamp(150px,13vw,180px); margin:-10px -8px 4px; border-radius:16px; overflow:hidden; background:radial-gradient(ellipse 70% 70% at 50% 60%, #ffffff 0%, #eef8f2 70%); box-shadow:0 0 0 1px rgba(13,155,73,.10); }
+  .as-media img { width:100%; height:100%; display:block; transition:transform .7s cubic-bezier(.22,1,.36,1); }
+  .as-cover img { object-fit:cover; object-position:center; }
+  .as-contain img { object-fit:contain; object-position:center bottom; padding:10px 10px 0; box-sizing:border-box; }
+  .as-card:hover .as-media img { transform:scale(1.06); }
+
+  .as-media { position:relative; display:block; height:clamp(150px,13vw,180px); margin:-10px -8px 4px; border-radius:16px; overflow:hidden; background:radial-gradient(ellipse 70% 70% at 50% 60%, #ffffff 0%, #eef8f2 70%); box-shadow:0 0 0 1px rgba(13,155,73,.10); }
+  .as-media img { width:100%; height:100%; display:block; transition:transform .7s cubic-bezier(.22,1,.36,1); }
+  .as-cover img { object-fit:cover; object-position:center; }
+  .as-contain img { object-fit:contain; object-position:center bottom; padding:10px 10px 0; box-sizing:border-box; }
+  .as-card:hover .as-media img { transform:scale(1.06); }
 </style>
 </head>
 
@@ -7934,42 +7946,42 @@ input, select, textarea {
       <div class="as-head"><span class="sv-kicker">Government &amp; ministry</span><h2 id="as-c0" class="sv-h2">Government and business services</h2><span class="as-count">6 services</span></div>
       <div class="as-grid">
           <a class="as-card" href="bahrain-ministry-services.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 12 4l9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg></span>
+            <span class="as-media as-cover"><img src="assets/svc/bahrain-ministry-services.webp" alt="" loading="lazy" decoding="async"></span>
             <small>Bahrain Ministry Services</small>
             <h3>Your partner in Bahrain. Government services, simplified.</h3>
             <p>LMRA, CIO, immigration, GOSI, Chamber, MOIC, municipality and utilities.</p>
             <span class="as-go">View service <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
           </a>
           <a class="as-card" href="company-registration.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16"/><path d="M6 21V8l6-4 6 4v13"/><path d="M10 21v-5h4v5"/></svg></span>
+            <span class="as-media as-cover"><img src="assets/svc/company-registration.webp" alt="" loading="lazy" decoding="async"></span>
             <small>Company Registration Services</small>
             <h3>Your business in Bahrain. Established with confidence.</h3>
             <p>Formation, share changes, activity and address updates, MOA &amp; AOA.</p>
             <span class="as-go">View service <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
           </a>
           <a class="as-card" href="management-consultancy.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg></span>
+            <span class="as-media as-cover"><img src="assets/svc/management-consultancy.webp" alt="" loading="lazy" decoding="async"></span>
             <small>Management and Administration Consultancy</small>
             <h3>Clear Guidance. Informed Decisions. Confident Management.</h3>
             <p>Consultation on requirements and policies to comply with regulations.</p>
             <span class="as-go">View service <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
           </a>
           <a class="as-card" href="document-attestation.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="m9 14 2 2 4-4"/></svg></span>
+            <span class="as-media as-contain"><img src="assets/svc/document-attestation.webp" alt="" loading="lazy" decoding="async"></span>
             <small>Document Attestation Services</small>
             <h3>Effortless document attestation. Simplifying legalization for global mobility.</h3>
             <p>Educational and commercial document authentication.</p>
             <span class="as-go">View service <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
           </a>
           <a class="as-card" href="annual-compliance.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+            <span class="as-media as-contain"><img src="assets/svc/annual-compliance.webp" alt="" loading="lazy" decoding="async"></span>
             <small>Annual Compliance Services</small>
             <h3>Your business, compliant all year round.</h3>
             <p>CR, BCCI, licence and UBO renewals, filings and reminders.</p>
             <span class="as-go">View service <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
           </a>
           <a class="as-card" href="wps-services.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></span>
+            <span class="as-media as-contain"><img src="assets/svc/wps-services.webp" alt="" loading="lazy" decoding="async"></span>
             <small>WPS Full Setup and Support Services</small>
             <h3>Wage protection, set up right and kept on track.</h3>
             <p>IBAN validation, employee registration and monthly submissions.</p>
@@ -7982,35 +7994,35 @@ input, select, textarea {
       <div class="as-head"><span class="sv-kicker">Visa &amp; residency</span><h2 id="as-c1" class="sv-h2">Visa and residency services</h2><span class="as-count">5 services</span></div>
       <div class="as-grid">
           <a class="as-card" href="golden-visa.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.2 5.6L20 9l-4.5 3.8L17 19l-5-3.2L7 19l1.5-6.2L4 9l5.8-.4z"/></svg></span>
+            <span class="as-media as-contain"><img src="assets/svc/golden-visa.webp" alt="" loading="lazy" decoding="async"></span>
             <small>Bahrain Golden Visa Services</small>
             <h3>Your future in Bahrain. Our guidance every step of the way.</h3>
             <p>For employees, property owners, retirees and specially talented individuals.</p>
             <span class="as-go">View service <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
           </a>
           <a class="as-card" href="family-joining-visa.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M2.5 20c.6-3.7 2.8-5.5 5.5-5.5s4.9 1.8 5.5 5.5M14.5 14.7c2.6-.2 4.5 1.4 5 4.8"/></svg></span>
+            <span class="as-media as-cover"><img src="assets/svc/family-joining-visa.webp" alt="" loading="lazy" decoding="async"></span>
             <small>Family Joining Visa for KSA Residence Holders</small>
             <h3>Bring your family closer. Bahrain residence for KSA Iqama holders.</h3>
             <p>Eligibility, documents, application and follow-up for your family.</p>
             <span class="as-go">View service <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
           </a>
           <a class="as-card" href="self-sponsorship-visa.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+            <span class="as-media as-cover"><img src="assets/svc/self-sponsorship-visa.webp" alt="" loading="lazy" decoding="async"></span>
             <small>Self-Sponsorship Visa Services</small>
             <h3>Secure your future with self-sponsorship, today.</h3>
             <p>Self-sponsored residence for property owners, investors and retirees.</p>
             <span class="as-go">View service <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
           </a>
           <a class="as-card" href="saudi-visa.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 16l20-7-8 13-3-6z"/><path d="M11 16 22 9"/></svg></span>
+            <span class="as-media as-contain"><img src="assets/svc/saudi-visa.webp" alt="" loading="lazy" decoding="async"></span>
             <small>Saudi Visa Services</small>
             <h3>Seamless Saudi visa services in Bahrain. Your gateway to Saudi Arabia, made easy.</h3>
             <p>Work, business, family visit, tourist, cargo and escort visas.</p>
             <span class="as-go">View service <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
           </a>
           <a class="as-card" href="global-visa.html">
-            <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg></span>
+            <span class="as-media as-contain"><img src="assets/svc/global-visa.webp" alt="" loading="lazy" decoding="async"></span>
             <small>Global Visa Assistance</small>
             <h3>Connecting Bahrain with the world through expert visa services.</h3>
             <p>Embassy visas and e-visas for the UK, US, Schengen and more.</p>
