@@ -7330,7 +7330,7 @@ input, select, textarea {
 </style>
 <style id="cx-art-css">
   .cx-in { position:relative; }
-  .cx-art { position:absolute; right:-10px; top:-40px; width:min(46%,520px); height:auto; -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%); mask-image:linear-gradient(180deg,#000 82%,transparent 100%); animation:cx-art-in 1s cubic-bezier(.16,1,.3,1) both; pointer-events:none; }
+  .cx-art { position:absolute; right:-10px; top:-40px; width:min(46%,520px); height:auto; -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 16%,#000 88%,transparent 100%), linear-gradient(180deg,#000 72%,transparent 98%); -webkit-mask-composite:source-in; mask-image:linear-gradient(90deg,transparent 0%,#000 16%,#000 88%,transparent 100%), linear-gradient(180deg,#000 72%,transparent 98%); mask-composite:intersect; animation:cx-art-in 1s cubic-bezier(.16,1,.3,1) both; pointer-events:none; }
   .cx-cards { position:relative; }
   @keyframes cx-art-in { from { opacity:0; transform:translateX(24px); } }
   @media (max-width:900px) { .cx-art { position:static; display:block; width:100%; max-width:440px; margin:24px auto -10px; } }
