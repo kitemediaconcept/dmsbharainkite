@@ -7328,6 +7328,14 @@ input, select, textarea {
   @media (max-width:600px) { .gs-wrap { width:calc(100% - 32px); border-radius:20px; } .gs-row { grid-template-columns:1fr; } }
   @media (prefers-reduced-motion: reduce) { .gs-note { animation:none; } }
 </style>
+<style id="cx-art-css">
+  .cx-in { position:relative; }
+  .cx-art { position:absolute; right:-10px; top:-40px; width:min(46%,520px); height:auto; -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%); mask-image:linear-gradient(180deg,#000 82%,transparent 100%); animation:cx-art-in 1s cubic-bezier(.16,1,.3,1) both; pointer-events:none; }
+  .cx-cards { position:relative; }
+  @keyframes cx-art-in { from { opacity:0; transform:translateX(24px); } }
+  @media (max-width:900px) { .cx-art { position:static; display:block; width:100%; max-width:440px; margin:24px auto -10px; } }
+  @media (prefers-reduced-motion: reduce) { .cx-art { animation:none; } }
+</style>
 </head>
 
 <body>
@@ -8049,6 +8057,7 @@ input, select, textarea {
         <span class="cx-k">Contact us</span>
         <h1 id="ct-title">Get in touch with <br>the DMS team</h1>
         <p class="cx-sub">Talk to our advisors about anything you couldn’t find on our <a href="services.html">services pages</a>.</p>
+        <img class="cx-art" src="assets/contact-support.webp?v=2" alt="DMS support advisor ready to help" width="1200" height="800" fetchpriority="high">
         <div class="cx-cards">
           <article class="cx-card cx-main">
             <div class="cx-top"><h2>Talk to an advisor</h2><span class="cx-badge">Fastest option</span></div>
