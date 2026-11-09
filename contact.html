@@ -7295,6 +7295,39 @@ input, select, textarea {
   @media (max-width:600px) { .cx-hero { margin-top:-62px; padding-top:120px; } .cx-in { width:calc(100% - 32px); } .cx-cards { grid-template-columns:1fr; } .cx-hero h1 { letter-spacing:-1.4px; } }
   @media (prefers-reduced-motion: reduce) { .cx-card { animation:none; } }
 </style>
+<style id="gs-css">
+  .gs-wrap { width:min(1160px, calc(100% - 48px)); margin:clamp(60px,7vw,100px) auto; display:grid; grid-template-columns:1fr 1fr; border-radius:24px; overflow:hidden; box-shadow:0 0 0 1px #e3ece7, 0 24px 60px rgba(7,63,44,.06); font-family:Inter, "Helvetica Neue", Arial, sans-serif; color:#111; }
+  .gs-left { position:relative; isolation:isolate; display:flex; flex-direction:column; padding:clamp(28px,4vw,52px); background:radial-gradient(ellipse 70% 50% at 0% 0%, rgba(60,207,122,.22), transparent 65%), radial-gradient(ellipse 60% 50% at 100% 100%, rgba(13,155,73,.12), transparent 60%), linear-gradient(170deg,#f6fbf8,#eaf6ef); }
+  .gs-left::before { content:""; position:absolute; inset:0; z-index:-1; background-image:linear-gradient(rgba(13,155,73,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(13,155,73,.06) 1px, transparent 1px); background-size:44px 44px; -webkit-mask-image:linear-gradient(180deg,#000,transparent 70%); mask-image:linear-gradient(180deg,#000,transparent 70%); }
+  .gs-mark { width:44px; height:44px; padding:8px; border-radius:12px; background:#fff; object-fit:contain; box-shadow:0 8px 20px rgba(7,63,44,.1); }
+  .gs-left h2 { margin:clamp(28px,4vw,48px) 0 0; font-size:clamp(32px,3.6vw,46px); font-weight:500; line-height:1.08; letter-spacing:-1.4px; color:#111; }
+  .gs-left h2 em { font-style:normal; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .gs-left > p { margin:14px 0 0; max-width:380px; font-size:15px; line-height:1.6; color:#5a5f62; }
+  .gs-note { margin-top:auto; padding:20px 22px; border-radius:16px; background:#fff; box-shadow:0 14px 34px rgba(7,63,44,.08); max-width:420px; transform:translateY(0); animation:gs-float 6s ease-in-out infinite; }
+  .gs-left > p + .gs-note { margin-top:clamp(36px,6vw,80px); }
+  @keyframes gs-float { 50% { transform:translateY(-6px); } }
+  .gs-note-top { display:flex; align-items:center; gap:12px; }
+  .gs-av { width:38px; height:38px; border-radius:50%; display:grid; place-items:center; background:#eaf6ef; }
+  .gs-av img { width:22px; height:22px; object-fit:contain; }
+  .gs-note b { display:block; font-size:14.5px; font-weight:600; } .gs-note small { display:block; font-size:12.5px; color:#8a8f92; }
+  .gs-note ul { list-style:none; margin:16px 0 0; padding:14px 0 0; border-top:1px solid #eef1ef; display:grid; gap:10px; }
+  .gs-note li { display:flex; justify-content:space-between; gap:12px; font-size:13.5px; } .gs-note li span { color:#8a8f92; }
+  .gs-note a { color:#111; font-weight:500; text-decoration:none; } .gs-note a:hover { color:#0d9b49; }
+  .gs-form { display:grid; align-content:center; gap:14px; padding:clamp(28px,4vw,56px); background:#fff; }
+  .gs-lead { margin:0 0 6px; font-size:15px; font-weight:600; }
+  .gs-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .gs-form label { display:grid; gap:6px; } .gs-form label span { font-size:12.5px; font-weight:500; color:#1d2124; } .gs-form label i { font-style:normal; color:#9aa0a3; font-weight:400; }
+  .gs-form input, .gs-form textarea { width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid #e3e8e5; border-radius:8px; background:#fff; font:inherit; font-size:14px; outline:none; resize:vertical; transition:border-color .2s ease, box-shadow .2s ease; }
+  .gs-form input::placeholder, .gs-form textarea::placeholder { color:#b0b5b8; }
+  .gs-form input:focus, .gs-form textarea:focus { border-color:#0d9b49; box-shadow:0 0 0 3px rgba(13,155,73,.12); }
+  .gs-form .cu-bad { border-color:#d14b3d; }
+  .gs-form button { margin-top:6px; padding:12px; border:0; border-radius:8px; color:#fff; font:inherit; font-size:14.5px; font-weight:600; cursor:pointer; background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%); transition:filter .2s ease, transform .2s ease; }
+  .gs-form button:hover { filter:brightness(1.06); transform:translateY(-1px); }
+  .gs-form button:focus-visible { outline:2px solid #0d9b49; outline-offset:3px; }
+  @media (max-width:860px) { .gs-wrap { grid-template-columns:1fr; } }
+  @media (max-width:600px) { .gs-wrap { width:calc(100% - 32px); border-radius:20px; } .gs-row { grid-template-columns:1fr; } }
+  @media (prefers-reduced-motion: reduce) { .gs-note { animation:none; } }
+</style>
 </head>
 
 <body>
@@ -8036,23 +8069,30 @@ input, select, textarea {
       </div>
     </section>
 
-    <section class="cu-sec cu-talk" aria-labelledby="cu-talk-t">
-      <div class="cu-info">
-        <span class="cu-k"><i></i>Get in touch</span>
-        <h2 id="cu-talk-t" class="cu-h2">We’d love to hear from you</h2>
-        <p class="cu-lead">Tell us what you need – business setup, government services, visas or residency – and our team will reply with clear next steps.</p>
-        <ul class="cu-list">
-          <li><span class="cu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></span><span><b>Phone number</b><a href="tel:+97317290001">+973 17290001</a></span></li>
-          <li><span class="cu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6z"/></svg></span><span><b>WhatsApp</b><a href="https://wa.me/97317290001" target="_blank" rel="noopener">+973 17290001</a></span></li>
-          <li><span class="cu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><b>Email</b><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></span></li>
-          <li><span class="cu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><b>Address</b><small>Office No 21, Building 08, Road 1901, Block 319, Kingdom Tower, Manama, Bahrain</small></span></li>
-        </ul>
+    <section class="gs-wrap" aria-labelledby="cu-talk-t">
+      <div class="gs-left">
+        <img class="gs-mark" src="assets/dms-mark.png" alt="" width="44" height="44">
+        <h2 id="cu-talk-t">Get started with <em>DMS Bahrain.</em></h2>
+        <p>Share a few details and our team will reply with clear next steps for your business, visa or residency needs.</p>
+        <div class="gs-note">
+          <div class="gs-note-top"><span class="gs-av"><img src="assets/dms-mark.png" alt=""></span><span><b>DMS Head Office</b><small>Kingdom Tower, Manama</small></span></div>
+          <ul>
+            <li><span>Phone &amp; WhatsApp</span><a href="tel:+97317290001">+973 17290001</a></li>
+            <li><span>Email</span><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></li>
+          </ul>
+        </div>
       </div>
-      <form class="cu-form" id="cu-form" novalidate>
-        <label><span>Your name</span><input name="name" type="text" placeholder="Your full name" autocomplete="name" required></label>
-        <label><span>Your email</span><input name="email" type="email" placeholder="Your email address" autocomplete="email" required></label>
-        <label><span>Your message</span><textarea name="message" rows="5" placeholder="How can we help?" required></textarea></label>
-        <button type="submit">Send message <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+      <form class="gs-form" id="cu-form" novalidate>
+        <p class="gs-lead">Let’s start with the basics</p>
+        <div class="gs-row">
+          <label><span>First name</span><input name="first" type="text" placeholder="Ahmed" autocomplete="given-name" required></label>
+          <label><span>Last name</span><input name="last" type="text" placeholder="Ali" autocomplete="family-name" required></label>
+        </div>
+        <label><span>Email</span><input name="email" type="email" placeholder="you@company.com" autocomplete="email" required></label>
+        <label><span>Company name <i>(optional)</i></span><input name="company" type="text" placeholder="Your company" autocomplete="organization"></label>
+        <label><span>Phone number</span><input name="phone" type="tel" placeholder="+973" autocomplete="tel"></label>
+        <label><span>How can we help?</span><textarea name="message" rows="3" placeholder="Tell us briefly what you need" required></textarea></label>
+        <button type="submit">Continue</button>
         <p class="cu-note" id="cu-note" role="status" aria-live="polite"></p>
       </form>
     </section>
@@ -9098,10 +9138,11 @@ input, select, textarea {
   const f = document.getElementById("cu-form"), note = document.getElementById("cu-note");
   if (f) f.addEventListener("submit", (e) => {
     e.preventDefault(); let ok = true;
-    [f.name, f.email, f.message].forEach(el => { const bad = !el.value.trim() || (el.type === "email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim())); el.classList.toggle("cu-bad", bad); if (bad) ok = false; });
-    if (!ok) { note.textContent = "Please fill in your name, a valid email and a message."; note.className = "cu-note err"; return; }
-    const body = f.message.value.trim() + "\n\n" + f.name.value.trim() + " (" + f.email.value.trim() + ")";
-    location.href = "mailto:info@dmsbahrain.com?subject=" + encodeURIComponent("Website enquiry from " + f.name.value.trim()) + "&body=" + encodeURIComponent(body);
+    [f.first, f.last, f.email, f.message].forEach(el => { const bad = !el.value.trim() || (el.type === "email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim())); el.classList.toggle("cu-bad", bad); if (bad) ok = false; });
+    if (!ok) { note.textContent = "Please fill in your name, a valid email and a short message."; note.className = "cu-note err"; return; }
+    const nm = f.first.value.trim() + " " + f.last.value.trim();
+    const body = f.message.value.trim() + "\n\nName: " + nm + "\nEmail: " + f.email.value.trim() + (f.company.value.trim() ? "\nCompany: " + f.company.value.trim() : "") + (f.phone.value.trim() ? "\nPhone: " + f.phone.value.trim() : "");
+    location.href = "mailto:info@dmsbahrain.com?subject=" + encodeURIComponent("Website enquiry from " + nm) + "&body=" + encodeURIComponent(body);
     note.textContent = "Your email app should open with your message ready to send."; note.className = "cu-note";
   });
   const els = document.querySelectorAll("[data-cu]");
