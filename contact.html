@@ -7363,6 +7363,28 @@ input, select, textarea {
   .om-grid { gap:14px !important; }
   @media (max-width:600px) { .om-grid { grid-template-columns:1fr !important; } .om-col:last-child { grid-column:auto; } }
 </style>
+<style id="om-css3">
+  .om { border-top:0 !important; padding-top:0 !important; }
+  .om-top { margin-bottom:22px; } .om-top h2 { margin:0; max-width:520px; font-size:clamp(18px,1.6vw,22px); font-weight:500; line-height:1.3; letter-spacing:-.4px; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 60%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .om-hq { position:relative; isolation:isolate; overflow:hidden; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:center; padding:clamp(26px,4vw,48px); border-radius:24px; font-style:normal; background:radial-gradient(ellipse 70% 60% at 0% 0%, rgba(60,207,122,.22), transparent 65%), radial-gradient(ellipse 60% 50% at 100% 100%, rgba(13,155,73,.12), transparent 60%), linear-gradient(170deg,#f6fbf8,#eaf6ef); box-shadow:0 0 0 1px rgba(13,155,73,.12); }
+  .om-hq::before { content:""; position:absolute; inset:0; z-index:-1; background-image:linear-gradient(rgba(13,155,73,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(13,155,73,.06) 1px, transparent 1px); background-size:44px 44px; -webkit-mask-image:linear-gradient(180deg,#000,transparent 75%); mask-image:linear-gradient(180deg,#000,transparent 75%); }
+  .om-mark { display:block; width:44px; height:44px; padding:8px; box-sizing:border-box; border-radius:12px; background:#fff; object-fit:contain; box-shadow:0 8px 20px rgba(7,63,44,.1); margin-bottom:22px; }
+  .om-hq h3 { margin:6px 0 0; font-size:clamp(30px,3.4vw,44px); font-weight:500; line-height:1.08; letter-spacing:-1.3px; color:#111; }
+  .om-hq h3 em { font-style:normal; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .om-hq-l > p { margin:12px 0 18px; max-width:400px; font-size:15px; line-height:1.6; color:#5a5f62; }
+  .om-note { padding:20px 22px; border-radius:16px; background:#fff; box-shadow:0 14px 34px rgba(7,63,44,.08); animation:gs-float 6s ease-in-out infinite; }
+  .om-note-top { display:flex; align-items:center; gap:12px; }
+  .om-av { width:38px; height:38px; border-radius:50%; display:grid; place-items:center; background:#eaf6ef; } .om-av img { width:22px; height:22px; object-fit:contain; }
+  .om-note b { display:block; font-size:14.5px; font-weight:600; } .om-note small { display:block; font-size:12.5px; color:#8a8f92; }
+  .om-note ul { list-style:none; margin:16px 0 0; padding:14px 0 0; border-top:1px solid #eef1ef; display:grid; gap:12px; }
+  .om-note li { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; font-size:13.5px; } .om-note li > span:first-child { color:#8a8f92; }
+  .om-note a { color:#111; font-weight:500; text-decoration:none; } .om-note a:hover { color:#0d9b49; }
+  .om-nums { display:grid; justify-items:end; gap:4px; }
+  .om-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; margin-top:14px; }
+  .om-g a, .om-pills a { width:auto !important; max-width:100%; }
+  @media (max-width:760px) { .om-hq { grid-template-columns:1fr; } .om-grid { grid-template-columns:1fr !important; } }
+  @media (prefers-reduced-motion: reduce) { .om-note { animation:none; } }
+</style>
 </head>
 
 <body>
@@ -8135,18 +8157,28 @@ input, select, textarea {
 
     <!-- OFFICES -->
     <section class="om" id="offices" aria-labelledby="cp-off-title" style="scroll-margin-top:110px">
-      <div class="om-in">
-        <div class="om-intro">
-          <span class="om-k">Our offices</span>
-          <h2 id="cp-off-title">For any enquiries, or just to say hello, get in touch and contact us.</h2>
+      <div class="om-top">
+        <span class="om-k">Our offices</span>
+        <h2 id="cp-off-title">For any enquiries, or just to say hello, get in touch and contact us.</h2>
+      </div>
+      <address class="om-hq">
+        <div class="om-hq-l">
+          <img class="om-mark" src="assets/dms-mark.png" alt="" width="44" height="44">
+          <span class="om-k">Headquarters</span>
+          <h3>DMS <em>Head Office.</em></h3>
+          <p>Office No 21, Building 08, Road 1901, Block 319, Kingdom Tower, Manama, Bahrain</p>
+          <div class="om-pills"><a href="tel:+97317290001">Call head office</a><a class="om-wa" href="https://wa.me/97317290001" target="_blank" rel="noopener">WhatsApp</a><a class="om-wa" href="https://www.google.com/maps/search/?api=1&query=Kingdom+Tower%2C+Road+1901%2C+Block+319%2C+Manama%2C+Bahrain" target="_blank" rel="noopener">Directions ↗</a></div>
         </div>
-        <div class="om-grid">
-          <div class="om-col sv-rv" style="--i:0">
-            <div class="om-g"><span class="om-l">Head Office</span><p>Office No 21, Building 08,<br>Road 1901, Block 319,<br>Kingdom Tower, Manama</p><a class="om-dir" href="https://www.google.com/maps/search/?api=1&query=Kingdom+Tower%2C+Road+1901%2C+Block+319%2C+Manama%2C+Bahrain" target="_blank" rel="noopener">Directions ↗</a></div>
-            <div class="om-g"><span class="om-l">Phone &amp; WhatsApp</span><span class="om-pills"><a href="tel:+97317290001">+973 17290001</a><a class="om-wa" href="https://wa.me/97317290001" target="_blank" rel="noopener">WhatsApp</a></span></div>
-            <div class="om-g"><span class="om-l">Mobile</span><span class="om-pills"><a href="tel:+97339694343">+973 39694343</a><a href="tel:+97339694436">+973 39694436</a><a href="tel:+97339494343">+973 39494343</a></span></div>
-            <div class="om-g"><span class="om-l">Email</span><span class="om-pills"><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></span></div>
-          </div>
+        <div class="om-note">
+          <div class="om-note-top"><span class="om-av"><img src="assets/dms-mark.png" alt=""></span><span><b>DMS Head Office</b><small>Kingdom Tower, Manama</small></span></div>
+          <ul>
+            <li><span>Phone &amp; WhatsApp</span><a href="tel:+97317290001">+973 17290001</a></li>
+            <li><span>Mobile</span><span class="om-nums"><a href="tel:+97339694343">+973 39694343</a><a href="tel:+97339694436">+973 39694436</a><a href="tel:+97339494343">+973 39494343</a></span></li>
+            <li><span>Email</span><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></li>
+          </ul>
+        </div>
+      </address>
+      <div class="om-grid">
           <div class="om-col sv-rv" style="--i:1">
             <div class="om-g"><span class="om-l">Saudi Visa Section</span><p>Office No 11, Building 337,<br>Road 1805, Block 318,<br>Bahrain</p><a class="om-dir" href="https://www.google.com/maps/search/?api=1&query=Building+337%2C+Road+1805%2C+Block+318%2C+Bahrain" target="_blank" rel="noopener">Directions ↗</a></div>
             <div class="om-g"><span class="om-l">Phone &amp; WhatsApp</span><span class="om-pills"><a href="tel:+97317533377">+973 17533377</a><a class="om-wa" href="https://wa.me/97317533377" target="_blank" rel="noopener">WhatsApp</a></span></div>
@@ -8159,7 +8191,6 @@ input, select, textarea {
             <div class="om-g"><span class="om-l">Mobile</span><span class="om-pills"><a href="tel:+97339343443">+973 39343443</a><a href="tel:+97334647007">+973 34647007</a><a href="tel:+97333024724">+973 33024724</a></span></div>
             <div class="om-g"><span class="om-l">Email</span><span class="om-pills"><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></span></div>
           </div>
-        </div>
       </div>
     </section>
 
