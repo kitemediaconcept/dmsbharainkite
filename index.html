@@ -10596,30 +10596,23 @@ input, select, textarea {
     .sg-grid .sg-item:nth-child(n+5) { display:none !important; }
     .sg-grid .sg-more { display:inline-flex; justify-self:center; align-items:center; gap:8px; margin:8px auto 6px; padding:11px 22px; border-radius:9999px; color:#fff; font:600 14px/1 Inter, "Helvetica Neue", Arial, sans-serif; text-decoration:none; background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%); box-shadow:0 10px 22px rgba(13,155,73,.22); }
     .sg-grid .sg-more svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    /* 4. stacked cards: normal flow with clean reveal */
-    .dms-gold-stack { margin:24px auto 40px !important; }
-    .dms-gold-stack .dgs-inner { padding:0 16px !important; }
-    .dms-gold-stack .dgs-slot { position:relative !important; top:auto !important; z-index:auto !important; will-change:auto !important; }
-    .dms-gold-stack .dgs-slot + .dgs-slot { margin-top:16px !important; }
-    .dms-gold-stack .dgs-card { transform:none !important; filter:none !important; min-height:0 !important; border-radius:22px !important; overflow:hidden; }
-    .dms-gold-stack .dgs-end { display:none !important; }
+    /* 4. stacked cards: compact sticky stack on mobile */
+    .dms-gold-stack { margin:24px auto 0 !important; }
+    .dms-gold-stack .dgs-inner { padding:0 14px !important; }
+    .dms-gold-stack .dgs-slot { position:sticky !important; top:calc(78px + var(--i) * 12px) !important; }
+    .dms-gold-stack .dgs-slot + .dgs-slot { margin-top:28px !important; }
+    .dms-gold-stack .dgs-card { min-height:0 !important; border-radius:22px !important; overflow:hidden; box-shadow:0 0 0 1px #e3ece7, 0 -10px 28px rgba(7,63,44,.08) !important; }
+    .dms-gold-stack .dgs-end { display:block !important; height:18vh !important; }
     .dms-gold-stack .dgs-copy { min-height:0 !important; }
+    .dms-gold-stack .dgs-benefits, .dgs-card-global-visa .visa-services { display:none !important; }
+    .dms-gold-stack .dgs-card:has(.dgs-golden-img-visual) { padding-bottom:min(58vw,240px) !important; }
+    .dms-gold-stack .dgs-attestation-visual { height:220px !important; min-height:0 !important; }
+    .dgs-card-global-visa .visa-globe { height:230px !important; }
     .abr { padding-bottom:56px !important; }
     .tp-v2 .tp-grid { grid-template-columns:repeat(6,minmax(0,1fr)) !important; }
     .tp-v2 .tp-card { grid-column:span 2 !important; }
     .tp-v2 .tp-card:nth-child(4), .tp-v2 .tp-card:nth-child(5) { grid-column:span 3 !important; }
-    .dms-gold-stack .dgs-slot.mf-rv { opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
-    .dms-gold-stack .dgs-slot.mf-rv.mf-in { opacity:1; transform:none; }
   }
-  @media (max-width:760px) and (prefers-reduced-motion: reduce) { .dms-gold-stack .dgs-slot.mf-rv { opacity:1; transform:none; } }
 </style>
-<script>
-(() => {
-  if (!matchMedia("(max-width:760px)").matches || !("IntersectionObserver" in window)) return;
-  const slots = document.querySelectorAll(".dms-gold-stack .dgs-slot");
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("mf-in"); io.unobserve(e.target); } }), { threshold:.12 });
-  slots.forEach(s => { s.classList.add("mf-rv"); io.observe(s); });
-})();
-</script>
 </body>
 </html>
