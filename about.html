@@ -7185,6 +7185,29 @@ input, select, textarea {
   .cp-hq .cp-btn-g { background:#fff !important; color:#073f2c !important; box-shadow:none !important; }
   .gd-cta a { background:linear-gradient(135deg,#f6e2a8,#d8ae55) !important; color:#3d2a06 !important; box-shadow:none !important; }
 </style>
+<style id="ab40-css">
+  .ab40-hero { display:block !important; width:min(1200px, calc(100% - 48px)); margin:clamp(110px,10vw,140px) auto clamp(40px,5vw,70px) !important; padding:0 !important; text-align:left !important; font-family:Inter, "Helvetica Neue", Arial, sans-serif; }
+  .ab40-top { display:grid; grid-template-columns:auto minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:center; }
+  .ab40 { position:relative; display:grid; place-items:center; width:clamp(220px,26vw,360px); aspect-ratio:1.45; }
+  .ab40-num { display:block; font-size:clamp(170px,20vw,280px); font-weight:700; line-height:.8; letter-spacing:-.07em; font-variant-numeric:tabular-nums; background:linear-gradient(135deg,#0a8a33 0%,#05551f 40%,#06702a 60%,#00e64d 100%); background-size:180% 180%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:ab40-sheen 7s ease-in-out infinite; transform-origin:center; }
+  .ab40-num span { display:inline-block; min-width:2ch; text-align:center; }
+  .ab40-tag { position:absolute; left:50%; top:52%; transform:translate(-50%,-50%); padding:6px 10px 7px; border-radius:8px; background:#064d22; color:#fff; font-size:clamp(15px,1.6vw,21px); font-weight:700; line-height:1.05; letter-spacing:-.4px; white-space:nowrap; box-shadow:0 10px 24px rgba(6,77,34,.25); }
+  .ab40-tag b { display:inline-block; min-width:2ch; font-variant-numeric:tabular-nums; }
+  .ab40-copy .ab-kicker { display:block; text-align:left; }
+  .ab40-copy .ab-title { text-align:left; margin-left:0; }
+  .ab40-copy .ab-sub { text-align:left; margin-left:0; max-width:560px; }
+  .ab40-copy .ab-actions { justify-content:flex-start; }
+  .ab40-people { margin-top:clamp(28px,4vw,52px); }
+  .ab40-people img { display:block; width:100%; height:auto; -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%); mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%); }
+  .ab40-anim .ab40 { opacity:0; transform:scale(.9) translateY(10px); filter:blur(6px); }
+  .ab40-anim.ab40-go .ab40 { opacity:1; transform:none; filter:none; transition:opacity 1.2s cubic-bezier(.16,1,.3,1), transform 1.6s cubic-bezier(.16,1,.3,1), filter 1.2s ease; }
+  .ab40-anim .ab40-people img { opacity:0; transform:translateX(40px); }
+  .ab40-anim.ab40-go .ab40-people img { opacity:1; transform:none; transition:opacity 1.4s ease .35s, transform 1.8s cubic-bezier(.16,1,.3,1) .35s; }
+  @keyframes ab40-sheen { 0%,100% { background-position:0% 0%; } 50% { background-position:100% 100%; } }
+  @media (max-width:860px) { .ab40-top { grid-template-columns:1fr; justify-items:center; text-align:center; } .ab40-copy, .ab40-copy .ab-kicker, .ab40-copy .ab-title, .ab40-copy .ab-sub { text-align:center; margin-inline:auto; } .ab40-copy .ab-actions { justify-content:center; } }
+  @media (max-width:600px) { .ab40-hero { width:calc(100% - 32px); margin-top:100px !important; } .ab40 { width:220px; } .ab40-num { font-size:170px; } .ab40-people img { -webkit-mask-image:none; mask-image:none; } }
+  @media (prefers-reduced-motion: reduce) { .ab40-num { animation:none; } }
+</style>
 </head>
 
 <body>
@@ -7396,19 +7419,24 @@ input, select, textarea {
 
   <main id="main">
     <!-- ABOUT PAGE HERO -->
-    <section class="ab-hero" aria-labelledby="ab-hero-title">
-      <div class="ab-hero-copy">
-        <span class="ab-kicker">About DMS</span>
-        <h1 id="ab-hero-title" class="ab-title">Over 40 years of guiding<br>businesses in Bahrain.</h1>
-        <p class="ab-sub">Diplomat Management Services supports individuals, families and businesses with government relations, visas, residency and documentation.</p>
-        <div class="ab-actions">
-          <a class="ab-btn ab-btn-dark" href="contact.html">Talk to DMS</a>
-          <a class="ab-btn ab-btn-light" href="index.html#services">Our services</a>
+    <section class="ab-hero ab40-hero" aria-labelledby="ab-hero-title">
+      <div class="ab40-top">
+        <div class="ab40" aria-label="40 years of expertise">
+          <span class="ab40-num" aria-hidden="true"><span data-ab40="40">40</span></span>
+          <span class="ab40-tag" aria-hidden="true"><b data-ab40="40">40</b> Years of<br>expertise</span>
+        </div>
+        <div class="ab40-copy">
+          <span class="ab-kicker">About DMS</span>
+          <h1 id="ab-hero-title" class="ab-title">Over 40 years of guiding<br>businesses in Bahrain.</h1>
+          <p class="ab-sub">Diplomat Management Services supports individuals, families and businesses with government relations, visas, residency and documentation.</p>
+          <div class="ab-actions">
+            <a class="ab-btn ab-btn-dark" href="contact.html">Talk to DMS</a>
+            <a class="ab-btn ab-btn-light" href="services.html">Our services</a>
+          </div>
         </div>
       </div>
-      <div class="ab-hero-media">
-        <!-- EDIT: hero image -->
-        <img src="assets/about-hero.jpg" alt="White city skyline rising above the clouds beneath the DMS emblem" width="1448" height="1086" fetchpriority="high" decoding="async">
+      <div class="ab40-people">
+        <img src="assets/about-people.webp" alt="Clients from many backgrounds – families, professionals and workers – lining up for DMS services" width="2440" height="760" fetchpriority="high" decoding="async">
       </div>
     </section>
     <!-- OVERVIEW -->
@@ -8664,6 +8692,28 @@ input, select, textarea {
   const vh = innerHeight;
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("sr-in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
   targets.forEach(el => { if (el.getBoundingClientRect().top < vh * 0.92) return; el.classList.add("sr"); io.observe(el); });
+})();
+</script>
+<script id="ab40-js">
+(() => {
+  const hero = document.querySelector(".ab40-hero"); if (!hero) return;
+  const nums = hero.querySelectorAll("[data-ab40]");
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  hero.classList.add("ab40-anim");
+  nums.forEach(n => n.textContent = "0");
+  const ease = t => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  const run = () => {
+    hero.classList.add("ab40-go");
+    const t0 = performance.now(), dur = 2600;
+    let last = -1;
+    const step = now => {
+      const p = Math.min(1, (now - t0) / dur), v = Math.round(40 * ease(p));
+      if (v !== last) { nums.forEach(n => n.textContent = v); last = v; }
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(() => setTimeout(run, 250));
 })();
 </script>
 </body>
