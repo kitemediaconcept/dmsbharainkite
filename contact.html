@@ -7233,6 +7233,40 @@ input, select, textarea {
   @media (max-width:900px) { .cu-sec { grid-template-columns:1fr; } .cu-faq .cu-photo { order:-1; } }
   @media (max-width:600px) { .cu-sec, .cu-num { width:calc(100% - 32px); } .cu-hero { margin-top:-62px; } }
 </style>
+<style id="of-css">
+  .of-wrap { display:grid; gap:16px; font-family:Inter, "Helvetica Neue", Arial, sans-serif; }
+  .of-hq, .of-card { font-style:normal; color:#111; }
+  .of-hq { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); border-radius:26px; overflow:hidden; box-shadow:0 0 0 1px #e3ece7; background:#fff; }
+  .of-hq-l { position:relative; isolation:isolate; display:flex; flex-direction:column; padding:clamp(26px,3.4vw,44px); color:#fff; background:radial-gradient(ellipse 80% 60% at 100% 0%, rgba(60,207,122,.35), transparent 60%), linear-gradient(160deg,#0b5a3d,#06321f); }
+  .of-hq-l::after { content:""; position:absolute; right:-80px; bottom:-80px; z-index:-1; width:240px; height:240px; border-radius:50%; border:1px solid rgba(255,255,255,.12); box-shadow:0 0 0 40px rgba(255,255,255,.03), 0 0 0 80px rgba(255,255,255,.02); }
+  .of-no { font:500 11px/1.3 "IBM Plex Mono", ui-monospace, monospace; letter-spacing:1.2px; text-transform:uppercase; color:#0d9b49; }
+  .of-hq-l .of-no { color:#9fe0b8; }
+  .of-hq h3, .of-card h3 { margin:14px 0 0; font-size:clamp(24px,2.4vw,32px); font-weight:500; letter-spacing:-1px; line-height:1.1; }
+  .of-card h3 { font-size:22px; letter-spacing:-.6px; }
+  .of-hq-l p, .of-card > p { margin:12px 0 0; font-size:15px; line-height:1.6; color:rgba(255,255,255,.8); }
+  .of-card > p { color:#5a5f62; font-size:14.5px; }
+  .of-link { margin-top:auto; padding-top:28px; display:inline-flex; align-items:center; gap:8px; align-self:flex-start; color:#fff; font-size:14px; font-weight:500; text-decoration:none; }
+  .of-link svg, .of-btn svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:transform .25s ease; }
+  .of-link:hover svg, .of-btn:hover svg { transform:translateX(3px); }
+  .of-hq-r { display:flex; flex-direction:column; justify-content:center; padding:clamp(26px,3.4vw,44px); }
+  .of-dl { display:grid; gap:16px; margin:0; }
+  .of-card .of-dl { margin-top:22px; padding-top:20px; border-top:1px solid #eef1ef; }
+  .of-dl dt { font-size:13px; color:#8a8f92; }
+  .of-dl dd { margin:4px 0 0; font-size:16px; font-weight:500; letter-spacing:-.2px; line-height:1.55; }
+  .of-dl a { color:#111; text-decoration:none; transition:color .2s ease; }
+  .of-dl a:hover { color:#0d9b49; }
+  .of-acts { display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-top:26px; }
+  .of-card .of-acts { margin-top:auto; padding-top:24px; }
+  .of-btn { display:inline-flex; align-items:center; gap:10px; padding:7px 7px 7px 18px; border-radius:9999px; color:#fff; font-size:14px; font-weight:500; text-decoration:none; background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%); }
+  .of-btn span { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:#fff; color:#073f2c; }
+  .of-ghost { font-size:14px; font-weight:500; color:#073f2c; text-decoration:underline; text-decoration-color:rgba(7,63,44,.25); text-underline-offset:4px; }
+  .of-ghost:hover { text-decoration-color:#0d9b49; }
+  .of-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+  .of-card { display:flex; flex-direction:column; padding:clamp(24px,3vw,34px); border-radius:26px; background:#fff; box-shadow:0 0 0 1px #e3ece7; transition:box-shadow .35s ease; }
+  .of-card:hover, .of-hq:hover { box-shadow:0 0 0 1px #cfe5d8, 0 22px 44px rgba(7,63,44,.08); }
+  .of-btn:focus-visible, .of-ghost:focus-visible, .of-link:focus-visible, .of-dl a:focus-visible { outline:2px solid #0d9b49; outline-offset:3px; border-radius:6px; }
+  @media (max-width:860px) { .of-hq, .of-pair { grid-template-columns:1fr; } .of-hq, .of-card { border-radius:20px; } }
+</style>
 </head>
 
 <body>
@@ -7985,28 +8019,46 @@ input, select, textarea {
         <span class="sv-kicker">Our offices</span>
         <h2 id="cp-off-title" class="sv-h2">Three offices, one team.</h2>
       </div>
-      <div class="cp-offices">
-        <address class="cp-office sv-rv cp-hq" style="--i:0">
-          <span class="cp-tag">Headquarters</span>
-          <h3>DMS Head Office</h3>
-          <p class="cp-addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Office No 21, Building 08, Road 1901, Block 319<br>Kingdom Tower, Manama, Bahrain</span></p>
-          <ul class="cp-lines"><li class="cp-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg><span><small>Landline &amp; WhatsApp</small><a href="tel:+97317290001">+973 17290001</a></span></li><li class="cp-line"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><span><small>Mobile</small><span class="cp-nums"><a href="tel:+97339694343">+973 39694343</a><a href="tel:+97339694436">+973 39694436</a><a href="tel:+97339494343">+973 39494343</a></span></span></li><li class="cp-line"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span><small>Email</small><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></span></li></ul>
-          <div class="cp-actions"><a class="cp-btn cp-btn-g" href="tel:+97317290001"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>Call</a><a class="cp-btn cp-btn-l" href="https://wa.me/97317290001" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-1-1 .9a3.6 3.6 0 0 1-2.4-2.4l.9-1-1-1.9z"/></svg>WhatsApp</a><a class="cp-btn cp-btn-l" href="https://www.google.com/maps/search/?api=1&query=Kingdom+Tower%2C+Road+1901%2C+Block+319%2C+Manama%2C+Bahrain" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg>Directions</a></div>
+      <div class="of-wrap">
+        <address class="of-hq sv-rv" style="--i:0">
+          <div class="of-hq-l">
+            <span class="of-no">01 — Headquarters</span>
+            <h3>DMS Head Office</h3>
+            <p>Office No 21, Building 08, Road 1901, Block 319<br>Kingdom Tower, Manama, Bahrain</p>
+            <a class="of-link" href="https://www.google.com/maps/search/?api=1&query=Kingdom+Tower%2C+Road+1901%2C+Block+319%2C+Manama%2C+Bahrain" target="_blank" rel="noopener">Get directions <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          </div>
+          <div class="of-hq-r">
+            <dl class="of-dl">
+              <div><dt>Landline &amp; WhatsApp:</dt><dd><a href="tel:+97317290001">+973 17290001</a></dd></div>
+              <div><dt>Mobile:</dt><dd><a href="tel:+97339694343">+973 39694343</a><br><a href="tel:+97339694436">+973 39694436</a><br><a href="tel:+97339494343">+973 39494343</a></dd></div>
+              <div><dt>Email:</dt><dd><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></dd></div>
+            </dl>
+            <div class="of-acts"><a class="of-btn" href="tel:+97317290001">Call head office <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a><a class="of-ghost" href="https://wa.me/97317290001" target="_blank" rel="noopener">WhatsApp</a></div>
+          </div>
         </address>
-        <address class="cp-office sv-rv" style="--i:1">
-          <span class="cp-tag">Saudi Visa Section</span>
-          <h3>Saudi Visa Section</h3>
-          <p class="cp-addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Office No 11, Building 337, Road 1805, Block 318<br>Bahrain</span></p>
-          <ul class="cp-lines"><li class="cp-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg><span><small>Landline &amp; WhatsApp</small><a href="tel:+97317533377">+973 17533377</a></span></li><li class="cp-line"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><span><small>Mobile</small><span class="cp-nums"><a href="tel:+97339694343">+973 39694343</a><a href="tel:+97339694436">+973 39694436</a></span></span></li><li class="cp-line"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span><small>Email</small><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></span></li></ul>
-          <div class="cp-actions"><a class="cp-btn cp-btn-g" href="tel:+97317533377"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>Call</a><a class="cp-btn cp-btn-l" href="https://wa.me/97317533377" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-1-1 .9a3.6 3.6 0 0 1-2.4-2.4l.9-1-1-1.9z"/></svg>WhatsApp</a><a class="cp-btn cp-btn-l" href="https://www.google.com/maps/search/?api=1&query=Building+337%2C+Road+1805%2C+Block+318%2C+Bahrain" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg>Directions</a></div>
-        </address>
-        <address class="cp-office sv-rv" style="--i:2">
-          <span class="cp-tag">LMRA Registration Centre</span>
-          <h3>LMRA Registration Centre</h3>
-          <p class="cp-addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Office No 22, Building 08, Road 1901, Block 319<br>Kingdom Tower, Manama, Bahrain</span></p>
-          <ul class="cp-lines"><li class="cp-line"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><span><small>Mobile</small><span class="cp-nums"><a href="tel:+97339343443">+973 39343443</a><a href="tel:+97334647007">+973 34647007</a><a href="tel:+97333024724">+973 33024724</a></span></span></li><li class="cp-line"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span><small>Email</small><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></span></li></ul>
-          <div class="cp-actions"><a class="cp-btn cp-btn-g" href="tel:+97339343443"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>Call</a><a class="cp-btn cp-btn-l" href="https://www.google.com/maps/search/?api=1&query=Kingdom+Tower%2C+Road+1901%2C+Block+319%2C+Manama%2C+Bahrain" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg>Directions</a></div>
-        </address>
+        <div class="of-pair">
+          <address class="of-card sv-rv" style="--i:1">
+            <span class="of-no">02 — Saudi Visa Section</span>
+            <h3>Saudi Visa Section</h3>
+            <p>Office No 11, Building 337, Road 1805, Block 318, Bahrain</p>
+            <dl class="of-dl">
+              <div><dt>Landline &amp; WhatsApp:</dt><dd><a href="tel:+97317533377">+973 17533377</a></dd></div>
+              <div><dt>Mobile:</dt><dd><a href="tel:+97339694343">+973 39694343</a><br><a href="tel:+97339694436">+973 39694436</a></dd></div>
+              <div><dt>Email:</dt><dd><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></dd></div>
+            </dl>
+            <div class="of-acts"><a class="of-btn" href="tel:+97317533377">Call <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a><a class="of-ghost" href="https://www.google.com/maps/search/?api=1&query=Building+337%2C+Road+1805%2C+Block+318%2C+Bahrain" target="_blank" rel="noopener">Directions</a></div>
+          </address>
+          <address class="of-card sv-rv" style="--i:2">
+            <span class="of-no">03 — LMRA Registration Centre</span>
+            <h3>LMRA Registration Centre</h3>
+            <p>Office No 22, Building 08, Road 1901, Block 319, Kingdom Tower, Manama</p>
+            <dl class="of-dl">
+              <div><dt>Mobile:</dt><dd><a href="tel:+97339343443">+973 39343443</a><br><a href="tel:+97334647007">+973 34647007</a><br><a href="tel:+97333024724">+973 33024724</a></dd></div>
+              <div><dt>Email:</dt><dd><a href="mailto:info@dmsbahrain.com">info@dmsbahrain.com</a></dd></div>
+            </dl>
+            <div class="of-acts"><a class="of-btn" href="tel:+97339343443">Call <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a><a class="of-ghost" href="https://www.google.com/maps/search/?api=1&query=Kingdom+Tower%2C+Road+1901%2C+Block+319%2C+Manama%2C+Bahrain" target="_blank" rel="noopener">Directions</a></div>
+          </address>
+        </div>
       </div>
     </section>
 
