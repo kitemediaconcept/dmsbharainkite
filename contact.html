@@ -7386,6 +7386,17 @@ input, select, textarea {
   @media (prefers-reduced-motion: reduce) { .om-note { animation:none; } }
   .om-note ul, .gs-note ul { margin:0 !important; padding:0 !important; border-top:0 !important; }
 </style>
+<style id="om-pill-css">
+  .om-pills a, .om-pills a.om-wa { gap:6px; padding:6px 11px 6px 9px; color:#073f2c !important; font-size:12.5px; font-weight:500; background:linear-gradient(135deg,#ffffff 0%,#eef8f2 55%,#dff2e7 100%) !important; box-shadow:0 0 0 1px rgba(13,155,73,.2), 0 2px 6px rgba(7,63,44,.05) !important; filter:none; transition:transform .2s ease, box-shadow .2s ease, background .2s ease; }
+  .om-pills a::before { content:""; flex:0 0 13px; width:13px; height:13px; background:#0d9b49; -webkit-mask:var(--ic) center/contain no-repeat; mask:var(--ic) center/contain no-repeat; }
+  .om-pills a[href^="tel:"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M22%2016.9v3a2%202%200%200%201-2.2%202%2019.8%2019.8%200%200%201-8.6-3.1%2019.5%2019.5%200%200%201-6-6A19.8%2019.8%200%200%201%202.1%204.2%202%202%200%200%201%204.1%202h3a2%202%200%200%201%202%201.7c.1.9.4%201.8.7%202.7a2%202%200%200%201-.5%202.1L8%209.8a16%2016%200%200%200%206%206l1.3-1.3a2%202%200%200%201%202.1-.4c.9.3%201.8.6%202.7.7a2%202%200%200%201%201.7%202Z%27/%3E%3C/svg%3E"); }
+  .om-pills a[href^="https://wa.me"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M3%2021l1.6-4.7A8.5%208.5%200%201%201%208%2019.6z%27/%3E%3Cpath%20d%3D%27M9%209.5c0%203%202.5%205.5%205.5%205.5l1.2-1.4-1.9-1-1%20.9a3.6%203.6%200%200%201-2.4-2.4l.9-1-1-1.9z%27/%3E%3C/svg%3E"); }
+  .om-pills a[href^="mailto:"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Crect%20x%3D%273%27%20y%3D%275%27%20width%3D%2718%27%20height%3D%2714%27%20rx%3D%272%27/%3E%3Cpath%20d%3D%27m3%207%209%206%209-6%27/%3E%3C/svg%3E"); }
+  .om-pills a[href*="google.com/maps"] { --ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M20%2010c0%206-8%2011-8%2011S4%2016%204%2010a8%208%200%201%201%2016%200Z%27/%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2710%27%20r%3D%272.5%27/%3E%3C/svg%3E"); }
+  .om-pills a:hover { transform:translateY(-1px); filter:none; background:linear-gradient(135deg,#f3fbf6 0%,#dff2e7 100%) !important; box-shadow:0 0 0 1px rgba(13,155,73,.35), 0 6px 14px rgba(7,63,44,.08) !important; }
+  .om-hq .om-pills a:first-child { color:#fff !important; background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%) !important; box-shadow:0 6px 14px rgba(13,155,73,.2) !important; }
+  .om-hq .om-pills a:first-child::before { background:#fff; }
+</style>
 </head>
 
 <body>
@@ -8165,7 +8176,7 @@ input, select, textarea {
           <span class="om-k">Headquarters</span>
           <h3>DMS <em>Head Office.</em></h3>
           <p>Office No 21, Building 08, Road 1901, Block 319, Kingdom Tower, Manama, Bahrain</p>
-          <div class="om-pills"><a href="tel:+97317290001">Call head office</a><a class="om-wa" href="https://wa.me/97317290001" target="_blank" rel="noopener">WhatsApp</a><a class="om-wa" href="https://www.google.com/maps/search/?api=1&query=Kingdom+Tower%2C+Road+1901%2C+Block+319%2C+Manama%2C+Bahrain" target="_blank" rel="noopener">Directions ↗</a></div>
+          <div class="om-pills"><a href="tel:+97317290001">Call head office</a><a class="om-wa" href="https://wa.me/97317290001" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.google.com/maps/search/?api=1&query=Kingdom+Tower%2C+Road+1901%2C+Block+319%2C+Manama%2C+Bahrain" target="_blank" rel="noopener">Directions</a></div>
         </div>
         <div class="om-note">
           <ul>
