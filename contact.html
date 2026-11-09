@@ -7267,6 +7267,34 @@ input, select, textarea {
   .of-btn:focus-visible, .of-ghost:focus-visible, .of-link:focus-visible, .of-dl a:focus-visible { outline:2px solid #0d9b49; outline-offset:3px; border-radius:6px; }
   @media (max-width:860px) { .of-hq, .of-pair { grid-template-columns:1fr; } .of-hq, .of-card { border-radius:20px; } }
 </style>
+<style id="cx-css">
+  .cx-hero { margin-top:-60px; padding:150px 0 clamp(56px,6vw,84px); background:linear-gradient(180deg,#f2f8f4 0%,#eef6f1 100%); font-family:Inter, "Helvetica Neue", Arial, sans-serif; color:#111; }
+  .cx-in { width:min(1100px, calc(100% - 48px)); margin:0 auto; }
+  .cx-k { font:500 11.5px/1.3 "IBM Plex Mono", ui-monospace, monospace; letter-spacing:1px; text-transform:uppercase; color:#073f2c; }
+  .cx-hero h1 { margin:10px 0 0; font-size:clamp(40px,5.4vw,68px); font-weight:400; line-height:1.02; letter-spacing:-2.4px; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .cx-sub { margin:16px 0 0; max-width:440px; font-size:18px; line-height:1.4; color:#5a5f62; }
+  .cx-sub a { color:#111; text-underline-offset:3px; }
+  .cx-cards { display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px; margin-top:clamp(40px,5vw,64px); }
+  .cx-card { display:flex; flex-direction:column; padding:28px 26px 26px; border-radius:14px; background:#fff; box-shadow:0 1px 0 rgba(7,63,44,.04); transition:transform .3s ease, box-shadow .3s ease; animation:cx-up .7s cubic-bezier(.16,1,.3,1) both; }
+  .cx-card:nth-child(2) { animation-delay:.08s; } .cx-card:nth-child(3) { animation-delay:.16s; }
+  .cx-card:hover { transform:translateY(-3px); box-shadow:0 18px 36px rgba(7,63,44,.08); }
+  @keyframes cx-up { from { opacity:0; transform:translateY(16px); } }
+  .cx-top { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  .cx-card h2 { margin:0; font-size:20px; font-weight:500; letter-spacing:-.4px; }
+  .cx-badge { padding:4px 9px; border-radius:9999px; background:#e3f4ea; color:#0d9b49; font-size:10.5px; font-weight:600; white-space:nowrap; }
+  .cx-card p { margin:18px 0 0; font-size:14px; line-height:1.55; color:#5a5f62; }
+  .cx-card p a { white-space:nowrap; color:#111; font-weight:500; text-decoration:none; }
+  .cx-acts { display:flex; flex-wrap:wrap; gap:10px; margin-top:auto; padding-top:36px; }
+  .cx-btn { display:inline-flex; align-items:center; padding:11px 19px; border-radius:12px; background:#eef6f1; color:#111; font-size:14px; font-weight:500; text-decoration:none; transition:background .25s ease, transform .25s ease; }
+  .cx-btn:hover { background:#e1f0e7; transform:translateY(-1px); }
+  .cx-dark { color:#fff; background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%); }
+  .cx-dark:hover { background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%); filter:brightness(1.06); }
+  .cx-btn:focus-visible { outline:2px solid #0d9b49; outline-offset:3px; }
+  #cu-form { scroll-margin-top:110px; }
+  @media (max-width:900px) { .cx-cards { grid-template-columns:1fr 1fr; } .cx-main { grid-column:1 / -1; } }
+  @media (max-width:600px) { .cx-hero { margin-top:-62px; padding-top:120px; } .cx-in { width:calc(100% - 32px); } .cx-cards { grid-template-columns:1fr; } .cx-hero h1 { letter-spacing:-1.4px; } }
+  @media (prefers-reduced-motion: reduce) { .cx-card { animation:none; } }
+</style>
 </head>
 
 <body>
@@ -7983,12 +8011,28 @@ input, select, textarea {
 
   <main id="main">
     <!-- MANAGEMENT CONSULTANCY HERO -->
-    <section class="cu-hero" aria-labelledby="ct-title">
-      <img src="assets/company-registration-hero.jpg" alt="" class="cu-hero-bg" fetchpriority="high">
-      <div class="cu-hero-in">
-        <h1 id="ct-title">Contact Us</h1>
-        <span class="cu-rule" aria-hidden="true"></span>
-        <p>Visit one of our offices in Bahrain, call or WhatsApp us, or send an email. We’ll guide you to the right service and next steps.</p>
+    <section class="cx-hero" aria-labelledby="ct-title">
+      <div class="cx-in">
+        <span class="cx-k">Contact us</span>
+        <h1 id="ct-title">Get in touch with <br>the DMS team</h1>
+        <p class="cx-sub">Talk to our advisors about anything you couldn’t find on our <a href="services.html">services pages</a>.</p>
+        <div class="cx-cards">
+          <article class="cx-card cx-main">
+            <div class="cx-top"><h2>Talk to an advisor</h2><span class="cx-badge">Fastest option</span></div>
+            <p>Call or WhatsApp our head office on <a href="tel:+97317290001">+973 17290001</a>.<br>Prefer to visit? Find us at Kingdom Tower, Manama – or at one of our other offices below.</p>
+            <div class="cx-acts"><a class="cx-btn cx-dark" href="https://wa.me/97317290001" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="cx-btn" href="tel:+97317290001">Call us</a></div>
+          </article>
+          <article class="cx-card">
+            <h2>Browse our services</h2>
+            <p>Explore business setup, government, visa and residency services in one place.</p>
+            <div class="cx-acts"><a class="cx-btn" href="services.html">View all services</a></div>
+          </article>
+          <article class="cx-card">
+            <h2>Send a request</h2>
+            <p>For detailed requirements, share the details with us and our team will get back to you as soon as possible.</p>
+            <div class="cx-acts"><a class="cx-btn" href="#cu-form" data-cx-form>Send a request</a></div>
+          </article>
+        </div>
       </div>
     </section>
 
