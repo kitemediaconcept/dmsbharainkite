@@ -8716,10 +8716,10 @@ input, select, textarea {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   hero.classList.add("ab40-anim");
   nums.forEach(n => n.textContent = "0");
-  const ease = t => 1 - Math.pow(1 - t, 4);
+  const ease = t => 1 - Math.pow(1 - t, 3);
   const run = () => {
     hero.classList.add("ab40-go");
-    const t0 = performance.now(), dur = 3000;
+    const t0 = performance.now(), dur = 5000;
     let last = -1;
     const step = now => {
       const p = Math.min(1, (now - t0) / dur), v = Math.round(40 * ease(p));
