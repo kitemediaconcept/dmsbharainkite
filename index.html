@@ -7437,9 +7437,9 @@ input, select, textarea {
       <div class="abr-left">
         <span class="abr-pill">About us</span>
         <h2 class="abr-title">Your strategic partner in Bahrain.</h2>
-        <div class="abr-forty" role="img" aria-label="40 years of excellence">
-          <img src="assets/forty-excellence.png" alt="" width="436" height="245" loading="lazy">
-          <span class="abr-count" aria-hidden="true"><span data-count40="40">0</span></span>
+        <div class="abr-forty" role="img" aria-label="40 years of expertise">
+          <img src="assets/forty-mark.webp" alt="" width="1536" height="1024" loading="lazy">
+          <span class="abr-count" aria-hidden="true"><span data-count40="40">40</span></span>
         </div>
       </div>
 
@@ -7471,9 +7471,13 @@ input, select, textarea {
     .abr-title { margin:18px 0 0; max-width:420px; font-size:clamp(30px,3.4vw,46px); font-weight:500; line-height:1.08; letter-spacing:-1.4px; color:#111; }
     .abr-forty { --w:clamp(250px,30vw,430px); position:relative; display:block; width:var(--w); margin-top:clamp(22px,2.6vw,34px); }
     .abr-forty img { display:block; width:100%; height:auto; }
-    .abr-count { position:absolute; left:0; top:0; width:84%; height:84%; display:flex; align-items:flex-end; justify-content:center; background:#fff; transition:opacity .45s ease; }
-    .abr-count span { font-family:Inter, "Helvetica Neue", Arial, sans-serif; font-size:calc(var(--w) * .58); font-weight:800; line-height:.74; letter-spacing:-.05em; color:#0a9442; font-variant-numeric:tabular-nums; transform:translateY(2%); }
-    .abr-count.is-done { opacity:0; pointer-events:none; }
+    .abr-forty { aspect-ratio:1536/1024; container-type:inline-size; }
+    .abr-count { position:absolute; left:35.6%; top:29.2%; pointer-events:none; }
+    .abr-count span { display:inline-block; font-family:Poppins, Montserrat, Inter, "Helvetica Neue", Arial, sans-serif; font-size:10.4cqw; font-weight:800; line-height:1; letter-spacing:-.02em; color:#fff; font-variant-numeric:tabular-nums; }
+    .abr-forty.is-anim { opacity:0; transform:scale(.92); filter:blur(8px); }
+    .abr-forty.is-anim img { clip-path:inset(100% 0 0 0); }
+    .abr-forty.is-anim.is-go { opacity:1; transform:none; filter:none; transition:opacity 1s ease, transform 2.4s cubic-bezier(.16,1,.3,1), filter 1.2s ease; }
+    .abr-forty.is-anim.is-go img { clip-path:inset(0 0 0 0); transition:clip-path 2.4s cubic-bezier(.16,1,.3,1); }
     .abr-glass { padding:clamp(22px,2.8vw,36px); border-radius:26px; background:rgba(255,255,255,.62); -webkit-backdrop-filter:blur(18px) saturate(150%); backdrop-filter:blur(18px) saturate(150%); box-shadow:inset 0 0 0 1px rgba(255,255,255,.7), 0 20px 50px rgba(7,63,44,.10); }
     .abr-glass .subtitle { margin:0; font-size:clamp(18px,1.7vw,22px); line-height:1.35; letter-spacing:-.4px; color:#111; }
     .abr-glass .description p { margin:16px 0 0; font-size:15px; line-height:1.6; color:#3d4245; }
@@ -7496,17 +7500,17 @@ input, select, textarea {
         sec.style.setProperty("--abr-off", (1 - p).toFixed(4));
       };
       addEventListener("scroll", upd, { passive:true }); addEventListener("resize", upd); upd();
-      // big 40 count-up, then reveal the exact 40 artwork
-      const cnt = sec.querySelector(".abr-count"), n = sec.querySelector("[data-count40]");
-      if (!cnt || reduce || !("IntersectionObserver" in window)) { cnt && cnt.classList.add("is-done"); }
-      else {
+      // 40 mark: reveal artwork and count the small 40 smoothly
+      const box = sec.querySelector(".abr-forty"), n = sec.querySelector("[data-count40]");
+      if (box && n && !reduce && "IntersectionObserver" in window) {
+        box.classList.add("is-anim"); n.textContent = "0";
         const io = new IntersectionObserver(es => es.forEach(e => {
-          if (!e.isIntersecting) return; io.disconnect();
-          const t0 = performance.now(), d = 1600;
-          const step = t => { const q = Math.min(1, (t - t0) / d); n.textContent = Math.round(40 * (1 - Math.pow(1 - q, 3))); if (q < 1) requestAnimationFrame(step); else setTimeout(() => cnt.classList.add("is-done"), 120); };
+          if (!e.isIntersecting) return; io.disconnect(); box.classList.add("is-go");
+          const t0 = performance.now(), d = 3000; let last = -1;
+          const step = t => { const q = Math.min(1, (t - t0) / d), v = Math.round(40 * (1 - Math.pow(1 - q, 4))); if (v !== last) { n.textContent = v; last = v; } if (q < 1) requestAnimationFrame(step); };
           requestAnimationFrame(step);
-        }), { threshold: .5 });
-        io.observe(cnt);
+        }), { threshold: .4 });
+        io.observe(box);
       }
     })();
   </script>
