@@ -7185,6 +7185,17 @@ input, select, textarea {
   .cp-hq .cp-btn-g { background:#fff !important; color:#073f2c !important; box-shadow:none !important; }
   .gd-cta a { background:linear-gradient(135deg,#f6e2a8,#d8ae55) !important; color:#3d2a06 !important; box-shadow:none !important; }
 </style>
+<style id="dms-pill-css">
+  .dms-crumb { display:inline-flex !important; align-items:center; gap:6px; max-width:100%; width:auto !important; padding:6px 13px !important; border-radius:9999px !important; font:500 12.5px/1.3 Inter, "Helvetica Neue", Arial, sans-serif !important; letter-spacing:-.1px !important; text-transform:none !important; white-space:nowrap; color:#073f2c !important; background:linear-gradient(135deg,#ffffff 0%,#eef8f2 55%,#dff2e7 100%); box-shadow:0 4px 14px rgba(7,63,44,.06); }
+  .dms-crumb a { color:#5a5f62 !important; text-decoration:none; -webkit-text-fill-color:#5a5f62; transition:color .2s ease; }
+  .dms-crumb a:hover { color:#0d9b49 !important; -webkit-text-fill-color:#0d9b49; }
+  .dms-crumb svg { flex:0 0 12px; width:12px; height:12px; fill:none; stroke:#0d9b49; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+  .dms-crumb .dms-kg { overflow:hidden; text-overflow:ellipsis; }
+  .dms-kg { background:linear-gradient(120deg,#073f2c 0%,#0d9b49 60%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .dms-pill { display:inline-flex !important; align-items:center; width:auto !important; padding:6px 13px !important; border-radius:9999px !important; font:500 12.5px/1.3 Inter, "Helvetica Neue", Arial, sans-serif !important; letter-spacing:-.1px !important; text-transform:none !important; color:#073f2c !important; background:linear-gradient(135deg,#ffffff 0%,#eef8f2 55%,#dff2e7 100%) !important; box-shadow:0 4px 14px rgba(7,63,44,.06) !important; border:0 !important; }
+  .dms-pill::before, .dms-pill::after, .dms-pill > i { display:none !important; }
+  @media (max-width:600px) { .dms-crumb, .dms-pill { font-size:11px !important; padding:5px 10px !important; } .dms-crumb { gap:4px; } }
+</style>
 </head>
 
 <body>
@@ -7787,7 +7798,7 @@ input, select, textarea {
     <!-- MANAGEMENT CONSULTANCY HERO -->
     <section class="mch" aria-labelledby="ac-title">
       <div class="mch-copy">
-        <p class="mch-kicker">Annual Compliance Services</p>
+        <nav class="dms-crumb mch-kicker" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Annual compliance services</span></nav>
         <h1 id="ac-title" class="mch-title">Your business, compliant <br>all year round.</h1>
         <p class="mch-tag">Structured annual compliance support to help keep your Bahrain business registrations, memberships, filings, and regulatory obligations up to date.</p>
         <div class="mch-actions">
@@ -7818,7 +7829,7 @@ input, select, textarea {
     <section class="sv-sec" aria-labelledby="ac-intro-title">
       <div class="ss-intro">
         <div>
-          <span class="sv-kicker">What we do</span>
+          <span class="sv-kicker dms-pill"><span class="dms-kg">What we do</span></span>
           <h2 id="ac-intro-title" class="sv-h2">Recurring requirements, managed throughout the year.</h2>
         </div>
         <div>
@@ -7831,7 +7842,7 @@ input, select, textarea {
     <!-- SUPPORT GRID -->
     <section class="sv-sec" id="ac-support" aria-labelledby="ac-sup-title" style="scroll-margin-top:110px">
       <div class="sv-head">
-        <span class="sv-kicker">Our support includes</span>
+        <span class="sv-kicker dms-pill"><span class="dms-kg">Our support includes</span></span>
         <h2 id="ac-sup-title" class="sv-h2">Every renewal, filing and submission in view.</h2>
       </div>
       <ul class="ac-grid">
@@ -7850,7 +7861,7 @@ input, select, textarea {
     <!-- HOW -->
     <section class="sv-sec" aria-labelledby="ac-how-title">
       <div class="sv-head">
-        <span class="sv-kicker">How our team works</span>
+        <span class="sv-kicker dms-pill"><span class="dms-kg">How our team works</span></span>
         <h2 id="ac-how-title" class="sv-h2">Properly maintained, fully operational.</h2>
       </div>
       <div class="fj-proc-wrap">
@@ -7867,7 +7878,7 @@ input, select, textarea {
     <!-- CTA -->
     <section class="sv-cta" aria-labelledby="ac-cta-title">
       <svg class="sv-cta-lines" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true"><circle cx="600" cy="470" r="260" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 9"/><circle cx="600" cy="470" r="360" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="3 9"/></svg>
-      <span class="sv-kicker">Annual Compliance Services</span>
+      <span class="sv-kicker dms-pill"><span class="dms-kg">Annual Compliance Services</span></span>
       <h2 id="ac-cta-title">Keep your Bahrain business up to date, all year round.</h2>
       <p>Tell us about your company and our team will help you map out your renewals, filings and upcoming requirements.</p>
       <a href="#contact">Get in touch <span aria-hidden="true">→</span></a>

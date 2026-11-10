@@ -7185,6 +7185,17 @@ input, select, textarea {
   .cp-hq .cp-btn-g { background:#fff !important; color:#073f2c !important; box-shadow:none !important; }
   .gd-cta a { background:linear-gradient(135deg,#f6e2a8,#d8ae55) !important; color:#3d2a06 !important; box-shadow:none !important; }
 </style>
+<style id="dms-pill-css">
+  .dms-crumb { display:inline-flex !important; align-items:center; gap:6px; max-width:100%; width:auto !important; padding:6px 13px !important; border-radius:9999px !important; font:500 12.5px/1.3 Inter, "Helvetica Neue", Arial, sans-serif !important; letter-spacing:-.1px !important; text-transform:none !important; white-space:nowrap; color:#073f2c !important; background:linear-gradient(135deg,#ffffff 0%,#eef8f2 55%,#dff2e7 100%); box-shadow:0 4px 14px rgba(7,63,44,.06); }
+  .dms-crumb a { color:#5a5f62 !important; text-decoration:none; -webkit-text-fill-color:#5a5f62; transition:color .2s ease; }
+  .dms-crumb a:hover { color:#0d9b49 !important; -webkit-text-fill-color:#0d9b49; }
+  .dms-crumb svg { flex:0 0 12px; width:12px; height:12px; fill:none; stroke:#0d9b49; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+  .dms-crumb .dms-kg { overflow:hidden; text-overflow:ellipsis; }
+  .dms-kg { background:linear-gradient(120deg,#073f2c 0%,#0d9b49 60%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .dms-pill { display:inline-flex !important; align-items:center; width:auto !important; padding:6px 13px !important; border-radius:9999px !important; font:500 12.5px/1.3 Inter, "Helvetica Neue", Arial, sans-serif !important; letter-spacing:-.1px !important; text-transform:none !important; color:#073f2c !important; background:linear-gradient(135deg,#ffffff 0%,#eef8f2 55%,#dff2e7 100%) !important; box-shadow:0 4px 14px rgba(7,63,44,.06) !important; border:0 !important; }
+  .dms-pill::before, .dms-pill::after, .dms-pill > i { display:none !important; }
+  @media (max-width:600px) { .dms-crumb, .dms-pill { font-size:11px !important; padding:5px 10px !important; } .dms-crumb { gap:4px; } }
+</style>
 </head>
 
 <body>
@@ -7728,7 +7739,7 @@ input, select, textarea {
     <!-- MANAGEMENT CONSULTANCY HERO -->
     <section class="mch" aria-labelledby="fj-title">
       <div class="mch-copy">
-        <p class="mch-kicker">Family Joining Visa Services for KSA Residence Holders</p>
+        <nav class="dms-crumb mch-kicker" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Family joining visa for KSA residence holders</span></nav>
         <h1 id="fj-title" class="mch-title">Bring your family closer. <br>Bahrain residence for KSA Iqama holders.</h1>
         <p class="mch-tag">Professional assistance for eligible KSA Iqama holders seeking Bahrain residence options for their family members.</p>
         <div class="mch-actions">
@@ -7752,7 +7763,7 @@ input, select, textarea {
     <section class="sv-sec" aria-labelledby="fj-intro-title">
       <div class="ss-intro">
         <div>
-          <span class="sv-kicker">What we do</span>
+          <span class="sv-kicker dms-pill"><span class="dms-kg">What we do</span></span>
           <h2 id="fj-intro-title" class="sv-h2">Support for families, through every step.</h2>
         </div>
         <div>
@@ -7766,7 +7777,7 @@ input, select, textarea {
       <div class="fj-life">
         <div class="fj-tile fj-hero-tile sv-rv" style="--i:0">
           <svg class="fj-rings" viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="140" fill="none" stroke="#fff" stroke-dasharray="3 8"/><circle cx="150" cy="150" r="95" fill="none" stroke="#fff" stroke-dasharray="3 8"/></svg>
-          <span class="sv-kicker">Life in Bahrain</span>
+          <span class="sv-kicker dms-pill"><span class="dms-kg">Life in Bahrain</span></span>
           <h3 id="fj-life-title">Greater flexibility to live in Bahrain.</h3>
           <p>This option can provide families with greater flexibility to live in Bahrain while benefiting from access to schools, healthcare facilities, residential communities, and the overall lifestyle Bahrain offers.</p>
         </div>
@@ -7780,7 +7791,7 @@ input, select, textarea {
     <!-- SUPPORT -->
     <section class="sv-sec" id="fj-support" aria-labelledby="fj-sup-title" style="scroll-margin-top:110px">
       <div class="sv-head">
-        <span class="sv-kicker">Our support includes</span>
+        <span class="sv-kicker dms-pill"><span class="dms-kg">Our support includes</span></span>
         <h2 id="fj-sup-title" class="sv-h2">From eligibility to the final formalities.</h2>
       </div>
       <div class="fj-proc-wrap">
@@ -7797,7 +7808,7 @@ input, select, textarea {
     <!-- CTA -->
     <section class="sv-cta" aria-labelledby="fj-cta-title">
       <svg class="sv-cta-lines" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 340 C 300 80, 900 80, 1220 340" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 9"/><path d="M-20 390 C 300 150, 900 150, 1220 390" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="3 9"/></svg>
-      <span class="sv-kicker">For KSA Iqama holders</span>
+      <span class="sv-kicker dms-pill"><span class="dms-kg">For KSA Iqama holders</span></span>
       <h2 id="fj-cta-title">Bahrain residence options for your family members.</h2>
       <p>Tell us about your family and our team will guide you through eligibility, documents and the application.</p>
       <a href="#contact">Get in touch <span aria-hidden="true">→</span></a>

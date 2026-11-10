@@ -8795,6 +8795,17 @@ input, select, textarea {
   .lmra-v2 .lmra-card h2, .cio-card h3, .imm-card h3, .gosi-card h3, .cm-card h3, .bx-card h3, .ut-card h3 { color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
   .imm-v2 .imm-portrait-art::after { display:none; }
 </style>
+<style id="dms-pill-css">
+  .dms-crumb { display:inline-flex !important; align-items:center; gap:6px; max-width:100%; width:auto !important; padding:6px 13px !important; border-radius:9999px !important; font:500 12.5px/1.3 Inter, "Helvetica Neue", Arial, sans-serif !important; letter-spacing:-.1px !important; text-transform:none !important; white-space:nowrap; color:#073f2c !important; background:linear-gradient(135deg,#ffffff 0%,#eef8f2 55%,#dff2e7 100%); box-shadow:0 4px 14px rgba(7,63,44,.06); }
+  .dms-crumb a { color:#5a5f62 !important; text-decoration:none; -webkit-text-fill-color:#5a5f62; transition:color .2s ease; }
+  .dms-crumb a:hover { color:#0d9b49 !important; -webkit-text-fill-color:#0d9b49; }
+  .dms-crumb svg { flex:0 0 12px; width:12px; height:12px; fill:none; stroke:#0d9b49; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+  .dms-crumb .dms-kg { overflow:hidden; text-overflow:ellipsis; }
+  .dms-kg { background:linear-gradient(120deg,#073f2c 0%,#0d9b49 60%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .dms-pill { display:inline-flex !important; align-items:center; width:auto !important; padding:6px 13px !important; border-radius:9999px !important; font:500 12.5px/1.3 Inter, "Helvetica Neue", Arial, sans-serif !important; letter-spacing:-.1px !important; text-transform:none !important; color:#073f2c !important; background:linear-gradient(135deg,#ffffff 0%,#eef8f2 55%,#dff2e7 100%) !important; box-shadow:0 4px 14px rgba(7,63,44,.06) !important; border:0 !important; }
+  .dms-pill::before, .dms-pill::after, .dms-pill > i { display:none !important; }
+  @media (max-width:600px) { .dms-crumb, .dms-pill { font-size:11px !important; padding:5px 10px !important; } .dms-crumb { gap:4px; } }
+</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -8880,7 +8891,7 @@ input, select, textarea {
 
         
 
-        <span class="mh-kicker"><i></i>Bahrain Ministry Services</span>
+        <nav class="dms-crumb mh-kicker" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Bahrain ministry services</span></nav>
 
         <h1 class="hero-title mh-title" id="hero-title">Your partner in Bahrain.<br>Government services, simplified.</h1>
 
@@ -11066,7 +11077,7 @@ input, select, textarea {
     <section class="gosi-v2" id="gosi-services" aria-labelledby="gosi-title">
       <div class="gosi-wrap">
         <header class="gosi-head">
-          <span class="gosi-kicker">Government services</span>
+          <span class="gosi-kicker dms-pill"><span class="dms-kg">Government services</span></span>
           <h2 id="gosi-title" class="gosi-title">GOSI Department Services</h2>
           <p class="gosi-sub">Comprehensive social insurance and administrative solutions to help your business grow.</p>
         </header>
@@ -11234,7 +11245,7 @@ input, select, textarea {
     <section class="cm-v2" id="chamber-ministry-services" aria-labelledby="cm-title">
       <div class="cm-wrap">
         <header class="cm-head">
-          <span class="cm-kicker">Government services</span>
+          <span class="cm-kicker dms-pill"><span class="dms-kg">Government services</span></span>
           <h2 id="cm-title" class="cm-title">Bahrain Chamber &amp; Ministry Services</h2>
           <p class="cm-sub">Comprehensive corporate registration, licensing, and compliance solutions.</p>
         </header>
@@ -11424,7 +11435,7 @@ input, select, textarea {
     <section class="bx-v2" id="smart-services" aria-labelledby="bx-title">
       <div class="bx-wrap">
         <header class="bx-head">
-          <span class="bx-kicker">Government services</span>
+          <span class="bx-kicker dms-pill"><span class="dms-kg">Government services</span></span>
           <h2 id="bx-title" class="bx-title">A smarter way to manage services</h2>
           <p class="bx-sub">Access an ecosystem of government solutions to level up your business or connect your infrastructure.</p>
         </header>
@@ -11432,7 +11443,7 @@ input, select, textarea {
           <article class="bx-card mo-card" style="--d:0ms">
             <div class="mo-photo"><img src="assets/moic-meeting.webp" alt="DMS advisor reviewing company documents with a client in Bahrain" width="698" height="811" loading="lazy" decoding="async"></div>
             <div class="mo-copy">
-              <span class="mo-kicker">Business services in Bahrain</span>
+              <span class="mo-kicker dms-pill"><span class="dms-kg">Business services in Bahrain</span></span>
               <h3 class="mo-title">Ministry of Industry &amp; Commerce Services</h3>
               <ul class="mo-list"><li style="--i:0"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Company registration renewal</li><li style="--i:1"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Add or remove signatories</li><li style="--i:2"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Change company address</li><li style="--i:3"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Obtain an original copy of the commercial registration certificate and registration extract</li><li style="--i:4"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Update company contact details</li><li style="--i:5"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Offense removal</li><li style="--i:6"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Audit report submission</li><li style="--i:7"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>UBO registration and renewal</li><li style="--i:8"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>ESR report submission</li><li style="--i:9"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Activity renewal</li></ul>
               <a class="mo-btn" href="#contact">Talk to DMS <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
@@ -11628,7 +11639,7 @@ input, select, textarea {
     <section class="ut-v2" id="municipality-utility-services" aria-labelledby="ut-title">
       <div class="ut-wrap">
         <header class="ut-head">
-          <span class="ut-kicker">Government services</span>
+          <span class="ut-kicker dms-pill"><span class="dms-kg">Government services</span></span>
           <h2 id="ut-title" class="ut-title">Streamline your government and utility services.</h2>
           <p class="ut-sub">Effortlessly manage municipal affairs, utility connections, and cross-border logistics in one seamless workflow.</p>
         </header>

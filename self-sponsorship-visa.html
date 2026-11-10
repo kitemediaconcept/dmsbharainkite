@@ -7185,6 +7185,17 @@ input, select, textarea {
   .cp-hq .cp-btn-g { background:#fff !important; color:#073f2c !important; box-shadow:none !important; }
   .gd-cta a { background:linear-gradient(135deg,#f6e2a8,#d8ae55) !important; color:#3d2a06 !important; box-shadow:none !important; }
 </style>
+<style id="dms-pill-css">
+  .dms-crumb { display:inline-flex !important; align-items:center; gap:6px; max-width:100%; width:auto !important; padding:6px 13px !important; border-radius:9999px !important; font:500 12.5px/1.3 Inter, "Helvetica Neue", Arial, sans-serif !important; letter-spacing:-.1px !important; text-transform:none !important; white-space:nowrap; color:#073f2c !important; background:linear-gradient(135deg,#ffffff 0%,#eef8f2 55%,#dff2e7 100%); box-shadow:0 4px 14px rgba(7,63,44,.06); }
+  .dms-crumb a { color:#5a5f62 !important; text-decoration:none; -webkit-text-fill-color:#5a5f62; transition:color .2s ease; }
+  .dms-crumb a:hover { color:#0d9b49 !important; -webkit-text-fill-color:#0d9b49; }
+  .dms-crumb svg { flex:0 0 12px; width:12px; height:12px; fill:none; stroke:#0d9b49; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+  .dms-crumb .dms-kg { overflow:hidden; text-overflow:ellipsis; }
+  .dms-kg { background:linear-gradient(120deg,#073f2c 0%,#0d9b49 60%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .dms-pill { display:inline-flex !important; align-items:center; width:auto !important; padding:6px 13px !important; border-radius:9999px !important; font:500 12.5px/1.3 Inter, "Helvetica Neue", Arial, sans-serif !important; letter-spacing:-.1px !important; text-transform:none !important; color:#073f2c !important; background:linear-gradient(135deg,#ffffff 0%,#eef8f2 55%,#dff2e7 100%) !important; box-shadow:0 4px 14px rgba(7,63,44,.06) !important; border:0 !important; }
+  .dms-pill::before, .dms-pill::after, .dms-pill > i { display:none !important; }
+  @media (max-width:600px) { .dms-crumb, .dms-pill { font-size:11px !important; padding:5px 10px !important; } .dms-crumb { gap:4px; } }
+</style>
 </head>
 
 <body>
@@ -7653,7 +7664,7 @@ input, select, textarea {
     <!-- MANAGEMENT CONSULTANCY HERO -->
     <section class="mch" aria-labelledby="ss-title">
       <div class="mch-copy">
-        <p class="mch-kicker">Self-Sponsorship Visa Services</p>
+        <nav class="dms-crumb mch-kicker" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Self-sponsorship visa services</span></nav>
         <h1 id="ss-title" class="mch-title">Secure your future <br>with self-sponsorship, today.</h1>
         <p class="mch-tag">Support for individuals and their families applying for self-sponsored residence permits in Bahrain.</p>
         <div class="mch-actions">
@@ -7684,7 +7695,7 @@ input, select, textarea {
     <section class="sv-sec" aria-labelledby="ss-intro-title">
       <div class="ss-intro">
         <div>
-          <span class="sv-kicker">Self-sponsored residence</span>
+          <span class="sv-kicker dms-pill"><span class="dms-kg">Self-sponsored residence</span></span>
           <h2 id="ss-intro-title" class="sv-h2">A route to long-term residency in Bahrain.</h2>
         </div>
         <div>
@@ -7698,7 +7709,7 @@ input, select, textarea {
     <!-- WHO -->
     <section class="sv-sec" id="ss-who" aria-labelledby="ss-who-title" style="scroll-margin-top:110px">
       <div class="sv-head">
-        <span class="sv-kicker">Who can apply?</span>
+        <span class="sv-kicker dms-pill"><span class="dms-kg">Who can apply?</span></span>
         <h2 id="ss-who-title" class="sv-h2">Three categories of eligible applicants.</h2>
         <p>Self-sponsored residence permits are available to eligible applicants in the following categories:</p>
       </div>
@@ -7713,7 +7724,7 @@ input, select, textarea {
     <section class="sv-sec" aria-labelledby="ss-how-title">
       <div class="ss-how">
         <div class="ss-how-head">
-          <span class="sv-kicker">How we support your application</span>
+          <span class="sv-kicker dms-pill"><span class="dms-kg">How we support your application</span></span>
           <h2 id="ss-how-title" class="sv-h2">Guided through every requirement.</h2>
           <p>We guide you through the requirements relevant to your category and help coordinate the steps involved, including:</p>
         </div>
@@ -7732,7 +7743,7 @@ input, select, textarea {
     <section class="sv-sec" aria-labelledby="ss-fam-title">
       <div class="ss-family">
         <div>
-          <span class="sv-kicker">Support for you and your family</span>
+          <span class="sv-kicker dms-pill"><span class="dms-kg">Support for you and your family</span></span>
           <h2 id="ss-fam-title" class="sv-h2">Plan with confidence, from the outset.</h2>
           <p>Planning long-term residency involves decisions about both your future and your family’s needs. We help you understand the application requirements from the outset, so you can prepare with confidence and make informed decisions.</p>
           <p>Whether you are establishing a home, managing investments or planning your retirement in Bahrain, our team provides personalized assistance throughout the process.</p>
@@ -7748,7 +7759,7 @@ input, select, textarea {
     <!-- CTA -->
     <section class="sv-cta" aria-labelledby="ss-cta-title">
       <svg class="sv-cta-lines" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 340 C 300 80, 900 80, 1220 340" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 9"/><path d="M-20 390 C 300 150, 900 150, 1220 390" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="3 9"/></svg>
-      <span class="sv-kicker">Discuss your residency plans with us</span>
+      <span class="sv-kicker dms-pill"><span class="dms-kg">Discuss your residency plans with us</span></span>
       <h2 id="ss-cta-title">Secure your future with our Self-sponsorship Visa services today.</h2>
       <p>Contact our team to explore the self-sponsored residence category relevant to your circumstances and understand the next steps.</p>
       <a href="#contact">Get in touch <span aria-hidden="true">→</span></a>
