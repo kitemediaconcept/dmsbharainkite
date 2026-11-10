@@ -7272,6 +7272,7 @@ input, select, textarea {
   @media (max-width:600px) { .abr-auth { gap:12px; padding:12px 14px; } .abr-auth-i { gap:7px; } .abr-auth-i b { font-size:11px; } .abr-auth-ksa { width:26px; height:30px; } .abr-auth-i img { height:34px; } }
   @media (prefers-reduced-motion: reduce) { .abr-auth::after { animation:none; } }
 </style>
+<style id="vh-mob">@media (max-width:760px){ .vh-video{ object-fit:cover; object-position:center 30%; } }</style>
 </head>
 
 <body>
@@ -7357,7 +7358,6 @@ input, select, textarea {
     <!-- VIDEO HERO -->
     <section class="vh-hero" id="hero-section" aria-labelledby="hero-heading">
       <video class="vh-video" autoplay muted loop playsinline preload="auto" poster="assets/video/dms-hero-poster.jpg" aria-hidden="true" tabindex="-1">
-        <source src="assets/video/dms-hero-960.mp4" type="video/mp4" media="(max-width: 760px)">
         <source src="assets/video/dms-hero.mp4" type="video/mp4">
       </video>
       <div class="vh-shade" aria-hidden="true"></div>
@@ -7378,6 +7378,15 @@ input, select, textarea {
         <svg viewBox="0 0 24 24" aria-hidden="true"><path class="vh-pause" d="M8 5h3v14H8zM13 5h3v14h-3z"/><path class="vh-play" d="M8 5v14l11-7z"/></svg>
       </button>
     </section>
+<script id="vh-mobile-src">
+(() => {
+  const v = document.querySelector(".vh-video"); if (!v) return;
+  if (!matchMedia("(max-width: 760px)").matches) return;
+  v.poster = "assets/video/dms-hero-mobile-poster.jpg";
+  const src = v.querySelector("source"); src.src = "assets/video/dms-hero-mobile.mp4";
+  v.load(); const p = v.play(); if (p && p.catch) p.catch(() => {});
+})();
+</script>
 
       <!-- DMS AUTHORITIES & REGULATORY ENTITIES (6 LOGOS) -->
   <section class="dms-authorities" aria-labelledby="authorities-heading">
