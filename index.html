@@ -7260,6 +7260,18 @@ input, select, textarea {
     .dms-authorities__logos.dms-marquee__track { animation-duration:36s !important; }
   }
 </style>
+<style id="abr-auth-css">
+  .abr-auth { position:relative; display:flex; align-items:center; gap:clamp(14px,2vw,22px); width:max-content; max-width:100%; margin-top:clamp(18px,2.4vw,28px); padding:14px clamp(16px,2vw,24px); border-radius:18px; background:radial-gradient(ellipse 80% 60% at 100% 0%, rgba(60,207,122,.2), transparent 60%), linear-gradient(135deg,#ffffff 0%,#eef8f2 55%,#dff2e7 100%); box-shadow:0 10px 28px rgba(7,63,44,.08); font-family:Inter, "Helvetica Neue", Arial, sans-serif; overflow:hidden; isolation:isolate; }
+  .abr-auth::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(110deg, transparent 35%, rgba(255,255,255,.75) 50%, transparent 65%); background-size:250% 100%; animation:abr-auth-sheen 6s ease-in-out 2s infinite; }
+  .abr-auth-i { display:flex; align-items:center; gap:10px; }
+  .abr-auth-i b { font-size:clamp(12.5px,1.05vw,14.5px); font-weight:700; line-height:1.15; letter-spacing:-.2px; text-transform:uppercase; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .abr-auth-ksa { flex:0 0 auto; width:34px; height:38px; background:linear-gradient(160deg,#0d9b49,#073f2c); -webkit-mask:url(assets/badge-ksa.png) center/contain no-repeat; mask:url(assets/badge-ksa.png) center/contain no-repeat; }
+  .abr-auth-i img { width:auto; height:44px; }
+  .abr-auth-sep { width:1px; align-self:stretch; background:linear-gradient(180deg,transparent,rgba(13,155,73,.35),transparent); }
+  @keyframes abr-auth-sheen { 0% { background-position:150% 0; } 45%,100% { background-position:-60% 0; } }
+  @media (max-width:600px) { .abr-auth { gap:12px; padding:12px 14px; } .abr-auth-i { gap:7px; } .abr-auth-i b { font-size:11px; } .abr-auth-ksa { width:26px; height:30px; } .abr-auth-i img { height:34px; } }
+  @media (prefers-reduced-motion: reduce) { .abr-auth::after { animation:none; } }
+</style>
 </head>
 
 <body>
@@ -7484,6 +7496,11 @@ input, select, textarea {
         <div class="abr-forty" role="img" aria-label="40 years of expertise">
           <img src="assets/forty-mark.webp" alt="" width="1536" height="1024" loading="lazy">
           <span class="abr-count" aria-hidden="true"><span data-count40="40">40</span></span>
+        </div>
+        <div class="abr-auth" role="list" aria-label="Accreditations">
+          <div class="abr-auth-i" role="listitem"><span class="abr-auth-ksa" aria-hidden="true"></span><b>Authorized agent<br>of Saudi Embassy</b></div>
+          <span class="abr-auth-sep" aria-hidden="true"></span>
+          <div class="abr-auth-i" role="listitem"><img src="assets/authorities/lmra-v2.png" alt="Labour Market Regulatory Authority" width="247" height="240" loading="lazy"><b>LMRA registration<br>centre</b></div>
         </div>
       </div>
 
