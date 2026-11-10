@@ -7246,6 +7246,20 @@ input, select, textarea {
   .cp-hq .cp-btn-g { background:#fff !important; color:#073f2c !important; box-shadow:none !important; }
   .gd-cta a { background:linear-gradient(135deg,#f6e2a8,#d8ae55) !important; color:#3d2a06 !important; box-shadow:none !important; }
 </style>
+<style id="al-v2">
+  .dms-marquee__track .dms-authorities__logo { height:112px !important; padding:0 34px !important; }
+  .dms-marquee__track .dms-al--wide img { max-height:44px !important; }
+  .dms-marquee__track .dms-al--tall img { max-height:96px !important; }
+  .dms-marquee__track .dms-al--wps img { max-height:46px !important; border-radius:8px; }
+  .dms-authorities__logos.dms-marquee__track { animation-duration:48s !important; }
+  @media (max-width:600px) {
+    .dms-marquee__track .dms-authorities__logo { height:80px !important; padding:0 20px !important; }
+    .dms-marquee__track .dms-al--wide img { max-height:32px !important; }
+    .dms-marquee__track .dms-al--tall img { max-height:66px !important; }
+    .dms-marquee__track .dms-al--wps img { max-height:34px !important; }
+    .dms-authorities__logos.dms-marquee__track { animation-duration:36s !important; }
+  }
+</style>
 </head>
 
 <body>
@@ -7368,53 +7382,83 @@ input, select, textarea {
 
       <div class="dms-marquee">
         <ul class="dms-authorities__logos dms-marquee__track" aria-label="Entities and authorities">
-        <li class="dms-authorities__logo dms-authorities__logo--wps">
-          <img src="assets/authorities/wps.png" alt="WPS – Wages Protection System" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--kfca dms-al--wide">
+          <img src="assets/authorities/kfca-v2.png" alt="King Fahd Causeway Authority" loading="lazy" decoding="async" />
         </li>
-        <li class="dms-authorities__logo dms-authorities__logo--moic">
-          <img src="assets/authorities/moic.png" alt="Ministry of Industry and Commerce" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--crpep dms-al--wide">
+          <img src="assets/authorities/crpep-v2.png" alt="Council for Regulating the Practice of Engineering Professions" loading="lazy" decoding="async" />
         </li>
-        <li class="dms-authorities__logo dms-authorities__logo--lmra">
-          <img src="assets/authorities/lmra.png" alt="Labour Market Regulatory Authority" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--wps dms-al--wps">
+          <img src="assets/authorities/wps-v2.png" alt="WPS – Wage Protection System" loading="lazy" decoding="async" />
         </li>
-        <li class="dms-authorities__logo dms-authorities__logo--moi">
-          <img src="assets/authorities/moi-npra.png" alt="Ministry of Interior – Nationality, Passports &amp; Residence Affairs" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--chamber dms-al--wide">
+          <img src="assets/authorities/chamber-v2.png" alt="Bahrain Chamber" loading="lazy" decoding="async" />
         </li>
-        <li class="dms-authorities__logo dms-authorities__logo--embassy">
-          <img src="assets/authorities/ksa-embassy.png" alt="Embassy of the Kingdom of Saudi Arabia" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--lmra dms-al--tall">
+          <img src="assets/authorities/lmra-v2.png" alt="Labour Market Regulatory Authority" loading="lazy" decoding="async" />
         </li>
-        <li class="dms-authorities__logo dms-authorities__logo--chamber">
-          <img src="assets/authorities/chamber.png" alt="Bahrain Chamber" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--iga dms-al--tall">
+          <img src="assets/authorities/iga-v2.png" alt="Information &amp; eGovernment Authority" loading="lazy" decoding="async" />
         </li>
-        <li class="dms-authorities__logo dms-authorities__logo--crpep">
-          <img src="assets/authorities/crpep.png" alt="Council for Regulating the Practice of Engineering Professions" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--moh dms-al--tall">
+          <img src="assets/authorities/moh-v2.png" alt="Ministry of Health" loading="lazy" decoding="async" />
         </li>
-        <li class="dms-authorities__logo dms-authorities__logo--kfca">
-          <img src="assets/authorities/kfca.png" alt="King Fahd Causeway Authority" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--mofa dms-al--tall">
+          <img src="assets/authorities/mofa-v2.png" alt="Ministry of Foreign Affairs" loading="lazy" decoding="async" />
         </li>
-        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--wps">
-          <img src="assets/authorities/wps.png" alt="" data-alt="WPS – Wages Protection System" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--moi dms-al--tall">
+          <img src="assets/authorities/moi-v2.png" alt="Ministry of Interior" loading="lazy" decoding="async" />
         </li>
-        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--moic">
-          <img src="assets/authorities/moic.png" alt="" data-alt="Ministry of Industry and Commerce" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--mma dms-al--tall">
+          <img src="assets/authorities/mma-v2.png" alt="Ministry of Municipalities Affairs and Agriculture" loading="lazy" decoding="async" />
         </li>
-        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--lmra">
-          <img src="assets/authorities/lmra.png" alt="" data-alt="Labour Market Regulatory Authority" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--mew dms-al--tall">
+          <img src="assets/authorities/mew-v2.png" alt="Ministry of Electricity and Water Affairs" loading="lazy" decoding="async" />
         </li>
-        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--moi">
-          <img src="assets/authorities/moi-npra.png" alt="" data-alt="Ministry of Interior – Nationality, Passports &amp; Residence Affairs" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--moe dms-al--tall">
+          <img src="assets/authorities/moe-v2.png" alt="Ministry of Education" loading="lazy" decoding="async" />
         </li>
-        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--embassy">
-          <img src="assets/authorities/ksa-embassy.png" alt="" data-alt="Embassy of the Kingdom of Saudi Arabia" loading="lazy" decoding="async" />
+        <li class="dms-authorities__logo dms-authorities__logo--moj dms-al--tall">
+          <img src="assets/authorities/moj-v2.png" alt="Ministry of Justice, Islamic Affairs and Waqf" loading="lazy" decoding="async" />
         </li>
-        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--chamber">
-          <img src="assets/authorities/chamber.png" alt="" data-alt="Bahrain Chamber" loading="lazy" decoding="async" />
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--kfca dms-al--wide">
+          <img src="assets/authorities/kfca-v2.png" alt="" data-alt="King Fahd Causeway Authority" loading="lazy" decoding="async" />
         </li>
-        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--crpep">
-          <img src="assets/authorities/crpep.png" alt="" data-alt="Council for Regulating the Practice of Engineering Professions" loading="lazy" decoding="async" />
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--crpep dms-al--wide">
+          <img src="assets/authorities/crpep-v2.png" alt="" data-alt="Council for Regulating the Practice of Engineering Professions" loading="lazy" decoding="async" />
         </li>
-        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--kfca">
-          <img src="assets/authorities/kfca.png" alt="" data-alt="King Fahd Causeway Authority" loading="lazy" decoding="async" />
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--wps dms-al--wps">
+          <img src="assets/authorities/wps-v2.png" alt="" data-alt="WPS – Wage Protection System" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--chamber dms-al--wide">
+          <img src="assets/authorities/chamber-v2.png" alt="" data-alt="Bahrain Chamber" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--lmra dms-al--tall">
+          <img src="assets/authorities/lmra-v2.png" alt="" data-alt="Labour Market Regulatory Authority" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--iga dms-al--tall">
+          <img src="assets/authorities/iga-v2.png" alt="" data-alt="Information &amp; eGovernment Authority" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--moh dms-al--tall">
+          <img src="assets/authorities/moh-v2.png" alt="" data-alt="Ministry of Health" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--mofa dms-al--tall">
+          <img src="assets/authorities/mofa-v2.png" alt="" data-alt="Ministry of Foreign Affairs" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--moi dms-al--tall">
+          <img src="assets/authorities/moi-v2.png" alt="" data-alt="Ministry of Interior" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--mma dms-al--tall">
+          <img src="assets/authorities/mma-v2.png" alt="" data-alt="Ministry of Municipalities Affairs and Agriculture" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--mew dms-al--tall">
+          <img src="assets/authorities/mew-v2.png" alt="" data-alt="Ministry of Electricity and Water Affairs" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--moe dms-al--tall">
+          <img src="assets/authorities/moe-v2.png" alt="" data-alt="Ministry of Education" loading="lazy" decoding="async" />
+        </li>
+        <li aria-hidden="true" class="dms-authorities__logo dms-authorities__logo--moj dms-al--tall">
+          <img src="assets/authorities/moj-v2.png" alt="" data-alt="Ministry of Justice, Islamic Affairs and Waqf" loading="lazy" decoding="async" />
         </li>
         </ul>
       </div>
@@ -9519,14 +9563,19 @@ input, select, textarea {
       /* LEFT: AUTOMATIC DRIFT WALL */
       document.querySelectorAll("[data-drift]").forEach((wall) => {
         const images = [
-          "assets/authorities/wps.png",
-          "assets/authorities/moic.png",
-          "assets/authorities/lmra.png",
-          "assets/authorities/moi-npra.png",
-          "assets/authorities/ksa-embassy.png",
-          "assets/authorities/chamber.png",
-          "assets/authorities/crpep.png",
-          "assets/authorities/kfca.png"
+          "assets/authorities/kfca-v2.png",
+          "assets/authorities/crpep-v2.png",
+          "assets/authorities/wps-v2.png",
+          "assets/authorities/chamber-v2.png",
+          "assets/authorities/lmra-v2.png",
+          "assets/authorities/iga-v2.png",
+          "assets/authorities/moh-v2.png",
+          "assets/authorities/mofa-v2.png",
+          "assets/authorities/moi-v2.png",
+          "assets/authorities/mma-v2.png",
+          "assets/authorities/mew-v2.png",
+          "assets/authorities/moe-v2.png",
+          "assets/authorities/moj-v2.png"
         ];
 
         const plane = wall.querySelector(".dms-drift-plane");
