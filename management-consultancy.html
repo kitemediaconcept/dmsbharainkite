@@ -7192,6 +7192,30 @@ input, select, textarea {
   .cr-list .cr-item:hover .cr-ico, .cr-list .cr-item:hover .gv-num { background:linear-gradient(135deg,#19b35a,#073f2c); color:#fff; }
   .cr-list .cr-item b { color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 70%,#2fbf6a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
 </style>
+<style id="mcb-css">
+  .mcb { position:relative; isolation:isolate; overflow:hidden; display:block !important; margin:-60px 0 0 !important; padding:0 !important; min-height:clamp(520px,46vw,640px); background:#fff !important; font-family:Inter, "Helvetica Neue", Arial, sans-serif; text-align:left !important; margin-bottom:clamp(50px,6vw,90px) !important; }
+  .mcb-blob { position:absolute; right:0; top:0; z-index:-1; width:58%; height:100%; animation:mcb-blob 1.2s cubic-bezier(.16,1,.3,1) both; transform-origin:100% 0; }
+  .mcb-in { position:relative; width:min(1200px, calc(100% - 48px)); min-height:inherit; margin:0 auto; display:flex; align-items:center; }
+  .mcb-copy { position:relative; z-index:2; max-width:640px !important; margin:0 !important; padding:120px 0 80px !important; text-align:left !important; }
+  .mcb-copy .mch-kicker { text-align:left; margin-left:0; }
+  .mcb-title { margin:12px 0 0; font-size:clamp(32px,3.6vw,50px); font-weight:500; line-height:1.08; letter-spacing:-1.6px; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .mcb-title span { display:inline-block; font-size:.68em; line-height:1.15; letter-spacing:-1px; white-space:nowrap; }
+  .mcb::before, .mcb::after { display:none !important; }
+  .mcb-tag { margin:18px 0 0; max-width:440px; font-size:16px; line-height:1.6; color:#5a5f62; }
+  .mcb-actions { justify-content:flex-start !important; margin-top:28px; }
+  .mcb-people { position:absolute; right:0; bottom:0; width:min(58%,700px); height:auto; animation:mcb-up 1.3s cubic-bezier(.16,1,.3,1) .25s both; filter:drop-shadow(0 20px 30px rgba(7,63,44,.18)); }
+  @keyframes mcb-blob { from { opacity:0; transform:scale(.92); } }
+  @keyframes mcb-up { from { opacity:0; transform:translateY(40px); } }
+  @media (max-width:900px) {
+    .mcb { min-height:0; }
+    .mcb-blob { width:100%; height:230px; top:auto; bottom:0; }
+    .mcb-title span { white-space:normal; }
+    .mcb-in { flex-direction:column; align-items:stretch; }
+    .mcb-copy { padding:110px 0 44px !important; max-width:none !important; }
+    .mcb-people { position:relative; width:100%; max-width:560px; margin:0 auto; }
+  }
+  @media (prefers-reduced-motion: reduce) { .mcb-blob, .mcb-people { animation:none; } }
+</style>
 </head>
 
 <body>
@@ -7372,23 +7396,22 @@ input, select, textarea {
 
   <main id="main">
     <!-- MANAGEMENT CONSULTANCY HERO -->
-    <section class="mch" aria-labelledby="mc-title">
-      <div class="mch-copy">
-        <p class="mch-kicker">Management and Administration Consultancy</p>
-        <h1 id="mc-title" class="mch-title">Clear Guidance. Informed Decisions.<br>Confident Management.</h1>
-        <p class="mch-tag">Consultation on requirements and policies, so your management can comply with government regulations.</p>
-        <div class="mch-actions">
-          <a class="mch-btn" href="#mc-services">Explore services</a>
-          <a class="mch-link" href="#contact">Talk to DMS</a>
+    <section class="mch mcb" aria-labelledby="mc-title">
+      <svg class="mcb-blob" viewBox="0 0 600 520" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="mcb-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ccf7a"/><stop offset=".55" stop-color="#19b35a"/><stop offset="1" stop-color="#0d9b49"/></linearGradient></defs>
+        <path fill="url(#mcb-g)" d="M150 0 H600 V520 H330 C250 470 170 380 130 280 C90 180 80 90 150 0 Z"/>
+      </svg>
+      <div class="mcb-in">
+        <div class="mch-copy mcb-copy">
+          <p class="mch-kicker">Management and Administration Consultancy</p>
+          <h1 id="mc-title" class="mcb-title"><span>Clear Guidance. Informed Decisions.</span><br>Confident Management.</h1>
+          <p class="mcb-tag">Consultation on requirements and policies, so your management can comply with government regulations.</p>
+          <div class="mch-actions mcb-actions">
+            <a class="mch-btn" href="#mc-services">Explore services</a>
+            <a class="mch-link" href="#contact">Talk to DMS</a>
+          </div>
         </div>
-      </div>
-      <div class="mch-stage">
-        <!-- EDIT: hero artwork -->
-        <img class="mch-art" src="assets/management-consultancy-art.jpg" alt="Bahrain World Trade Center towers with DMS documents" width="1585" height="692" fetchpriority="high" decoding="async">
-        <div class="mch-card mch-c1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.2 5.6L20 9l-4.5 3.8L17 19l-5-3.2L7 19l1.5-6.2L4 9l5.8-.4z"/></svg><span><b>Clear guidance</b><small>Requirements explained</small></span></div>
-        <div class="mch-card mch-c2"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.7 2.7L16 9.5"/></svg><span><b>Compliance in view</b><small>Policies made clear</small></span></div>
-        <div class="mch-card mch-c3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg><span><b>Confident management</b><small>Right decisions, right time</small></span></div>
-        <span class="mch-spark mch-s1" aria-hidden="true"></span><span class="mch-spark mch-s2" aria-hidden="true"></span>
+        <img class="mcb-people" src="assets/mc-hero-people.webp" alt="DMS consultant shaking hands with a client at a meeting" width="1191" height="591" fetchpriority="high" decoding="async">
       </div>
     </section>
 
