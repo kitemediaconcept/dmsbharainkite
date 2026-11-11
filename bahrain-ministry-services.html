@@ -8808,6 +8808,22 @@ input, select, textarea {
 </style>
 <style id="cm-logo">.cm-v2 .cm-photo.cm-logo-photo { width:86% !important; height:auto !important; align-self:center; max-height:none; aspect-ratio:1151/472; object-fit:contain; background:#172654; border-radius:16px; box-shadow:0 18px 36px rgba(7,20,60,.22); }</style>
 <style id="imm-prom">.imm-v2 .imm-portrait-photo.imm-promenade { object-fit:cover !important; object-position:center 30% !important; }</style>
+<style id="cio-v2-css">
+  .cio-v2 { width:min(1100px, calc(100% - 48px)); margin:clamp(48px,6vw,80px) auto; padding:0 !important; background:none !important; font-family:Inter, "Helvetica Neue", Arial, sans-serif; }
+  .cio2 { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); align-items:center; gap:clamp(20px,4vw,48px); padding:clamp(22px,3vw,36px); border-radius:24px; background:radial-gradient(ellipse 70% 60% at 0% 100%, rgba(60,207,122,.18), transparent 60%), linear-gradient(135deg,#f7fcf9 0%,#eaf6ef 60%,#dff2e7 100%); box-shadow:0 10px 28px rgba(7,63,44,.07); overflow:hidden; }
+  .cio2-art { align-self:end; margin:0 0 calc(-1 * clamp(22px,3vw,36px)) calc(-1 * clamp(22px,3vw,36px)); }
+  .cio2-art img { display:block; width:100%; max-width:380px; height:auto; }
+  .cio2-k { display:inline-flex; padding:5px 12px; border-radius:9999px; font-size:12px; font-weight:500; color:#0d9b49; background:#fff; box-shadow:0 4px 12px rgba(7,63,44,.06); }
+  .cio2-copy h2 { margin:12px 0 0; font-size:clamp(22px,2.2vw,28px); font-weight:500; line-height:1.2; letter-spacing:-.6px; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .cio2-copy p { margin:8px 0 0; font-size:14.5px; line-height:1.6; color:#5a5f62; }
+  .cio2-copy ul { list-style:none; margin:18px 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .cio2-copy li { display:flex; align-items:center; gap:10px; padding:8px 12px 8px 8px; border-radius:12px; font-size:13.5px; line-height:1.35; color:#1d2124; background:rgba(255,255,255,.75); box-shadow:0 4px 12px rgba(7,63,44,.05); }
+  .cio2-copy li i { flex:0 0 30px; height:30px; border-radius:9px; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,#3ccf7a 0%,#0d9b49 55%,#073f2c 100%); }
+  .cio2-copy li svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  @media (max-width:800px) { .cio2 { grid-template-columns:1fr; } .cio2-art { order:2; margin:0 auto calc(-1 * clamp(22px,3vw,36px)); } .cio2-art img { max-width:280px; } .cio2-copy ul { grid-template-columns:1fr; } }
+  @media (max-width:600px) { .cio-v2 { width:calc(100% - 32px) !important; } .cio-v2 .cio2 { padding:24px 20px !important; } }
+  .cio-v2 .cio2 { padding:clamp(22px,3vw,36px) !important; }
+</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -9674,56 +9690,15 @@ input, select, textarea {
 </script>
 
     <!-- CIO SERVICES SECTION -->
-<section class="cio-section" id="cio-services" aria-label="Central Informatics Organization Services">
-  <header class="cio-head">
-    <h2 class="cio-main-title">Central Informatics Organization Services</h2>
-  </header>
-  <div class="cio-grid">
-    <!-- LEFT CARD -->
-    <article class="cio-card cio-intro">
-      <span class="cio-label">CIO SERVICES</span>
-
-      <h2>Central Informatics Organization Services</h2>
-
-      <p class="cio-description">
-        Support for Bahrain CPR and official certificates.
-      </p>
-
-      <div class="cio-cpr-art">
-        <img class="cio-cpr-img" src="assets/bahrain-cpr-card.png" width="900" height="758" alt="Hand holding a Kingdom of Bahrain identity card (CPR)" loading="lazy" decoding="async">
-      </div>
-    </article>
-
-    <!-- RIGHT CARD -->
-    <article class="cio-card cio-services">
-      <span class="cio-label">REGISTRATION &amp; CERTIFICATES</span>
-
-      <h2>Your essential documents, simplified</h2>
-
-      <ol class="cio-list">
-        <li>
-          <span class="cio-number">1</span>
-          <span>Processing of new, renewal or lost Bahrain CPR</span>
-        </li>
-        <li>
-          <span class="cio-number">2</span>
-          <span>CPR update</span>
-        </li>
-        <li>
-          <span class="cio-number">3</span>
-          <span>Establishment / Unit Registration Certificate</span>
-        </li>
-        <li>
-          <span class="cio-number">4</span>
-          <span>Address Confirmation Certificate for GCC Nationals</span>
-        </li>
-      </ol>
-
-      <!-- Self-contained document illustration -->
-      <div class="cio-art">
-        <img class="cio-folder-img" src="assets/dms-document-folder.png" width="1100" height="801" alt="DMS folder holding a Bahrain work permit, passport and ID card" loading="lazy" decoding="async">
-      </div>
-    </article>
+<section class="cio-section cio-v2" id="cio-services" aria-labelledby="cio-v2-t">
+  <div class="cio2">
+    <div class="cio2-art"><img src="assets/bahrain-cpr-card.png" width="900" height="758" alt="Hand holding a Kingdom of Bahrain identity card (CPR)" loading="lazy" decoding="async"></div>
+    <div class="cio2-copy">
+      <span class="cio2-k">CIO services</span>
+      <h2 id="cio-v2-t">Central Informatics Organization Services</h2>
+      <p>Support for Bahrain CPR and official certificates.</p>
+      <ul><li><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16a3.4 3.4 0 0 1 6.4 0M14 10h4M14 13.5h3"/></svg></i>New, renewal or lost Bahrain CPR</li><li><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></svg></i>CPR update</li><li><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16"/><path d="M15 10h4a1 1 0 0 1 1 1v10M3 21h18M8 8h3M8 12h3M8 16h3"/></svg></i>Establishment / Unit Registration Certificate</li><li><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></i>Address Confirmation Certificate for GCC Nationals</li></ul>
+    </div>
   </div>
 </section>
 
