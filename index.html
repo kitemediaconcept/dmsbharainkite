@@ -7272,6 +7272,11 @@ input, select, textarea {
   @media (prefers-reduced-motion: reduce) { .abr-auth::after { animation:none; } }
 </style>
 <style id="vh-mob">@media (max-width:760px){ .vh-video{ object-fit:cover; object-position:center 30%; } }</style>
+<style id="dgs-res">
+  .dgs-residence-visual { display:flex; align-items:flex-end; justify-content:center; background:radial-gradient(ellipse 70% 60% at 50% 60%, rgba(60,207,122,.28), transparent 70%), linear-gradient(160deg,#eef8f2,#d8f0e2) !important; overflow:hidden; }
+  @media (max-width:760px) { .dms-gold-stack .dgs-residence-visual { height:240px !important; min-height:0 !important; } .dgs-residence-visual .dgs-residence-img { height:118% !important; } }
+  .dgs-residence-visual .dgs-residence-img { position:relative !important; inset:auto !important; left:auto !important; right:auto !important; margin:0 auto !important; width:auto !important; height:112% !important; max-width:none; object-fit:contain !important; transform:translateY(8%); filter:drop-shadow(0 24px 30px rgba(7,63,44,.22)); -webkit-mask-image:none !important; mask-image:none !important; }
+</style>
 </head>
 
 <body>
@@ -8017,6 +8022,44 @@ input, select, textarea {
                 class="dgs-attestation-img dgs-family-img"
                 src="assets/family-joining-bahrain.webp"
                 alt="Family enjoying the beach in Bahrain with the Manama skyline behind"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dgs-slot" style="--i: 4;">
+        <!-- FIFTH CARD: VISA AND RESIDENCE PERMIT SERVICES -->
+        <article class="dgs-card dgs-card-attestation dgs-card-family dgs-card-residence">
+          <div class="dgs-attestation-grid">
+            <div class="dgs-attestation-copy">
+              <span class="dgs-eyebrow">VISA &amp; RESIDENCY</span>
+              <h2 class="dgs-heading">
+                Visa and Residence<br>
+                Permit Services.
+              </h2>
+              <p class="dgs-description">
+                From new visas to residence permit renewals, we handle the paperwork and follow-up with the relevant authorities for individuals, families and employees in Bahrain.
+              </p>
+              <ul class="dgs-benefits">
+                <li>New residence permits &amp; renewals</li>
+                <li>Visit and multiple entry visas</li>
+                <li>Family and dependent residence</li>
+              </ul>
+              <a class="dgs-link" href="bahrain-ministry-services.html#immigration-services">
+                Explore Visa &amp; Residence Services
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="dgs-attestation-visual dgs-family-visual dgs-residence-visual">
+              <img
+                class="dgs-attestation-img dgs-residence-img"
+                src="assets/bahrain-passport-visa.png"
+                alt="Hand holding a Kingdom of Bahrain passport with a visa"
                 loading="lazy"
               >
             </div>
