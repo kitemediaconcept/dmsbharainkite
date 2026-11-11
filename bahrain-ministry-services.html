@@ -8924,10 +8924,27 @@ input, select, textarea {
 <style id="lmx-cover">
   .lmx-img img, .lmx-pass img, .lmx-shake img, .lmx-bridge img { left:0 !important; top:0 !important; bottom:auto !important; width:100% !important; height:100% !important; max-width:none !important; object-fit:cover !important; transform:translateY(14px) scale(1.04) !important; -webkit-mask-image:none !important; mask-image:none !important; }
   .lmx-g.is-in .lmx-img img { transform:none !important; }
-  .lmx-pass img { object-position:center 60% !important; }
+  .lmx-pass img { object-position:center center !important; }
   .lmx-shake img { object-position:center 45% !important; }
-  .lmx-bridge img { object-position:60% 70% !important; }
+  .lmx-bridge img { object-position:70% center !important; }
   .lmx-img { background:#fff !important; }
+</style>
+<style id="lmx-bleed">
+  .lmx-g { position:relative; overflow:hidden; }
+  @media (min-width:901px) {
+    .lmx-g { padding-right:calc(36% + 22px) !important; min-height:260px; }
+    .lmx-gb { grid-template-columns:1fr !important; }
+    .lmx-img { position:absolute !important; top:0; right:0; bottom:0; width:36%; height:auto !important; border-radius:0 !important; box-shadow:none !important; }
+  }
+  @media (max-width:900px) {
+    .lmx-img { margin:-18px -18px 6px; height:190px !important; border-radius:0 !important; box-shadow:none !important; order:-1; }
+    .lmx-gb { gap:14px !important; }
+    .lmx-g .lmx-gt { margin-top:0; }
+    .lmx-g { display:flex !important; flex-direction:column; align-items:stretch; }
+    .lmx-g .lmx-gb { display:contents !important; }
+    .lmx-g .lmx-img { order:-1; align-self:stretch; width:auto !important; margin:-18px -18px 16px !important; }
+    .lmx-g .lmx-gt { order:0; } .lmx-g .svc-rows { order:1; }
+  }
 </style>
 </head>
 <body>
@@ -9657,7 +9674,7 @@ input, select, textarea {
               <span class="svc-tags"><span class="svc-tag">New</span><span class="svc-tag">Renew</span><span class="svc-tag">Cancellation</span></span>
             </li>
           </ul>
-            <div class="lmx-img lmx-pass" aria-hidden="true"><img src="assets/passport-handover.png" alt="" loading="lazy" decoding="async"></div>
+            <div class="lmx-img lmx-pass" aria-hidden="true"><img src="assets/lmx-passport.webp" alt="" loading="lazy" decoding="async"></div>
           </div>
         </article>
         <article class="lmx-g" id="lmx-g1" data-lmx="1">
@@ -9713,7 +9730,7 @@ input, select, textarea {
               <span class="svc-name">WPS Full Setup and WRP Fixing</span>
             </li>
           </ul>
-            <div class="lmx-img lmx-bridge" aria-hidden="true"><img src="assets/bridge-support.png" alt="" loading="lazy" decoding="async"></div>
+            <div class="lmx-img lmx-bridge" aria-hidden="true"><img src="assets/lmx-bridge.webp" alt="" loading="lazy" decoding="async"></div>
           </div>
         </article>
         </div>
