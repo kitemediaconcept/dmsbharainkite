@@ -7216,6 +7216,11 @@ input, select, textarea {
   .dms-pill::before, .dms-pill::after, .dms-pill > i { display:none !important; }
   @media (max-width:600px) { .dms-crumb, .dms-pill { font-size:11px !important; padding:5px 10px !important; } .dms-crumb { gap:4px; } }
 </style>
+<style id="dms-sec-type">
+  .dms-sh { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:48px !important; font-weight:500 !important; line-height:52px !important; letter-spacing:-1.6px !important; color:#073f2c !important; text-transform:none !important; }
+  .dms-sp { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:17px !important; font-weight:400 !important; line-height:29px !important; letter-spacing:-0.2px !important; color:#4a4a4a !important; }
+  @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
+</style>
 </head>
 
 <body>
@@ -7382,8 +7387,8 @@ input, select, textarea {
     <section class="cr-detail" id="cr-services" aria-labelledby="cr-detail-title">
       <div class="cr-intro">
         <span class="cr-kicker dms-pill"><span class="dms-kg">What we do</span></span>
-        <h2 id="cr-detail-title" class="cr-h2">Company incorporation and amendments, handled end to end.</h2>
-        <p>Complete support for company incorporation and amendments in Bahrain — from registration and licensing to government approvals and ongoing compliance. We manage the process with the relevant authorities to help you establish your business efficiently, correctly, and with confidence.</p>
+        <h2 id="cr-detail-title" class="cr-h2 dms-sh">Company incorporation and amendments, handled end to end.</h2>
+        <p class="dms-sp">Complete support for company incorporation and amendments in Bahrain — from registration and licensing to government approvals and ongoing compliance. We manage the process with the relevant authorities to help you establish your business efficiently, correctly, and with confidence.</p>
         <p class="cr-note">We provide assistance such as, but not limited to:</p>
       </div>
     </section>
@@ -7438,8 +7443,8 @@ input, select, textarea {
 
     <!-- CTA -->
     <section class="cr-cta" aria-labelledby="cr-cta-title">
-      <h2 id="cr-cta-title">Ready to register or update your company?</h2>
-      <p>Tell us what you need and our team will guide you through the documents and next steps.</p>
+      <h2 class="dms-sh" id="cr-cta-title">Ready to register or update your company?</h2>
+      <p class="dms-sp">Tell us what you need and our team will guide you through the documents and next steps.</p>
       <a class="cr-btn cr-btn-dark" href="#contact">Get in touch <span aria-hidden="true">→</span></a>
     </section>
   </main>

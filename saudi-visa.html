@@ -7196,6 +7196,11 @@ input, select, textarea {
   .dms-pill::before, .dms-pill::after, .dms-pill > i { display:none !important; }
   @media (max-width:600px) { .dms-crumb, .dms-pill { font-size:11px !important; padding:5px 10px !important; } .dms-crumb { gap:4px; } }
 </style>
+<style id="dms-sec-type">
+  .dms-sh { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:48px !important; font-weight:500 !important; line-height:52px !important; letter-spacing:-1.6px !important; color:#073f2c !important; text-transform:none !important; }
+  .dms-sp { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:17px !important; font-weight:400 !important; line-height:29px !important; letter-spacing:-0.2px !important; color:#4a4a4a !important; }
+  @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
+</style>
 </head>
 
 <body>
@@ -7563,10 +7568,10 @@ input, select, textarea {
     <section class="cr-detail" id="sv-about" aria-labelledby="sv-detail-title">
       <div class="cr-intro">
         <span class="cr-kicker dms-pill"><span class="dms-kg">What we do</span></span>
-        <h2 id="sv-detail-title" class="cr-h2">Comprehensive support for travel to Saudi Arabia.</h2>
+        <h2 id="sv-detail-title" class="cr-h2 dms-sh">Comprehensive support for travel to Saudi Arabia.</h2>
       </div>
       <div class="cr-intro">
-        <p>Our Saudi Visa Services offer comprehensive support for individuals and businesses seeking visas to travel to Saudi Arabia. We provide expert guidance throughout the application process, ensuring that all required documents are properly prepared and submitted.</p>
+        <p class="dms-sp">Our Saudi Visa Services offer comprehensive support for individuals and businesses seeking visas to travel to Saudi Arabia. We provide expert guidance throughout the application process, ensuring that all required documents are properly prepared and submitted.</p>
         <p>Whether you need a work visa, business visa, family visit visa, tourist visa, cargo/transport visa, or escort visa, we streamline the process to make it as smooth and efficient as possible. With our in-depth knowledge of Saudi visa regulations, we help you navigate the complexities and secure your visa with ease.</p>
       </div>
     </section>
@@ -7575,8 +7580,8 @@ input, select, textarea {
     <section class="sv-sec" id="sv-types" aria-labelledby="sv-types-title" style="scroll-margin-top:110px">
       <div class="sv-head">
         <span class="sv-kicker dms-pill"><span class="dms-kg">Wide range of visa services</span></span>
-        <h2 id="sv-types-title" class="sv-h2">Every Saudi visa you need, under one roof.</h2>
-        <p>We assist with various types of Saudi visas, including:</p>
+        <h2 id="sv-types-title" class="sv-h2 dms-sh">Every Saudi visa you need, under one roof.</h2>
+        <p class="dms-sp">We assist with various types of Saudi visas, including:</p>
       </div>
       <ul class="sv-types">
         <li class="sv-type sv-rv" style="--i:0"><div class="sv-type-top"><span class="sv-type-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg></span><span class="sv-type-n">01</span></div><div><b>Work visas</b><small>Saudi Arabia</small></div></li>
@@ -7592,7 +7597,7 @@ input, select, textarea {
     <section class="sv-sec" aria-labelledby="sv-why-title">
       <div class="sv-head">
         <span class="sv-kicker dms-pill"><span class="dms-kg">How we help</span></span>
-        <h2 id="sv-why-title" class="sv-h2">Guidance at every step of your application.</h2>
+        <h2 id="sv-why-title" class="sv-h2 dms-sh">Guidance at every step of your application.</h2>
       </div>
       <div class="sv-pillars sv-wait">
         <div class="sv-pillar" style="--i:0"><span class="sv-pillar-n">01</span><b>Comprehensive visa assistance</b><p>We provide end-to-end support for individuals and businesses seeking visas to travel to Saudi Arabia.</p></div>
@@ -7606,8 +7611,8 @@ input, select, textarea {
     <section class="sv-cta" aria-labelledby="sv-cta-title">
       <svg class="sv-cta-lines" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 340 C 300 80, 900 80, 1220 340" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 9"/><path d="M-20 390 C 300 150, 900 150, 1220 390" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="3 9"/></svg>
       <span class="sv-kicker dms-pill"><span class="dms-kg">Saudi Visa Services</span></span>
-      <h2 id="sv-cta-title">Seamless Saudi visa services in Bahrain. Your gateway to Saudi Arabia, made easy.</h2>
-      <p>Tell us which visa you need and our team will guide you through the documents and the application.</p>
+      <h2 class="dms-sh" id="sv-cta-title">Seamless Saudi visa services in Bahrain. Your gateway to Saudi Arabia, made easy.</h2>
+      <p class="dms-sp">Tell us which visa you need and our team will guide you through the documents and the application.</p>
       <a href="#contact">Get in touch <span aria-hidden="true">→</span></a>
     </section>
   </main>

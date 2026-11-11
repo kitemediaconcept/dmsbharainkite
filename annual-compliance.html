@@ -7196,6 +7196,11 @@ input, select, textarea {
   .dms-pill::before, .dms-pill::after, .dms-pill > i { display:none !important; }
   @media (max-width:600px) { .dms-crumb, .dms-pill { font-size:11px !important; padding:5px 10px !important; } .dms-crumb { gap:4px; } }
 </style>
+<style id="dms-sec-type">
+  .dms-sh { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:48px !important; font-weight:500 !important; line-height:52px !important; letter-spacing:-1.6px !important; color:#073f2c !important; text-transform:none !important; }
+  .dms-sp { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:17px !important; font-weight:400 !important; line-height:29px !important; letter-spacing:-0.2px !important; color:#4a4a4a !important; }
+  @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
+</style>
 </head>
 
 <body>
@@ -7830,10 +7835,10 @@ input, select, textarea {
       <div class="ss-intro">
         <div>
           <span class="sv-kicker dms-pill"><span class="dms-kg">What we do</span></span>
-          <h2 id="ac-intro-title" class="sv-h2">Recurring requirements, managed throughout the year.</h2>
+          <h2 id="ac-intro-title" class="sv-h2 dms-sh">Recurring requirements, managed throughout the year.</h2>
         </div>
         <div>
-          <p>We help businesses monitor and manage recurring compliance requirements throughout the year, reducing the risk of missed renewals, delayed filings, and unnecessary penalties.</p>
+          <p class="dms-sp">We help businesses monitor and manage recurring compliance requirements throughout the year, reducing the risk of missed renewals, delayed filings, and unnecessary penalties.</p>
           <div class="ac-risks"><span>Missed renewals</span><span>Delayed filings</span><span>Unnecessary penalties</span></div>
         </div>
       </div>
@@ -7843,7 +7848,7 @@ input, select, textarea {
     <section class="sv-sec" id="ac-support" aria-labelledby="ac-sup-title" style="scroll-margin-top:110px">
       <div class="sv-head">
         <span class="sv-kicker dms-pill"><span class="dms-kg">Our support includes</span></span>
-        <h2 id="ac-sup-title" class="sv-h2">Every renewal, filing and submission in view.</h2>
+        <h2 id="ac-sup-title" class="sv-h2 dms-sh">Every renewal, filing and submission in view.</h2>
       </div>
       <ul class="ac-grid">
         <li class="ac-item sv-rv" style="--i:0"><span class="ac-item-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span><span><small>Renewal</small><b>CR renewals</b></span></li>
@@ -7862,10 +7867,10 @@ input, select, textarea {
     <section class="sv-sec" aria-labelledby="ac-how-title">
       <div class="sv-head">
         <span class="sv-kicker dms-pill"><span class="dms-kg">How our team works</span></span>
-        <h2 id="ac-how-title" class="sv-h2">Properly maintained, fully operational.</h2>
+        <h2 id="ac-how-title" class="sv-h2 dms-sh">Properly maintained, fully operational.</h2>
       </div>
       <div class="fj-proc-wrap">
-      <p class="fj-lead">Our team coordinates with the relevant authorities, tracks key renewal dates, supports required submissions, and follows up on compliance-related procedures so your company can remain properly maintained and operational.</p>
+      <p class="fj-lead dms-sp">Our team coordinates with the relevant authorities, tracks key renewal dates, supports required submissions, and follows up on compliance-related procedures so your company can remain properly maintained and operational.</p>
       <ol class="fj-process ac-four">
         <li style="--i:0"><span class="fj-node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span><small>01</small><b>Coordinates with the relevant authorities</b></li>
         <li style="--i:1"><span class="fj-node"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><small>02</small><b>Tracks key renewal dates</b></li>
@@ -7879,8 +7884,8 @@ input, select, textarea {
     <section class="sv-cta" aria-labelledby="ac-cta-title">
       <svg class="sv-cta-lines" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true"><circle cx="600" cy="470" r="260" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 9"/><circle cx="600" cy="470" r="360" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="3 9"/></svg>
       <span class="sv-kicker dms-pill"><span class="dms-kg">Annual Compliance Services</span></span>
-      <h2 id="ac-cta-title">Keep your Bahrain business up to date, all year round.</h2>
-      <p>Tell us about your company and our team will help you map out your renewals, filings and upcoming requirements.</p>
+      <h2 class="dms-sh" id="ac-cta-title">Keep your Bahrain business up to date, all year round.</h2>
+      <p class="dms-sp">Tell us about your company and our team will help you map out your renewals, filings and upcoming requirements.</p>
       <a href="#contact">Get in touch <span aria-hidden="true">→</span></a>
     </section>
   </main>

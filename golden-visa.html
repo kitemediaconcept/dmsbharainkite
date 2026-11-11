@@ -7196,6 +7196,11 @@ input, select, textarea {
   .dms-pill::before, .dms-pill::after, .dms-pill > i { display:none !important; }
   @media (max-width:600px) { .dms-crumb, .dms-pill { font-size:11px !important; padding:5px 10px !important; } .dms-crumb { gap:4px; } }
 </style>
+<style id="dms-sec-type">
+  .dms-sh { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:48px !important; font-weight:500 !important; line-height:52px !important; letter-spacing:-1.6px !important; color:#073f2c !important; text-transform:none !important; }
+  .dms-sp { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:17px !important; font-weight:400 !important; line-height:29px !important; letter-spacing:-0.2px !important; color:#4a4a4a !important; }
+  @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
+</style>
 </head>
 
 <body>
@@ -7625,9 +7630,9 @@ input, select, textarea {
       <div class="gd-intro">
         <div>
           <span class="sv-kicker gd-kicker-gold dms-pill"><span class="dms-kg">Who can apply</span></span>
-          <h2 id="gd-who-title" class="sv-h2">A prestigious residency, for you and your family.</h2>
+          <h2 id="gd-who-title" class="sv-h2 dms-sh">A prestigious residency, for you and your family.</h2>
         </div>
-        <p>Our team facilitates the application process for Bahrain’s prestigious Golden Visa, catering to individuals and their families. Eligibility is determined based on the specific criteria set for each applicant, and we provide comprehensive support throughout the process. Applicants can be:</p>
+        <p class="dms-sp">Our team facilitates the application process for Bahrain’s prestigious Golden Visa, catering to individuals and their families. Eligibility is determined based on the specific criteria set for each applicant, and we provide comprehensive support throughout the process. Applicants can be:</p>
       </div>
       <ul class="gd-who">
         <li class="sv-rv" style="--i:0"><span class="gd-who-n">01</span><span class="gd-who-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg></span><div><small>Employees</small><b>Employees and their families residing in Bahrain</b></div></li>
@@ -7641,7 +7646,7 @@ input, select, textarea {
     <section class="sv-sec" aria-labelledby="gd-why-title">
       <div class="sv-head">
         <span class="sv-kicker gd-kicker-gold dms-pill"><span class="dms-kg">How we help</span></span>
-        <h2 id="gd-why-title" class="sv-h2">Guidance from eligibility to approval.</h2>
+        <h2 id="gd-why-title" class="sv-h2 dms-sh">Guidance from eligibility to approval.</h2>
       </div>
       <div class="sv-pillars gd-pillars sv-wait">
         <div class="sv-pillar" style="--i:0"><span class="sv-pillar-n">01</span><b>Golden Visa application</b><p>Our team facilitates the application process for Bahrain’s prestigious Golden Visa.</p></div>
@@ -7655,8 +7660,8 @@ input, select, textarea {
     <section class="sv-cta gd-cta" aria-labelledby="gd-cta-title">
       <svg class="sv-cta-lines" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true"><circle cx="600" cy="460" r="260" fill="none" stroke="#f0d58c" stroke-width="1" stroke-dasharray="3 9"/><circle cx="600" cy="460" r="360" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="3 9"/></svg>
       <span class="sv-kicker dms-pill"><span class="dms-kg">Bahrain Golden Visa</span></span>
-      <h2 id="gd-cta-title">Your future in Bahrain. Our guidance every step of the way.</h2>
-      <p>Tell us about yourself and your family, and our team will help you understand your eligibility and the next steps.</p>
+      <h2 class="dms-sh" id="gd-cta-title">Your future in Bahrain. Our guidance every step of the way.</h2>
+      <p class="dms-sp">Tell us about yourself and your family, and our team will help you understand your eligibility and the next steps.</p>
       <a href="#contact">Get in touch <span aria-hidden="true">→</span></a>
     </section>
   </main>

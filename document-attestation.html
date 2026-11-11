@@ -7232,6 +7232,11 @@ input, select, textarea {
   @media (max-width:900px) { .da-split { grid-template-columns:1fr; } .da-split .das-vid { width:min(74vw,330px); margin-top:20px; } }
   @media (prefers-reduced-motion: reduce) { .da-blob { animation:none; } }
 </style>
+<style id="dms-sec-type">
+  .dms-sh { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:48px !important; font-weight:500 !important; line-height:52px !important; letter-spacing:-1.6px !important; color:#073f2c !important; text-transform:none !important; }
+  .dms-sp { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:17px !important; font-weight:400 !important; line-height:29px !important; letter-spacing:-0.2px !important; color:#4a4a4a !important; }
+  @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
+</style>
 </head>
 
 <body>
@@ -7487,8 +7492,8 @@ input, select, textarea {
     <section class="cr-detail" id="da-services" aria-labelledby="da-detail-title">
       <div class="cr-intro">
         <span class="cr-kicker dms-pill"><span class="dms-kg">What we do</span></span>
-        <h2 id="da-detail-title" class="cr-h2">Documents recognized for official use, at home and abroad.</h2>
-        <p>Our Document Attestation Services provide comprehensive authentication of your educational and commercial documents, ensuring they are recognized for official use both locally and internationally. We manage the entire attestation process, including verification from relevant authorities such as Ministry of Education, Ministry of Foreign Affairs, Chamber of Commerce and Embassies.</p>
+        <h2 id="da-detail-title" class="cr-h2 dms-sh">Documents recognized for official use, at home and abroad.</h2>
+        <p class="dms-sp">Our Document Attestation Services provide comprehensive authentication of your educational and commercial documents, ensuring they are recognized for official use both locally and internationally. We manage the entire attestation process, including verification from relevant authorities such as Ministry of Education, Ministry of Foreign Affairs, Chamber of Commerce and Embassies.</p>
       </div>
       <ul class="cr-list">
           <li class="cr-item mc-item" style="--i:0"><span class="cr-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="m9 14 2 2 4-4"/></svg></span><span><b>Comprehensive document authentication</b><small>We provide attestation services for educational and commercial documents to ensure their validity and acceptance for official use.</small></span></li>
@@ -7500,8 +7505,8 @@ input, select, textarea {
 
     <!-- CTA -->
     <section class="cr-cta" aria-labelledby="da-cta-title">
-      <h2 id="da-cta-title">Have documents that need attesting?</h2>
-      <p>Tell us which documents you have and where they will be used, and our team will guide you through the next steps.</p>
+      <h2 class="dms-sh" id="da-cta-title">Have documents that need attesting?</h2>
+      <p class="dms-sp">Tell us which documents you have and where they will be used, and our team will guide you through the next steps.</p>
       <a class="cr-btn cr-btn-dark" href="#contact">Get in touch <span aria-hidden="true">→</span></a>
     </section>
   </main>

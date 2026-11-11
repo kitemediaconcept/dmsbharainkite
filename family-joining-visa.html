@@ -7196,6 +7196,11 @@ input, select, textarea {
   .dms-pill::before, .dms-pill::after, .dms-pill > i { display:none !important; }
   @media (max-width:600px) { .dms-crumb, .dms-pill { font-size:11px !important; padding:5px 10px !important; } .dms-crumb { gap:4px; } }
 </style>
+<style id="dms-sec-type">
+  .dms-sh { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:48px !important; font-weight:500 !important; line-height:52px !important; letter-spacing:-1.6px !important; color:#073f2c !important; text-transform:none !important; }
+  .dms-sp { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:17px !important; font-weight:400 !important; line-height:29px !important; letter-spacing:-0.2px !important; color:#4a4a4a !important; }
+  @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
+</style>
 </head>
 
 <body>
@@ -7764,10 +7769,10 @@ input, select, textarea {
       <div class="ss-intro">
         <div>
           <span class="sv-kicker dms-pill"><span class="dms-kg">What we do</span></span>
-          <h2 id="fj-intro-title" class="sv-h2">Support for families, through every step.</h2>
+          <h2 id="fj-intro-title" class="sv-h2 dms-sh">Support for families, through every step.</h2>
         </div>
         <div>
-          <p>We support families throughout the residence application process, including document preparation, application submission, follow-up with the relevant authorities, and related government procedures.</p>
+          <p class="dms-sp">We support families throughout the residence application process, including document preparation, application submission, follow-up with the relevant authorities, and related government procedures.</p>
         </div>
       </div>
     </section>
@@ -7792,7 +7797,7 @@ input, select, textarea {
     <section class="sv-sec" id="fj-support" aria-labelledby="fj-sup-title" style="scroll-margin-top:110px">
       <div class="sv-head">
         <span class="sv-kicker dms-pill"><span class="dms-kg">Our support includes</span></span>
-        <h2 id="fj-sup-title" class="sv-h2">From eligibility to the final formalities.</h2>
+        <h2 id="fj-sup-title" class="sv-h2 dms-sh">From eligibility to the final formalities.</h2>
       </div>
       <div class="fj-proc-wrap">
       <ol class="fj-process">
@@ -7809,8 +7814,8 @@ input, select, textarea {
     <section class="sv-cta" aria-labelledby="fj-cta-title">
       <svg class="sv-cta-lines" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 340 C 300 80, 900 80, 1220 340" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 9"/><path d="M-20 390 C 300 150, 900 150, 1220 390" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="3 9"/></svg>
       <span class="sv-kicker dms-pill"><span class="dms-kg">For KSA Iqama holders</span></span>
-      <h2 id="fj-cta-title">Bahrain residence options for your family members.</h2>
-      <p>Tell us about your family and our team will guide you through eligibility, documents and the application.</p>
+      <h2 class="dms-sh" id="fj-cta-title">Bahrain residence options for your family members.</h2>
+      <p class="dms-sp">Tell us about your family and our team will guide you through eligibility, documents and the application.</p>
       <a href="#contact">Get in touch <span aria-hidden="true">→</span></a>
     </section>
   </main>
