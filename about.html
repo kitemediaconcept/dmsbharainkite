@@ -7255,6 +7255,17 @@ input, select, textarea {
   .ab40-people { margin-top:clamp(18px,2.6vw,32px) !important; }
   @media (max-width:700px) { .ab40-rec { flex-direction:column; gap:12px; } .ab40-rec-t { text-align:center; } .ab40-rec-t br { display:none; } .ab40-rec-sep { display:none; } .ab40-rec-cards { grid-template-columns:1fr 1fr; gap:8px; width:100%; } .ab40-rec .abw-cap { font-size:9.5px; } }
 </style>
+<style id="ab40-left">
+  .ab40-copy, .ab40-copy .ab-title, .ab40-copy .ab-sub { text-align:left !important; margin-left:0 !important; margin-right:0 !important; }
+  .ab40-copy .ab-sub { max-width:560px; }
+  .ab40-copy .ab40-rec { justify-content:flex-start; margin:clamp(22px,2.6vw,32px) 0 0; }
+  .ab40-copy .ab40-rec-t { text-align:left; }
+  @media (max-width:860px) {
+    .ab40-copy, .ab40-copy .ab-title, .ab40-copy .ab-sub { text-align:left !important; }
+    .ab40-top { justify-items:start !important; }
+  }
+  @media (max-width:700px) { .ab40-copy .ab40-rec { align-items:flex-start; } .ab40-copy .ab40-rec-t { text-align:left; } }
+</style>
 </head>
 
 <body>
@@ -7476,14 +7487,14 @@ input, select, textarea {
         <div class="ab40-copy">
           <h1 id="ab-hero-title" class="ab-title">Over 40 years of guiding<br>businesses in Bahrain.</h1>
           <p class="ab-sub">Diplomat Management Services supports individuals, families and businesses with government relations, visas, residency and documentation.</p>
-        </div>
-      </div>
       <div class="ab40-rec">
         <span class="ab40-rec-t">We are <br>recognized</span>
         <span class="ab40-rec-sep" aria-hidden="true"></span>
         <div class="ab40-rec-cards">
           <div class="abw-logo-card"><div class="abw-logo"><img src="assets/rec-saudi-embassy.png" alt="The Embassy of the Kingdom of Saudi Arabia" width="444" height="96"></div><span class="abw-cap"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><b>Authorized Agent of Saudi Embassy</b></span></div>
           <div class="abw-logo-card"><div class="abw-logo"><img src="assets/rec-lmra.png" alt="Labour Market Regulatory Authority, Kingdom of Bahrain" width="512" height="75"></div><span class="abw-cap"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><b>Authorized LMRA Registration Centre</b></span></div>
+        </div>
+      </div>
         </div>
       </div>
       <div class="ab40-people">
