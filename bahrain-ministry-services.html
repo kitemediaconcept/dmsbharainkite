@@ -8824,6 +8824,29 @@ input, select, textarea {
   @media (max-width:600px) { .cio-v2 { width:calc(100% - 32px) !important; } .cio-v2 .cio2 { padding:24px 20px !important; } }
   .cio-v2 .cio2 { padding:clamp(22px,3vw,36px) !important; }
 </style>
+<style id="lmra-compact">
+  .lmra-v2 .lmra-section { max-width:1160px !important; padding:clamp(40px,5vw,64px) 24px !important; }
+  .lmra-v2 .lmra-header { margin-bottom:24px !important; }
+  .lmra-v2 .lmra-header h2 { font-size:clamp(26px,2.6vw,36px) !important; letter-spacing:-1px !important; text-transform:none; }
+  .lmra-v2 .lmra-logo { width:220px !important; }
+  .lmra-v2 .lmra-grid { gap:14px !important; }
+  .lmra-v2 .lmra-card { min-height:0 !important; border-radius:20px !important; background:radial-gradient(ellipse 80% 60% at 100% 0%, rgba(60,207,122,.16), transparent 60%), linear-gradient(160deg,#f7fcf9 0%,#eaf6ef 100%) !important; box-shadow:0 8px 22px rgba(7,63,44,.06) !important; }
+  .lmra-v2 .card-content { padding:22px 20px 20px !important; }
+  .lmra-v2 .card-content h2 { font-family:Inter, "Helvetica Neue", Arial, sans-serif; font-size:19px !important; font-weight:500 !important; letter-spacing:-.4px !important; margin:0 0 14px !important; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .lmra-v2 .card-content h2 br { display:none; }
+  .lmra-v2 .svc-rows { gap:6px !important; }
+  .lmra-v2 .svc-row { grid-template-columns:28px minmax(0,1fr) auto !important; column-gap:10px !important; padding:7px 10px 7px 7px; border-radius:11px; background:rgba(255,255,255,.75); box-shadow:0 3px 10px rgba(7,63,44,.04); }
+  .lmra-v2 .svc-ico { width:28px !important; height:28px !important; border-radius:8px !important; color:#fff !important; background:linear-gradient(135deg,#3ccf7a 0%,#0d9b49 55%,#073f2c 100%) !important; }
+  .lmra-v2 .svc-ico svg { width:14px !important; height:14px !important; }
+  .lmra-v2 .svc-name { font-family:Inter, "Helvetica Neue", Arial, sans-serif; font-size:13.5px !important; }
+  .lmra-v2 .svc-tags { max-width:none !important; gap:4px !important; }
+  .lmra-v2 .svc-tag { font-family:Inter, "Helvetica Neue", Arial, sans-serif; font-size:10.5px !important; padding:2px 7px !important; border-radius:9999px !important; background:#e6f4ed !important; color:#0d9b49 !important; }
+  .lmra-v2 .svc-row:hover .svc-ico { transform:none; }
+  .lmra-v2 .svc-row:has(.svc-tags) { grid-template-columns:28px minmax(0,1fr) !important; row-gap:5px; }
+  .lmra-v2 .svc-row .svc-tags { grid-column:2; justify-content:flex-start !important; }
+  @media (max-width:1000px) { .lmra-v2 .lmra-grid { grid-template-columns:1fr 1fr !important; } }
+  @media (max-width:700px) { .lmra-v2 .lmra-grid { grid-template-columns:1fr !important; } .lmra-v2 .lmra-header { flex-direction:row !important; align-items:center !important; } .lmra-v2 .lmra-logo { width:150px !important; } .lmra-v2 .lmra-section { padding:36px 16px !important; } }
+</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -9543,7 +9566,7 @@ input, select, textarea {
     <!-- CARD ONE -->
     <article class="lmra-card">
       <div class="card-content">
-        <h2>Visa &amp; Work Permit<br>Services</h2>
+        <h2>Visa &amp; Work Permit Services</h2>
 
         <ul class="svc-rows">
             <li class="svc-row">
@@ -9563,16 +9586,12 @@ input, select, textarea {
             </li>
           </ul>
       </div>
-
-      <div class="artwork passport-art" aria-hidden="true">
-        <img class="passport-img" src="assets/passport-handover.png" width="900" height="808" alt="" loading="lazy" decoding="async">
-      </div>
     </article>
 
     <!-- CARD TWO -->
     <article class="lmra-card">
       <div class="card-content">
-        <h2>Employee Support<br>Services</h2>
+        <h2>Employee Support Services</h2>
 
         <ul class="svc-rows">
             <li class="svc-row">
@@ -9597,16 +9616,12 @@ input, select, textarea {
             </li>
           </ul>
       </div>
-
-      <div class="artwork handshake-art" aria-hidden="true">
-        <img class="handshake-img" src="assets/handshake-partnership.png" width="900" height="900" alt="" loading="lazy" decoding="async">
-      </div>
     </article>
 
     <!-- CARD THREE -->
     <article class="lmra-card">
       <div class="card-content">
-        <h2>Administration &amp;<br>Compliance</h2>
+        <h2>Administration &amp; Compliance</h2>
 
         <ul class="svc-rows">
             <li class="svc-row">
@@ -9630,10 +9645,6 @@ input, select, textarea {
               <span class="svc-name">WPS Full Setup and WRP Fixing</span>
             </li>
           </ul>
-      </div>
-
-      <div class="artwork bridge-art" aria-hidden="true">
-        <img class="bridge-img" src="assets/bridge-support.png" width="1000" height="677" alt="" loading="lazy" decoding="async">
       </div>
     </article>
 
