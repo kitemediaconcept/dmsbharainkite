@@ -7289,7 +7289,7 @@ input, select, textarea {
 </style>
 <style id="dgs-more">
   .dgs-card-saudi .dgs-saudi-img { position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; object-fit:cover !important; object-position:center 60% !important; -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%) !important; mask-image:linear-gradient(90deg,transparent 0,#000 14%) !important; }
-  @media (max-width:760px) { .dgs-card-saudi .dgs-saudi-img { -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 12%) !important; mask-image:linear-gradient(180deg,transparent 0,#000 12%) !important; } }
+  @media (max-width:760px) { .dms-gold-stack .dgs-card-saudi .dgs-saudi-visual { height:250px !important; min-height:0 !important; } .dgs-card-saudi .dgs-saudi-img { object-fit:contain !important; object-position:center bottom !important; -webkit-mask-image:none !important; mask-image:none !important; } }
   .dgs-card-company .dgs-company-img { position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; object-fit:cover !important; object-position:center 35% !important; }
 </style>
 </head>
@@ -8135,7 +8135,7 @@ input, select, textarea {
             </div>
 
             <div class="dgs-attestation-visual dgs-family-visual dgs-saudi-visual">
-              <img class="dgs-attestation-img dgs-saudi-img" src="assets/saudi-skyline-thobe.webp" alt="Man in a thobe and shemagh looking at the Saudi Arabian skyline" loading="lazy">
+              <picture><source media="(max-width:760px)" srcset="assets/saudi-skyline-thobe-m.webp"><img class="dgs-attestation-img dgs-saudi-img" src="assets/saudi-skyline-thobe.webp" alt="Man in a thobe and shemagh looking at the Saudi Arabian skyline" loading="lazy"></picture>
             </div>
           </div>
         </article>
