@@ -7222,6 +7222,41 @@ input, select, textarea {
   @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
 </style>
 <style id="logo-v2">.dms-glass-nav .dg-logo img, .dg-logo img.dg-logo-image { width:auto !important; height:36px !important; object-fit:contain; } @media (max-width:1000px) { .dms-glass-nav .dg-logo img, .dg-logo img.dg-logo-image { height:32px !important; } }</style>
+<style id="crh2-css">
+  .crh2 { position:relative; isolation:isolate; display:grid !important; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); align-items:center; min-height:clamp(520px,44vw,640px) !important; margin-top:-60px !important; padding:110px max(24px, calc((100% - 1200px) / 2)) 40px !important; background:#fff !important; overflow:hidden; text-align:left !important; }
+  .crh2 .crh-shade { display:none !important; }
+  .crh2 .crh-copy { position:relative !important; z-index:2; max-width:560px !important; margin:0 !important; padding:0 !important; text-align:left !important; transform:none !important; left:auto !important; top:auto !important; }
+  .crh2 .crh-title { font-family:Inter, "Helvetica Neue", Arial, sans-serif !important; font-size:clamp(34px,4vw,54px) !important; font-weight:500 !important; line-height:1.06 !important; letter-spacing:-1.8px !important; text-align:left !important; color:#073f2c !important; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .crh2 .crh-title span { font-size:.78em; }
+  .crh2 .crh-tag { color:#4a4a4a !important; font-size:17px !important; line-height:1.6 !important; text-align:left !important; margin-left:0 !important; max-width:460px; }
+  .crh2 .crh-actions { justify-content:flex-start !important; }
+  .crh2 .crh-btn-white { color:#fff !important; background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%) !important; border:0 !important; box-shadow:0 10px 22px rgba(13,155,73,.22); }
+  .crh2 .crh-btn-ghost { color:#073f2c !important; border:1.5px solid #0d9b49 !important; background:#fff !important; }
+  .crh2-art { position:relative; z-index:1; width:118%; max-width:none; height:auto; justify-self:end; margin-right:-6%; animation:crh2-in 1.2s cubic-bezier(.16,1,.3,1) .1s both; }
+  .crh2 .crh-pill { z-index:3; color:#073f2c !important; background:rgba(255,255,255,.9) !important; border:1.5px solid #0d9b49 !important; backdrop-filter:blur(6px); }
+  .crh2 .crh-pill-1 { left:auto !important; right:44% !important; top:110px !important; }
+  .crh2 .crh-pill-2 { right:max(24px, calc((100% - 1200px) / 2)) !important; top:126px !important; }
+  @keyframes crh2-in { from { opacity:0; transform:translateY(24px); } }
+  @media (max-width:900px) {
+    .crh2 { grid-template-columns:1fr; padding-top:110px !important; min-height:0 !important; }
+    .crh2-art { width:100%; margin:20px 0 0; justify-self:center; }
+    .crh2 .crh-pill { display:none; }
+    .crh2 .crh-title { font-size:34px !important; letter-spacing:-1.1px !important; }
+  }
+  @media (prefers-reduced-motion: reduce) { .crh2-art { animation:none; } }
+  .crh2 .crh-copy { grid-column:1 !important; grid-row:1 !important; }
+  .crh2-art { grid-column:2 !important; grid-row:1 !important; width:125% !important; margin-right:-12% !important; align-self:end; }
+  .crh2 .crh-pill { position:absolute !important; }
+  .crh2 .crh-pill-1 { left:46% !important; right:auto !important; top:120px !important; }
+  .crh2 .crh-pill-2 { right:5% !important; left:auto !important; top:130px !important; }
+  .crh2 .crh-pill { font-size:14px !important; padding:8px 18px !important; }
+  @media (max-width:900px) { .crh2 .crh-copy { grid-row:2 !important; } .crh2-art { grid-column:1 !important; grid-row:1 !important; width:100% !important; margin:0 !important; } }
+  .crh2 { padding-top:96px !important; padding-bottom:0 !important; min-height:0 !important; align-items:end !important; }
+  .crh2 .crh-copy { align-self:center !important; padding-bottom:40px !important; }
+  .crh2-art { width:112% !important; margin-right:-8% !important; max-height:560px; object-fit:contain; object-position:right bottom; }
+  .crh2 .crh-pill-1 { left:52% !important; top:170px !important; }
+  .crh2 .crh-pill-2 { right:7% !important; top:190px !important; }
+</style>
 </head>
 
 <body>
@@ -7367,15 +7402,15 @@ input, select, textarea {
 
   <main id="main">
     <!-- COMPANY REGISTRATION HERO -->
-    <section class="crh" aria-labelledby="cr-title">
+    <section class="crh crh2" aria-labelledby="cr-title">
       <!-- EDIT: hero background image -->
-      <img class="crh-bg" src="assets/company-registration-hero.jpg" alt="" width="1706" height="922" fetchpriority="high" decoding="async">
+      <img class="crh2-art" src="assets/cr-hero-towers.webp" alt="Businessman walking past Bahrain World Trade Center towers" width="1400" height="976" fetchpriority="high" decoding="async">
       <div class="crh-shade" aria-hidden="true"></div>
       <span class="crh-pill crh-pill-1" aria-hidden="true">Company formation</span>
       <span class="crh-pill crh-pill-2" aria-hidden="true">Business support</span>
       <div class="crh-copy">
         <nav class="dms-crumb crh-kicker" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Company registration services</span></nav>
-        <h1 id="cr-title" class="crh-title">Your business in Bahrain.<br>Established with confidence.</h1>
+        <h1 id="cr-title" class="crh-title"><span>Your business in Bahrain.</span><br>Established with confidence.</h1>
         <p class="crh-tag">Comprehensive support for establishing and managing your business in Bahrain.</p>
         <div class="crh-actions">
           <a class="crh-btn crh-btn-white" href="#cr-services">Explore services</a>
