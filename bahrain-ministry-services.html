@@ -8990,6 +8990,12 @@ input, select, textarea {
   .imm-v2 .imm-portrait-art img { border-radius:14px; filter:none; }
   @media (max-width:700px) { .imm-v2 .imm-art { height:180px !important; } }
 </style>
+<style id="cm-moic-grid">
+  .cm-v2 .cm-card ul.cm-list.cm-moic-list, ul.cm-list.cm-list-2.cm-moic-list { columns:auto !important; column-count:auto !important; display:grid !important; grid-template-columns:1fr 1fr !important; grid-template-rows:none !important; grid-auto-flow:row !important; gap:12px 22px !important; align-items:start; }
+  .cm-moic-list { columns:auto !important; column-count:auto !important; display:grid !important; grid-template-columns:1fr 1fr; gap:12px 22px !important; align-items:start; }
+  .cm-moic-list li { break-inside:avoid; margin:0 !important; }
+  @media (max-width:600px) { .cm-v2 .cm-card ul.cm-list.cm-moic-list, ul.cm-list.cm-list-2.cm-moic-list { grid-template-columns:1fr !important; gap:10px !important; } }
+</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -11389,17 +11395,17 @@ input, select, textarea {
             <div class="cm-art-wrap cm-art-photo"><img class="cm-photo" src="assets/moic-ministry-file.png" width="536" height="700" alt="" loading="lazy" decoding="async"></div>
             <h3>Ministry of Industry &amp; Commerce Services</h3>
             <a class="cm-btn" href="index.html#contact-overview">Explore Services <span aria-hidden="true">→</span></a>
-            <ul class="cm-list cm-list-2">
-              <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Company registration (renewal)</span></li>
+            <ul class="cm-list cm-list-2 cm-moic-list">
               <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Add or remove signatories</span></li>
               <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Company address change</span></li>
-              <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Commercial registration extract</span></li>
               <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Offense removal</span></li>
               <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Audit report submission</span></li>
               <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>UBO registration &amp; renewal</span></li>
               <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>ESR report submission</span></li>
               <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Activity renewal</span></li>
               <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Update contact details</span></li>
+              <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Company registration (renewal)</span></li>
+              <li><svg class="cm-tick" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Commercial registration extract</span></li>
             </ul>
           </article>
         </div>
