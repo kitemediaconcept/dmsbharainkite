@@ -7256,6 +7256,19 @@ input, select, textarea {
   .crh2-art { width:112% !important; margin-right:-8% !important; max-height:560px; object-fit:contain; object-position:right bottom; }
   .crh2 .crh-pill-1 { left:52% !important; top:170px !important; }
   .crh2 .crh-pill-2 { right:7% !important; top:190px !important; }
+  @media (min-width:901px) {
+    .crh2 { display:flex !important; align-items:center !important; height:clamp(560px, calc(100vh - 0px), 820px) !important; min-height:0 !important; padding:84px max(24px, calc((100% - 1200px) / 2)) 0 !important; }
+    .crh2 .crh-copy { flex:0 0 min(46%, 560px); padding:0 !important; align-self:center !important; }
+    .crh2-art { position:absolute !important; right:0 !important; bottom:0 !important; top:70px !important; left:auto !important; width:60% !important; height:calc(100% - 70px) !important; max-height:none !important; margin:0 !important; object-fit:cover !important; object-position:35% bottom !important; -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 10%); mask-image:linear-gradient(90deg,transparent 0,#000 10%); }
+    .crh2 .crh-pill-1 { left:47% !important; top:110px !important; }
+    .crh2 .crh-pill-2 { right:12% !important; top:124px !important; }
+  }
+  @media (min-width:901px) {
+    .crh2 { justify-content:flex-start !important; }
+    .crh2 .crh-copy { margin-right:auto !important; position:relative !important; z-index:3 !important; }
+    .crh2-art { width:62% !important; object-fit:contain !important; object-position:right bottom !important; -webkit-mask-image:none !important; mask-image:none !important; }
+  }
+  @media (min-width:901px) { .crh2-art { clip-path:polygon(0 0,100% 0,100% 100%,7% 100%,0 78%); } }
 </style>
 </head>
 
