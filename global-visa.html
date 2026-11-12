@@ -7214,6 +7214,25 @@ input, select, textarea {
   @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
 </style>
 <style id="logo-v2">.dms-glass-nav .dg-logo img, .dg-logo img.dg-logo-image { width:auto !important; height:36px !important; object-fit:contain; } @media (max-width:1000px) { .dms-glass-nav .dg-logo img, .dg-logo img.dg-logo-image { height:32px !important; } }</style>
+<style id="gv-split-css">
+  .gv-split { display:grid !important; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); align-items:center; gap:clamp(24px,4vw,64px); width:auto !important; max-width:none !important; padding-left:max(24px, calc((100% - 1200px) / 2)) !important; padding-right:max(24px, calc((100% - 1200px) / 2)) !important; padding-bottom:60px !important; text-align:left !important; background:#fff !important; overflow-x:clip !important; position:relative; }
+  .gv-split::before, .gv-split::after { display:none !important; }
+  .gv-split .mch-copy { text-align:left !important; margin:0 !important; max-width:600px !important; }
+  .gv-split .mch-kicker, .gv-split .dms-crumb { margin-left:0 !important; }
+  .gv-split .mch-tag { margin-left:0 !important; max-width:460px; }
+  .gv-split .mch-actions { justify-content:flex-start !important; }
+  .gv-title { font-size:clamp(32px,3.6vw,50px) !important; font-weight:500 !important; line-height:1.08 !important; letter-spacing:-1.6px !important; color:#073f2c; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .gv-title span { display:inline-block; font-size:.68em; letter-spacing:-1px; line-height:1.2; }
+  .gv-split .das { margin:0 !important; width:100% !important; max-width:600px; height:540px !important; justify-self:end; }
+  .gv-split .das-orbit { top:50%; }
+  .gv-split .das-k1 { left:-2%; top:4%; }
+  .gv-split .das-k3 { left:auto; right:-4%; top:13%; }
+  .gv-split .das-k2 { left:-8%; top:46%; }
+  .gv-split .das-k4 { right:-6%; top:auto; bottom:4%; }
+  .gv-split .das-k5 { bottom:10% !important; }
+  .gv-split .das-k5 { left:4%; bottom:2%; translate:none; }
+  @media (max-width:900px) { .gv-split { grid-template-columns:1fr; padding-bottom:40px !important; } .gv-split .das { justify-self:center; margin-top:8px !important; height:460px !important; max-width:380px; } .gv-split .das-chip { font-size:12px; padding:8px 12px 8px 10px; } .gv-split .das-k1 { left:0; top:0; } .gv-split .das-k3 { right:0; top:8%; } .gv-split .das-k2 { left:0; top:auto; bottom:14%; } .gv-split .das-k4 { right:0; top:auto; bottom:4%; } .gv-split .das-k5 { display:none; } }
+</style>
 </head>
 
 <body>
@@ -7456,10 +7475,10 @@ input, select, textarea {
 
   <main id="main">
     <!-- MANAGEMENT CONSULTANCY HERO -->
-    <section class="mch" aria-labelledby="gv-title">
+    <section class="mch gv-split" aria-labelledby="gv-title">
       <div class="mch-copy">
         <nav class="dms-crumb mch-kicker" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Global visa assistance</span></nav>
-        <h1 id="gv-title" class="mch-title">Connecting Bahrain with the world <br>through expert visa services.</h1>
+        <h1 id="gv-title" class="mch-title gv-title"><span>Connecting Bahrain with the world.</span><br>Expert visa services for every journey.</h1>
         <p class="mch-tag">Embassy visas and e-visas for your travel, with every requirement in place before you apply.</p>
         <div class="mch-actions">
           <a class="mch-btn" href="#gv-services">Explore services</a>
