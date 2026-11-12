@@ -7270,6 +7270,22 @@ input, select, textarea {
   }
   @media (min-width:901px) { .crh2-art { -webkit-mask-image:none !important; mask-image:none !important; clip-path:polygon(0 0,100% 0,100% 100%,7% 100%,0 76%) !important; } }
   @media (max-width:900px) { .crh2-art { -webkit-mask-image:none !important; mask-image:none !important; clip-path:polygon(0 0,100% 0,100% 100%,7% 100%,0 76%) !important; } }
+  @media (min-width:901px) {
+    .crh2-art { clip-path:none !important; -webkit-mask-image:none !important; mask-image:none !important; width:auto !important; height:calc(100% - 70px) !important; max-width:none !important; left:auto !important; right:0 !important; object-fit:contain !important; }
+  }
+  @media (max-width:900px) {
+    .crh2-art { clip-path:none !important; width:100% !important; object-fit:cover !important; object-position:right bottom !important; aspect-ratio:1.6; }
+  }
+  @media (min-width:901px) {
+    .crh2-art { top:auto !important; bottom:0 !important; right:0 !important; height:auto !important; width:min(112%, 1900px) !important; max-height:none !important; }
+  }
+  @media (min-width:901px) and (max-width:1200px) { .crh2-art { width:104% !important; } }
+  @media (max-width:900px) {
+    .crh2 { padding-left:0 !important; padding-right:0 !important; }
+    .crh2 .crh-copy { padding:0 24px !important; }
+    .crh2-art { width:100% !important; max-width:none !important; margin:0 !important; aspect-ratio:auto !important; height:auto !important; object-fit:fill !important; clip-path:none !important; }
+  }
+  @media (max-width:600px) { .crh2 .crh-copy { padding:0 16px !important; } }
 </style>
 </head>
 
@@ -7418,7 +7434,7 @@ input, select, textarea {
     <!-- COMPANY REGISTRATION HERO -->
     <section class="crh crh2" aria-labelledby="cr-title">
       <!-- EDIT: hero background image -->
-      <img class="crh2-art" src="assets/cr-hero-towers.webp" alt="Businessman walking past Bahrain World Trade Center towers" width="1400" height="976" fetchpriority="high" decoding="async">
+      <picture style="display:contents"><source media="(max-width:900px)" srcset="assets/cr-hero-towers.webp"><img class="crh2-art" src="assets/cr-hero-towers-wide.webp" alt="Businessman walking past Bahrain World Trade Center towers" width="1400" height="976" fetchpriority="high" decoding="async"></picture>
       <div class="crh-shade" aria-hidden="true"></div>
       <div class="crh-copy">
         <nav class="dms-crumb crh-kicker" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Company registration services</span></nav>
