@@ -7249,6 +7249,38 @@ input, select, textarea {
   @supports not (position-anchor: --a) { .gvg-m, .gvg-a { display:none; } }
   @media (max-width:900px) { .gv-split .gvg { justify-self:center; max-width:400px; margin-top:8px; } }
 </style>
+<style id="gvd-css">
+  .gvd { max-width:1200px; margin:0 auto; padding:clamp(56px,7vw,96px) 24px clamp(40px,5vw,72px); }
+  .gvd-head { max-width:640px; margin-bottom:clamp(28px,4vw,44px); }
+  .gvd-head .dms-sh { margin:14px 0 10px; }
+  .gvd-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+  .gvd-card { position:relative; display:flex; flex-direction:column; gap:10px; padding:26px; border-radius:22px; background:radial-gradient(120% 90% at 100% 0%, rgba(60,207,122,.10), transparent 55%), linear-gradient(160deg,#f7fcf9,#eaf6ef); box-shadow:0 10px 28px rgba(7,63,44,.07); transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease; opacity:0; transform:translateY(18px); }
+  .gvd-card.is-in { opacity:1; transform:none; transition:opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1), box-shadow .35s ease; }
+  .gvd-card.is-in:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(7,63,44,.11); }
+  .gvd-wide { grid-column:span 2; background:radial-gradient(90% 120% at 100% 0%, rgba(60,207,122,.22), transparent 60%), linear-gradient(150deg,#0b5a3a 0%,#073f2c 100%); color:#fff; }
+  .gvd-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:6px; }
+  .gvd-ic { width:44px; height:44px; border-radius:13px; display:grid; place-items:center; background:linear-gradient(135deg,#3ccf7a 0%,#0d9b49 55%,#073f2c 100%); box-shadow:0 8px 18px rgba(13,155,73,.25); flex:none; }
+  .gvd-ic svg { width:22px; height:22px; fill:none; stroke:#fff; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .gvd-tags { display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end; }
+  .gvd-tag { font-size:11.5px; font-weight:500; padding:5px 10px; border-radius:999px; background:#fff; color:#0d9b49; letter-spacing:-.1px; }
+  .gvd-tag-e { background:#073f2c; color:#fff; }
+  .gvd-wide .gvd-tag { background:rgba(255,255,255,.14); color:#d7f5e3; }
+  .gvd-card h3 { margin:0; font-size:21px; font-weight:600; letter-spacing:-.5px; line-height:1.2; color:#073f2c; }
+  .gvd-wide h3 { font-size:clamp(24px,2.4vw,30px); color:#fff; }
+  .gvd-card p { margin:0; font-size:15px; line-height:1.55; color:#4a4a4a; max-width:520px; }
+  .gvd-wide p { color:rgba(255,255,255,.78); }
+  .gvd-chips { list-style:none; margin:6px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:7px; }
+  .gvd-chips li { font-size:13px; font-weight:500; padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.85); color:#073f2c; }
+  .gvd-wide .gvd-chips li { background:rgba(255,255,255,.1); color:#fff; }
+  .gvd-link { margin-top:auto; padding-top:14px; display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:500; color:#0d9b49; text-decoration:none; align-self:flex-start; }
+  .gvd-wide .gvd-link { color:#7fe3a8; }
+  .gvd-link svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:transform .25s ease; }
+  .gvd-link:hover svg { transform:translateX(3px); }
+  .gvd-span { grid-column:span 2; }
+  @media (max-width:980px) { .gvd-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .gvd-span { grid-column:auto; } .gvd-card:last-child { grid-column:span 2; } }
+  @media (max-width:640px) { .gvd-grid { grid-template-columns:1fr; gap:14px; } .gvd-wide, .gvd-span, .gvd-card:last-child { grid-column:auto; } .gvd-card { padding:22px; border-radius:20px; } }
+  @media (prefers-reduced-motion: reduce) { .gvd-card { opacity:1; transform:none; } }
+</style>
 </head>
 
 <body>
@@ -7512,8 +7544,6 @@ input, select, textarea {
         <span class="cr-kicker dms-pill"><span class="dms-kg">What we do</span></span>
         <h2 id="gv-detail-title" class="cr-h2 dms-sh">Visas through the embassies in the Kingdom, and e-visas worldwide.</h2>
         <p class="dms-sp">We assist in obtaining visas through the embassies and representative offices available in the Kingdom, including but not limited to the UK &amp; US, and Schengen countries (such as France, Greece, Spain, Switzerland, Germany, Austria, Portugal, and Netherlands etc), Algeria, Canada, China, Egypt, India, Iraq, Japan, Jordan, Korea, Malaysia, Morocco, Russia, Singapore, Turkey etc. In addition, we process e-visas for foreign countries, including but not limited to the UAE, KSA, Oman, Turkey, India, and the UK, ensuring a smooth visa application process.</p>
-        <div class="gv-group"><h3>Embassy visas</h3><ul class="da-auth"><li>UK</li><li>US</li><li>France</li><li>Greece</li><li>Spain</li><li>Switzerland</li><li>Germany</li><li>Austria</li><li>Portugal</li><li>Netherlands</li><li>Algeria</li><li>Canada</li><li>China</li><li>Egypt</li><li>India</li><li>Iraq</li><li>Japan</li><li>Jordan</li><li>Korea</li><li>Malaysia</li><li>Morocco</li><li>Russia</li><li>Singapore</li><li>Turkey</li><li>and more</li></ul></div>
-        <div class="gv-group"><h3>E-visas</h3><ul class="da-auth"><li>UAE</li><li>KSA</li><li>Oman</li><li>Turkey</li><li>India</li><li>UK</li><li>and more</li></ul></div>
       </div>
       <div>
         <p class="cr-note" style="margin:0 0 14px;font-size:16px;font-weight:500;">We provide assistance to:</p>
@@ -7523,6 +7553,19 @@ input, select, textarea {
           <li class="cr-item mc-item" style="--i:2"><span class="gv-num">03</span><span><b>Personal assistance where needed</b><small>We accompany and assist you where the applicant’s presence is required.</small></span></li>
           <li class="cr-item mc-item" style="--i:3"><span class="gv-num">04</span><span><b>Submit and collect</b><small>We submit the visa application and collect the passport or relevant documents.</small></span></li>
         </ul>
+      </div>
+    </section>
+
+
+    <!-- DESTINATIONS -->
+    <section class="gvd" aria-labelledby="gvd-title">
+      <div class="gvd-head">
+        <span class="dms-pill"><span class="dms-kg">Destinations</span></span>
+        <h2 id="gvd-title" class="dms-sh">Visas for where you are going.</h2>
+        <p class="dms-sp">Embassy visas through the offices in the Kingdom, and e-visas processed online.</p>
+      </div>
+      <div class="gvd-grid">
+        <article class="gvd-card gvd-wide"><div class="gvd-top"><span class="gvd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.2 5.6L20 9l-4.5 3.8L17 19l-5-3.2L7 19l1.5-6.2L4 9l5.8-.4z"/></svg></span><div class="gvd-tags"><span class="gvd-tag">Embassy visa</span></div></div><h3>Schengen visa</h3><p>One visa for travel across the Schengen countries, applied through the relevant embassy or representative office in the Kingdom.</p><ul class="gvd-chips"><li>France</li><li>Germany</li><li>Spain</li><li>Greece</li><li>Switzerland</li><li>Austria</li><li>Portugal</li><li>Netherlands</li><li>and more</li></ul><a class="gvd-link" href="https://wa.me/97317290001?text=Hi%20DMS%2C%20I%20need%20help%20with%20a%20Schengen%20visa" target="_blank" rel="noopener">Ask about this visa<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article><article class="gvd-card "><div class="gvd-top"><span class="gvd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg></span><div class="gvd-tags"><span class="gvd-tag">Embassy visa</span></div></div><h3>United States visa</h3><p>Application, documents and appointment support for travel to the US.</p><ul class="gvd-chips"><li>Tourist</li><li>Business</li><li>Family visit</li></ul><a class="gvd-link" href="https://wa.me/97317290001?text=Hi%20DMS%2C%20I%20need%20help%20with%20a%20US%20visa" target="_blank" rel="noopener">Ask about this visa<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article><article class="gvd-card "><div class="gvd-top"><span class="gvd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 8 4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span><div class="gvd-tags"><span class="gvd-tag">Embassy visa</span><span class="gvd-tag gvd-tag-e">E-visa</span></div></div><h3>United Kingdom visa</h3><p>Embassy applications and UK e-visas, with every requirement checked first.</p><ul class="gvd-chips"><li>Visit</li><li>Business</li><li>E-visa</li></ul><a class="gvd-link" href="https://wa.me/97317290001?text=Hi%20DMS%2C%20I%20need%20help%20with%20a%20UK%20visa" target="_blank" rel="noopener">Ask about this visa<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article><article class="gvd-card gvd-span"><div class="gvd-top"><span class="gvd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4"/><path d="M9 22l1.5-16h3L15 22"/><path d="M5 22h14"/><path d="M10 12h4"/></svg></span><div class="gvd-tags"><span class="gvd-tag gvd-tag-e">E-visa</span></div></div><h3>GCC e-visas</h3><p>Fast online visas for the Gulf, with no embassy visit needed.</p><ul class="gvd-chips"><li>UAE · Dubai</li><li>KSA</li><li>Oman</li></ul><a class="gvd-link" href="https://wa.me/97317290001?text=Hi%20DMS%2C%20I%20need%20help%20with%20a%20GCC%20e-visa" target="_blank" rel="noopener">Ask about this visa<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article><article class="gvd-card gvd-span"><div class="gvd-top"><span class="gvd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></span><div class="gvd-tags"><span class="gvd-tag">Embassy visa</span><span class="gvd-tag gvd-tag-e">E-visa</span></div></div><h3>Asia &amp; beyond</h3><p>Embassy visas and e-visas for key destinations across Asia and the Americas.</p><ul class="gvd-chips"><li>Canada</li><li>China</li><li>India</li><li>Japan</li><li>Korea</li><li>Malaysia</li><li>Singapore</li><li>Russia</li><li>Turkey</li></ul><a class="gvd-link" href="https://wa.me/97317290001?text=Hi%20DMS%2C%20I%20need%20help%20with%20a%20visa" target="_blank" rel="noopener">Ask about this visa<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article><article class="gvd-card "><div class="gvd-top"><span class="gvd-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><div class="gvd-tags"><span class="gvd-tag">Embassy visa</span></div></div><h3>Middle East &amp; Africa</h3><p>Visa support for travel across the region and North Africa.</p><ul class="gvd-chips"><li>Egypt</li><li>Jordan</li><li>Iraq</li><li>Morocco</li><li>Algeria</li></ul><a class="gvd-link" href="https://wa.me/97317290001?text=Hi%20DMS%2C%20I%20need%20help%20with%20a%20visa" target="_blank" rel="noopener">Ask about this visa<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
       </div>
     </section>
 
@@ -8740,6 +8783,11 @@ input, select, textarea {
     new IntersectionObserver((es) => es.forEach((e) => { inView = e.isIntersecting; if (inView) { start(); if (globe && !raf) loop(); } }), { rootMargin: "120px" }).observe(wrap);
     let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if (globe) { globe.destroy(); globe = null; cancelAnimationFrame(raf); raf = 0; start(); } }, 250); });
   }
+</script>
+<script>
+  (() => { const cs = document.querySelectorAll(".gvd-card"); if (!("IntersectionObserver" in window)) { cs.forEach(c => c.classList.add("is-in")); return; }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const i = [...cs].indexOf(e.target); setTimeout(() => e.target.classList.add("is-in"), (i % 3) * 90); io.unobserve(e.target); } }), { threshold: .15 });
+    cs.forEach(c => io.observe(c)); })();
 </script>
 </body>
 </html>
