@@ -7268,7 +7268,8 @@ input, select, textarea {
     .crh2 .crh-copy { margin-right:auto !important; position:relative !important; z-index:3 !important; }
     .crh2-art { width:62% !important; object-fit:contain !important; object-position:right bottom !important; -webkit-mask-image:none !important; mask-image:none !important; }
   }
-  @media (min-width:901px) { .crh2-art { clip-path:polygon(0 0,100% 0,100% 100%,7% 100%,0 78%); } }
+  @media (min-width:901px) { .crh2-art { clip-path:none !important; -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 6%,#000 16%) !important; mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 6%,#000 16%) !important; } }
+  @media (max-width:900px) { .crh2-art { -webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%) !important; mask-image:linear-gradient(180deg,#000 80%,transparent 100%) !important; } }
 </style>
 </head>
 
