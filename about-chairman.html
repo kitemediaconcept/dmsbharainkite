@@ -7345,7 +7345,7 @@ input, select, textarea {
   .abch { max-width:1200px; width:calc(100% - 48px); margin:0 auto; padding:clamp(48px,6vw,90px) 0; display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(32px,5vw,80px); align-items:center; }
   .abch-photo { margin:0; aspect-ratio:4/5; max-width:440px; border-radius:28px; display:grid; place-items:center; background:radial-gradient(90% 70% at 50% 100%, rgba(60,207,122,.18), transparent 70%), linear-gradient(160deg,#f7fcf9,#eaf6ef); box-shadow:0 10px 28px rgba(7,63,44,.07); color:#0d9b49; }
   .abch-photo svg { width:96px; height:96px; fill:none; stroke:currentColor; stroke-width:1.2; opacity:.55; }
-  .abch-photo img { width:100%; height:100%; object-fit:cover; border-radius:inherit; }
+  .abch-photo { overflow:hidden; } .abch-photo img { width:100%; height:100%; object-fit:cover; object-position:center 25%; border-radius:inherit; }
   .abch-k { display:inline-flex; align-items:center; gap:10px; font-size:12px; font-weight:500; letter-spacing:1.4px; text-transform:uppercase; color:#0d9b49; }
   .abch-k::before { content:""; width:18px; height:1px; background:#0d9b49; opacity:.6; }
   .abch h2 { margin:16px 0 16px; font-size:clamp(32px,3.4vw,48px); font-weight:500; line-height:1.08; letter-spacing:-1.6px; color:#073f2c; }
@@ -7589,16 +7589,16 @@ input, select, textarea {
     <section class="abp" aria-labelledby="abp-title">
       <nav class="abp-crumb" aria-label="Breadcrumb"><a href="about.html">About</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span aria-current="page">Remembering our Chairman</span></nav>
       <h1 id="abp-title">Remembering our Chairman.</h1>
-      <p>A tribute to his vision, values and lasting legacy.</p>
+      <p>A legacy of trust, a commitment to excellence.</p>
     </section>
     <!-- REMEMBERING OUR CHAIRMAN -->
     <section class="abch" aria-labelledby="abch-title">
-      <figure class="abch-photo" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="17" r="8"/><path d="M8 42c1.5-9 8-14 16-14s14.5 5 16 14"/></svg></figure>
+      <figure class="abch-photo"><img src="assets/about-chairman.webp" alt="The late Chairman of Diplomat Management Services" width="600" height="872" loading="lazy" decoding="async"></figure>
       <div>
-        <span class="abch-k">In loving memory</span>
-        <h2 id="abch-title">Remembering our Chairman</h2>
-        <p>We honour the memory of our Chairman, whose vision, integrity and dedication shaped Diplomat Management Services.</p>
-        <p>His values continue to guide the way we serve our clients and the community in the Kingdom of Bahrain.</p>
+        <span class="abch-k">Remembering our Chairman</span>
+        <h2 id="abch-title">A legacy of trust, a commitment to excellence</h2>
+        <p>Our journey has been built on trust, integrity, professionalism, and an unwavering commitment to our clients.</p>
+        <p>The values established by our late Chairman continue to guide DMS as we embrace innovation and build for the future.</p>
         <p class="abch-q">A legacy of trust that lives on in everything we do.</p>
       </div>
     </section>
