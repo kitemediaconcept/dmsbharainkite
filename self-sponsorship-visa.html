@@ -7219,6 +7219,48 @@ input, select, textarea {
   @media (max-width:900px) { .ss3-art { justify-self:center; max-width:none; } }
   @media (prefers-reduced-motion: reduce) { .ss3-art img { animation:none; } }
 </style>
+<style id="gdw-css">
+  .gdw { list-style:none; margin:clamp(28px,4vw,44px) 0 0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+  .gdw-card { position:relative; height:380px; border-radius:24px; overflow:hidden; isolation:isolate; background:#eef8f2; box-shadow:0 4px 14px rgba(7,63,44,.06); transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease; }
+  .gdw-card:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(7,63,44,.12); }
+  .gdw-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; transition:transform .8s cubic-bezier(.16,1,.3,1); }
+  .gdw-card:hover .gdw-img { transform:scale(1.05); }
+  .gdw-card::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg, rgba(4,40,26,0) 30%, rgba(4,40,26,.55) 58%, rgba(4,36,24,.92) 100%); }
+  .gdw-badge { position:absolute; top:14px; left:14px; min-width:50px; border-radius:12px; overflow:hidden; background:#fff; text-align:center; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+  .gdw-badge em { display:block; font-style:normal; font-size:8.5px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; padding:4px 8px 3px; white-space:nowrap; color:#fff; background:linear-gradient(135deg,#19b35a,#0d9b49 45%,#073f2c); }
+  .gdw-badge b { display:block; font-size:17px; font-weight:600; color:#073f2c; padding:4px 0 6px; letter-spacing:-.4px; }
+  .gdw-ico { position:absolute; top:14px; right:14px; width:38px; height:38px; border-radius:12px; display:grid; place-items:center; background:rgba(255,255,255,.82); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); box-shadow:0 6px 16px rgba(0,0,0,.1); }
+  .gdw-ico svg { width:18px; height:18px; fill:none; stroke:#0d9b49; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .gdw-body { position:absolute; left:14px; right:14px; bottom:14px; }
+  .gdw-body h3 { margin:0 6px 14px; color:#fff; font-size:22px; font-weight:500; line-height:1.15; letter-spacing:-.6px; }
+  .gdw-btn { display:block; text-align:center; padding:12px 16px; border-radius:999px; background:#fff; color:#073f2c; font-size:14px; font-weight:600; text-decoration:none; transition:background .3s ease, color .3s ease; }
+  .gdw-btn:hover { background:linear-gradient(135deg,#19b35a,#0d9b49 45%,#073f2c); color:#fff; }
+  @media (max-width:1024px) { .gdw { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:640px) {
+    .gdw { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:12px; margin-right:-20px; padding:4px 20px 16px 0; scrollbar-width:none; }
+    .gdw::-webkit-scrollbar { display:none; }
+    .gdw-card { flex:0 0 74%; height:360px; scroll-snap-align:start; }
+  }
+  @media (prefers-reduced-motion: reduce) { .gdw-card, .gdw-img { transition:none; } }
+</style>
+<style id="gdw2-css">
+  .gdw-card { height:340px !important; }
+  .gdw-card::after { background:linear-gradient(180deg, rgba(5,58,37,0) 68%, rgba(5,58,37,.35) 82%, rgba(5,58,37,.72) 100%) !important; }
+  .gdw-body h3 { text-shadow:0 1px 8px rgba(0,0,0,.35); }
+  .gdw-body { left:16px !important; right:16px !important; bottom:16px !important; }
+  .gdw-body h3 { margin:0 !important; font-size:18px !important; font-weight:600 !important; line-height:1.2 !important; letter-spacing:-.3px !important; }
+  .gdw-row { display:flex; align-items:center; gap:8px; }
+  .gdw-row .gdw-badge { position:static !important; min-width:40px !important; border-radius:9px !important; box-shadow:none !important; flex:none; }
+  .gdw-row .gdw-badge em { font-size:7.5px !important; padding:3px 6px 2px !important; }
+  .gdw-row .gdw-badge b { font-size:14px !important; padding:2px 0 4px !important; }
+  .gdw-meta { flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#fff; font-size:12px; font-weight:500; line-height:1.3; }
+  .gdw-meta small { display:block; font-size:11px; font-weight:400; color:rgba(255,255,255,.7); }
+  .gdw-go { flex:none; display:inline-flex; align-items:center; gap:4px; color:#fff; font-size:12px; font-weight:600; text-decoration:none; }
+  .gdw-go svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:transform .25s ease; }
+  .gdw-card:hover .gdw-go svg { transform:translateX(3px); }
+  @media (max-width:640px) { .gdw-card { height:320px !important; } }
+</style>
+<style id="ssw-css">.gdw-3 { grid-template-columns:repeat(3,minmax(0,1fr)); } @media (max-width:1024px){ .gdw-3 { grid-template-columns:repeat(2,minmax(0,1fr)); } }</style>
 </head>
 
 <body>
@@ -7720,11 +7762,7 @@ input, select, textarea {
         <h2 id="ss-who-title" class="sv-h2 dms-sh">Three categories of eligible applicants.</h2>
         <p class="dms-sp">Self-sponsored residence permits are available to eligible applicants in the following categories:</p>
       </div>
-      <ul class="ss-who">
-        <li class="sv-rv" style="--i:0"><span class="ss-who-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><div><b>Property owners</b><p>Individuals seeking residency based on qualifying property ownership in Bahrain.</p></div></li>
-        <li class="sv-rv" style="--i:1"><span class="ss-who-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-5M12 16V7M17 16v-8"/></svg></span><div><b>Investors</b><p>Individuals applying through qualifying investments or business interests in the Kingdom.</p></div></li>
-        <li class="sv-rv" style="--i:2"><span class="ss-who-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Retirees</b><p>Retired individuals who wish to reside in Bahrain and meet the applicable requirements.</p></div></li>
-      </ul>
+      <ul class="gdw gdw-3"><li class="gdw-card sv-rv" style="--i:0"><img class="gdw-img" src="assets/gd-who-property.webp" alt="" loading="lazy" decoding="async" style="object-position:58% center"><div class="gdw-body"><h3>Property owners</h3></div></li><li class="gdw-card sv-rv" style="--i:1"><img class="gdw-img" src="assets/moic-meeting.webp" alt="" loading="lazy" decoding="async" style="object-position:center 40%"><div class="gdw-body"><h3>Investors</h3></div></li><li class="gdw-card sv-rv" style="--i:2"><img class="gdw-img" src="assets/gd-who-retired.webp" alt="" loading="lazy" decoding="async" style="object-position:center 30%"><div class="gdw-body"><h3>Retirees</h3></div></li></ul>
     </section>
 
     <!-- HOW -->
