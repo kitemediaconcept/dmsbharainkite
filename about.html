@@ -8866,5 +8866,19 @@ input, select, textarea {
     addEventListener("scroll", req, { passive: true }); addEventListener("resize", req); update();
   })();
 </script>
+<script>
+  (() => { const sec = document.querySelector(".abw-rec"); if (!sec || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const items = [sec.querySelector(".abw-rec-k"), ...sec.querySelectorAll(".abw-logo-card")].filter(Boolean); let raf = 0;
+    items.forEach(el => el.style.willChange = "filter, opacity, transform");
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const update = () => { raf = 0; const r = sec.getBoundingClientRect(), vh = innerHeight;
+      const p = Math.min(1, Math.max(0, (vh * 0.95 - r.top) / (vh * 0.75)));
+      items.forEach((el, i) => { const t = ease(Math.min(1, Math.max(0, (p - i * 0.2) / 0.55)));
+        el.style.opacity = (0.08 + 0.92 * t).toFixed(3); el.style.filter = "blur(" + (12 * (1 - t)).toFixed(2) + "px)"; el.style.transform = "translateY(" + (16 * (1 - t)).toFixed(1) + "px)"; });
+    };
+    const req = () => { if (!raf) raf = requestAnimationFrame(update); };
+    addEventListener("scroll", req, { passive: true }); addEventListener("resize", req); update();
+  })();
+</script>
 </body>
 </html>
