@@ -7319,6 +7319,22 @@ input, select, textarea {
   .ab-bl.ab-bl-on { opacity:1; filter:blur(0); transform:none; }
   @media (prefers-reduced-motion: reduce) { .ab-bl { opacity:1; filter:none; transform:none; transition:none; } }
 </style>
+<style id="abmd-css">
+  .abmd { max-width:1200px; width:calc(100% - 48px); margin:0 auto; padding:clamp(56px,7vw,100px) 0; display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(32px,5vw,80px); align-items:center; }
+  .abmd-photo { margin:0; border-radius:28px; overflow:hidden; background:radial-gradient(90% 70% at 50% 100%, rgba(60,207,122,.18), transparent 70%), linear-gradient(160deg,#f7fcf9,#eaf6ef); box-shadow:0 10px 28px rgba(7,63,44,.07); aspect-ratio:4/5; max-width:440px; }
+  .abmd-photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 20%; transition:transform 1s cubic-bezier(.16,1,.3,1); }
+  .abmd-photo:hover img { transform:scale(1.03); }
+  .abmd-k { display:inline-flex; align-items:center; gap:10px; font-size:12px; font-weight:500; letter-spacing:1.4px; text-transform:uppercase; color:#0d9b49; }
+  .abmd-k::before { content:""; width:18px; height:1px; background:#0d9b49; opacity:.6; }
+  .abmd-h { margin:16px 0 14px; font-size:clamp(32px,3.4vw,48px); font-weight:500; line-height:1.08; letter-spacing:-1.6px; color:#073f2c; }
+  .abmd-sub { margin:0 0 16px; font-size:clamp(19px,1.7vw,24px); font-weight:500; letter-spacing:-.5px; line-height:1.3; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .abmd-p { margin:0 0 32px; max-width:560px; font-size:17px; line-height:1.7; color:#4a4a4a; }
+  .abmd-sign { position:relative; padding:4px 0 4px 18px; }
+  .abmd-sign::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; border-radius:3px; background:linear-gradient(180deg,#3ccf7a,#0d9b49 55%,#073f2c); }
+  .abmd-sign b { display:block; font-size:18px; font-weight:600; letter-spacing:-.3px; color:#111; }
+  .abmd-sign small { display:block; margin-top:4px; font-size:14px; color:#6b7570; }
+  @media (max-width:900px) { .abmd { grid-template-columns:1fr; } .abmd-photo { max-width:360px; } }
+</style>
 </head>
 
 <body>
@@ -7629,6 +7645,18 @@ input, select, textarea {
             <div class="abw-logo"><img src="assets/rec-lmra.png" alt="Labour Market Regulatory Authority, Kingdom of Bahrain" width="512" height="75" loading="lazy"></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- MANAGING DIRECTOR MESSAGE -->
+    <section class="abmd" aria-labelledby="abmd-title">
+      <figure class="abmd-photo"><img src="assets/about-md-talal.webp" alt="Talal Mohamed Hasan Al Yahya, Managing Director of Diplomat Management Services" width="600" height="828" loading="lazy" decoding="async"></figure>
+      <div class="abmd-copy">
+        <span class="abmd-k">Leadership &amp; vision</span>
+        <h2 id="abmd-title" class="abmd-h">A message from our Managing Director</h2>
+        <p class="abmd-sub">Building on trust. Moving forward with innovation.</p>
+        <p class="abmd-p">Our commitment is to carry forward a legacy of excellence while embracing innovation and delivering greater value to our clients.</p>
+        <div class="abmd-sign"><b>Talal Mohamed Hasan Al Yahya</b><small>Managing Director | Diplomat Management Services</small></div>
       </div>
     </section>
 
@@ -8889,7 +8917,7 @@ input, select, textarea {
   (() => { if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
     const main = document.getElementById("main"); if (!main) return;
     const skip = el => el.closest(".abf-big, .abw-rec, .dms-nav-outer-container, header");
-    const sel = "h1, h2, h3, p, .abx-kicker, .abf-k, .abw-big, .abw-big-label, .abw-card, .abf-img, .abf-cell, .ab-actions, .ab40-hero img, .ab-hero img, .abx-cta, ul > li, [class*='rec'] img";
+    const sel = ".abmd-photo, .abmd-k, .abmd-sign, h1, h2, h3, p, .abx-kicker, .abf-k, .abw-big, .abw-big-label, .abw-card, .abf-img, .abf-cell, .ab-actions, .ab40-hero img, .ab-hero img, .abx-cta, ul > li, [class*='rec'] img";
     const els = [...main.querySelectorAll(sel)].filter(el => !skip(el) && !el.parentElement.closest(".ab-bl"));
     const seen = new Set(); const list = els.filter(el => { for (const s of seen) if (s.contains(el)) return false; seen.add(el); return true; });
     list.forEach(el => el.classList.add("ab-bl"));
