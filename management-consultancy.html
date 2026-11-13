@@ -7256,6 +7256,9 @@ input, select, textarea {
   @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
 </style>
 <style id="logo-v2">.dms-glass-nav .dg-logo img, .dg-logo img.dg-logo-image { width:auto !important; height:36px !important; object-fit:contain; } @media (max-width:1000px) { .dms-glass-nav .dg-logo img, .dg-logo img.dg-logo-image { height:32px !important; } }</style>
+<style id="dg-visa-2col">
+  .dg-trigger[data-menu="visa"] ~ .dg-panel .dg-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; max-width:820px; }
+</style>
 </head>
 
 <body>
@@ -7840,16 +7843,10 @@ input, select, textarea {
             ]
           },
           {
-            title: "For KSA residents",
+            title: "Family & Saudi Arabia",
             items: [
-              ["Family Joining Visa for KSA Residence Holders", "Bahrain residence for your family members", "family-joining-visa.html", "home"]
-            ]
-          },
-          {
-            title: "International travel",
-            items: [
-              ["Saudi Visa Services", "Guidance for your visit to Saudi Arabia", "saudi-visa.html", "passport"],
-              ["Global Visa Services", "Support for international visa applications", "global-visa.html", "globe"]
+              ["Family Joining Visa", "Bahrain residence for KSA Iqama holders", "family-joining-visa.html", "home"],
+              ["Saudi Visa Services", "Guidance for your visit to Saudi Arabia", "saudi-visa.html", "passport"]
             ]
           }
         ],
