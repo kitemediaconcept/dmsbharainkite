@@ -7291,6 +7291,11 @@ input, select, textarea {
   .gdw-card::before { display:none !important; }
   .gdw-card::after { background:linear-gradient(180deg, rgba(0,0,0,0) 62%, rgba(0,0,0,.42) 100%) !important; }
 </style>
+<style id="fj-proc-glow">
+  @keyframes fjp-flow { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
+  .fj-proc-wrap { background:linear-gradient(120deg,#f6fbf8 0%,#e4f4ea 35%,#d3eedd 50%,#e4f4ea 65%,#f6fbf8 100%) !important; background-size:300% 100% !important; animation:fjp-flow 9s ease-in-out infinite; box-shadow:0 8px 22px rgba(7,63,44,.06), 0 0 0 10px rgba(238,248,242,.6) !important; }
+  @media (prefers-reduced-motion: reduce) { .fj-proc-wrap { animation:none; } }
+</style>
 </head>
 
 <body>
