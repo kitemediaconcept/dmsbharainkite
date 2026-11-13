@@ -7202,6 +7202,20 @@ input, select, textarea {
   @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
 </style>
 <style id="logo-v2">.dms-glass-nav .dg-logo img, .dg-logo img.dg-logo-image { width:auto !important; height:36px !important; object-fit:contain; } @media (max-width:1000px) { .dms-glass-nav .dg-logo img, .dg-logo img.dg-logo-image { height:32px !important; } }</style>
+<style id="gd-split-css">
+  .gd-split { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:clamp(24px,4vw,56px); width:auto !important; max-width:none !important; min-height:0 !important; padding-left:max(24px, calc((100% - 1200px) / 2)) !important; padding-right:0 !important; padding-bottom:64px !important; text-align:left !important; background:#fff !important; overflow-x:clip !important; position:relative; }
+  .gd-split::before, .gd-split::after { display:none !important; }
+  .gd-split .mch-copy { text-align:left !important; margin:0 !important; max-width:580px !important; }
+  .gd-split .mch-kicker, .gd-split .dms-crumb { margin-left:0 !important; }
+  .gd-split .mch-tag { margin-left:0 !important; max-width:460px; }
+  .gd-split .mch-actions { justify-content:flex-start !important; }
+  .gd-split .mch-title { font-size:clamp(34px,3.8vw,52px) !important; line-height:1.08 !important; letter-spacing:-1.6px !important; }
+  .gd3-art { justify-self:end; width:100%; max-width:720px; }
+  .gd3-art img { display:block; width:100%; height:auto; animation:gd3-in 1.2s cubic-bezier(.16,1,.3,1) .1s both; }
+  @keyframes gd3-in { from { opacity:0; transform:translateX(40px); } }
+  @media (max-width:900px) { .gd-split { grid-template-columns:1fr; padding-right:0 !important; padding-bottom:40px !important; } .gd-split .mch-copy { padding-right:24px; } .gd3-art { max-width:none; width:100%; } }
+  @media (prefers-reduced-motion: reduce) { .gd3-art img { animation:none; } }
+</style>
 </head>
 
 <body>
@@ -7603,7 +7617,7 @@ input, select, textarea {
 
   <main id="main">
     <!-- MANAGEMENT CONSULTANCY HERO -->
-    <section class="mch gd-hero-bg" aria-labelledby="gd-title">
+    <section class="mch gd-hero-bg gd-split" aria-labelledby="gd-title">
       <div class="mch-copy">
         <nav class="dms-crumb mch-kicker gd-kicker-gold" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Bahrain Golden Visa services</span></nav>
         <h1 id="gd-title" class="mch-title">Your future in Bahrain. <br><span class="gd-gold">Our guidance every step of the way.</span></h1>
@@ -7613,17 +7627,7 @@ input, select, textarea {
           <a class="mch-link" href="#contact">Talk to DMS</a>
         </div>
       </div>
-      <div class="gd-stage" aria-hidden="true">
-        <span class="gd-ring gd-ring-2"><i></i></span>
-        <span class="gd-ring gd-ring-1"><i></i></span>
-        <span class="gd-glow"></span>
-        <div class="gd-photo"><img src="assets/golden-visa-card.webp" alt="Kingdom of Bahrain Golden Visa card" width="720" height="959" fetchpriority="high"><span class="gd-photo-shine"></span></div>
-        <div class="gd-chip gd-c1"><span class="gd-chip-ico"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg></span>Employees</div>
-        <div class="gd-chip gd-c2"><span class="gd-chip-ico"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>Property owners</div>
-        <div class="gd-chip gd-c3"><span class="gd-chip-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Retired individuals</div>
-        <div class="gd-chip gd-c4"><span class="gd-chip-ico"><svg viewBox="0 0 24 24"><path d="m12 3 2.2 5.6L20 9l-4.5 3.8L17 19l-5-3.2L7 19l1.5-6.2L4 9l5.8-.4z"/></svg></span>Specially talented</div>
-        <span class="gd-spark gd-s1"></span><span class="gd-spark gd-s2"></span><span class="gd-spark gd-s3"></span>
-      </div>
+      <div class="gd3-art"><img src="assets/gd-hero-hand.webp" alt="Hand holding a Kingdom of Bahrain Golden Visa card" width="1087" height="783" fetchpriority="high" decoding="async"></div>
     </section>
 
     <!-- INTRO + WHO -->
