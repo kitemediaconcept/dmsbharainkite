@@ -7305,6 +7305,11 @@ input, select, textarea {
     .abf-img { aspect-ratio:4/3; }
   }
 </style>
+<style id="abf-blur">
+  .abf-big span { display:block; }
+  .abf-big.abf-anim span { opacity:0; filter:blur(10px); transform:translateY(14px); transition:opacity .9s ease var(--d), filter .9s ease var(--d), transform 1s cubic-bezier(.16,1,.3,1) var(--d); }
+  .abf-big.abf-anim.abf-on span { opacity:1; filter:blur(0); transform:none; }
+</style>
 </head>
 
 <body>
@@ -7574,7 +7579,7 @@ input, select, textarea {
     <section class="abf" aria-labelledby="abf-title">
       <div class="abf-left abx-rv">
         <span class="abf-k">Our foundation</span>
-        <h2 id="abf-title" class="abf-big">One vision.<br>One strategy.<br>One commitment.</h2>
+        <h2 id="abf-title" class="abf-big"><span style="--d:0s">One vision.</span><span style="--d:.18s">One strategy.</span><span style="--d:.36s">One commitment.</span></h2>
       </div>
       <div class="abf-right">
         <p class="abf-lead abx-rv">To become the premier provider of government relations services and global visa assistance in the Kingdom.</p>
@@ -8839,6 +8844,12 @@ input, select, textarea {
   };
   requestAnimationFrame(() => setTimeout(run, 250));
 })();
+</script>
+<script>
+  (() => { const h = document.querySelector(".abf-big"); if (!h || !("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    h.classList.add("abf-anim");
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { h.classList.add("abf-on"); io.disconnect(); } }), { threshold: .4 });
+    io.observe(h); })();
 </script>
 </body>
 </html>
