@@ -7293,12 +7293,28 @@ input, select, textarea {
 </style>
 <style id="fj-proc-glow">
   @keyframes fjp-flow { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
-  .fj-proc-wrap { background:linear-gradient(120deg,#f6fbf8 0%,#e4f4ea 35%,#d3eedd 50%,#e4f4ea 65%,#f6fbf8 100%) !important; background-size:300% 100% !important; animation:fjp-flow 9s ease-in-out infinite; box-shadow:0 8px 22px rgba(7,63,44,.06), 0 0 0 10px rgba(238,248,242,.6) !important; }
+  .fj-proc-wrap { background:linear-gradient(120deg,#f6fbf8 0%,#e4f4ea 35%,#d3eedd 50%,#e4f4ea 65%,#f6fbf8 100%) !important; background-size:300% 100% !important; animation:fjp-flow 9s ease-in-out infinite; box-shadow:0 8px 22px rgba(7,63,44,.06) !important; }
   @media (prefers-reduced-motion: reduce) { .fj-proc-wrap { animation:none; } }
 </style>
 <style id="gdw-glass">
   .gdw-card .gdw-body h3 { display:inline-block !important; padding:7px 13px !important; border-radius:12px; border:0 !important; background:rgba(15,30,22,.32); -webkit-backdrop-filter:blur(14px) saturate(1.4); backdrop-filter:blur(14px) saturate(1.4); box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 6px 18px rgba(0,0,0,.12); font-size:15px !important; font-weight:600 !important; line-height:1.25 !important; text-shadow:0 1px 3px rgba(0,0,0,.25); }
   .gdw-card::after { background:linear-gradient(180deg, rgba(0,0,0,0) 75%, rgba(0,0,0,.18) 100%) !important; }
+</style>
+<style id="fj-proc-neat">
+  .fj-proc-wrap { padding:clamp(28px,3.4vw,44px) clamp(20px,3vw,40px) !important; border-radius:24px !important; }
+  .fj-process::before, .fj-process::after { top:23px !important; height:1.5px !important; left:10%; right:10%; }
+  .fj-process::before { background:rgba(13,155,73,.15) !important; }
+  .fj-node { width:46px !important; height:46px !important; }
+  .fj-node svg { width:20px !important; height:20px !important; }
+  .fj-process.fj-go .fj-node { box-shadow:0 0 0 5px rgba(13,155,73,.10), 0 8px 16px rgba(13,155,73,.22) !important; }
+  .fj-process small { margin-top:14px !important; font-size:10.5px !important; }
+  .fj-process b { margin-top:6px !important; max-width:170px !important; font-size:14.5px !important; font-weight:500 !important; line-height:1.35 !important; letter-spacing:-.2px !important; color:#073f2c; }
+  @media (max-width:900px) {
+    .fj-process::before, .fj-process::after { left:22px !important; right:auto !important; top:23px !important; bottom:23px !important; width:1.5px !important; height:auto !important; }
+    .fj-process li { grid-template-columns:46px 1fr !important; }
+    .fj-process small { margin-top:0 !important; }
+    .fj-process b { max-width:none !important; margin-top:2px !important; }
+  }
 </style>
 </head>
 
