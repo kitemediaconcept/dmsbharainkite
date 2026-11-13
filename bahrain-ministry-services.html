@@ -9093,6 +9093,17 @@ input, select, textarea {
 
               <div class="dg-dropdown">
                 <button class="dg-trigger" type="button"
+                  data-menu="ministry" aria-expanded="false">
+                  Ministry services
+                  <svg class="dg-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+                <div class="dg-panel" hidden></div>
+              </div>
+
+              <div class="dg-dropdown">
+                <button class="dg-trigger" type="button"
                   data-menu="visa" aria-expanded="false">
                   Visa &amp; residency
                   <svg class="dg-chevron" viewBox="0 0 24 24" aria-hidden="true">
@@ -12333,6 +12344,33 @@ input, select, textarea {
             items: [
               ["Global Visa Assistance", "Connecting Bahrain with the world", "global-visa.html", "globe"],
               ["Corporate Setup", "Support for starting your business", "#services", "building"]
+            ]
+          }
+        ],
+
+        ministry: [
+          {
+            title: "Labour & residency",
+            items: [
+              ["LMRA Services", "Work permits, visas and renewals", "lmra-services.html", "briefcase"],
+              ["Immigration Services", "Visas, passports and residence", "immigration-services.html", "passport"],
+              ["CIO Services", "CPR registration and updates", "cio-services.html", "person"]
+            ]
+          },
+          {
+            title: "Business & commerce",
+            items: [
+              ["Bahrain Chamber Services", "BCCI registration and trade documents", "bahrain-chamber-services.html", "building"],
+              ["Ministry of Industry & Commerce", "Commercial registration and licences", "moic-services.html", "document"],
+              ["GOSI Services", "Social insurance for your team", "gosi-services.html", "check"]
+            ]
+          },
+          {
+            title: "Government & utilities",
+            items: [
+              ["Ministry Services", "Interior, security and clearances", "ministry-services.html", "government"],
+              ["Utility Services", "Municipality, electricity and water", "utility-services.html", "home"],
+              ["All Ministry Services", "Every government service in one place", "bahrain-ministry-services.html", "globe"]
             ]
           }
         ],
