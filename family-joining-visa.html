@@ -7276,6 +7276,11 @@ input, select, textarea {
   @keyframes fj-live { 0% { box-shadow:0 0 0 0 rgba(60,207,122,.6); } 100% { box-shadow:0 0 0 9px rgba(60,207,122,0); } }
   @media (prefers-reduced-motion: reduce) { .fj-live i { animation:none; } }
 </style>
+<style id="fj-wm-css">
+  .fj-wm { align-self:flex-start; display:inline-block; margin-bottom:14px; color:#fff; font-size:26px; font-weight:400; letter-spacing:-1px; line-height:1; font-family:Inter, system-ui, sans-serif; }
+  .fj-wm { white-space:nowrap; } .fj-wm b { display:inline !important; font-size:inherit !important; margin:0 !important; color:#fff !important; font-weight:800 !important; letter-spacing:-1.1px; }
+  .fj-wm sup { color:#3ccf7a; font-size:1em; font-weight:700; vertical-align:baseline; margin-left:1px; }
+</style>
 </head>
 
 <body>
@@ -7848,7 +7853,7 @@ input, select, textarea {
       <div class="fj-life">
         <div class="fj-tile fj-hero-tile sv-rv" style="--i:0">
           <svg class="fj-rings" viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="140" fill="none" stroke="#fff" stroke-dasharray="3 8"/><circle cx="150" cy="150" r="95" fill="none" stroke="#fff" stroke-dasharray="3 8"/></svg>
-          <span class="fj-live"><i></i>Life in Bahrain</span>
+          <span class="fj-wm" aria-label="Life in Bahrain"><b>life</b>inbahrain<sup>.</sup></span>
           <h3 id="fj-life-title">Greater flexibility to live in Bahrain.</h3>
           <p>This option can provide families with greater flexibility to live in Bahrain while benefiting from access to schools, healthcare facilities, residential communities, and the overall lifestyle Bahrain offers.</p>
         </div>
