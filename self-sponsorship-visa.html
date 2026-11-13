@@ -7202,6 +7202,18 @@ input, select, textarea {
   @media (max-width:700px) { .dms-sh { font-size:34px !important; line-height:38px !important; letter-spacing:-1.1px !important; } .dms-sp { font-size:16px !important; line-height:26px !important; } }
 </style>
 <style id="logo-v2">.dms-glass-nav .dg-logo img, .dg-logo img.dg-logo-image { width:auto !important; height:36px !important; object-fit:contain; } @media (max-width:1000px) { .dms-glass-nav .dg-logo img, .dg-logo img.dg-logo-image { height:32px !important; } }</style>
+<style id="ss-split-css">
+  .ss-split { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:clamp(24px,4vw,56px); width:auto !important; max-width:none !important; min-height:0 !important; padding-left:max(24px, calc((100% - 1200px) / 2)) !important; padding-right:max(24px, calc((100% - 1200px) / 2)) !important; padding-bottom:64px !important; text-align:left !important; background:#fff !important; overflow-x:clip !important; position:relative; }
+  .ss-split::before, .ss-split::after { display:none !important; }
+  .ss-split .mch-copy { text-align:left !important; margin:0 !important; max-width:580px !important; }
+  .ss-split .mch-kicker, .ss-split .dms-crumb { margin-left:0 !important; }
+  .ss-split .mch-tag { margin-left:0 !important; max-width:460px; }
+  .ss-split .mch-actions { justify-content:flex-start !important; }
+  .ss-split .mch-title { font-size:clamp(34px,3.8vw,52px) !important; line-height:1.08 !important; letter-spacing:-1.6px !important; }
+  .ss-split .ss-stage { margin:0 !important; justify-self:end; width:100% !important; max-width:560px !important; }
+  @media (max-width:900px) { .ss-split { grid-template-columns:1fr; padding-bottom:40px !important; } .ss-split .ss-stage { justify-self:center; } }
+  .ss-grad { background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+</style>
 </head>
 
 <body>
@@ -7668,10 +7680,10 @@ input, select, textarea {
 
   <main id="main">
     <!-- MANAGEMENT CONSULTANCY HERO -->
-    <section class="mch" aria-labelledby="ss-title">
+    <section class="mch ss-split" aria-labelledby="ss-title">
       <div class="mch-copy">
         <nav class="dms-crumb mch-kicker" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Self-sponsorship visa services</span></nav>
-        <h1 id="ss-title" class="mch-title">Secure your future <br>with self-sponsorship, today.</h1>
+        <h1 id="ss-title" class="mch-title">Secure your future <br><span class="ss-grad">with self-sponsorship, today.</span></h1>
         <p class="mch-tag">Support for individuals and their families applying for self-sponsored residence permits in Bahrain.</p>
         <div class="mch-actions">
           <a class="mch-btn" href="#ss-who">Who can apply</a>
@@ -7690,11 +7702,7 @@ input, select, textarea {
           <div class="ss-permit-top"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/></svg><span><small>Kingdom of Bahrain</small><b>Residence permit</b></span></div>
           <div class="ss-permit-body"><span class="ss-avatar"><svg viewBox="0 0 40 46"><circle cx="20" cy="15" r="9"/><path d="M2 46c1-11 8-17 18-17s17 6 18 17z"/></svg></span><div style="flex:1"><span class="ss-permit-tag">Self-sponsored</span><div class="das-lines"><i></i><i></i><i></i></div></div></div>
         </div>
-        <div class="ss-chip ss-c1"><span class="ss-chip-ico"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>Property owners</div>
-        <div class="ss-chip ss-c2"><span class="ss-chip-ico"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 16v-5M12 16V7M17 16v-8"/></svg></span>Investors</div>
-        <div class="ss-chip ss-c3"><span class="ss-chip-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Retirees</div>
-        <div class="ss-chip ss-c4"><span class="ss-chip-ico"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M2.5 20c.6-3.7 2.8-5.5 5.5-5.5s4.9 1.8 5.5 5.5M14.5 14.7c2.6-.2 4.5 1.4 5 4.8"/></svg></span>Family members</div>
-      </div>
+        </div>
     </section>
 
     <!-- INTRO -->
