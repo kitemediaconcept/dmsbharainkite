@@ -7270,6 +7270,12 @@ input, select, textarea {
   .fjw-ph { position:absolute; right:-14px; top:-14px; width:150px; height:150px; opacity:.18; }
   .fjw-ph svg { width:100%; height:100%; fill:none; stroke:#fff; stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; }
 </style>
+<style id="fj-live-css">
+  .fj-live { align-self:flex-start; display:inline-flex; align-items:center; gap:8px; width:auto; padding:7px 14px 7px 10px; border-radius:999px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); color:#fff; font-size:12.5px; font-weight:500; letter-spacing:.3px; margin-bottom:14px; }
+  .fj-live i { position:relative; width:8px; height:8px; border-radius:50%; background:#3ccf7a; box-shadow:0 0 0 0 rgba(60,207,122,.6); animation:fj-live 2s ease-out infinite; }
+  @keyframes fj-live { 0% { box-shadow:0 0 0 0 rgba(60,207,122,.6); } 100% { box-shadow:0 0 0 9px rgba(60,207,122,0); } }
+  @media (prefers-reduced-motion: reduce) { .fj-live i { animation:none; } }
+</style>
 </head>
 
 <body>
@@ -7842,7 +7848,7 @@ input, select, textarea {
       <div class="fj-life">
         <div class="fj-tile fj-hero-tile sv-rv" style="--i:0">
           <svg class="fj-rings" viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="140" fill="none" stroke="#fff" stroke-dasharray="3 8"/><circle cx="150" cy="150" r="95" fill="none" stroke="#fff" stroke-dasharray="3 8"/></svg>
-          <span class="sv-kicker dms-pill"><span class="dms-kg">Life in Bahrain</span></span>
+          <span class="fj-live"><i></i>Life in Bahrain</span>
           <h3 id="fj-life-title">Greater flexibility to live in Bahrain.</h3>
           <p>This option can provide families with greater flexibility to live in Bahrain while benefiting from access to schools, healthcare facilities, residential communities, and the overall lifestyle Bahrain offers.</p>
         </div>
