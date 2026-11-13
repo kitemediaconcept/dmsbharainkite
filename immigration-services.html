@@ -11051,6 +11051,7 @@ input, select, textarea {
   @media (max-width:520px) { .ct-v2 .ct-row { grid-template-columns:1fr; } }
   @media (prefers-reduced-motion: reduce) { .ct-v2 *, .ct-v2 *::before, .ct-v2 *::after { animation:none !important; transition:none !important; } .ct-v2.ct-anim .ct-info > *, .ct-v2.ct-anim .ct-form > * { opacity:1; transform:none; } }
     </style>
+<style id="dg-about-2col">.dg-trigger[data-menu="about"] ~ .dg-panel .dg-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; max-width:820px; }</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -11082,7 +11083,16 @@ input, select, textarea {
 
               <a class="dg-link" href="index.html#hero-section">Home</a>
 
-              <a class="dg-link" href="about.html">About</a>
+              <div class="dg-dropdown">
+                <button class="dg-trigger" type="button"
+                  data-menu="about" aria-expanded="false">
+                  About
+                  <svg class="dg-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+                <div class="dg-panel" hidden></div>
+              </div>
 
               <div class="dg-dropdown">
                 <button class="dg-trigger" type="button"
@@ -12587,6 +12597,23 @@ input, select, textarea {
             title: "Explore more",
             items: [
               ["Global Visa Assistance", "Connecting Bahrain with the world", "global-visa.html", "globe"]
+            ]
+          }
+        ],
+
+        about: [
+          {
+            title: "Our story",
+            items: [
+              ["Our History & 40+ Years of Experience", "Four decades of trusted service in Bahrain", "about-history.html", "government"],
+              ["Remembering Our Chairman", "A tribute to his vision and legacy", "about-chairman.html", "star"]
+            ]
+          },
+          {
+            title: "Leadership & values",
+            items: [
+              ["Managing Director's Message", "Building on trust, moving forward", "about-md.html", "person"],
+              ["Our Vision, Mission & Values", "The principles that guide our work", "about-vision.html", "globe"]
             ]
           }
         ],
