@@ -7317,6 +7317,14 @@ input, select, textarea {
   .abr-count { left:37.6% !important; top:28.4% !important; }
   .abr-count span { font-size:12.8cqw !important; letter-spacing:-.03em !important; -webkit-text-stroke:.16em #0a4f23; paint-order:stroke fill; min-width:1.25em; }
 </style>
+<style id="hrec-css">
+  .hrec { width:min(1200px, calc(100% - 48px)); margin:clamp(24px,4vw,56px) auto; display:flex; align-items:center; justify-content:center; gap:clamp(24px,4vw,56px); }
+  .hrec-t { font-family:Inter, "Helvetica Neue", Arial, sans-serif; font-size:clamp(26px,2.6vw,38px); font-weight:500; line-height:1.15; letter-spacing:-1px; background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .hrec-sep { width:2px; align-self:stretch; min-height:120px; border-radius:2px; background:linear-gradient(180deg,transparent,#0d9b49,transparent); }
+  .hrec-mofa { height:clamp(70px,8vw,112px); width:auto; }
+  .hrec-lmra { height:clamp(40px,4.4vw,62px); width:auto; }
+  @media (max-width:760px) { .hrec { flex-wrap:wrap; gap:18px 24px; } .hrec-t { width:100%; text-align:center; } .hrec-t br { display:none; } .hrec-sep { display:none; } .hrec-mofa { height:64px; } .hrec-lmra { height:34px; } }
+</style>
 </head>
 
 <body>
@@ -7594,6 +7602,14 @@ input, select, textarea {
         </dl>
       </div>
     </div>
+  </section>
+
+  <!-- RECOGNITIONS -->
+  <section class="hrec" aria-label="Recognitions">
+    <span class="hrec-t">We are <br>recognized</span>
+    <span class="hrec-sep" aria-hidden="true"></span>
+    <img class="hrec-logo hrec-mofa" src="assets/rec-ksa-mofa.png" alt="Kingdom of Saudi Arabia Ministry of Foreign Affairs" width="900" height="295" loading="lazy" decoding="async">
+    <img class="hrec-logo hrec-lmra" src="assets/rec-lmra.png" alt="Labour Market Regulatory Authority, Kingdom of Bahrain" width="512" height="75" loading="lazy" decoding="async">
   </section>
 
   <style>
