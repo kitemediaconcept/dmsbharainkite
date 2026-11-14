@@ -11052,6 +11052,11 @@ input, select, textarea {
   @media (prefers-reduced-motion: reduce) { .ct-v2 *, .ct-v2 *::before, .ct-v2 *::after { animation:none !important; transition:none !important; } .ct-v2.ct-anim .ct-info > *, .ct-v2.ct-anim .ct-form > * { opacity:1; transform:none; } }
     </style>
 <style id="dg-about-2col">.dg-trigger[data-menu="about"] ~ .dg-panel .dg-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; max-width:820px; }</style>
+<style id="imm-causeway-css">
+  .imm-portrait-art:has(.imm-causeway) { position:relative !important; flex:1 1 auto !important; height:auto !important; min-height:220px !important; width:100% !important; max-width:none !important; margin:6px 0 0 !important; padding:0 !important; display:block !important; overflow:hidden; }
+  .imm-portrait-art img.imm-causeway { position:absolute !important; inset:auto 0 0 0 !important; display:block; width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:cover !important; object-position:center top !important; border-radius:0 !important; transform:none !important; }
+  @media (max-width:640px) { .imm-portrait-art img.imm-causeway { object-position:center bottom !important; } }
+</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -12013,7 +12018,7 @@ input, select, textarea {
         </div>
 
         <div class="imm-art imm-portrait-art" aria-hidden="true">
-          <img class="imm-portrait-photo imm-promenade" src="assets/ksa-family-promenade.webp" width="1100" height="900" alt="" loading="lazy" decoding="async">
+          <img class="imm-portrait-photo imm-causeway" src="assets/imm-causeway.webp" width="1100" height="786" alt="" loading="lazy" decoding="async">
         </div>
       </article>
 
