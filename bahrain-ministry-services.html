@@ -9059,37 +9059,59 @@ input, select, textarea {
   .imm-portrait-art img.imm-causeway { position:absolute !important; inset:auto 0 0 0 !important; display:block; width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:cover !important; object-position:center top !important; border-radius:0 !important; transform:none !important; }
   @media (max-width:640px) { .imm-portrait-art img.imm-causeway { object-position:center bottom !important; } }
 </style>
-<style id="msx-css">
-  .msx { padding:clamp(100px,8vw,112px) 0 clamp(24px,4vw,48px); background:#fff; }
-  .msx-crumb .dms-crumb { margin:0; }
-  .msx-stage { position:relative; width:min(100vw,1280px); max-width:none; margin:0 0 0 calc(50% - min(50vw,640px)); aspect-ratio:1691/930; container-type:inline-size; }
-  .msx-img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply; filter:brightness(1.03) contrast(1.04); animation:msx-in 1.4s cubic-bezier(.16,1,.3,1) both; }
-  @keyframes msx-in { from { opacity:0; transform:scale(.97); } }
-  .msx-crumb { width:min(100vw,1280px); margin:0 0 -1.6% calc(50% - min(50vw,640px)); padding:0 5.6%; position:relative; z-index:2; box-sizing:border-box; }
-  .msx-head { position:absolute; left:5.6%; top:3%; max-width:40%; }
-  .msx-head .dms-crumb { margin:0 0 1.2cqw; }
-  .msx-title { margin:0; font-size:4.6cqw; font-weight:700; line-height:1.02; letter-spacing:-.04em; color:#0b2a1a; }
-  .msx-title span { background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-  .msx-foot { position:absolute; left:69.5%; right:2.5%; top:78.5%; display:flex; align-items:center; justify-content:space-between; gap:2cqw; }
-  .msx-desc { margin:0; width:15cqw; font-size:1.3cqw; line-height:1.35; color:#6b7570; }
-  .msx-btn { display:inline-flex; align-items:center; gap:.9cqw; padding:.55cqw .55cqw .55cqw 1.3cqw; border:0; border-radius:999px; background:#0b2a1a; color:#fff; font:600 1.3cqw Inter, system-ui, sans-serif; white-space:nowrap; flex:none; cursor:pointer; box-shadow:0 10px 24px rgba(7,63,44,.22); transition:transform .3s ease, box-shadow .3s ease; }
-  .msx-btn:hover { transform:translateY(-2px); box-shadow:0 16px 32px rgba(7,63,44,.3); }
-  .msx-arrow { display:grid; place-items:center; width:2.4cqw; height:2.4cqw; border-radius:50%; background:#3ccf7a; color:#0b2a1a; }
-  .msx-arrow svg { width:60%; height:60%; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style id="msh-css">
+  .msh { padding:clamp(100px,8vw,112px) 20px clamp(24px,4vw,48px); background:#fff; }
+  .msh-card { position:relative; max-width:1280px; margin:0 auto; aspect-ratio:1002/612; border-radius:28px; overflow:hidden; container-type:inline-size; background:#2c6fbd; box-shadow:0 20px 50px rgba(7,63,44,.10); }
+  .msh-media { position:absolute; inset:0; }
+  .msh-img, .msh-svg { position:absolute; inset:0; width:100%; height:100%; }
+  .msh-img { object-fit:cover; object-position:center; animation:msh-in 1.4s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes msh-in { from { opacity:0; transform:scale(1.04); } }
+  .msh-copy { position:absolute; left:17.4%; top:2%; width:40%; z-index:2; color:#fff; font-family:"Google Sans","Product Sans",Outfit,Inter,system-ui,sans-serif; }
+  .msh-copy .dms-crumb { margin:0 0 1.4cqw; background:rgba(255,255,255,.16) !important; -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); color:#fff !important; border:0 !important; }
+  .msh-copy .dms-crumb a, .msh-copy .dms-crumb .dms-kg, .msh-copy .dms-crumb span { color:#fff !important; -webkit-text-fill-color:#fff !important; background:none !important; }
+  .msh-title { margin:0; font-family:inherit; font-size:3.9cqw; font-weight:400; line-height:1.06; white-space:nowrap; letter-spacing:-.01em; color:#fff; text-shadow:0 2px 18px rgba(0,40,90,.18); }
+  .msh-sub { margin:.9cqw 0 0; max-width:24cqw; font-family:inherit; font-size:1.3cqw; font-weight:400; line-height:1.4; color:rgba(255,255,255,.92); }
+  .msh-actions { display:flex; align-items:center; gap:1cqw; margin-top:1.6cqw; }
+  .msh-cta { display:inline-flex; align-items:center; gap:.9cqw; padding:.7cqw .7cqw .7cqw 1.7cqw; border-radius:999px; background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%); color:#fff; font:500 1.3cqw/1 Inter, system-ui, sans-serif; text-decoration:none; box-shadow:0 10px 24px rgba(4,50,30,.35), inset 0 1px 0 rgba(255,255,255,.25); transition:transform .3s ease, box-shadow .3s ease; white-space:nowrap; }
+  .msh-cta span { display:grid; place-items:center; width:2.2cqw; height:2.2cqw; border-radius:50%; background:#fff; color:#0d9b49; }
+  .msh-cta svg { width:58%; height:58%; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; transition:transform .3s ease; }
+  .msh-cta:hover { transform:translateY(-2px); box-shadow:0 16px 32px rgba(4,50,30,.45); }
+  .msh-cta:hover svg { transform:translateX(2px); }
+  .msh-ghost { padding:.95cqw 1.4cqw; border:0; border-radius:999px; background:rgba(255,255,255,.18); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); color:#fff; font:500 1.25cqw/1 Inter, system-ui, sans-serif; cursor:pointer; box-shadow:inset 0 1px 0 rgba(255,255,255,.35); transition:background .3s ease; white-space:nowrap; }
+  .msh-ghost:hover { background:rgba(255,255,255,.28); }
+  /* line + nodes */
+  .msh-flow { fill:none; stroke:rgba(255,255,255,.55); stroke-width:2; stroke-dasharray:6 14; stroke-linecap:round; animation:msh-dash 6s linear infinite; }
+  @keyframes msh-dash { to { stroke-dashoffset:-400; } }
+  .msh-pulse, .msh-pulse-glow { fill:none; stroke-linecap:round; stroke-dasharray:70 930; stroke-dashoffset:1000; animation:msh-run 7s cubic-bezier(.45,.05,.55,.95) infinite; }
+  .msh-pulse { stroke:#fff; stroke-width:4; }
+  .msh-pulse-glow { stroke:#b8ffd6; stroke-width:14; opacity:.9; }
+  @keyframes msh-run { from { stroke-dashoffset:1000; } to { stroke-dashoffset:-70; } }
+  .msh-node { cursor:pointer; outline:none; }
+  .msh-hit { fill:transparent; }
+  .msh-disc { fill:url(#mshDisc); stroke:rgba(255,255,255,.9); stroke-width:1.2; filter:drop-shadow(0 4px 8px rgba(0,40,90,.25)); }
+  .msh-ic { fill:none; stroke:#0d7a3e; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; transform:scale(1.25); }
+  .msh-lab { fill:#fff; font:600 14px Inter, system-ui, sans-serif; letter-spacing:.2px; paint-order:stroke; stroke:rgba(20,70,130,.25); stroke-width:3px; }
+  .msh-ring { fill:none; stroke:#7dffb3; stroke-width:2; opacity:0; transform-box:fill-box; transform-origin:center; }
+  .msh-node.is-on .msh-ring { animation:msh-ring 1.1s ease-out; }
+  @keyframes msh-ring { 0% { opacity:.95; transform:scale(1); } 100% { opacity:0; transform:scale(1.9); } }
+  .msh-node:hover .msh-ring, .msh-node:focus-visible .msh-ring { opacity:1; stroke:#fff; }
+  .msh-node:not(.is-baked):hover .msh-disc { fill:#fff; }
   @media (max-width:760px) {
-    .msx { padding-top:96px; }
-    .msx-stage { aspect-ratio:auto; display:flex; flex-direction:column; container-type:normal; padding:0; }
-    .msx-head, .msx-foot { padding:0 20px; }
-    .msx-head { position:static; max-width:none; order:1; }
-    .msx-crumb { padding:0 20px; margin-bottom:14px; }
-    .msx-title { font-size:44px; }
-    .msx-img { position:static !important; order:2; width:100% !important; max-width:none !important; margin:18px 0 0 !important; height:auto !important; }
-    .msx-foot { position:static; order:3; margin-top:16px; flex-wrap:wrap; gap:16px; }
-    .msx-desc { width:100%; font-size:16px; }
-    .msx-btn { font-size:15px; padding:8px 8px 8px 18px; gap:12px; }
-    .msx-arrow { width:32px; height:32px; }
+    .msh { padding:96px 14px 24px; }
+    .msh-card { aspect-ratio:auto; display:flex; flex-direction:column; container-type:normal; border-radius:24px; background:linear-gradient(180deg,#2c6fbd 0%,#2f74c1 100%); }
+    .msh-copy { position:relative; inset:auto; width:auto; padding:26px 22px 6px; order:1; }
+    .msh-copy .dms-crumb { margin-bottom:14px; font-size:12px; }
+    .msh-title { font-size:38px; white-space:normal; }
+    .msh-sub { font-size:15px; max-width:none; margin-top:12px; }
+    .msh-actions { margin-top:18px; gap:10px; flex-wrap:wrap; }
+    .msh-cta { font-size:15px; padding:7px 7px 7px 18px; gap:10px; }
+    .msh-cta span { width:30px; height:30px; }
+    .msh-ghost { font-size:14px; padding:11px 16px; }
+    .msh-media { position:relative; order:2; height:440px; margin-top:4px; }
+    .msh-lab { font-size:17px; }
   }
-  @media (prefers-reduced-motion: reduce) { .msx-img { animation:none; } }
+  @media (prefers-reduced-motion: reduce) { .msh-img, .msh-flow, .msh-pulse, .msh-pulse-glow { animation:none; } .msh-pulse, .msh-pulse-glow { display:none; } }
 </style>
 </head>
 <body>
@@ -9191,16 +9213,26 @@ input, select, textarea {
 
 
   <main class="bahrain-subpage-main">
-    <section class="msx" aria-labelledby="hero-title">
-      <div class="msx-crumb"><nav class="dms-crumb mh-kicker" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Bahrain ministry services</span></nav></div>
-      <div class="msx-stage">
-        <img class="msx-img" src="assets/ms-hero-handover.webp" alt="A Bahrain passport and government application being handed over" width="1691" height="930" fetchpriority="high" decoding="async">
-        <div class="msx-head">
-          <h1 class="msx-title" id="hero-title">Your next step.<br>Made <span>simple.</span></h1>
+    <section class="msh" aria-labelledby="hero-title">
+      <div class="msh-card">
+        <div class="msh-media">
+          <img class="msh-img" src="assets/ms-hero-sky.webp" alt="Bahrain skyline with the World Trade Center by the sea" width="2004" height="1224" fetchpriority="high" decoding="async">
+          <svg class="msh-svg" viewBox="0 0 1002 612" preserveAspectRatio="xMidYMid slice" role="group" aria-label="Bahrain ministry services">
+            <defs><linearGradient id="mshDisc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".95"/><stop offset="1" stop-color="#dfeaf5" stop-opacity=".85"/></linearGradient><filter id="mshGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter></defs>
+            <path id="msh-path" d="M -10 222 C 30 214, 70 220, 107 232 C 170 252, 250 290, 338 297 C 420 303, 500 278, 548 255 C 610 225, 650 160, 642 118 C 634 76, 600 62, 572 66 C 520 72, 480 110, 476 150 C 472 210, 520 262, 590 285 C 640 300, 690 298, 730 288 C 790 272, 830 230, 870 200 C 920 165, 965 142, 1012 124" fill="none"/>
+            <path class="msh-flow" d="M -10 222 C 30 214, 70 220, 107 232 C 170 252, 250 290, 338 297 C 420 303, 500 278, 548 255 C 610 225, 650 160, 642 118 C 634 76, 600 62, 572 66 C 520 72, 480 110, 476 150 C 472 210, 520 262, 590 285 C 640 300, 690 298, 730 288 C 790 272, 830 230, 870 200 C 920 165, 965 142, 1012 124" pathLength="1000"/>
+            <path class="msh-pulse-glow" d="M -10 222 C 30 214, 70 220, 107 232 C 170 252, 250 290, 338 297 C 420 303, 500 278, 548 255 C 610 225, 650 160, 642 118 C 634 76, 600 62, 572 66 C 520 72, 480 110, 476 150 C 472 210, 520 262, 590 285 C 640 300, 690 298, 730 288 C 790 272, 830 230, 870 200 C 920 165, 965 142, 1012 124" pathLength="1000" filter="url(#mshGlow)"/>
+            <path class="msh-pulse" d="M -10 222 C 30 214, 70 220, 107 232 C 170 252, 250 290, 338 297 C 420 303, 500 278, 548 255 C 610 225, 650 160, 642 118 C 634 76, 600 62, 572 66 C 520 72, 480 110, 476 150 C 472 210, 520 262, 590 285 C 640 300, 690 298, 730 288 C 790 272, 830 230, 870 200 C 920 165, 965 142, 1012 124" pathLength="1000"/>
+            <a class="msh-node is-baked" href="lmra-services.html" aria-label="LMRA services" transform="translate(107 232)" data-x="107" data-y="232"><circle class="msh-ring" r="21"/><circle class="msh-hit" r="26"/></a><a class="msh-node is-baked" href="cio-services.html" aria-label="CIO services" transform="translate(338 297)" data-x="338" data-y="297"><circle class="msh-ring" r="21"/><circle class="msh-hit" r="26"/></a><a class="msh-node" href="immigration-services.html" aria-label="Immigration services" transform="translate(452 286)" data-x="452" data-y="286"><circle class="msh-ring" r="21"/><circle class="msh-disc" r="21"/><g class="msh-ic"><rect x="-5" y="-7" width="10" height="14" rx="1.5"/><circle cy="-1" r="2.6"/><path d="M-2.5 4h5"/></g><text class="msh-lab" x="0" y="40" text-anchor="middle">Immigration</text><circle class="msh-hit" r="26"/></a><a class="msh-node" href="moic-services.html" aria-label="MOIC services" transform="translate(641 150)" data-x="641" data-y="150"><circle class="msh-ring" r="21"/><circle class="msh-disc" r="21"/><g class="msh-ic"><path d="M-7-1h14v8H-7zM-6-6h12l1 5H-7zM-2 7V3h4v4"/></g><text class="msh-lab" x="30" y="5" text-anchor="start">MOIC</text><circle class="msh-hit" r="26"/></a><a class="msh-node is-baked" href="gosi-services.html" aria-label="GOSI services" transform="translate(592 77)" data-x="592" data-y="77"><circle class="msh-ring" r="21"/><circle class="msh-hit" r="26"/></a><a class="msh-node" href="ministry-services.html" aria-label="Interior services" transform="translate(742 285)" data-x="742" data-y="285"><circle class="msh-ring" r="21"/><circle class="msh-disc" r="21"/><g class="msh-ic"><path d="M0-7 6-4.5v4C6 3.5 3.5 6 0 7c-3.5-1-6-3.5-6-7.5v-4z"/><path d="m-2.5 0 1.8 1.8L3-1.8"/></g><text class="msh-lab" x="0" y="40" text-anchor="middle">Interior</text><circle class="msh-hit" r="26"/></a><a class="msh-node is-baked" href="bahrain-chamber-services.html" aria-label="BCCI services" transform="translate(870 200)" data-x="870" data-y="200"><circle class="msh-ring" r="21"/><circle class="msh-hit" r="26"/></a><a class="msh-node" href="utility-services.html" aria-label="Utilities services" transform="translate(966 142)" data-x="966" data-y="142"><circle class="msh-ring" r="21"/><circle class="msh-disc" r="21"/><g class="msh-ic"><path d="M1-7-5 1h4l-1 6 6-8H0z"/></g><text class="msh-lab" x="0" y="-30" text-anchor="middle">Utilities</text><circle class="msh-hit" r="26"/></a>
+          </svg>
         </div>
-        <div class="msx-foot">
-          <p class="msx-desc">Government applications and renewals, handled with care.</p>
-          <button class="msx-btn" id="explore-button" type="button" aria-haspopup="dialog" aria-controls="services-dialog">Explore services<span class="msx-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
+        <div class="msh-copy">
+          <h1 class="msh-title" id="hero-title">Your next step<br>in Bahrain.<br>Made simple.</h1>
+          <p class="msh-sub">Government applications, renewals and business support.</p>
+          <div class="msh-actions">
+            <a class="msh-cta" href="#contact">Talk to DMS<span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a>
+            <button class="msh-ghost" id="explore-button" type="button" aria-haspopup="dialog" aria-controls="services-dialog">Explore services</button>
+          </div>
         </div>
       </div>
     </section>
@@ -14488,6 +14520,17 @@ input, select, textarea {
         el.addEventListener("animationend", function done(ev) { if (ev.animationName !== "pb-in") return; el.classList.remove("pb-go"); el.style.removeProperty("--pbd"); el.removeEventListener("animationend", done); }); });
     }, { threshold: 0.12, rootMargin: "0px 0px -5% 0px" });
     picked.forEach(el => io.observe(el));
+  })();
+</script>
+<script>
+  (() => { const svg = document.querySelector(".msh-svg"); if (!svg) return; const path = svg.querySelector("#msh-path"); const L = path.getTotalLength(); const D = 7000;
+    const nodes = [...svg.querySelectorAll(".msh-node")].map(n => { const x = +n.dataset.x, y = +n.dataset.y; let best = 0, bd = 1e9; for (let i = 0; i <= 400; i++) { const p = path.getPointAtLength(L * i / 400); const d = (p.x - x) ** 2 + (p.y - y) ** 2; if (d < bd) { bd = d; best = i / 400; } } return { n, f: best }; });
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t0 = performance.now(); const last = new Map();
+    const tick = now => { const cyc = ((now - t0) % D) / D; const eased = cyc < .5 ? 2 * cyc * cyc : 1 - Math.pow(-2 * cyc + 2, 2) / 2; const head = eased * 1.07;
+      nodes.forEach(o => { const hit = Math.abs(head - o.f) < .012; const k = Math.floor((now - t0) / D); if (hit && last.get(o.n) !== k) { last.set(o.n, k); o.n.classList.remove("is-on"); void o.n.getBBox(); o.n.classList.add("is-on"); } });
+      requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
   })();
 </script>
 </body>
