@@ -9079,12 +9079,19 @@ input, select, textarea {
   .msr-photo { position:absolute; left:0; bottom:0; height:96%; width:auto; max-width:none; z-index:3; animation:msr-photo 1.4s .15s cubic-bezier(.16,1,.3,1) both; }
   .msr-tags { position:absolute; right:3%; top:50%; transform:translateY(-62%); z-index:4; width:min(34%,400px); display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; }
   .msr-tag { display:inline-flex; align-items:center; gap:7px; padding:4px 12px 4px 4px; border-radius:999px; background:rgba(255,255,255,.92); border:1px solid rgba(255,255,255,.7); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:0 8px 20px rgba(4,46,28,.18); text-decoration:none; color:#0b1f16; font:600 12.5px/1 Inter, system-ui, sans-serif; letter-spacing:-.005em; white-space:nowrap; opacity:0; animation:msr-tag-in .8s calc(.5s + var(--d)) cubic-bezier(.16,1,.3,1) forwards; transition:transform .25s ease, box-shadow .25s ease; }
+  button.msr-tag { cursor:pointer; }
   .msr-tag:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(4,46,28,.26); }
   .msr-tag i { flex:none; display:grid; place-items:center; width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,#19b35a,#0d9b49 45%,#073f2c); color:#fff; }
   .msr-tag svg { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
   @keyframes msr-tag-in { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
   @media (max-width:1100px) { .msr-tags { width:38%; gap:6px; } .msr-tag { font-size:11.5px; padding:3px 10px 3px 3px; } .msr-tag i { width:21px; height:21px; } }
-  @media (max-width:860px) { .msr-tags { display:none; } }
+  @media (max-width:860px) {
+    .msr-band { aspect-ratio:auto !important; display:flex; flex-direction:column; }
+    .msr-tags { position:static; transform:none; width:auto; justify-content:flex-start; padding:18px 16px 4px; gap:7px; }
+    .msr-tag { font-size:12px; }
+    .msr-photo { position:relative !important; height:300px !important; width:auto !important; align-self:flex-start; }
+  }
+  @media (max-width:520px) { .msr-photo { height:240px !important; left:-14%; } }
   @keyframes msr-photo { from { opacity:0; transform:translateY(24px); } }
   .msr-glow { position:absolute; right:-10%; top:-30%; width:60%; aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.28),rgba(255,255,255,0) 65%); animation:msr-pulse 7s ease-in-out infinite; z-index:1; }
   @keyframes msr-pulse { 50% { transform:scale(1.08); opacity:.7; } }
@@ -9213,82 +9220,13 @@ input, select, textarea {
         <div class="msr-band">
           <span class="msr-glow" aria-hidden="true"></span>
           <img class="msr-photo" src="assets/ms-hero-meeting-wide.webp" alt="A DMS consultant reviewing a government application with a client" width="2308" height="757" fetchpriority="high" decoding="async">
-          <div class="msr-tags"><a class="msr-tag" href="#lmra-services" style="--d:0.00s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12a24 24 0 0 0 18 0M10 12h4v4h-4z"/></svg></i>LMRA</a><a class="msr-tag" href="#cio-services" style="--d:0.08s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><path d="M5 16a3 3 0 0 1 6 0M14 9h5M14 13h5M14 16h3"/></svg></i>CIO</a><a class="msr-tag" href="#gosi-services" style="--d:0.16s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6z"/><path d="m8 12 3 3 5-6"/></svg></i>GOSI</a><a class="msr-tag" href="#bcci-services" style="--d:0.24s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 9 9-6 9 6H3zM5 10v9M10 10v9M14 10v9M19 10v9"/><path d="M3 21h18M2 19h20"/></svg></i>BCCI</a><a class="msr-tag" href="#moic-services" style="--d:0.32s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V9l6 3V7l6 4V3h4l2 18H3z"/><path d="M6 16h1M11 16h1M16 16h1"/></svg></i>Industry &amp; Commerce</a><a class="msr-tag" href="#immigration-services" style="--d:0.40s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6z"/><path d="m12 7 1.5 3 3.5.5-2.5 2.4.6 3.5L12 14.8l-3.1 1.6.6-3.5L7 10.5l3.5-.5z"/></svg></i>Interior</a><a class="msr-tag" href="#municipality-services" style="--d:0.48s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V3h11v18M14 9h7v12M1 21h22"/><path d="M6 7h1M10 7h1M6 11h1M10 11h1M6 15h1M10 15h1M17 13h1M17 17h1"/></svg></i>Municipality</a><a class="msr-tag" href="#ewa-services" style="--d:0.56s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 2-7 11h6l-1 9 7-12H8l1-8z"/><path d="M18 8s-4 5-4 8a4 4 0 0 0 8 0c0-3-4-8-4-8z"/></svg></i>Electricity &amp; Water</a></div>
+          <div class="msr-tags"><button class="msr-tag" type="button" id="lmra-notification-trigger" aria-haspopup="dialog" aria-expanded="false" style="--d:0.00s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12a24 24 0 0 0 18 0M10 12h4v4h-4z"/></svg></i>LMRA</button><a class="msr-tag" href="#cio-services" style="--d:0.08s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><path d="M5 16a3 3 0 0 1 6 0M14 9h5M14 13h5M14 16h3"/></svg></i>CIO</a><a class="msr-tag" href="#gosi-services" style="--d:0.16s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6z"/><path d="m8 12 3 3 5-6"/></svg></i>GOSI</a><a class="msr-tag" href="#bcci-services" style="--d:0.24s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 9 9-6 9 6H3zM5 10v9M10 10v9M14 10v9M19 10v9"/><path d="M3 21h18M2 19h20"/></svg></i>BCCI</a><a class="msr-tag" href="#moic-services" style="--d:0.32s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V9l6 3V7l6 4V3h4l2 18H3z"/><path d="M6 16h1M11 16h1M16 16h1"/></svg></i>Industry &amp; Commerce</a><a class="msr-tag" href="#immigration-services" style="--d:0.40s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6z"/><path d="m12 7 1.5 3 3.5.5-2.5 2.4.6 3.5L12 14.8l-3.1 1.6.6-3.5L7 10.5l3.5-.5z"/></svg></i>Interior</a><a class="msr-tag" href="#municipality-services" style="--d:0.48s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V3h11v18M14 9h7v12M1 21h22"/><path d="M6 7h1M10 7h1M6 11h1M10 11h1M6 15h1M10 15h1M17 13h1M17 17h1"/></svg></i>Municipality</a><a class="msr-tag" href="#ewa-services" style="--d:0.56s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 2-7 11h6l-1 9 7-12H8l1-8z"/><path d="M18 8s-4 5-4 8a4 4 0 0 0 8 0c0-3-4-8-4-8z"/></svg></i>Electricity &amp; Water</a></div>
         </div>
       </div>
     </section>
 
 
-    <!-- GOVERNMENT SERVICE CATEGORIES PILL NAVIGATION (DMS THEME MATCHED) -->
-    <nav class="service-categories" aria-label="Government service categories">
-
-      <button class="service-pill" id="lmra-notification-trigger" type="button" aria-haspopup="dialog" aria-expanded="false">
-        <span>LMRA Services</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="7" width="18" height="14" rx="2"/>
-          <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-          <path d="M3 12a24 24 0 0 0 18 0M10 12h4v4h-4z"/>
-        </svg>
-      </button>
-
-      <a class="service-pill" href="#cio-services" aria-label="Central Informatics Organization Services" title="Central Informatics Organization Services">
-        <span>CIO Services</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <circle cx="8" cy="10" r="2"/>
-          <path d="M5 16a3 3 0 0 1 6 0M14 9h5M14 13h5M14 16h3"/>
-        </svg>
-      </a>
-
-      <a class="service-pill" href="#gosi-services" aria-label="GOSI Department Services">
-        <span>GOSI Services</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6z"/>
-          <path d="m8 12 3 3 5-6"/>
-        </svg>
-      </a>
-
-      <a class="service-pill" href="#bcci-services" aria-label="Bahrain Chamber of Commerce Services" title="Bahrain Chamber of Commerce Services">
-        <span>BCCI Services</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m3 9 9-6 9 6H3zM5 10v9M10 10v9M14 10v9M19 10v9"/>
-          <path d="M3 21h18M2 19h20"/>
-        </svg>
-      </a>
-
-      <a class="service-pill" href="#moic-services" aria-label="Ministry of Industry and Commerce Services" title="Ministry of Industry & Commerce Services">
-        <span>Industry &amp; Commerce</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3 21V9l6 3V7l6 4V3h4l2 18H3z"/>
-          <path d="M6 16h1M11 16h1M16 16h1"/>
-        </svg>
-      </a>
-
-      <a class="service-pill" href="#immigration-services" aria-label="Ministry of Interior Services">
-        <span>Interior Services</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6z"/>
-          <path d="m12 7 1.5 3 3.5.5-2.5 2.4.6 3.5L12 14.8l-3.1 1.6.6-3.5L7 10.5l3.5-.5z"/>
-        </svg>
-      </a>
-
-      <a class="service-pill" href="#municipality-services" aria-label="Bahrain Municipality Services">
-        <span>Municipality Services</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3 21V3h11v18M14 9h7v12M1 21h22"/>
-          <path d="M6 7h1M10 7h1M6 11h1M10 11h1M6 15h1M10 15h1M17 13h1M17 17h1"/>
-        </svg>
-      </a>
-
-      <a class="service-pill" href="#ewa-services" aria-label="Electricity and Water Services">
-        <span>Electricity &amp; Water</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m9 2-7 11h6l-1 9 7-12H8l1-8z"/>
-          <path d="M18 8s-4 5-4 8a4 4 0 0 0 8 0c0-3-4-8-4-8z"/>
-        </svg>
-      </a>
-
-    </nav>
+    
 
 
     
