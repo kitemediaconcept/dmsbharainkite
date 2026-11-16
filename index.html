@@ -7341,6 +7341,12 @@ input, select, textarea {
   @media (max-width:760px) { .dms-gold-stack .dgs-card-company .dgs-attestation-visual, .dms-gold-stack .dgs-card-saudi .dgs-attestation-visual { border-radius:0 0 24px 24px; min-height:260px !important; } .dms-gold-stack .dgs-card-saudi .dgs-saudi-img { -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%) !important; mask-image:linear-gradient(180deg,transparent 0,#000 18%) !important; } }
 </style>
 <style id="drift-visa-css">.dms-drift-tile img[src*="visa-tiles"] { width:100%; height:100%; }</style>
+<style id="dgs-mgmt-cover">
+  .dms-gold-stack .dgs-residence-visual:has(img[src*="mc-people-crop"]) { position:relative !important; overflow:hidden !important; padding:0 !important; }
+  .dms-gold-stack .dgs-residence-visual img[src*="mc-people-crop"] { position:absolute !important; left:50% !important; bottom:0 !important; top:auto !important; right:auto !important; margin:0 !important; width:116% !important; height:auto !important; max-width:none !important; max-height:none !important; transform:translateX(-50%) !important; object-fit:contain !important; transform-origin:bottom center; }
+  .dms-gold-stack .dgs-card-residence:hover .dgs-residence-visual img[src*="mc-people-crop"] { transform:translateX(-50%) scale(1.03) !important; }
+  @media (max-width:760px) { .dms-gold-stack .dgs-residence-visual img[src*="mc-people-crop"] { width:112% !important; } }
+</style>
 </head>
 
 <body>
@@ -8135,7 +8141,7 @@ input, select, textarea {
             <div class="dgs-attestation-visual dgs-family-visual dgs-residence-visual">
               <img
                 class="dgs-attestation-img dgs-residence-img"
-                src="assets/mc-hero-people.webp"
+                src="assets/mc-people-crop.webp"
                 alt="DMS team supporting business administration"
                 loading="lazy"
               >
