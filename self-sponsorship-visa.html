@@ -7319,7 +7319,15 @@ input, select, textarea {
   @media (max-width:600px) { .mcb-crumb { font-size:10.5px; padding:5px 10px; gap:4px; } }
 </style>
 <style id="ss-mcb-fit">
-  @media (min-width:901px) { .mcb-people { width:min(50%,620px) !important; } .mcb-copy { max-width:560px !important; } .mcb-title { font-size:clamp(30px,3.2vw,46px) !important; } }
+  .ss-photo-win .mcb-people { filter:none; }
+  @media (min-width:901px) {
+    .mcb-in { position:static; }
+    .mcb-copy { max-width:560px !important; }
+    .mcb-title { font-size:clamp(30px,3.2vw,46px) !important; }
+    .ss-photo-win { position:absolute; right:0; top:0; width:58%; height:100%; clip-path:url(#ss-blob-clip); z-index:1; }
+    .ss-photo-win .mcb-people { position:absolute; right:0; bottom:0; width:100% !important; height:auto; }
+  }
+  @media (max-width:900px) { .ss-photo-win { position:relative; width:calc(100% + 48px); max-width:none; margin:0 -24px; } .ss-photo-win .mcb-people { position:relative; width:100%; } }
 </style>
 </head>
 
@@ -7814,10 +7822,11 @@ input, select, textarea {
           <radialGradient id="mcb-r1" cx=".85" cy=".1" r=".6"><stop offset="0" stop-color="#7ee8a8" stop-opacity=".55"/><stop offset="1" stop-color="#7ee8a8" stop-opacity="0"/></radialGradient>
           <radialGradient id="mcb-r2" cx=".25" cy=".95" r=".55"><stop offset="0" stop-color="#03281b" stop-opacity=".45"/><stop offset="1" stop-color="#03281b" stop-opacity="0"/></radialGradient>
         </defs>
-        <path id="mcb-shape" fill="url(#mcb-g)" d="M150 0 H600 V520 H330 C250 470 170 380 130 280 C90 180 80 90 150 0 Z"/>
-        <path fill="url(#mcb-r1)" d="M150 0 H600 V520 H330 C250 470 170 380 130 280 C90 180 80 90 150 0 Z"/>
-        <path fill="url(#mcb-r2)" d="M150 0 H600 V520 H330 C250 470 170 380 130 280 C90 180 80 90 150 0 Z"/>
+        <path id="mcb-shape" fill="url(#mcb-g)" d="M150 0 H600 V520 H60 C70 380 100 200 150 0 Z"/>
+        <path fill="url(#mcb-r1)" d="M150 0 H600 V520 H60 C70 380 100 200 150 0 Z"/>
+        <path fill="url(#mcb-r2)" d="M150 0 H600 V520 H60 C70 380 100 200 150 0 Z"/>
       </svg>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><clipPath id="ss-blob-clip" clipPathUnits="objectBoundingBox"><path d="M.25 0 H1 V1 H.1 C.1167 .7308 .1667 .3846 .25 0 Z"/></clipPath></svg>
       <div class="mcb-in">
         <div class="mch-copy mcb-copy">
           <nav class="mcb-crumb" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span aria-current="page">Self-sponsorship visa services</span></nav>
@@ -7828,7 +7837,7 @@ input, select, textarea {
             <a class="mch-link" href="#contact">Talk to DMS</a>
           </div>
         </div>
-        <img class="mcb-people" src="assets/ss-hero-people.webp" alt="Professionals with approved documents greeting a Bahraini partner" width="1200" height="783" fetchpriority="high" decoding="async">
+        <div class="ss-photo-win"><img class="mcb-people" src="assets/ss-hero-colleagues.webp" alt="DMS consultants meeting with a client" width="1522" height="868" fetchpriority="high" decoding="async"></div>
       </div>
     </section>
 
