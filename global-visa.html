@@ -7503,7 +7503,7 @@ input, select, textarea {
   .gvg-stage .gvg-m.gvg-below { transform:translate(-50%,10px) !important; }
 </style>
 <style id="gvf-css">
-  .gvf { position:relative; overflow:hidden; padding:24px 0; margin:calc(-1 * clamp(48px,6vw,86.4px)) 0 64px; background:#fff; -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+  .gvf { position:relative; overflow:hidden; width:min(1200px, calc(100% - 48px)); margin-left:auto !important; margin-right:auto !important; padding:24px 0; margin:calc(-1 * clamp(48px,6vw,86.4px)) 0 64px; background:#fff; -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%); mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%); }
   .gvf-title { margin:0 0 14px; text-align:center; font:600 12px/1 Inter, system-ui, sans-serif; letter-spacing:.14em; text-transform:uppercase; color:#0d9b49; }
   .gvf-track { display:flex; width:max-content; animation:gvf-run 60s linear infinite; }
   .gvf:hover .gvf-track { animation-play-state:paused; }
@@ -7511,7 +7511,7 @@ input, select, textarea {
   .gvf li { display:flex; align-items:center; padding:0; background:none; font:500 14px/1 Inter, system-ui, sans-serif; color:#073f2c; white-space:nowrap; }
   .gvf img { width:48px; height:36px; border-radius:6px; object-fit:cover; box-shadow:0 2px 6px rgba(7,63,44,.15); }
   @keyframes gvf-run { to { transform:translateX(-50%); } }
-  @media (max-width:640px) { .gvf { padding:16px 0; margin-bottom:40px; } .gvf ul { gap:18px; } .gvf img { width:38px; height:28px; } }
+  @media (max-width:640px) { .gvf { padding:16px 0; margin-bottom:40px; width:calc(100% - 32px); } .gvf ul { gap:18px; } .gvf img { width:38px; height:28px; } }
   @media (prefers-reduced-motion: reduce) { .gvf-track { animation:none; } }
 </style>
 <style id="gvd-photo-css">
