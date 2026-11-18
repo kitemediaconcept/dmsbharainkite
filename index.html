@@ -7347,6 +7347,14 @@ input, select, textarea {
   .dms-gold-stack .dgs-card-residence:hover .dgs-residence-visual img[src*="mc-people-crop"] { transform:translateX(-50%) scale(1.03) !important; }
   @media (max-width:760px) { .dms-gold-stack .dgs-residence-visual img[src*="mc-people-crop"] { width:112% !important; } }
 </style>
+<style id="dms-pp-css">
+  .dms-pp { flex:1; min-height:280px; display:flex; align-items:center; justify-content:center; padding:12px 8px 20px; }
+  .dms-pp img { width:100%; max-width:560px; height:auto; display:block; opacity:0; transform:translateY(22px) scale(.97); filter:blur(8px); transition:opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1), filter 1.1s ease; }
+  .dms-pp.is-in img { opacity:1; transform:none; filter:none; animation:dms-pp-float 6s 1.2s ease-in-out infinite; }
+  @keyframes dms-pp-float { 50% { transform:translateY(-8px); } }
+  @media (max-width:760px) { .dms-pp { min-height:0; padding:8px 0 16px; } }
+  @media (prefers-reduced-motion: reduce) { .dms-pp img { opacity:1; transform:none; filter:none; transition:none; animation:none !important; } }
+</style>
 </head>
 
 <body>
@@ -7874,10 +7882,8 @@ input, select, textarea {
           </a>
         </div>
 
-        <div class="dms-drift" data-drift>
-          <div class="dms-drift-scene" aria-hidden="true">
-            <div class="dms-drift-plane"></div>
-          </div>
+        <div class="dms-pp">
+          <img src="assets/passports-four.webp" alt="Bahrain, British, US and Indian passports" width="1129" height="505" loading="lazy" decoding="async">
         </div>
       </article>
 
@@ -10937,6 +10943,11 @@ input, select, textarea {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("sr-in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
   targets.forEach(el => { if (el.getBoundingClientRect().top < vh * 0.92) return; el.classList.add("sr"); io.observe(el); });
 })();
+</script>
+<script id="dms-pp-js">
+(()=>{const el=document.querySelector('.dms-pp');if(!el)return;
+if(!('IntersectionObserver' in window)){el.classList.add('is-in');return;}
+const io=new IntersectionObserver(e=>{if(e[0].isIntersecting){el.classList.add('is-in');io.disconnect();}},{threshold:.3});io.observe(el);})();
 </script>
 </body>
 </html>
