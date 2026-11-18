@@ -7481,6 +7481,18 @@ input, select, textarea {
   .gvc-cta { justify-content:flex-start !important; margin-top:8px !important; flex-wrap:wrap; }
   .gvc-more { margin:0; font-size:13px; color:#5a5f62; }
 </style>
+<style id="gvs-css">
+  .gv-bg { position:relative; isolation:isolate; overflow:hidden; }
+  .gvs { position:absolute; inset:0; z-index:-1; background:#052e20; }
+  .gvs img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transform:scale(1.06); transition:opacity 1.6s ease, transform 7s linear; }
+  .gvs img.is-on { opacity:1; transform:scale(1); }
+  .gvs-tint { position:absolute; inset:0; background:rgba(4,36,25,.55); }
+  .gv-bg .mch-title, .gv-bg .mch-title span { color:#fff !important; -webkit-text-fill-color:#fff !important; background:none !important; text-shadow:0 2px 18px rgba(0,0,0,.25); }
+  .gv-bg .mch-title span { color:#9ff0c2 !important; -webkit-text-fill-color:#9ff0c2 !important; }
+  .gv-bg .mch-tag { color:rgba(255,255,255,.88) !important; }
+  .gv-bg .mch-link { color:#fff !important; border-color:rgba(255,255,255,.6) !important; }
+  @media (prefers-reduced-motion: reduce) { .gvs img { transition:none; transform:none; } }
+</style>
 </head>
 
 <body>
@@ -7743,7 +7755,8 @@ input, select, textarea {
 
   <main id="main">
     <!-- MANAGEMENT CONSULTANCY HERO -->
-    <section class="mch gv-split" aria-labelledby="gv-title">
+    <section class="mch gv-split gv-bg" aria-labelledby="gv-title">
+      <div class="gvs" aria-hidden="true"><img src="assets/gv-slides/usa.webp" alt="" style="object-position:center 40%" decoding="async" fetchpriority="high"><img src="assets/gv-slides/uk.webp" alt="" style="object-position:center 45%" decoding="async" loading="lazy"><img src="assets/gv-slides/india.webp" alt="" style="object-position:center 40%" decoding="async" loading="lazy"><img src="assets/gv-slides/norway-lofoten.webp" alt="" style="object-position:center 40%" decoding="async" loading="lazy"><img src="assets/gv-slides/norway-aurora.webp" alt="" style="object-position:center 45%" decoding="async" loading="lazy"><span class="gvs-tint"></span></div>
       <div class="mch-copy">
         <nav class="dms-crumb mch-kicker" aria-label="Breadcrumb"><a href="services.html">Services</a><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="dms-kg" aria-current="page">Global visa assistance</span></nav>
         <h1 id="gv-title" class="mch-title gv-title"><span>Connecting Bahrain with the world.</span><br>Expert visa services for every journey.</h1>
@@ -9069,6 +9082,11 @@ input, select, textarea {
     const set = (k) => { c.querySelectorAll("[data-gcc]").forEach(el => el.classList.toggle("is-on", !!k && el.dataset.gcc === k)); sky.classList.toggle("is-dim", !!k); };
     c.querySelectorAll(".gvd-chips li[data-gcc]").forEach(li => { li.addEventListener("mouseenter", () => set(li.dataset.gcc)); li.addEventListener("mouseleave", () => set(null)); li.addEventListener("click", () => set(li.classList.contains("is-on") ? null : li.dataset.gcc)); }); });
   })();
+</script>
+<script id="gvs-js">
+(()=>{const imgs=[...document.querySelectorAll('.gvs img')];if(!imgs.length)return;let i=0;imgs[0].classList.add('is-on');
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+setInterval(()=>{if(document.hidden)return;imgs[i].classList.remove('is-on');i=(i+1)%imgs.length;imgs[i].classList.add('is-on');},5000);})();
 </script>
 </body>
 </html>
