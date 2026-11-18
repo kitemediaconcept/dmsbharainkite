@@ -7494,6 +7494,14 @@ input, select, textarea {
   .gv-bg .mch-link { color:#fff !important; border-color:rgba(255,255,255,.6) !important; }
   @media (prefers-reduced-motion: reduce) { .gvs img { transition:none; transform:none; } }
 </style>
+<style id="gv-earth-css">
+  .gvg-stage::before { display:none !important; }
+  .gvg canvas { cursor:default; }
+  .gvg-over { position:absolute !important; inset:0; z-index:2 !important; width:100% !important; height:100% !important; cursor:grab !important; touch-action:pan-y; }
+  .gvg-over:active { cursor:grabbing !important; }
+  .gvg-stage .gvg-m { display:block !important; position:absolute !important; bottom:auto !important; transform:translate(-50%,calc(-100% - 10px)) !important; margin:0 !important; opacity:0; transition:none !important; filter:none !important; }
+  .gvg-stage .gvg-m.gvg-below { transform:translate(-50%,10px) !important; }
+</style>
 </head>
 
 <body>
@@ -7767,8 +7775,8 @@ input, select, textarea {
           <a class="mch-link" href="#contact">Talk to DMS</a>
         </div>
       </div>
-      <div class="gvg" role="img" aria-label="Globe showing visa routes from Bahrain to the UK, USA, Dubai and India">
-        <div class="gvg-stage"><canvas data-gv-globe></canvas><span class="gvg-m gvg-hub" style="position-anchor:--cobe-bahrain;opacity:var(--cobe-visible-bahrain,0);filter:blur(calc((1 - var(--cobe-visible-bahrain,0)) * 8px))">Bahrain</span><span class="gvg-m gvg-below" style="position-anchor:--cobe-uk;opacity:var(--cobe-visible-uk,0);filter:blur(calc((1 - var(--cobe-visible-uk,0)) * 8px))">UK</span><span class="gvg-m" style="position-anchor:--cobe-usa;opacity:var(--cobe-visible-usa,0);filter:blur(calc((1 - var(--cobe-visible-usa,0)) * 8px))">USA</span><span class="gvg-m gvg-below" style="position-anchor:--cobe-dubai;opacity:var(--cobe-visible-dubai,0);filter:blur(calc((1 - var(--cobe-visible-dubai,0)) * 8px))">Dubai</span><span class="gvg-m" style="position-anchor:--cobe-india;opacity:var(--cobe-visible-india,0);filter:blur(calc((1 - var(--cobe-visible-india,0)) * 8px))">India</span><span class="gvg-a" style="position-anchor:--cobe-arc-bahrain-to-uk;opacity:var(--cobe-visible-arc-bahrain-to-uk,0);filter:blur(calc((1 - var(--cobe-visible-arc-bahrain-to-uk,0)) * 8px))">Bahrain → UK</span><span class="gvg-a" style="position-anchor:--cobe-arc-bahrain-to-usa;opacity:var(--cobe-visible-arc-bahrain-to-usa,0);filter:blur(calc((1 - var(--cobe-visible-arc-bahrain-to-usa,0)) * 8px))">Bahrain → USA</span></div>
+      <div class="gvg" role="img" aria-label="Earth showing visa routes from Bahrain to the UK, USA, Dubai and India">
+        <div class="gvg-stage"><canvas data-gv-globe></canvas><span class="gvg-m gvg-hub" data-pt="bahrain">Bahrain</span><span class="gvg-m gvg-below" data-pt="uk">UK</span><span class="gvg-m" data-pt="usa">USA</span><span class="gvg-m gvg-below" data-pt="dubai">Dubai</span><span class="gvg-m" data-pt="india">India</span></div>
       </div>
     </section>
 
@@ -9014,65 +9022,86 @@ input, select, textarea {
   targets.forEach(el => { if (el.getBoundingClientRect().top < vh * 0.92) return; el.classList.add("sr"); io.observe(el); });
 })();
 </script>
-<script type="module">
-  // Interactive globe: Bahrain hub with routes (COBE, MIT licence)
-  import createGlobe from "./assets/vendor/cobe.js";
-  const canvas = document.querySelector("[data-gv-globe]");
-  if (canvas) {
-    const wrap = canvas.closest(".gvg"), stage = canvas.parentElement;
-    const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-    const BH = [26.2235, 50.5876];
-    const pts = [["bahrain", BH], ["uk", [51.5074, -0.1278]], ["usa", [40.7128, -74.006]], ["dubai", [25.2048, 55.2708]], ["india", [28.6139, 77.209]]];
-    const markers = pts.map(([id, location]) => ({ id, location, size: id === "bahrain" ? 0.07 : 0.05 }));
-    const arcs = pts.slice(1).map(([id, to]) => ({ id: "bahrain-to-" + id, from: BH, to }));
-    let globe = null, raf = 0, inView = false, phi = 3.55, thetaOff = 0, vel = { p: 0, t: 0 }, drag = null, dragOff = { p: 0, t: 0 }, speed = 1;
-    const THETA = 0.5;
-    function start() {
-      if (globe) return;
-      try {
-        const s = Math.round(stage.getBoundingClientRect().width) || 480;
-        const dpr = Math.min(devicePixelRatio || 1, innerWidth < 640 ? 1.8 : 2);
-        globe = createGlobe(canvas, {
-          devicePixelRatio: dpr, width: s, height: s, phi, theta: THETA,
-          dark: 0, diffuse: 1.5, mapSamples: 16000, mapBrightness: 6, mapBaseBrightness: 0,
-          baseColor: [0.97, 0.99, 0.98], markerColor: [0.05, 0.61, 0.29], glowColor: [0.9, 0.97, 0.93],
-          arcColor: [0.1, 0.7, 0.35], arcWidth: 0.5, arcHeight: 0.25, markerElevation: 0.02,
-          markers, arcs, opacity: 0.82, scale: 1, offset: [0, 0]
-        });
-        wrap.classList.add("is-live");
-        loop();
-      } catch (e) { globe = null; }
-    }
-    function loop() {
-      cancelAnimationFrame(raf);
-      const tick = () => {
-        if (!globe || !inView) { raf = 0; return; }
-        if (!drag) {
-          if (!reduce.matches) phi += 0.003 * speed;
-          if (Math.abs(vel.p) > 1e-4 || Math.abs(vel.t) > 1e-4) { phi += vel.p; thetaOff += vel.t; vel.p *= 0.95; vel.t *= 0.95; }
-          if (thetaOff < -0.4) thetaOff += (-0.4 - thetaOff) * 0.1; else if (thetaOff > 0.4) thetaOff += (0.4 - thetaOff) * 0.1;
-        }
-        globe.update({ phi: phi + dragOff.p, theta: THETA + thetaOff + dragOff.t });
-        raf = requestAnimationFrame(tick);
-      };
-      raf = requestAnimationFrame(tick);
-    }
-    canvas.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, y: e.clientY, lx: e.clientX, ly: e.clientY, t: Date.now() }; canvas.setPointerCapture(e.pointerId); });
-    canvas.addEventListener("pointermove", (e) => {
-      if (!drag) return;
-      dragOff = { p: (e.clientX - drag.x) / 300, t: (e.clientY - drag.y) / 1000 };
-      const now = Date.now(), dt = Math.max(now - drag.t, 1), m = 0.15;
-      vel = { p: Math.max(-m, Math.min(m, ((e.clientX - drag.lx) / dt) * 0.3)), t: Math.max(-m, Math.min(m, ((e.clientY - drag.ly) / dt) * 0.08)) };
-      drag.lx = e.clientX; drag.ly = e.clientY; drag.t = now;
-    });
-    const end = () => { if (drag) { phi += dragOff.p; thetaOff += dragOff.t; dragOff = { p: 0, t: 0 }; } drag = null; };
-    canvas.addEventListener("pointerup", end); canvas.addEventListener("pointercancel", end);
-    canvas.addEventListener("pointerenter", () => { speed = 0.8; });
-    canvas.addEventListener("pointerleave", () => { speed = 1; });
-    new IntersectionObserver((es) => es.forEach((e) => { inView = e.isIntersecting; if (inView) { start(); if (globe && !raf) loop(); } }), { rootMargin: "120px" }).observe(wrap);
-    let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if (globe) { globe.destroy(); globe = null; cancelAnimationFrame(raf); raf = 0; start(); } }, 250); });
+<script id="gv-earth">
+(() => {
+  const canvas = document.querySelector("[data-gv-globe]"); if (!canvas) return;
+  const wrap = canvas.closest(".gvg"), stage = canvas.parentElement;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+  const gl = canvas.getContext("webgl", { alpha: true, premultipliedAlpha: true, antialias: true });
+  if (!gl) return;
+  const over = document.createElement("canvas"); over.className = "gvg-over"; stage.insertBefore(over, canvas.nextSibling);
+  const ctx = over.getContext("2d");
+  const R = 0.86; // sphere radius in clip units
+  const vs = "attribute vec2 p;varying vec2 v;void main(){v=p;gl_Position=vec4(p,0.,1.);}";
+  const fs = `precision highp float;varying vec2 v;uniform sampler2D tex;uniform sampler2D wat;uniform mat3 Mi;uniform float R;
+  void main(){vec2 q=v/R;float r2=dot(q,q);vec3 L=normalize(vec3(-.55,.45,.75));
+   if(r2>1.){float d=sqrt(r2)-1.;float a=exp(-d*26.)*.75;gl_FragColor=vec4(vec3(.45,.78,1.)*a,a);return;}
+   vec3 n=vec3(q,sqrt(1.-r2));vec3 w=Mi*n;float lon=atan(w.x,w.z);float lat=asin(clamp(w.y,-1.,1.));
+   vec2 uv=vec2(.5+lon/6.2831853,.5-lat/3.1415927);vec3 c=texture2D(tex,uv).rgb;float water=texture2D(wat,uv).r;
+   float dif=max(dot(n,L),0.);float lit=.55+.7*dif;c*=lit*1.08;
+   vec3 H=normalize(L+vec3(0.,0.,1.));c+=water*pow(max(dot(n,H),0.),40.)*.45;
+   float fr=pow(1.-n.z,2.6);c=mix(c,vec3(.55,.8,1.),fr*.55);
+   gl_FragColor=vec4(c,1.);}`;
+  function sh(t, s) { const o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); return o; }
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
+  const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+  const ap = gl.getAttribLocation(pr, "p"); gl.enableVertexAttribArray(ap); gl.vertexAttribPointer(ap, 2, gl.FLOAT, false, 0, 0);
+  const uMi = gl.getUniformLocation(pr, "Mi"); gl.uniform1f(gl.getUniformLocation(pr, "R"), R);
+  gl.uniform1i(gl.getUniformLocation(pr, "tex"), 0); gl.uniform1i(gl.getUniformLocation(pr, "wat"), 1);
+  gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+  let ready = 0;
+  function loadTex(unit, src) { const t = gl.createTexture(); const im = new Image(); im.onload = () => { gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, t);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    if (++ready === 2) { wrap.classList.add("is-live"); kick(); } }; im.src = src; }
+  loadTex(0, "assets/earth-blue-marble.webp"); loadTex(1, "assets/earth-water.webp");
+
+  const D = Math.PI / 180, BH = [26.2235, 50.5876];
+  const pts = [["bahrain", BH], ["uk", [51.5074, -0.1278]], ["usa", [40.7128, -74.006]], ["dubai", [25.2048, 55.2708]], ["india", [28.6139, 77.209]]];
+  const labels = {}; stage.querySelectorAll("[data-pt]").forEach(el => labels[el.dataset.pt] = el);
+  const vec = ([la, lo]) => [Math.cos(la*D)*Math.sin(lo*D), Math.sin(la*D), Math.cos(la*D)*Math.cos(lo*D)];
+  let phi = -20 * D, theta = 0.38, vel = 0, drag = null, M = null;
+  function mat() { const cp = Math.cos(phi), sp = Math.sin(phi), ct = Math.cos(theta), st = Math.sin(theta);
+    // M = Rx(theta) * Ry(phi)
+    return [[cp, 0, sp], [st*sp, ct, -st*cp], [-ct*sp, st, ct*cp]]; }
+  const mul = (m, p) => [m[0][0]*p[0]+m[0][1]*p[1]+m[0][2]*p[2], m[1][0]*p[0]+m[1][1]*p[1]+m[1][2]*p[2], m[2][0]*p[0]+m[2][1]*p[1]+m[2][2]*p[2]];
+  let W = 0, dpr = 1;
+  function size() { dpr = Math.min(devicePixelRatio || 1, 2); W = Math.round(stage.getBoundingClientRect().width) || 480;
+    for (const c of [canvas, over]) { c.width = W * dpr; c.height = W * dpr; } gl.viewport(0, 0, W * dpr, W * dpr); }
+  size(); addEventListener("resize", () => { size(); kick(); });
+  const scr = (p) => [W/2 + p[0]*R*W/2, W/2 - p[1]*R*W/2, p[2]];
+  function slerp(a, b, t) { const d = Math.acos(Math.min(1, a[0]*b[0]+a[1]*b[1]+a[2]*b[2])), s = Math.sin(d);
+    const k1 = Math.sin((1-t)*d)/s, k2 = Math.sin(t*d)/s; return [a[0]*k1+b[0]*k2, a[1]*k1+b[1]*k2, a[2]*k1+b[2]*k2]; }
+  let T = 0;
+  function draw() {
+    M = mat(); const Mi = [M[0][0],M[0][1],M[0][2], M[1][0],M[1][1],M[1][2], M[2][0],M[2][1],M[2][2]]; // column-major of M^T
+    gl.uniformMatrix3fv(uMi, false, Mi); gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,W);
+    const hb = vec(BH);
+    pts.slice(1).forEach(([id, ll], k) => { const to = vec(ll); ctx.beginPath(); let pen = false;
+      for (let i = 0; i <= 48; i++) { const t = i/48, g = slerp(hb, to, t), h = 1 + Math.sin(Math.PI*t)*0.18, p = mul(M, [g[0]*h, g[1]*h, g[2]*h]);
+        const vis = p[2] > 0 || (p[0]*p[0]+p[1]*p[1]) > 1; const s = scr(p); if (vis) { pen ? ctx.lineTo(s[0], s[1]) : ctx.moveTo(s[0], s[1]); pen = true; } else pen = false; }
+      ctx.strokeStyle = "rgba(124,240,173,.95)"; ctx.lineWidth = 1.6; ctx.setLineDash([6, 5]); ctx.lineDashOffset = -T*0.04 - k*7; ctx.stroke(); });
+    ctx.setLineDash([]);
+    pts.forEach(([id, ll]) => { const p = mul(M, vec(ll)), s = scr(p), a = Math.max(0, Math.min(1, p[2]*5));
+      if (a > 0) { ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(s[0], s[1], id === "bahrain" ? 5 : 3.6, 0, 7); ctx.fillStyle = "#3ccf7a"; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = "#fff"; ctx.stroke();
+        ctx.beginPath(); ctx.arc(s[0], s[1], (id === "bahrain" ? 9 : 7) + (T/90 % 8), 0, 7); ctx.strokeStyle = `rgba(124,240,173,${.6 - (T/90 % 8)/14})`; ctx.lineWidth = 1.2; ctx.stroke(); ctx.globalAlpha = 1; }
+      const el = labels[id]; if (el) { el.style.left = s[0] + "px"; el.style.top = s[1] + "px"; el.style.opacity = a; } });
   }
+  let raf = 0, inView = true, last = 0;
+  function tick(t) { raf = 0; if (!ready || ready < 2) return; const dt = last ? Math.min(t - last, 50) : 16; last = t; T += dt;
+    if (!drag) { if (!reduce.matches) phi -= 0.00012 * dt; phi += vel; vel *= 0.94; }
+    draw(); if (inView && !document.hidden) raf = requestAnimationFrame(tick); else last = 0; }
+  function kick() { if (!raf) raf = requestAnimationFrame(tick); }
+  new IntersectionObserver(e => { inView = e[0].isIntersecting; if (inView) kick(); }, { rootMargin: "100px" }).observe(wrap);
+  document.addEventListener("visibilitychange", kick);
+  over.addEventListener("pointerdown", e => { drag = { x: e.clientX, y: e.clientY, p: phi, t: theta, lx: e.clientX }; over.setPointerCapture(e.pointerId); });
+  over.addEventListener("pointermove", e => { if (!drag) return; phi = drag.p + (e.clientX - drag.x) / 220; theta = Math.max(-0.2, Math.min(0.9, drag.t + (e.clientY - drag.y) / 400)); vel = (e.clientX - drag.lx) / 900; drag.lx = e.clientX; kick(); });
+  const end = () => { drag = null; }; over.addEventListener("pointerup", end); over.addEventListener("pointercancel", end);
+})();
 </script>
+
 <script>
   (() => { const cs = document.querySelectorAll(".gvd-card"); if (!("IntersectionObserver" in window)) { cs.forEach(c => c.classList.add("is-in")); return; }
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const i = [...cs].indexOf(e.target); setTimeout(() => e.target.classList.add("is-in"), (i % 3) * 90); io.unobserve(e.target); } }), { threshold: .15 });
