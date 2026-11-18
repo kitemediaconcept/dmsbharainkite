@@ -11060,6 +11060,10 @@ input, select, textarea {
 <style id="imm-fam-parents-css">
   .imm-v2 .imm-family-photo.imm-fam-parents { object-fit:cover; object-position:center 4%; -webkit-mask-image:none; mask-image:none; }
 </style>
+<style id="imm-pp4-css">
+  .imm-v2 .imm-passport-photo.imm-pp4 { top:auto; bottom:0; width:auto; height:auto; max-width:min(92%,330px); max-height:100%; filter:none; }
+  .imm-v2 .imm-is-visible .imm-passport-photo.imm-pp4 { animation:imm-photo-in 1s cubic-bezier(.2,.7,.2,1) .2s both; }
+</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -11936,7 +11940,7 @@ input, select, textarea {
         </div>
 
         <div class="imm-art imm-passport-art imm-photo-art" aria-hidden="true">
-          <img class="imm-passport-photo" src="assets/imm-passport-crop.png" width="607" height="1217" alt="" loading="lazy" decoding="async">
+          <img class="imm-passport-photo imm-pp4" src="assets/passports-hand.webp" width="1023" height="956" alt="" loading="lazy" decoding="async">
         </div>
       </article>
 
