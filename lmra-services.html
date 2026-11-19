@@ -11169,6 +11169,13 @@ input, select, textarea {
   .lmx .lmx-g .svc-tag { padding:3px 8px !important; font-size:10.5px !important; }
   @media (max-width:420px) { .lmx .lmx-g .svc-row { flex-wrap:wrap !important; } .lmx .lmx-g .svc-tags { margin-left:38px !important; } }
 </style>
+<style id="lmx-band-css">
+  .lmx .lmx-band { display:flex !important; align-items:center; justify-content:space-between !important; gap:20px 32px; flex-wrap:wrap; margin:22px 0 0 !important; padding:22px 28px !important; border-radius:22px; background:radial-gradient(60% 120% at 100% 0%,rgba(60,207,122,.14),transparent 60%), #f4f3ef; }
+  .lmx-band-t h3 { margin:0; font:500 clamp(19px,1.7vw,23px)/1.2 Inter, system-ui, sans-serif; letter-spacing:-.5px; color:#073f2c; }
+  .lmx-band-t p { margin:6px 0 0; font:400 14px/1.5 Inter, system-ui, sans-serif; color:#5a5f62; }
+  .lmx-band-a { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  @media (max-width:700px) { .lmx .lmx-band { padding:20px !important; } }
+</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -11878,10 +11885,13 @@ input, select, textarea {
           </div>
         </article>
         </div>
-          <div class="lmx-cta lmx-cta-after">
+          <div class="lmx-cta lmx-cta-after lmx-band">
+          <div class="lmx-band-t"><h3>Need help with an LMRA application?</h3><p>Tell us what you need and our team will handle the paperwork and follow-up.</p></div>
+          <div class="lmx-band-a">
             <a class="lmx-btn" href="#contact">Get LMRA support <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a>
             <a class="lmx-wa" href="https://wa.me/97317290001" target="_blank" rel="noopener">or WhatsApp us</a>
           </div>
+        </div>
       </div>
     </section>
     <script>
