@@ -11052,6 +11052,53 @@ input, select, textarea {
   @media (prefers-reduced-motion: reduce) { .ct-v2 *, .ct-v2 *::before, .ct-v2 *::after { animation:none !important; transition:none !important; } .ct-v2.ct-anim .ct-info > *, .ct-v2.ct-anim .ct-form > * { opacity:1; transform:none; } }
     </style>
 <style id="dg-about-2col">.dg-trigger[data-menu="about"] ~ .dg-panel .dg-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; max-width:820px; }</style>
+<style id="msr-css">
+  .msr { padding:clamp(100px,8vw,112px) 0 clamp(28px,4vw,56px); background:#fff; }
+  .msr-wrap { width:min(1280px,100% - 48px); margin:0 auto; }
+  .msr-top { display:grid; grid-template-columns:1.25fr 1fr; gap:40px; align-items:end; margin-bottom:clamp(24px,3vw,40px); }
+  .msr-title { margin:0; font:600 clamp(40px,5.2vw,72px)/1.02 Inter, system-ui, sans-serif; letter-spacing:-.045em; color:#0b1f16; }
+  .msr-title span { background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .msr-side { max-width:420px; justify-self:end; padding-bottom:8px; }
+  .msr-desc { margin:0 0 20px; font:400 15px/1.55 Inter, system-ui, sans-serif; color:#5d6862; }
+  .msr-btns { display:flex; gap:10px; flex-wrap:wrap; }
+  .msr-btn { display:inline-flex; align-items:center; gap:10px; padding:7px 7px 7px 18px; border:0; border-radius:999px; background:linear-gradient(135deg,#19b35a,#0d9b49 45%,#073f2c); color:#fff; font:600 14px Inter, system-ui, sans-serif; cursor:pointer; text-decoration:none; box-shadow:0 10px 24px rgba(13,155,73,.28); transition:transform .3s ease, box-shadow .3s ease; }
+  .msr-btn:hover { transform:translateY(-2px); box-shadow:0 16px 32px rgba(13,155,73,.36); }
+  .msr-btn i { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:#fff; color:#0d9b49; }
+  .msr-btn svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+  .msr-btn.is-ghost { background:#fff; color:#0b1f16; box-shadow:inset 0 0 0 1px #d6e3dc; padding:7px 18px; }
+  .msr-btn.is-ghost:hover { box-shadow:inset 0 0 0 1px #0d9b49; }
+  .msr-band { position:relative; overflow:hidden; border-radius:28px; aspect-ratio:1280/440; background:radial-gradient(90% 120% at 30% 100%,#3ccf7a 0%,rgba(60,207,122,0) 60%),linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); isolation:isolate; animation:msr-in 1.2s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes msr-in { from { opacity:0; transform:translateY(18px); } }
+  .msr-photo { position:absolute; left:0; bottom:0; height:96%; width:auto; max-width:none; z-index:3; animation:msr-photo 1.4s .15s cubic-bezier(.16,1,.3,1) both; }
+  .msr-tags { position:absolute; right:3%; top:50%; transform:translateY(-62%); z-index:4; width:min(34%,400px); display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; }
+  .msr-tag { display:inline-flex; align-items:center; gap:7px; padding:4px 12px 4px 4px; border-radius:999px; background:rgba(255,255,255,.92); border:1px solid rgba(255,255,255,.7); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:0 8px 20px rgba(4,46,28,.18); text-decoration:none; color:#0b1f16; font:600 12.5px/1 Inter, system-ui, sans-serif; letter-spacing:-.005em; white-space:nowrap; opacity:0; animation:msr-tag-in .8s calc(.5s + var(--d)) cubic-bezier(.16,1,.3,1) forwards; transition:transform .25s ease, box-shadow .25s ease; }
+  button.msr-tag { cursor:pointer; }
+  .msr-tag:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(4,46,28,.26); }
+  .msr-tag i { flex:none; display:grid; place-items:center; width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,#19b35a,#0d9b49 45%,#073f2c); color:#fff; }
+  .msr-tag svg { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+  @keyframes msr-tag-in { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+  @media (max-width:1100px) { .msr-tags { width:38%; gap:6px; } .msr-tag { font-size:11.5px; padding:3px 10px 3px 3px; } .msr-tag i { width:21px; height:21px; } }
+  @media (max-width:860px) {
+    .msr-band { aspect-ratio:auto !important; display:flex; flex-direction:column; }
+    .msr-tags { position:static; transform:none; width:auto; justify-content:flex-start; padding:18px 16px 4px; gap:7px; }
+    .msr-tag { font-size:12px; }
+    .msr-photo { position:relative !important; height:300px !important; width:auto !important; align-self:flex-start; }
+  }
+  @media (max-width:520px) { .msr-photo { height:240px !important; left:-14%; } }
+  @keyframes msr-photo { from { opacity:0; transform:translateY(24px); } }
+  .msr-glow { position:absolute; right:-10%; top:-30%; width:60%; aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.28),rgba(255,255,255,0) 65%); animation:msr-pulse 7s ease-in-out infinite; z-index:1; }
+  @keyframes msr-pulse { 50% { transform:scale(1.08); opacity:.7; } }
+  .msr-tile { position:absolute; border-radius:6px; background:linear-gradient(140deg,rgba(255,255,255,.22),rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); box-shadow:0 12px 30px rgba(0,0,0,.25); animation:msr-float 9s ease-in-out infinite; z-index:2; }
+  @keyframes msr-float { 50% { transform:translateY(-14px) rotate(var(--r2)); } }
+  @media (max-width:860px) {
+    .msr-top { grid-template-columns:1fr; gap:18px; }
+    .msr-side { justify-self:start; max-width:none; }
+    .msr-band { aspect-ratio:4/3; border-radius:22px; } .msr-photo { top:auto; bottom:0; height:88%; width:auto; }
+  }
+  @media (max-width:520px) { .msr-wrap { width:calc(100% - 32px); } .msr-band { aspect-ratio:1/1; } .msr-photo { top:auto; bottom:0; height:80%; width:auto; left:-14%; } }
+  @media (prefers-reduced-motion: reduce) { .msr-band, .msr-tile, .msr-photo, .msr-glow { animation:none; } .msr-tag { animation:none; opacity:1; } }
+</style>
+<style id="lmra-msr-fix">.bahrain-subpage-main { padding-top:0 !important; } .bahrain-subpage-main > .msr { margin-top:0; } .msr-title { font-size:clamp(34px,4vw,54px) !important; }</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -11152,15 +11199,24 @@ input, select, textarea {
 
 
   <main class="bahrain-subpage-main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-content">
-        <h1 class="hero-title mh-title" id="hero-title">LMRA services in Bahrain.<br>Work permits and visas, handled for you.</h1>
-        <div class="mh-actions">
-          <a class="mh-btn" href="#lmra-services">Explore services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-          <a class="mh-link" href="#contact">Talk to DMS</a>
+    <section class="msr" aria-labelledby="hero-title">
+      <div class="msr-wrap">
+        <div class="msr-top">
+          <h1 class="msr-title" id="hero-title">LMRA services in Bahrain.<br>Work permits and visas, <span>handled for you.</span></h1>
+          <div class="msr-side">
+            <p class="msr-desc">Work permits, visas, renewals and related LMRA applications for employers and employees, prepared and followed up by our team.</p>
+            <div class="msr-btns">
+              <button class="msr-btn" type="button" onclick="document.getElementById('lmra-services')?.scrollIntoView({behavior:'smooth'})">Explore services<i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></i></button>
+              <a class="msr-btn is-ghost" href="#contact">Talk to DMS</a>
+            </div>
+          </div>
+        </div>
+        <div class="msr-band">
+          <span class="msr-glow" aria-hidden="true"></span>
+          <img class="msr-photo" src="assets/ms-hero-meeting-wide.webp" alt="A DMS consultant reviewing a government application with a client" width="2308" height="757" fetchpriority="high" decoding="async">
+          <div class="msr-tags"><a class="msr-tag" href="lmra-services.html" style="--d:0.00s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12a24 24 0 0 0 18 0M10 12h4v4h-4z"/></svg></i>LMRA</a><a class="msr-tag" href="cio-services.html" style="--d:0.08s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><path d="M5 16a3 3 0 0 1 6 0M14 9h5M14 13h5M14 16h3"/></svg></i>CIO</a><a class="msr-tag" href="gosi-services.html" style="--d:0.16s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6z"/><path d="m8 12 3 3 5-6"/></svg></i>GOSI</a><a class="msr-tag" href="bahrain-chamber-services.html" style="--d:0.24s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 9 9-6 9 6H3zM5 10v9M10 10v9M14 10v9M19 10v9"/><path d="M3 21h18M2 19h20"/></svg></i>BCCI</a><a class="msr-tag" href="moic-services.html" style="--d:0.32s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V9l6 3V7l6 4V3h4l2 18H3z"/><path d="M6 16h1M11 16h1M16 16h1"/></svg></i>Industry &amp; Commerce</a><a class="msr-tag" href="immigration-services.html" style="--d:0.40s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6z"/><path d="m12 7 1.5 3 3.5.5-2.5 2.4.6 3.5L12 14.8l-3.1 1.6.6-3.5L7 10.5l3.5-.5z"/></svg></i>Interior</a><a class="msr-tag" href="utility-services.html" style="--d:0.48s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21V3h11v18M14 9h7v12M1 21h22"/><path d="M6 7h1M10 7h1M6 11h1M10 11h1M6 15h1M10 15h1M17 13h1M17 17h1"/></svg></i>Municipality</a><a class="msr-tag" href="utility-services.html" style="--d:0.56s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 2-7 11h6l-1 9 7-12H8l1-8z"/><path d="M18 8s-4 5-4 8a4 4 0 0 0 8 0c0-3-4-8-4-8z"/></svg></i>Electricity &amp; Water</a></div>
         </div>
       </div>
-      <div class="hero-art" id="hero-art"><img src="bahrain-skyline.png" alt="Bahrain skyline" fetchpriority="high" decoding="async"></div>
     </section>
 <div hidden></div>    <!-- LMRA SERVICE — NEW DESIGN -->
     <style>
