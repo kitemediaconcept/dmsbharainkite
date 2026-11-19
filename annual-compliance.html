@@ -7210,6 +7210,17 @@ input, select, textarea {
   .dg-trigger[data-menu="visa"] ~ .dg-panel .dg-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; max-width:820px; }
 </style>
 <style id="dg-about-2col">.dg-trigger[data-menu="about"] ~ .dg-panel .dg-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; max-width:820px; }</style>
+<style id="ac-split-css">
+  .ac-split { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:clamp(24px,4vw,56px); width:auto !important; max-width:none !important; min-height:0 !important; padding-left:max(24px, calc((100% - 1200px) / 2)) !important; padding-right:max(24px, calc((100% - 1200px) / 2)) !important; padding-bottom:64px !important; text-align:left !important; background:#fff !important; overflow-x:clip !important; position:relative; }
+  .ac-split::before, .ac-split::after { display:none !important; }
+  .ac-split .mch-copy { text-align:left !important; margin:0 !important; max-width:580px !important; }
+  .ac-split .mch-tag { margin-left:0 !important; max-width:460px; }
+  .ac-split .mch-actions { justify-content:flex-start !important; }
+  .ac-split .mch-title { font-size:clamp(34px,3.8vw,52px) !important; line-height:1.08 !important; letter-spacing:-1.6px !important; }
+  .ac-split .ac-green { background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .ac-split .ac-stage { margin:0 !important; justify-self:center; width:100%; }
+  @media (max-width:900px) { .ac-split { grid-template-columns:1fr; padding-bottom:40px !important; } }
+</style>
 </head>
 
 <body>
@@ -7830,9 +7841,9 @@ input, select, textarea {
 
   <main id="main">
     <!-- MANAGEMENT CONSULTANCY HERO -->
-    <section class="mch" aria-labelledby="ac-title">
+    <section class="mch ac-split" aria-labelledby="ac-title">
       <div class="mch-copy">
-        <h1 id="ac-title" class="mch-title">Your business, compliant <br>all year round.</h1>
+        <h1 id="ac-title" class="mch-title">Your business, compliant. <br><span class="ac-green">All year round.</span></h1>
         <p class="mch-tag">Structured annual compliance support to help keep your Bahrain business registrations, memberships, filings, and regulatory obligations up to date.</p>
         <div class="mch-actions">
           <a class="mch-btn" href="#ac-support">Our support</a>
