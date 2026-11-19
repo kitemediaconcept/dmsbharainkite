@@ -9239,5 +9239,22 @@ input, select, textarea {
   targets.forEach(el => { if (el.getBoundingClientRect().top < vh * 0.92) return; el.classList.add("sr"); io.observe(el); });
 })();
 </script>
+<style id="btt-css">
+  .btt { position:fixed; right:20px; top:50%; z-index:900; width:46px; height:46px; margin-top:-23px; border:0; border-radius:50%; cursor:pointer; background:rgba(255,255,255,.62); backdrop-filter:blur(16px) saturate(1.8); -webkit-backdrop-filter:blur(16px) saturate(1.8); box-shadow:inset 0 0 0 1px rgba(255,255,255,.85), 0 10px 26px rgba(7,63,44,.16); opacity:0; visibility:hidden; transform:translateX(16px); transition:opacity .35s ease, transform .35s cubic-bezier(.16,1,.3,1), visibility .35s, background .25s ease; }
+  .btt.is-on { opacity:1; visibility:visible; transform:none; }
+  .btt:hover { background:linear-gradient(135deg,#19b35a,#0d9b49 45%,#073f2c); }
+  .btt svg { position:absolute; left:50%; top:50%; width:20px; height:20px; margin:-10px 0 0 -10px; fill:none; stroke:#0d9b49; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; transition:stroke .25s ease, transform .25s ease; }
+  .btt:hover svg { stroke:#fff; transform:translateY(-2px); }
+  .btt:focus-visible { outline:2px solid #0d9b49; outline-offset:3px; }
+  @media (max-width:640px) { .btt { right:12px; width:40px; height:40px; margin-top:-20px; } }
+  @media (prefers-reduced-motion: reduce) { .btt { transition:none; } }
+</style>
+<button class="btt" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+<script id="btt-js">
+(()=>{const b=document.querySelector('.btt');if(!b)return;let t=0;
+const on=()=>{t=0;b.classList.toggle('is-on',scrollY>innerHeight*.6);};
+addEventListener('scroll',()=>{if(!t)t=requestAnimationFrame(on);},{passive:true});on();
+b.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));})();
+</script>
 </body>
 </html>
