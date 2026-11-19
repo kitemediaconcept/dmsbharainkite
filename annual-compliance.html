@@ -7221,6 +7221,17 @@ input, select, textarea {
   .ac-split .ac-stage { margin:0 !important; justify-self:center; width:100%; }
   @media (max-width:900px) { .ac-split { grid-template-columns:1fr; padding-bottom:40px !important; } }
 </style>
+<style id="ac-photo-css">
+  .ac-split { min-height:clamp(520px,44vw,640px) !important; grid-template-columns:minmax(0,1fr) !important; overflow:hidden !important; }
+  .ac-split .mch-copy { position:relative; z-index:2; max-width:520px !important; }
+  .ac-photo { position:absolute; top:0; right:0; bottom:0; width:min(64%,1000px); z-index:1; -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 32%); mask-image:linear-gradient(90deg,transparent 0%,#000 32%); }
+  .ac-photo img { width:100%; height:100%; object-fit:cover; object-position:30% center; display:block; animation:gd3-in 1.2s cubic-bezier(.16,1,.3,1) .1s both; }
+  @media (max-width:900px) {
+    .ac-split { min-height:0 !important; padding-right:0 !important; }
+    .ac-photo { position:relative; width:auto; margin:8px 0 0 -24px; -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 18%); mask-image:linear-gradient(180deg,transparent 0%,#000 18%); }
+    .ac-photo img { height:auto; aspect-ratio:1619/971; }
+  }
+</style>
 </head>
 
 <body>
@@ -7850,23 +7861,7 @@ input, select, textarea {
           <a class="mch-link" href="#contact">Talk to DMS</a>
         </div>
       </div>
-      <div class="ac-stage" aria-hidden="true">
-        <div class="ac-dial">
-          <svg viewBox="0 0 400 400">
-            <defs><linearGradient id="ac-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19b35a"/><stop offset="1" stop-color="#073f2c"/></linearGradient></defs>
-            <circle class="ac-face" cx="200" cy="200" r="190"/>
-            <circle class="ac-track" cx="200" cy="200" r="150"/>
-            <circle class="ac-prog" cx="200" cy="200" r="150"/>
-            <line class="ac-tick" x1="200.0" y1="30.0" x2="200.0" y2="40.0"/><line class="ac-tick" x1="285.0" y1="52.8" x2="280.0" y2="61.4"/><line class="ac-tick" x1="347.2" y1="115.0" x2="338.6" y2="120.0"/><line class="ac-tick" x1="370.0" y1="200.0" x2="360.0" y2="200.0"/><line class="ac-tick" x1="347.2" y1="285.0" x2="338.6" y2="280.0"/><line class="ac-tick" x1="285.0" y1="347.2" x2="280.0" y2="338.6"/><line class="ac-tick" x1="200.0" y1="370.0" x2="200.0" y2="360.0"/><line class="ac-tick" x1="115.0" y1="347.2" x2="120.0" y2="338.6"/><line class="ac-tick" x1="52.8" y1="285.0" x2="61.4" y2="280.0"/><line class="ac-tick" x1="30.0" y1="200.0" x2="40.0" y2="200.0"/><line class="ac-tick" x1="52.8" y1="115.0" x2="61.4" y2="120.0"/><line class="ac-tick" x1="115.0" y1="52.8" x2="120.0" y2="61.4"/><text x="200.0" y="88.0">JAN</text><text x="256.0" y="103.0">FEB</text><text x="297.0" y="144.0">MAR</text><text x="312.0" y="200.0">APR</text><text x="297.0" y="256.0">MAY</text><text x="256.0" y="297.0">JUN</text><text x="200.0" y="312.0">JUL</text><text x="144.0" y="297.0">AUG</text><text x="103.0" y="256.0">SEP</text><text x="88.0" y="200.0">OCT</text><text x="103.0" y="144.0">NOV</text><text x="144.0" y="103.0">DEC</text>
-            <g class="ac-hand"><circle cx="200" cy="50" r="11"/></g>
-          </svg>
-          <div class="ac-centre"><small>Compliance year</small><b>All on track</b><span><span class="das-ok"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Renewals tracked</span></div>
-        </div>
-        <div class="ac-ev ac-e1"><span class="ac-ev-d"><i>CR</i><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span><span><b>CR renewal</b><small><span class="das-ok"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Up to date</small></span></div>
-        <div class="ac-ev ac-e2"><span class="ac-ev-d"><i>BCCI</i><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M2.5 20c.6-3.7 2.8-5.5 5.5-5.5s4.9 1.8 5.5 5.5M14.5 14.7c2.6-.2 4.5 1.4 5 4.8"/></svg></span><span><b>BCCI membership</b><small><span class="das-ok"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Up to date</small></span></div>
-        <div class="ac-ev ac-e3"><span class="ac-ev-d"><i>UBO</i><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M12 10v4M12 14l-6 4M12 14l6 4"/><circle cx="6" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/></svg></span><span><b>UBO registration</b><small><span class="das-ok"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Up to date</small></span></div>
-        <div class="ac-ev ac-e4"><span class="ac-ev-d"><i>AUDIT</i><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 16v-5M12 16V7M17 16v-8"/></svg></span><span><b>Audit report</b><small><span class="das-ok"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Up to date</small></span></div>
-      </div>
+      <div class="ac-photo"><img src="assets/ac-hero-colleagues.webp" alt="DMS consultants reviewing a compliance folder with a client in Bahrain" width="1619" height="971" fetchpriority="high" decoding="async"></div>
     </section>
 
     <!-- INTRO -->
