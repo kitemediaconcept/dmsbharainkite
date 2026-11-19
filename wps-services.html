@@ -7264,6 +7264,11 @@ input, select, textarea {
   @media (max-width:900px) { .wpx-phone { right:auto; left:50%; transform:translateX(-40%); height:370px; } }
   @media (prefers-reduced-motion: reduce) { .wpx-phone img { animation:none; } }
 </style>
+<style id="wpx-photo-css">
+  .wpx-dark { background:#0b2a1a !important; }
+  .wpx-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:62% center; display:block; }
+  @media (max-width:900px) { .wpx-photo { object-position:72% center; } }
+</style>
 </head>
 
 <body>
@@ -7965,16 +7970,7 @@ input, select, textarea {
           <a class="mch-link" href="#contact">Talk to DMS</a>
         </div>
       </div>
-      <div class="wpx-dark" aria-hidden="true"><svg class="wpx-city" viewBox="0 0 600 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-  <g fill="none" stroke-linejoin="round">
-    <path class="t1" d="M330 600 L410 70 L440 600 Z"/><path class="t1" d="M560 600 L470 70 L450 600 Z"/>
-    <path class="g" d="M418 190h44M420 300h40M423 420h34M410 70l5 0"/>
-    <g class="ln"><path d="M352 560 400 160M538 560 480 160M370 600l40-430M520 600l-40-430"/></g>
-    <path class="b" d="M210 600V380h60v220M200 600V470h-60v130M90 600V430h40v170M560 600V360h40"/>
-    <path class="b" d="M240 400c0-22 30-22 30 0" />
-  </g>
-  <path class="ground" d="M0 600H600"/>
-</svg></div>
+      <div class="wpx-dark" aria-hidden="true"><img class="wpx-photo" src="assets/wps-hero-dhow.webp" alt="" decoding="async"></div>
       <div class="wpx-phone"><img src="assets/wps-hero-iban-phone.webp" alt="Hand holding a phone showing an IBAN certificate" width="867" height="1206" fetchpriority="high" decoding="async"></div>
     </section>
 
