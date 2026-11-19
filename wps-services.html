@@ -7256,6 +7256,14 @@ input, select, textarea {
   }
   @media (prefers-reduced-motion: reduce) { .wpx-card { animation:none; } }
 </style>
+<style id="wpx-phone-css">
+  .wpx { padding-bottom:0 !important; }
+  .wpx-phone { position:absolute; right:calc(40% - 210px); bottom:0; height:82%; z-index:2; display:flex; align-items:flex-end; }
+  .wpx-phone img { height:100%; width:auto; display:block; filter:drop-shadow(0 30px 40px rgba(4,30,20,.25)); animation:wpx-rise 1.2s cubic-bezier(.16,1,.3,1) .15s both; }
+  @keyframes wpx-rise { from { opacity:0; transform:translateY(60px); } }
+  @media (max-width:900px) { .wpx-phone { right:auto; left:50%; transform:translateX(-40%); height:370px; } }
+  @media (prefers-reduced-motion: reduce) { .wpx-phone img { animation:none; } }
+</style>
 </head>
 
 <body>
@@ -7967,11 +7975,7 @@ input, select, textarea {
   </g>
   <path class="ground" d="M0 600H600"/>
 </svg></div>
-      <div class="wpx-cards" aria-hidden="true">
-        <div class="wpx-card wpx-s1"><svg class="wpx-shield" viewBox="0 0 24 24"><path d="M12 2.5 4 5.5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10v-6z"/><path d="M12 2.5v19M4 11.5h16"/></svg><span class="wpx-iban"><b>BH</b><i></i></span><span class="wpx-ok"><svg viewBox="0 0 24 24"><path d="m6 12.5 4 4 8-9"/></svg></span></div>
-        <div class="wpx-card wpx-main"><svg class="wpx-shield" viewBox="0 0 24 24"><path d="M12 2.5 4 5.5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10v-6z"/><path d="M12 2.5v19M4 11.5h16"/></svg><span class="wpx-iban"><b>BH</b><i></i></span><small>Company IBAN validated</small><span class="wpx-ok"><svg viewBox="0 0 24 24"><path d="m6 12.5 4 4 8-9"/></svg></span></div>
-        <div class="wpx-card wpx-s2"><svg class="wpx-shield" viewBox="0 0 24 24"><path d="M12 2.5 4 5.5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10v-6z"/><path d="M12 2.5v19M4 11.5h16"/></svg><span class="wpx-iban"><b>BH</b><i></i></span><span class="wpx-ok"><svg viewBox="0 0 24 24"><path d="m6 12.5 4 4 8-9"/></svg></span></div>
-      </div>
+      <div class="wpx-phone"><img src="assets/wps-hero-iban-phone.webp" alt="Hand holding a phone showing an IBAN certificate" width="867" height="1206" fetchpriority="high" decoding="async"></div>
     </section>
 
     <!-- INTRO -->
