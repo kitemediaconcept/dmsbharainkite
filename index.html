@@ -7355,6 +7355,12 @@ input, select, textarea {
   @media (prefers-reduced-motion: reduce) { .dms-pp img { opacity:1; transform:none; filter:none; transition:none; } }
 </style>
 <style id="forty-v2">.abr-forty, .ab40 { aspect-ratio:900/1023 !important; } .abr-count, .ab40-count { display:none !important; }</style>
+<style id="hrec-cap-css">
+  .hrec-item { margin:0; display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .hrec-cap { font-family:Inter,"Helvetica Neue",Arial,sans-serif; font-size:12.5px; font-weight:500; letter-spacing:.2px; color:#5b625e; text-align:center; white-space:nowrap; }
+  .hrec-cap::before { content:""; display:inline-block; width:6px; height:6px; margin-right:7px; border-radius:50%; background:#0d9b49; vertical-align:1px; }
+  @media (max-width:760px) { .hrec-cap { font-size:11.5px; } }
+</style>
 </head>
 
 <body>
@@ -7634,8 +7640,8 @@ input, select, textarea {
   <section class="hrec" aria-label="Recognitions">
     <span class="hrec-t">We are <br>recognized</span>
     <span class="hrec-sep" aria-hidden="true"></span>
-    <img class="hrec-logo hrec-mofa" src="assets/rec-ksa-mofa.png" alt="Kingdom of Saudi Arabia Ministry of Foreign Affairs" width="900" height="295" loading="lazy" decoding="async">
-    <img class="hrec-logo hrec-lmra" src="assets/rec-lmra.png" alt="Labour Market Regulatory Authority, Kingdom of Bahrain" width="512" height="75" loading="lazy" decoding="async">
+    <figure class="hrec-item"><img class="hrec-logo hrec-mofa" src="assets/rec-ksa-mofa.png" alt="Kingdom of Saudi Arabia Ministry of Foreign Affairs" width="900" height="295" loading="lazy" decoding="async"><figcaption class="hrec-cap">Authorised Saudi Embassy</figcaption></figure>
+    <figure class="hrec-item"><img class="hrec-logo hrec-lmra" src="assets/rec-lmra.png" alt="Labour Market Regulatory Authority, Kingdom of Bahrain" width="512" height="75" loading="lazy" decoding="async"><figcaption class="hrec-cap">LMRA Registration Center</figcaption></figure>
   </section>
 
   <style>
