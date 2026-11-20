@@ -9136,6 +9136,22 @@ input, select, textarea {
   .imm-v2 .imm-card .imm-service-list li::before { flex:0 0 18px !important; width:18px !important; height:18px !important; margin:1px 0 0 !important; border-radius:50% !important; position:static !important; }
   .imm-v2 .imm-card-wide > .imm-art { height:230px !important; }
 </style>
+<style id="mo-lmx">
+  .bx-v2 .bx-grid > .mo-card.bx-card, .bx-v2 .mo-card.bx-card { display:flex !important; grid-template-columns:none !important; align-items:stretch !important; flex-direction:column !important; gap:0 !important; padding:0 0 24px !important; border-radius:28px !important; background:#fff !important; border:1px solid #e9eeeb !important; box-shadow:none !important; overflow:hidden !important; }
+  .bx-v2 .mo-card .mo-photo { position:relative; aspect-ratio:auto !important; height:280px; max-height:none !important; border-radius:0 !important; margin:0 0 -70px; height:clamp(220px,24vw,320px) !important; }
+  .bx-v2 .mo-card .mo-photo img { object-position:center 52%; -webkit-mask-image:linear-gradient(180deg,#000 50%,transparent 92%); mask-image:linear-gradient(180deg,#000 50%,transparent 92%); }
+  .bx-v2 .mo-card .mo-photo::after { content:""; position:absolute; inset:0 0 -2px 0; background:linear-gradient(180deg,rgba(255,255,255,0) 45%,rgba(255,255,255,.8) 72%,#fff 92%); pointer-events:none; }
+  .bx-v2 .mo-card .mo-copy { position:relative; z-index:2; padding:0 26px !important; }
+  .bx-v2 .mo-card .mo-kicker { display:none !important; }
+  .bx-v2 .mo-card .mo-title { margin:0 0 12px !important; font-size:clamp(22px,2vw,28px) !important; font-weight:400 !important; letter-spacing:-.8px !important; color:#0b1f16 !important; -webkit-text-fill-color:#0b1f16 !important; background:none !important; }
+  .bx-v2 .mo-card .mo-list { grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:0 32px !important; margin:0 !important; }
+  .bx-v2 .mo-card .mo-list li { align-items:center !important; gap:12px !important; padding:11px 0 !important; border-top:1px solid #eef2ef; background:none !important; box-shadow:none !important; border-radius:0 !important; font-size:14px !important; color:#2b302d !important; }
+  .bx-v2 .mo-card .mo-list li:nth-child(-n+2) { border-top:0; }
+  .bx-v2 .mo-card .mo-ok { flex:0 0 30px !important; width:30px !important; height:30px !important; border-radius:50% !important; background:#eef8f2 !important; color:#0d9b49 !important; box-shadow:none !important; }
+  .bx-v2 .mo-card .mo-ok svg { stroke:#0d9b49 !important; }
+  .bx-v2 .mo-card .mo-btn { margin-top:20px !important; }
+  @media (max-width:640px) { .bx-v2 .mo-card .mo-photo { height:220px; } .bx-v2 .mo-card .mo-list { grid-template-columns:1fr !important; } .bx-v2 .mo-card .mo-list li:nth-child(2) { border-top:1px solid #eef2ef; } .bx-v2 .mo-card .mo-copy { padding:0 20px !important; } }
+</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
