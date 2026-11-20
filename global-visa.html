@@ -7555,6 +7555,11 @@ input, select, textarea {
   .gvd-photo > .gvd-sl.is-on { opacity:1; transform:scale(1); }
   @media (prefers-reduced-motion: reduce) { .gvd-photo > .gvd-sl { transition:none !important; transform:none; } }
 </style>
+<style id="gvd-fade-short">
+  .gvd-photo > .gvd-bg { height:80% !important; }
+  .gvd-photo > .gvd-grade { background:linear-gradient(180deg,rgba(255,255,255,0) 48%,rgba(255,255,255,.6) 60%,rgba(255,255,255,.95) 68%,#fff 74%) !important; }
+  .gvd-grade::before { -webkit-mask-image:linear-gradient(180deg,transparent 50%,#000 66%) !important; mask-image:linear-gradient(180deg,transparent 50%,#000 66%) !important; }
+</style>
 </head>
 
 <body>
