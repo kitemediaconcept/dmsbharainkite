@@ -9210,6 +9210,22 @@ input, select, textarea {
   .bx-v2 .bx-card.bx-c4::before { background:linear-gradient(180deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.8) 72%,#fff 96%), url("assets/int-sec-stamp.webp?v=3") 75% 20%/cover no-repeat !important; }
   @media (max-width:640px) { .bx-v2 .bx-card.bx-c3::before { background:linear-gradient(180deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.8) 72%,#fff 96%), url("assets/int-moi-id.webp?v=2") center 30%/cover no-repeat !important; } .bx-v2 .bx-card.bx-c3, .bx-v2 .bx-card.bx-c4 { padding-top:140px !important; } .bx-v2 .bx-card.bx-c3::before, .bx-v2 .bx-card.bx-c4::before { height:185px !important; } }
 </style>
+<style id="mo-pair-css">
+  .bx-v2 .mo-pair { grid-column:1 / -1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:inherit; gap:clamp(14px,1.6vw,22px); }
+  .bx-v2 .mo-pair .mo-card .mo-photo { height:170px !important; margin:0 0 -56px !important; background:none !important; }
+  .bx-v2 .mo-pair .mo-card .mo-photo img { display:block !important; width:100%; height:100%; object-fit:cover; }
+  .bx-v2 .mo-pair .mo-card .mo-photo::after { background:linear-gradient(180deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.8) 72%,#fff 96%) !important; }
+  .bx-v2 .mo-pair .mo-list { grid-template-columns:1fr !important; }
+  .bx-v2 .mo-pair .mo-list li:nth-child(2) { border-top:1px solid #eef2ef !important; }
+  .bx-v2 .mo-pair .mo-sub { display:block; font-size:11.5px; font-weight:500; letter-spacing:.3px; color:#0d9b49; margin:0 0 2px; position:relative; }
+  .bx-v2 .mo-pair .mo-copy { display:flex; flex-direction:column; height:100%; }
+  .bx-v2 .mo-pair .mo-btn { align-self:flex-start; margin-top:auto !important; }
+  .bx-v2 .mo-pair .mo-list { margin-bottom:14px !important; }
+  .bx-v2 .mo-pair .mo-list li { opacity:1 !important; transform:none !important; }
+  .bx-v2 .mo-pair > .mo-card { grid-column:auto !important; }
+  .bx-v2 .mo-pair .mo-copy { height:auto !important; flex:1; }
+  @media (max-width:760px) { .bx-v2 .mo-pair { grid-template-columns:1fr; } .bx-v2 .mo-pair .mo-card .mo-photo { height:160px !important; } }
+</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -11720,15 +11736,26 @@ input, select, textarea {
           <p class="bx-sub dms-sp">Access an ecosystem of government solutions to level up your business or connect your infrastructure.</p>
         </header>
         <div class="bx-grid">
-          <article class="bx-card mo-card" style="--d:0ms">
-            <div class="mo-photo"><img src="assets/moic-meeting.webp" alt="DMS advisor reviewing company documents with a client in Bahrain" width="698" height="811" loading="lazy" decoding="async"></div>
+          <div class="mo-pair">
+          <article class="bx-card mo-card mo-half" style="--d:0ms">
+            <div class="mo-photo"><img src="assets/moic-meeting.webp" alt="DMS advisor reviewing company documents with a client in Bahrain" width="698" height="811" loading="lazy" decoding="async" style="object-position:center 38% !important"></div>
             <div class="mo-copy">
-              <span class="mo-kicker dms-pill"><span class="dms-kg">Business services in Bahrain</span></span>
-              <h3 class="mo-title">Ministry of Industry &amp; Commerce Services</h3>
-              <ul class="mo-list"><li style="--i:0"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Company registration renewal</li><li style="--i:1"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Add or remove signatories</li><li style="--i:2"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Change company address</li><li style="--i:3"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Activity renewal</li><li style="--i:4"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Update company contact details</li><li style="--i:5"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Offense removal</li><li style="--i:6"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Audit report submission</li><li style="--i:7"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>UBO registration and renewal</li><li style="--i:8"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>ESR report submission</li><li style="--i:9"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Obtain an original copy of the commercial registration certificate and registration extract</li></ul>
+              <span class="mo-sub">Ministry of Industry &amp; Commerce</span>
+              <h3 class="mo-title">Commercial Registration Services</h3>
+              <ul class="mo-list"><li style="--i:0"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Company registration renewal</li><li style="--i:1"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Add or remove signatories</li><li style="--i:2"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Change company address</li><li style="--i:3"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Activity renewal</li><li style="--i:4"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Update company contact details</li></ul>
               <a class="mo-btn" href="#contact">Talk to DMS <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
             </div>
           </article>
+          <article class="bx-card mo-card mo-half" style="--d:0ms">
+            <div class="mo-photo"><img src="assets/ac-hero-colleagues.webp" alt="Colleagues reviewing company compliance documents in Bahrain" width="1619" height="971" loading="lazy" decoding="async" style="object-position:center 30% !important"></div>
+            <div class="mo-copy">
+              <span class="mo-sub">Ministry of Industry &amp; Commerce</span>
+              <h3 class="mo-title">Compliance &amp; Reporting Services</h3>
+              <ul class="mo-list"><li style="--i:0"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Offense removal</li><li style="--i:1"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Audit report submission</li><li style="--i:2"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>UBO registration and renewal</li><li style="--i:3"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>ESR report submission</li><li style="--i:4"><span class="mo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Obtain an original copy of the commercial registration certificate and registration extract</li></ul>
+              <a class="mo-btn" href="#contact">Talk to DMS <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+            </div>
+          </article>
+          </div>
           <style>
             .bx-v2 .mo-card { grid-column:1 / -1; display:grid !important; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:clamp(22px,3vw,44px); align-items:center; padding:clamp(14px,1.6vw,20px) !important; min-height:0 !important; }
             .mo-photo { border-radius:20px; overflow:hidden; aspect-ratio:698/811; max-height:520px; }
