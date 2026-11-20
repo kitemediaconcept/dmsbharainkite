@@ -7302,6 +7302,27 @@ input, select, textarea {
   .gd-cta .cta3 .cta3-wa { color:#3a2a06 !important; background:linear-gradient(135deg,#f6e3a6 0%,#d9b55e 55%,#b8913a 100%); box-shadow:0 10px 22px rgba(185,145,58,.3); }
   @media (max-width:640px) { .ctb { padding:20px; } .ctb-sec .ctb { width:calc(100% - 32px); } .cta3 a { padding:10px 15px; font-size:13.5px; } }
 </style>
+<style id="gdb-css">
+  .gdb { background:#fff; padding:clamp(8px,1.5vw,18px) 0 clamp(28px,4vw,48px); font-family:Inter,"Helvetica Neue",Arial,sans-serif; }
+  .gdb-band { position:relative; overflow:hidden; width:min(1200px,calc(100% - 48px)); margin:0 auto; box-sizing:border-box; min-height:clamp(260px,26vw,340px); border-radius:28px; display:flex; align-items:center; justify-content:flex-end; padding:24px clamp(20px,3vw,36px);
+    background:radial-gradient(55% 90% at 18% 50%,rgba(214,171,82,.22),transparent 70%), radial-gradient(50% 80% at 100% 0%,rgba(214,171,82,.10),transparent 70%), linear-gradient(135deg,#fffdf8 0%,#fbf5e8 60%,#f5ead2 100%);
+    box-shadow:0 18px 44px rgba(120,90,30,.08), inset 0 0 0 1px rgba(185,145,58,.14); }
+  .gdb-glow { position:absolute; left:6%; top:50%; width:420px; height:420px; transform:translateY(-50%); border-radius:50%; background:radial-gradient(circle,rgba(230,190,100,.28),rgba(230,190,100,0) 65%); pointer-events:none; }
+  .gdb-card { position:absolute; left:12%; top:50%; height:84%; width:auto; transform:translateY(-50%) rotate(-8deg); filter:drop-shadow(0 22px 28px rgba(110,80,20,.25)); }
+  .gdb-tags { position:relative; z-index:2; display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+  .gdb-tag { display:inline-flex; align-items:center; gap:9px; padding:8px 14px 8px 8px; border-radius:999px; background:#fff; color:#2a2109 !important; text-decoration:none !important; font-size:13.5px; font-weight:600; box-shadow:0 8px 20px rgba(110,80,20,.10); opacity:0; transform:translateX(16px); animation:gdb-in .7s cubic-bezier(.16,1,.3,1) forwards; animation-delay:calc(.3s + var(--d)); transition:transform .25s ease; }
+  .gdb-tag:hover { transform:translateX(-3px); }
+  .gdb-tag i { width:24px; height:24px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(135deg,#e7c873,#b8913a); }
+  .gdb-tag svg { width:13px; height:13px; fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  @keyframes gdb-in { to { opacity:1; transform:none; } }
+  @media (max-width:760px) {
+    .gdb-band { width:calc(100% - 32px); flex-direction:column; justify-content:flex-start; align-items:stretch; padding:24px 18px 22px; }
+    .gdb-card { position:relative; left:auto; top:auto; transform:rotate(-6deg); height:230px; margin:6px auto 22px; }
+    .gdb-glow { left:50%; top:130px; transform:translate(-50%,-50%); width:320px; height:320px; }
+    .gdb-tags { align-items:flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) { .gdb-tag { animation:none; opacity:1; transform:none; } }
+</style>
 </head>
 
 <body>
@@ -7733,6 +7754,14 @@ input, select, textarea {
         </div>
       </div>
       <div class="gd3-art"><img src="assets/gd-hero-hand.webp" alt="Hand holding a Kingdom of Bahrain Golden Visa card" width="1087" height="783" fetchpriority="high" decoding="async"></div>
+    </section>
+
+    <section class="gdb" aria-label="Bahrain Golden Visa">
+      <div class="gdb-band">
+        <span class="gdb-glow" aria-hidden="true"></span>
+        <img class="gdb-card" src="assets/golden-visa-card.webp" alt="Kingdom of Bahrain Golden Visa card" width="720" height="959" loading="lazy" decoding="async">
+        <div class="gdb-tags"><a class="gdb-tag" href="#gd-who" style="--d:0.00s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></i>Employees &amp; families</a><a class="gdb-tag" href="#gd-who" style="--d:0.10s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9H4z"/><path d="M10 20v-5h4v5"/></svg></i>Property owners</a><a class="gdb-tag" href="#gd-who" style="--d:0.20s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg></i>Retired individuals</a><a class="gdb-tag" href="#gd-who" style="--d:0.30s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></i>Specially talented</a></div>
+      </div>
     </section>
 
     <!-- INTRO + WHO -->
