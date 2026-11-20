@@ -11052,6 +11052,61 @@ input, select, textarea {
   @media (prefers-reduced-motion: reduce) { .ct-v2 *, .ct-v2 *::before, .ct-v2 *::after { animation:none !important; transition:none !important; } .ct-v2.ct-anim .ct-info > *, .ct-v2.ct-anim .ct-form > * { opacity:1; transform:none; } }
     </style>
 <style id="dg-about-2col">.dg-trigger[data-menu="about"] ~ .dg-panel .dg-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; max-width:820px; }</style>
+<style id="msr-css">
+  .msr { padding:clamp(100px,8vw,112px) 0 clamp(28px,4vw,56px); background:#fff; }
+  .msr-wrap { width:min(1280px,100% - 48px); margin:0 auto; }
+  .msr-top { display:grid; grid-template-columns:1.25fr 1fr; gap:40px; align-items:end; margin-bottom:clamp(24px,3vw,40px); }
+  .msr-title { margin:0; font:600 clamp(40px,5.2vw,72px)/1.02 Inter, system-ui, sans-serif; letter-spacing:-.045em; color:#0b1f16; }
+  .msr-title span { background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .msr-side { max-width:420px; justify-self:end; padding-bottom:8px; }
+  .msr-desc { margin:0 0 20px; font:400 15px/1.55 Inter, system-ui, sans-serif; color:#5d6862; }
+  .msr-btns { display:flex; gap:10px; flex-wrap:wrap; }
+  .msr-btn { display:inline-flex; align-items:center; gap:10px; padding:7px 7px 7px 18px; border:0; border-radius:999px; background:linear-gradient(135deg,#19b35a,#0d9b49 45%,#073f2c); color:#fff; font:600 14px Inter, system-ui, sans-serif; cursor:pointer; text-decoration:none; box-shadow:0 10px 24px rgba(13,155,73,.28); transition:transform .3s ease, box-shadow .3s ease; }
+  .msr-btn:hover { transform:translateY(-2px); box-shadow:0 16px 32px rgba(13,155,73,.36); }
+  .msr-btn i { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:#fff; color:#0d9b49; }
+  .msr-btn svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+  .msr-btn.is-ghost { background:#fff; color:#0b1f16; box-shadow:inset 0 0 0 1px #d6e3dc; padding:7px 18px; }
+  .msr-btn.is-ghost:hover { box-shadow:inset 0 0 0 1px #0d9b49; }
+  .msr-band { position:relative; overflow:hidden; border-radius:28px; aspect-ratio:1280/440; background:radial-gradient(90% 120% at 30% 100%,#3ccf7a 0%,rgba(60,207,122,0) 60%),linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); isolation:isolate; animation:msr-in 1.2s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes msr-in { from { opacity:0; transform:translateY(18px); } }
+  .msr-photo { position:absolute; left:0; bottom:0; height:96%; width:auto; max-width:none; z-index:3; animation:msr-photo 1.4s .15s cubic-bezier(.16,1,.3,1) both; }
+  .msr-tags { position:absolute; right:3%; top:50%; transform:translateY(-62%); z-index:4; width:min(34%,400px); display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; }
+  .msr-tag { display:inline-flex; align-items:center; gap:7px; padding:4px 12px 4px 4px; border-radius:999px; background:rgba(255,255,255,.92); border:1px solid rgba(255,255,255,.7); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:0 8px 20px rgba(4,46,28,.18); text-decoration:none; color:#0b1f16; font:600 12.5px/1 Inter, system-ui, sans-serif; letter-spacing:-.005em; white-space:nowrap; opacity:0; animation:msr-tag-in .8s calc(.5s + var(--d)) cubic-bezier(.16,1,.3,1) forwards; transition:transform .25s ease, box-shadow .25s ease; }
+  button.msr-tag { cursor:pointer; }
+  .msr-tag:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(4,46,28,.26); }
+  .msr-tag i { flex:none; display:grid; place-items:center; width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,#19b35a,#0d9b49 45%,#073f2c); color:#fff; }
+  .msr-tag svg { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+  @keyframes msr-tag-in { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+  @media (max-width:1100px) { .msr-tags { width:38%; gap:6px; } .msr-tag { font-size:11.5px; padding:3px 10px 3px 3px; } .msr-tag i { width:21px; height:21px; } }
+  @media (max-width:860px) {
+    .msr-band { aspect-ratio:auto !important; display:flex; flex-direction:column; }
+    .msr-tags { position:static; transform:none; width:auto; justify-content:flex-start; padding:18px 16px 4px; gap:7px; }
+    .msr-tag { font-size:12px; }
+    .msr-photo { position:relative !important; height:300px !important; width:auto !important; align-self:flex-start; }
+  }
+  @media (max-width:520px) { .msr-photo { height:240px !important; left:-14%; } }
+  @keyframes msr-photo { from { opacity:0; transform:translateY(24px); } }
+  .msr-glow { position:absolute; right:-10%; top:-30%; width:60%; aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.28),rgba(255,255,255,0) 65%); animation:msr-pulse 7s ease-in-out infinite; z-index:1; }
+  @keyframes msr-pulse { 50% { transform:scale(1.08); opacity:.7; } }
+  .msr-tile { position:absolute; border-radius:6px; background:linear-gradient(140deg,rgba(255,255,255,.22),rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); box-shadow:0 12px 30px rgba(0,0,0,.25); animation:msr-float 9s ease-in-out infinite; z-index:2; }
+  @keyframes msr-float { 50% { transform:translateY(-14px) rotate(var(--r2)); } }
+  @media (max-width:860px) {
+    .msr-top { grid-template-columns:1fr; gap:18px; }
+    .msr-side { justify-self:start; max-width:none; }
+    .msr-band { aspect-ratio:4/3; border-radius:22px; } .msr-photo { top:auto; bottom:0; height:88%; width:auto; }
+  }
+  @media (max-width:520px) { .msr-wrap { width:calc(100% - 32px); } .msr-band { aspect-ratio:1/1; } .msr-photo { top:auto; bottom:0; height:80%; width:auto; left:-14%; } }
+  @media (prefers-reduced-motion: reduce) { .msr-band, .msr-tile, .msr-photo, .msr-glow { animation:none; } .msr-tag { animation:none; opacity:1; } }
+</style>
+<style id="lmra-band-white">
+  .msr-band { background:radial-gradient(60% 90% at 18% 50%,rgba(60,207,122,.16),transparent 70%), radial-gradient(50% 80% at 100% 0%,rgba(60,207,122,.08),transparent 70%), linear-gradient(135deg,#fff 0%,#f6fbf8 60%,#eaf6ef 100%) !important; box-shadow:0 18px 44px rgba(7,63,44,.08), inset 0 0 0 1px rgba(13,155,73,.08); }
+  .msr-band .msr-glow { background:radial-gradient(circle,rgba(60,207,122,.14),rgba(60,207,122,0) 65%) !important; }
+  .msr-photo.moi-hero-img { left:7% !important; top:50% !important; bottom:auto !important; width:auto !important; height:72% !important; transform:translateY(-50%); animation:none !important; }
+  @media (max-width:860px) { .msr-photo.moi-hero-img { position:relative !important; left:auto !important; top:auto !important; transform:none; height:220px !important; width:auto !important; margin:28px auto 0; align-self:center !important; } }
+</style>
+<style id="lmra-msr-fix">@media (min-width:861px){ .msr-tags { flex-direction:column; align-items:flex-end; } } .bahrain-subpage-main { padding-top:0 !important; } .bahrain-subpage-main > .msr { margin-top:0; } .msr-title { font-size:clamp(34px,4vw,54px) !important; }</style>
+<style id="moi-hero-fit">.msr-photo.moi-hero-img { top:auto !important; bottom:0 !important; transform:none !important; height:96% !important; left:5% !important; -webkit-mask-image:linear-gradient(90deg,#000 62%,transparent 98%); mask-image:linear-gradient(90deg,#000 62%,transparent 98%); }
+@media (max-width:860px){ .msr-photo.moi-hero-img { height:260px !important; margin:24px auto 0 !important; } }</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -11152,16 +11207,24 @@ input, select, textarea {
 
 
   <main class="bahrain-subpage-main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-content">
-        <h1 class="hero-title mh-title" id="hero-title">Ministry services in Bahrain.<br>Interior, security and clearance support.</h1>
-        <p class="hero-description mh-desc">Guidance with Ministry of Interior services, security clearances and related government requirements.</p>
-        <div class="mh-actions">
-          <a class="mh-btn" href="#smart-services">Explore services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-          <a class="mh-link" href="#contact">Talk to DMS</a>
+    <section class="msr" aria-labelledby="hero-title">
+      <div class="msr-wrap">
+        <div class="msr-top">
+          <h1 class="msr-title" id="hero-title">Ministry services in Bahrain.<br>Interior, security and <span>clearance support.</span></h1>
+          <div class="msr-side">
+            <p class="msr-desc">Guidance with Ministry of Interior services, security clearances and related government requirements.</p>
+            <div class="msr-btns">
+              <button class="msr-btn" type="button" onclick="document.getElementById('smart-services')?.scrollIntoView({behavior:'smooth'})">Explore services<i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></i></button>
+              <a class="msr-btn is-ghost" href="#contact">Talk to DMS</a>
+            </div>
+          </div>
+        </div>
+        <div class="msr-band">
+          <span class="msr-glow" aria-hidden="true"></span>
+          <img class="msr-photo moi-hero-img" src="assets/da-hero-hand.webp" alt="Hand holding a Bahrain identity card" width="1200" height="645" fetchpriority="high" decoding="async">
+          <div class="msr-tags"><a class="msr-tag" href="#smart-services" style="--d:0.00s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6z"/><path d="m12 7 1.5 3 3.5.5-2.5 2.4.6 3.5L12 14.8l-3.1 1.6.6-3.5L7 10.5l3.5-.5z"/></svg></i>Ministry of Interior</a><a class="msr-tag" href="#smart-services" style="--d:0.10s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6z"/><path d="m9 12 2 2 4-4"/></svg></i>Security &amp; clearance</a><a class="msr-tag" href="#smart-services" style="--d:0.20s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2.4"/><path d="M5 17a3.3 3.3 0 0 1 6 0M14 10h5M14 14h3"/></svg></i>Certified identity</a><a class="msr-tag" href="#smart-services" style="--d:0.30s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i>Dedicated support</a></div>
         </div>
       </div>
-      <div class="hero-art" id="hero-art"><img src="bahrain-skyline.png" alt="Bahrain skyline" fetchpriority="high" decoding="async"></div>
     </section>
 <div hidden></div>    <style>
   /* ===== SMARTER SERVICES BENTO — DMS theme ===== */
