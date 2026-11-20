@@ -7340,6 +7340,12 @@ input, select, textarea {
     .gd-split ~ .gdb { padding-top:0 !important; }
   }
 </style>
+<style id="gdb-white">
+  .gdb-band { background:radial-gradient(60% 90% at 100% 50%,rgba(214,171,82,.06),transparent 70%), linear-gradient(90deg,#fff 0%,#fff 55%,#fdfcf9 100%) !important; box-shadow:0 18px 44px rgba(120,90,30,.06), inset 0 0 0 1px rgba(185,145,58,.12) !important; }
+  .gdb-glow { display:none !important; }
+  .gdb-photo { position:absolute; left:0; top:0; bottom:0; width:58%; height:100%; object-fit:cover; object-position:center 42%; -webkit-mask-image:linear-gradient(90deg,#000 70%,transparent 100%); mask-image:linear-gradient(90deg,#000 70%,transparent 100%); }
+  @media (max-width:760px) { .gdb-photo { position:relative; max-width:none; align-self:stretch; width:auto; margin-left:-18px !important; margin-right:-18px !important; width:calc(100% + 36px); height:240px; margin:-24px -18px 18px; -webkit-mask-image:linear-gradient(180deg,#000 75%,transparent 100%); mask-image:linear-gradient(180deg,#000 75%,transparent 100%); } }
+</style>
 </head>
 
 <body>
@@ -7776,7 +7782,7 @@ input, select, textarea {
     <section class="gdb" aria-label="Bahrain Golden Visa">
       <div class="gdb-band">
         <span class="gdb-glow" aria-hidden="true"></span>
-        <img class="gdb-card" src="assets/golden-visa-card.webp" alt="Kingdom of Bahrain Golden Visa card" width="720" height="959" loading="lazy" decoding="async">
+        <img class="gdb-photo" src="assets/gdb-ghutra-card.webp" alt="Man in a red checked ghutra holding a Bahrain Golden Visa card" loading="lazy" decoding="async">
         <div class="gdb-tags"><a class="gdb-tag" href="#gd-who" style="--d:0.00s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></i>Employees &amp; families</a><a class="gdb-tag" href="#gd-who" style="--d:0.10s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9H4z"/><path d="M10 20v-5h4v5"/></svg></i>Property owners</a><a class="gdb-tag" href="#gd-who" style="--d:0.20s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg></i>Retired individuals</a><a class="gdb-tag" href="#gd-who" style="--d:0.30s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></i>Specially talented</a></div>
       </div>
     </section>
