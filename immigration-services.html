@@ -9817,7 +9817,7 @@ input, select, textarea {
   @keyframes cio-folder-in { from { opacity:0; transform:translateY(30px) rotate(-2deg); } to { opacity:1; transform:none; } }
   @keyframes cio-folder-float { 0%,100% { transform:translateY(0) rotate(0); } 50% { transform:translateY(-6px) rotate(-.8deg); } }
   @media (max-width:680px) { .cio-services .cio-art { margin:0 -24px -28px; padding-top:24px; } .cio-folder-img { width:100%; } }
-  @media (prefers-reduced-motion: reduce) { .cio-section .cio-folder-img { animation:none !important; opacity:1 !important; transform:none !important; } }
+  @media (prefers-reduced-motion: reduce) { .cio-section .cio-folder-img { animation:none !important; opacity:1 !important; z-index:1 !important; transform:none !important; } }
 
   /* CPR card image + motion */
   .cio-intro .cio-cpr-art { margin:auto -34px -38px; padding-top:24px; overflow:hidden; border-radius:0 0 24px 24px; display:flex; justify-content:flex-end; }
@@ -9829,7 +9829,7 @@ input, select, textarea {
   @keyframes cio-cpr-tilt { 0%,100% { transform:rotate(0) translateY(0); } 50% { transform:rotate(-1.5deg) translateY(-5px); } }
   @media (max-width:1000px) { .cio-intro .cio-cpr-art { margin:auto -23px -28px; } }
   @media (max-width:680px) { .cio-intro .cio-cpr-art { margin:20px -24px -28px; } }
-  @media (prefers-reduced-motion: reduce) { .cio-section .cio-cpr-img { animation:none !important; opacity:1 !important; transform:none !important; } }
+  @media (prefers-reduced-motion: reduce) { .cio-section .cio-cpr-img { animation:none !important; opacity:1 !important; z-index:1 !important; transform:none !important; } }
 
   /* Main centred heading */
   .cio-head { max-width:1400px; margin:20px auto 40px; text-align:center; padding:0 12px; }
@@ -10497,7 +10497,7 @@ input, select, textarea {
   @keyframes imm-photo-in { from { opacity:0; transform:translate(-50%,40px); } to { opacity:1; transform:translate(-50%,0); } }
   @keyframes imm-photo-float { 0%,100% { transform:translate(-50%,0) rotate(0); } 50% { transform:translate(-50%,-7px) rotate(-1.5deg); } }
   @media (max-width:520px) { .imm-v2 .imm-photo-art { height:320px; } .imm-v2 .imm-passport-photo { width:52%; } }
-  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-passport-photo { animation:none !important; opacity:1 !important; transform:translateX(-50%) !important; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-passport-photo { animation:none !important; opacity:1 !important; z-index:1 !important; transform:translateX(-50%) !important; } }
 
   /* Card 2 photo: residence services phone */
   .imm-v2 .imm-phone-photo-art { display:block; height:300px; min-height:300px; overflow:hidden; }
@@ -10507,7 +10507,7 @@ input, select, textarea {
   @media (hover:hover) and (pointer:fine) { .imm-v2 .imm-card:hover .imm-phone-photo { scale:1.04; } }
   @keyframes imm-phone-photo-float { 0%,100% { transform:translate(-50%,0); } 50% { transform:translate(-50%,-7px); } }
   @media (max-width:520px) { .imm-v2 .imm-phone-photo-art { height:320px; } .imm-v2 .imm-phone-photo { width:80%; } }
-  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-phone-photo { animation:none !important; opacity:1 !important; transform:translateX(-50%) !important; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-phone-photo { animation:none !important; opacity:1 !important; z-index:1 !important; transform:translateX(-50%) !important; } }
 
   /* Card 3 photo: family */
   .imm-v2 .imm-family-photo-art { display:block; height:300px; min-height:300px; overflow:hidden; }
@@ -10522,7 +10522,7 @@ input, select, textarea {
   .imm-v2 .imm-is-visible .imm-family-photo.imm-fam-beach { animation:imm-fam-in 1s cubic-bezier(.2,.7,.2,1) .3s both; }
   @keyframes imm-fam-in { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:none; } }
   @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-family-photo.imm-fam-beach { transform:none !important; } }
-  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-family-photo { animation:none !important; opacity:1 !important; transform:translateX(-50%) !important; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-family-photo { animation:none !important; opacity:1 !important; z-index:1 !important; transform:translateX(-50%) !important; } }
 
   /* Card 4 photo: plane in hand */
   .imm-v2 .imm-plane-photo-art { display:block; height:300px; min-height:300px; overflow:hidden; }
@@ -10532,7 +10532,7 @@ input, select, textarea {
   @media (hover:hover) and (pointer:fine) { .imm-v2 .imm-card:hover .imm-plane-photo { scale:1.04; } }
   @keyframes imm-plane-fly { 0%,100% { transform:translate(-50%,0) rotate(0); } 50% { transform:translate(calc(-50% + 4px),-8px) rotate(-2.5deg); } }
   @media (max-width:520px) { .imm-v2 .imm-plane-photo-art { height:330px; } }
-  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-plane-photo { animation:none !important; opacity:1 !important; transform:translateX(-50%) !important; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-plane-photo { animation:none !important; opacity:1 !important; z-index:1 !important; transform:translateX(-50%) !important; } }
 
   /* Card 5 photo: KSA Iqama portrait */
   .imm-v2 .imm-portrait-art { display:block; height:310px; min-height:310px; overflow:hidden; }
@@ -10544,7 +10544,7 @@ input, select, textarea {
   @keyframes imm-portrait-zoom { 0%,100% { transform:scale(1) translateX(0); } 50% { transform:scale(1.05) translateX(-6px); } }
   @media (hover:hover) and (pointer:fine) { .imm-v2 .imm-card:hover .imm-portrait-photo { scale:1.03; } .imm-v2 .imm-portrait-photo { transition:scale .5s ease; } }
   @media (max-width:520px) { .imm-v2 .imm-portrait-art { height:240px; min-height:240px; } .imm-v2 .imm-portrait-photo { object-position:72% 30%; } }
-  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-portrait-photo { animation:none !important; opacity:1 !important; transform:none !important; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-portrait-photo { animation:none !important; opacity:1 !important; z-index:1 !important; transform:none !important; } }
     </style>
 <style>
   /* ===== GOSI DEPARTMENT SERVICES — DMS theme ===== */
@@ -11063,6 +11063,22 @@ input, select, textarea {
 <style id="imm-pp4-css">
   .imm-v2 .imm-passport-photo.imm-pp4 { top:auto; bottom:0; width:auto; height:auto; max-width:min(92%,330px); max-height:100%; filter:none; }
   .imm-v2 .imm-is-visible .imm-passport-photo.imm-pp4 { animation:imm-photo-in 1s cubic-bezier(.2,.7,.2,1) .2s both; }
+</style>
+<style id="imm-photocard">
+  .imm-v2 .imm-card { position:relative !important; display:flex !important; flex-direction:column !important; padding:0 0 20px !important; min-height:0 !important; border-radius:28px !important; background:#fff !important; border:1px solid #e9eeeb !important; box-shadow:none !important; overflow:hidden !important; }
+  .imm-v2 .imm-card:hover { box-shadow:0 12px 28px rgba(7,63,44,.07) !important; }
+  .imm-v2 .imm-card > .imm-art { order:-1; position:relative !important; inset:auto !important; width:100% !important; height:230px !important; margin:0 0 -54px !important; padding:0 !important; background:radial-gradient(70% 90% at 70% 30%,rgba(60,207,122,.22),transparent 70%), linear-gradient(160deg,#eef8f2 0%,#dcf1e5 100%) !important; overflow:hidden; transform:none !important; display:block !important; }
+  .imm-v2 .imm-card > .imm-art img { position:absolute !important; left:50% !important; right:auto !important; top:auto !important; bottom:0 !important; width:auto !important; height:94% !important; max-width:92% !important; object-fit:contain !important; transform:translateX(-50%) !important; animation:none !important; opacity:1 !important; z-index:1 !important; filter:none !important; -webkit-mask-image:none !important; mask-image:none !important; }
+  .imm-v2 .imm-card > .imm-art img.imm-causeway { height:100% !important; max-width:none !important; width:100% !important; object-fit:cover !important; }
+  .imm-v2 .imm-card > .imm-art::after { content:""; position:absolute; inset:0 0 -2px 0; z-index:5 !important; background:linear-gradient(180deg,rgba(255,255,255,0) 50%,rgba(255,255,255,.8) 70%,#fff 86%) !important; display:block !important; opacity:1 !important; pointer-events:none; }
+  .imm-v2 .imm-card .imm-card-content { position:relative; z-index:6 !important; padding:0 22px !important; background:none !important; }
+  .imm-v2 .imm-card .imm-eyebrow { display:inline-block; margin-bottom:8px !important; padding:4px 10px; border-radius:999px; background:#eef8f2; color:#0d9b49 !important; font:500 11px/1.2 Inter, system-ui, sans-serif !important; letter-spacing:.02em !important; text-transform:none !important; }
+  .imm-v2 .imm-card h2 { margin:0 0 10px !important; font:500 clamp(19px,1.55vw,22px)/1.25 Inter, system-ui, sans-serif !important; letter-spacing:-.5px !important; color:#0b1f16 !important; background:none !important; -webkit-text-fill-color:#0b1f16 !important; }
+  .imm-v2 .imm-card .imm-service-list { display:grid !important; gap:0 !important; margin:0 !important; padding:0 !important; }
+  .imm-v2 .imm-card .imm-service-list li { display:flex !important; align-items:flex-start; gap:10px; padding:9px 0 !important; margin:0 !important; background:none !important; box-shadow:none !important; border-radius:0 !important; border-top:1px solid #eef2ef !important; font-size:13.5px !important; line-height:1.4 !important; color:#2b302d !important; }
+  .imm-v2 .imm-card .imm-service-list li:first-child { border-top:0 !important; }
+  .imm-v2 .imm-card .imm-service-list li::before { flex:0 0 18px !important; width:18px !important; height:18px !important; margin:1px 0 0 !important; border-radius:50% !important; position:static !important; }
+  .imm-v2 .imm-card-wide > .imm-art { height:230px !important; }
 </style>
 </head>
 <body>
@@ -11833,7 +11849,7 @@ input, select, textarea {
   @keyframes imm-photo-in { from { opacity:0; transform:translate(-50%,40px); } to { opacity:1; transform:translate(-50%,0); } }
   @keyframes imm-photo-float { 0%,100% { transform:translate(-50%,0) rotate(0); } 50% { transform:translate(-50%,-7px) rotate(-1.5deg); } }
   @media (max-width:520px) { .imm-v2 .imm-photo-art { height:320px; } .imm-v2 .imm-passport-photo { width:52%; } }
-  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-passport-photo { animation:none !important; opacity:1 !important; transform:translateX(-50%) !important; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-passport-photo { animation:none !important; opacity:1 !important; z-index:1 !important; transform:translateX(-50%) !important; } }
 
   /* Card 2 photo: residence services phone */
   .imm-v2 .imm-phone-photo-art { display:block; height:300px; min-height:300px; overflow:hidden; }
@@ -11843,7 +11859,7 @@ input, select, textarea {
   @media (hover:hover) and (pointer:fine) { .imm-v2 .imm-card:hover .imm-phone-photo { scale:1.04; } }
   @keyframes imm-phone-photo-float { 0%,100% { transform:translate(-50%,0); } 50% { transform:translate(-50%,-7px); } }
   @media (max-width:520px) { .imm-v2 .imm-phone-photo-art { height:320px; } .imm-v2 .imm-phone-photo { width:80%; } }
-  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-phone-photo { animation:none !important; opacity:1 !important; transform:translateX(-50%) !important; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-phone-photo { animation:none !important; opacity:1 !important; z-index:1 !important; transform:translateX(-50%) !important; } }
 
   /* Card 3 photo: family */
   .imm-v2 .imm-family-photo-art { display:block; height:300px; min-height:300px; overflow:hidden; }
@@ -11858,7 +11874,7 @@ input, select, textarea {
   .imm-v2 .imm-is-visible .imm-family-photo.imm-fam-beach { animation:imm-fam-in 1s cubic-bezier(.2,.7,.2,1) .3s both; }
   @keyframes imm-fam-in { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:none; } }
   @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-family-photo.imm-fam-beach { transform:none !important; } }
-  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-family-photo { animation:none !important; opacity:1 !important; transform:translateX(-50%) !important; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-family-photo { animation:none !important; opacity:1 !important; z-index:1 !important; transform:translateX(-50%) !important; } }
 
   /* Card 4 photo: plane in hand */
   .imm-v2 .imm-plane-photo-art { display:block; height:300px; min-height:300px; overflow:hidden; }
@@ -11868,7 +11884,7 @@ input, select, textarea {
   @media (hover:hover) and (pointer:fine) { .imm-v2 .imm-card:hover .imm-plane-photo { scale:1.04; } }
   @keyframes imm-plane-fly { 0%,100% { transform:translate(-50%,0) rotate(0); } 50% { transform:translate(calc(-50% + 4px),-8px) rotate(-2.5deg); } }
   @media (max-width:520px) { .imm-v2 .imm-plane-photo-art { height:330px; } }
-  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-plane-photo { animation:none !important; opacity:1 !important; transform:translateX(-50%) !important; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-plane-photo { animation:none !important; opacity:1 !important; z-index:1 !important; transform:translateX(-50%) !important; } }
 
   /* Card 5 photo: KSA Iqama portrait */
   .imm-v2 .imm-portrait-art { display:block; height:310px; min-height:310px; overflow:hidden; }
@@ -11880,7 +11896,7 @@ input, select, textarea {
   @keyframes imm-portrait-zoom { 0%,100% { transform:scale(1) translateX(0); } 50% { transform:scale(1.05) translateX(-6px); } }
   @media (hover:hover) and (pointer:fine) { .imm-v2 .imm-card:hover .imm-portrait-photo { scale:1.03; } .imm-v2 .imm-portrait-photo { transition:scale .5s ease; } }
   @media (max-width:520px) { .imm-v2 .imm-portrait-art { height:240px; min-height:240px; } .imm-v2 .imm-portrait-photo { object-position:72% 30%; } }
-  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-portrait-photo { animation:none !important; opacity:1 !important; transform:none !important; } }
+  @media (prefers-reduced-motion: reduce) { .imm-v2 .imm-portrait-photo { animation:none !important; opacity:1 !important; z-index:1 !important; transform:none !important; } }
     </style>
     <section class="imm-v2" id="immigration-services" aria-labelledby="imm-title">
       <div class="imm-services"><svg class="imm-svg-definitions" aria-hidden="true"
