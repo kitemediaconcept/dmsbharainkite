@@ -11107,6 +11107,24 @@ input, select, textarea {
 <style id="lmra-msr-fix">@media (min-width:861px){ .msr-tags { flex-direction:column; align-items:flex-end; } } .bahrain-subpage-main { padding-top:0 !important; } .bahrain-subpage-main > .msr { margin-top:0; } .msr-title { font-size:clamp(34px,4vw,54px) !important; }</style>
 <style id="cio-hero-fit">.msr-photo.cio-hero-img { top:auto !important; bottom:0 !important; transform:none !important; height:96% !important; left:0 !important; -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%); mask-image:linear-gradient(90deg,transparent 0,#000 22%); }
 @media (max-width:860px){ .msr-photo.cio-hero-img { height:260px !important; margin:24px auto 0 !important; } }</style>
+<style id="bcx-css">
+  .bcx { width:min(1200px, calc(100% - 48px)); margin:clamp(28px,3vw,44px) auto 0; font-family:Inter, system-ui, sans-serif; }
+  .bcx-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+  .bcx-card { position:relative; overflow:hidden; display:flex; flex-direction:column; padding:0 0 22px; border-radius:26px; background:#fff; border:1px solid #e9eeeb; transition:box-shadow .4s ease, transform .4s cubic-bezier(.16,1,.3,1); }
+  .bcx-card:hover { transform:translateY(-3px); box-shadow:0 14px 30px rgba(7,63,44,.08); }
+  .bcx-img { position:relative; height:200px; margin-bottom:-56px; overflow:hidden; background:#fff; }
+  .bcx-img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.16,1,.3,1); }
+  .bcx-card:hover .bcx-img img { transform:scale(1.04); }
+  .bcx-img::after { content:""; position:absolute; inset:0 0 -2px 0; background:linear-gradient(180deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.75) 62%,rgba(255,255,255,.98) 80%,#fff 88%,#fff 100%); }
+  .bcx-card h3 { position:relative; z-index:1; margin:0 20px 8px; font:500 clamp(17px,1.35vw,19px)/1.25 Inter, system-ui, sans-serif; letter-spacing:-.4px; color:#0b1f16; }
+  .bcx-card p { position:relative; z-index:1; margin:0 20px; font:400 13.5px/1.5 Inter, system-ui, sans-serif; color:#6b726e; }
+  .bcx-band { display:flex; align-items:center; justify-content:space-between; gap:20px 32px; flex-wrap:wrap; margin-top:22px; padding:22px 28px; border-radius:22px; background:linear-gradient(135deg,#ffffff 0%,#f7faf8 55%,#eef6f1 100%); box-shadow:0 14px 34px rgba(7,63,44,.08), inset 0 0 0 1px rgba(7,63,44,.05); }
+  .bcx-band h3 { margin:0; font:500 clamp(19px,1.7vw,23px)/1.2 Inter, system-ui, sans-serif; letter-spacing:-.5px; color:#073f2c; }
+  .bcx-band p { margin:6px 0 0; font:400 14px/1.5 Inter, system-ui, sans-serif; color:#5a5f62; }
+  .bcx-band-a { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  @media (max-width:1000px) { .bcx-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:560px) { .bcx-grid { grid-template-columns:1fr; } .bcx-band { padding:20px; } }
+</style>
 </head>
 <body>
 <div class="dms-nav-outer-container">
@@ -11227,19 +11245,11 @@ input, select, textarea {
       </div>
     </section>
 <div hidden></div>    <!-- CIO SERVICES SECTION -->
-<section class="cio-section cio-v2" id="cio-services" aria-labelledby="cio-v2-t">
-  <div class="cio2">
-    <div class="cio2-art"><img src="assets/bahrain-cpr-card.png" width="900" height="758" alt="Hand holding a Kingdom of Bahrain identity card (CPR)" loading="lazy" decoding="async"></div>
-    <div class="cio2-copy">
-      <span class="cio2-k">CIO services</span>
-      <h2 class="dms-sh" id="cio-v2-t">Central Informatics Organization Services</h2>
-      <p class="dms-sp">Support for Bahrain CPR and official certificates.</p>
-      <ul><li><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16a3.4 3.4 0 0 1 6.4 0M14 10h4M14 13.5h3"/></svg></i>New, renewal or lost Bahrain CPR</li><li><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></svg></i>CPR update</li><li><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16"/><path d="M15 10h4a1 1 0 0 1 1 1v10M3 21h18M8 8h3M8 12h3M8 16h3"/></svg></i>Establishment / Unit Registration Certificate</li><li><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></i>Address Confirmation Certificate for GCC Nationals</li></ul>
-      <div class="lmx-cta cio2-cta">
-        <a class="lmx-btn" href="#contact">Get CIO support <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a>
-        <a class="lmx-wa" href="https://wa.me/97317290001" target="_blank" rel="noopener">or WhatsApp us</a>
-      </div>
-    </div>
+<section class="bcx" id="cio-services" aria-label="Central Informatics Organization services">
+  <div class="bcx-grid"><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/bahrain-cpr-card.png" alt="" loading="lazy" decoding="async" style="object-position:center 40%"></div><h3>New, renewal or lost Bahrain CPR</h3><p>Apply for a new CPR, renew it, or replace a lost card.</p></article><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/da-hero-hand.webp" alt="" loading="lazy" decoding="async" style="object-position:center 30%"></div><h3>CPR update</h3><p>Update the details held on your CPR record.</p></article><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/moic-meeting.webp" alt="" loading="lazy" decoding="async" style="object-position:center 30%"></div><h3>Establishment / Unit Registration Certificate</h3><p>Certificates for your establishment or unit registration.</p></article><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/sv-family.webp" alt="" loading="lazy" decoding="async" style="object-position:center 45%"></div><h3>Address Confirmation Certificate for GCC Nationals</h3><p>Official address confirmation for GCC nationals in Bahrain.</p></article></div>
+  <div class="bcx-band">
+    <div><h3>Need help with a CIO application?</h3><p>Tell us what you need and our team will handle the paperwork and follow-up.</p></div>
+    <div class="bcx-band-a"><a class="lmx-btn" href="#contact">Get CIO support <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></a><a class="lmx-wa" href="https://wa.me/97317290001" target="_blank" rel="noopener">or WhatsApp us</a></div>
   </div>
 </section>
 
