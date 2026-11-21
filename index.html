@@ -7361,6 +7361,38 @@ input, select, textarea {
   .hrec-cap::before { content:""; display:inline-block; width:6px; height:6px; margin-right:7px; border-radius:50%; background:#0d9b49; vertical-align:1px; }
   @media (max-width:760px) { .hrec-cap { font-size:11.5px; } }
 </style>
+<style id="fsx-css">
+  .fsx { width:min(760px,calc(100% - 32px)); margin:clamp(8px,1.5vw,18px) auto clamp(36px,5vw,64px); text-align:center; font-family:Inter,"Helvetica Neue",Arial,sans-serif; }
+  .fsx-t { margin:0 0 14px !important; font-size:clamp(17px,1.5vw,20px) !important; font-weight:500 !important; letter-spacing:-.3px !important; color:#0b1f16 !important; }
+  .fsx-bar { position:relative; display:flex; align-items:center; gap:6px; padding:6px; border-radius:999px; background:#fff; border:1px solid #e1e8e4; box-shadow:0 10px 28px rgba(7,63,44,.07); transition:border-color .2s, box-shadow .2s; }
+  .fsx-bar:focus-within { border-color:#0d9b49; box-shadow:0 10px 28px rgba(13,155,73,.14); }
+  .fsx-ico { display:grid; place-items:center; width:34px; padding-left:8px; }
+  .fsx-ico svg, .fsx-car { width:17px; height:17px; fill:none; stroke:#7a8580; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .fsx-in { flex:1; min-width:0; border:0; outline:0; background:none; font:400 15px/1.2 Inter,sans-serif; color:#0b1f16; padding:10px 4px; }
+  .fsx-in::placeholder { color:#8b938f; }
+  .fsx-in::-webkit-search-cancel-button { display:none; }
+  .fsx-div { width:1px; height:24px; background:#e1e8e4; }
+  .fsx-sel-w { position:relative; display:flex; align-items:center; }
+  .fsx-sel { appearance:none; -webkit-appearance:none; border:0; outline:0; background:none; font:500 14px/1 Inter,sans-serif; color:#2b302d; padding:10px 30px 10px 12px; cursor:pointer; max-width:200px; text-overflow:ellipsis; }
+  .fsx-car { position:absolute; right:8px; pointer-events:none; }
+  .fsx-go { border:0; cursor:pointer; padding:12px 22px; border-radius:999px; color:#fff; font:500 14.5px/1 Inter,sans-serif; background:linear-gradient(135deg,#19b35a 0%,#0d9b49 45%,#073f2c 100%); box-shadow:0 8px 18px rgba(13,155,73,.22); transition:transform .2s; }
+  .fsx-go:hover { transform:translateY(-1px); }
+  .fsx-list { position:absolute; left:0; right:0; top:calc(100% + 8px); z-index:30; margin:0; padding:6px; list-style:none; text-align:left; background:#fff; border:1px solid #e1e8e4; border-radius:18px; box-shadow:0 18px 40px rgba(7,63,44,.12); max-height:300px; overflow:auto; }
+  .fsx-list li { padding:10px 14px; border-radius:12px; font-size:14px; color:#1d2124; cursor:pointer; display:flex; justify-content:space-between; gap:12px; }
+  .fsx-list li span { color:#8b938f; font-size:12.5px; }
+  .fsx-list li[aria-selected="true"], .fsx-list li:hover { background:#eef8f2; color:#0d9b49; }
+  .fsx-list li.fsx-none { color:#8b938f; cursor:default; background:none; }
+  .fsx-shake { animation:fsx-sh .35s; }
+  @keyframes fsx-sh { 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+  @media (max-width:640px) {
+    .fsx-bar { flex-wrap:wrap; border-radius:22px; padding:8px; }
+    .fsx-in { flex:1 1 calc(100% - 50px); }
+    .fsx-div { display:none; }
+    .fsx-sel-w { flex:1; border-top:1px solid #eef2ef; padding-top:4px; }
+    .fsx-sel { max-width:none; width:100%; }
+    .fsx-go { flex:0 0 auto; }
+  }
+</style>
 </head>
 
 <body>
@@ -7593,6 +7625,21 @@ input, select, textarea {
       </div>
 
     </div>
+  </section>
+
+<section class="fsx" aria-labelledby="fsx-title">
+    <h2 class="fsx-t" id="fsx-title">What can we help you with?</h2>
+    <form class="fsx-bar" id="fsx-form" role="search" autocomplete="off">
+      <span class="fsx-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <input class="fsx-in" id="fsx-in" type="search" placeholder="Search a service, e.g. LMRA" aria-label="Search services" aria-autocomplete="list" aria-controls="fsx-list">
+      <span class="fsx-div" aria-hidden="true"></span>
+      <label class="fsx-sel-w"><span class="sr-only">Choose a service</span>
+        <select class="fsx-sel" id="fsx-sel"><option value="" selected>All services</option><option value="lmra-services.html">LMRA Services</option><option value="gosi-services.html">GOSI Services</option><option value="cio-services.html">CIO / CPR Services</option><option value="moic-services.html">MOIC Services</option><option value="bahrain-chamber-services.html">Bahrain Chamber (BCCI)</option><option value="ministry-services.html">Ministry of Interior & Traffic</option><option value="utility-services.html">Municipality, Electricity & Water</option><option value="immigration-services.html">Immigration Services</option><option value="golden-visa.html">Golden Visa</option><option value="self-sponsorship-visa.html">Self-sponsorship Visa</option><option value="family-joining-visa.html">Family Joining Visa</option><option value="saudi-visa.html">Saudi Visa</option><option value="global-visa.html">Global Visa</option><option value="document-attestation.html">Document Attestation</option><option value="company-registration.html">Company Registration</option><option value="annual-compliance.html">Annual Compliance</option><option value="wps-services.html">WPS Services</option><option value="management-consultancy.html">Management Consultancy</option><option value="bahrain-ministry-services.html">All Ministry Services</option></select>
+        <svg class="fsx-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </label>
+      <button class="fsx-go" type="submit">Search</button>
+      <ul class="fsx-list" id="fsx-list" role="listbox" hidden></ul>
+    </form>
   </section>
 
   <!-- DMS ABOUT US SECTION (ribbon design) -->
@@ -11005,5 +11052,25 @@ b.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-red
 })();
 </script>
 
+<script id="fsx-js">
+(function(){
+  var S=[["LMRA Services", "lmra-services.html", "lmra work permit visa labour market employee"], ["GOSI Services", "gosi-services.html", "gosi social insurance contributions"], ["CIO / CPR Services", "cio-services.html", "cio cpr id card identity information egovernment"], ["MOIC Services", "moic-services.html", "moic commercial registration cr industry commerce sijilat"], ["Bahrain Chamber (BCCI)", "bahrain-chamber-services.html", "bcci chamber membership certificate of origin"], ["Ministry of Interior & Traffic", "ministry-services.html", "interior traffic driving license vehicle police clearance good conduct ekey"], ["Municipality, Electricity & Water", "utility-services.html", "municipality ewa electricity water lease utility"], ["Immigration Services", "immigration-services.html", "immigration npra residence permit visit visa"], ["Golden Visa", "golden-visa.html", "golden visa residency"], ["Self-sponsorship Visa", "self-sponsorship-visa.html", "self sponsorship flexi visa"], ["Family Joining Visa", "family-joining-visa.html", "family joining dependant spouse children"], ["Saudi Visa", "saudi-visa.html", "saudi ksa visa umrah embassy"], ["Global Visa", "global-visa.html", "global visa schengen uk usa turkey uae embassy"], ["Document Attestation", "document-attestation.html", "attestation certificate mofa legalisation documents"], ["Company Registration", "company-registration.html", "company formation registration setup business"], ["Annual Compliance", "annual-compliance.html", "annual compliance audit renewal esr ubo"], ["WPS Services", "wps-services.html", "wps wage protection salary payroll"], ["Management Consultancy", "management-consultancy.html", "management consultancy administration"], ["All Ministry Services", "bahrain-ministry-services.html", "ministry government services all"]];
+  var f=document.getElementById('fsx-form'); if(!f) return;
+  var inp=document.getElementById('fsx-in'), sel=document.getElementById('fsx-sel'), list=document.getElementById('fsx-list'), act=-1, cur=[];
+  function score(q,s){ q=q.toLowerCase().trim(); if(!q) return 0; var n=s[0].toLowerCase(), k=s[2]; if(n.indexOf(q)===0) return 3; if(n.indexOf(q)>-1) return 2; var w=q.split(/\s+/), hit=0; w.forEach(function(x){ if(x && (k.indexOf(x)>-1||n.indexOf(x)>-1)) hit++; }); return hit===w.length?1:0; }
+  function match(q){ return S.map(function(s){return [score(q,s),s]}).filter(function(a){return a[0]>0}).sort(function(a,b){return b[0]-a[0]}).map(function(a){return a[1]}); }
+  function render(){ var q=inp.value; if(!q.trim()){ list.hidden=true; return; } cur=match(q).slice(0,6); act=cur.length?0:-1;
+    list.innerHTML = cur.length ? cur.map(function(s,i){return '<li role="option" data-u="'+s[1]+'" aria-selected="'+(i===act)+'">'+s[0]+'<span>&#8594;</span></li>'}).join('') : '<li class="fsx-none">No match &ndash; try the dropdown or WhatsApp us</li>';
+    list.hidden=false; }
+  function go(u){ if(u) location.href=u; }
+  inp.addEventListener('input',render);
+  inp.addEventListener('keydown',function(e){ if(list.hidden||!cur.length) return; if(e.key==='ArrowDown'||e.key==='ArrowUp'){ e.preventDefault(); act=(act+(e.key==='ArrowDown'?1:-1)+cur.length)%cur.length; [].forEach.call(list.children,function(li,i){li.setAttribute('aria-selected',i===act)}); } else if(e.key==='Escape'){ list.hidden=true; } });
+  list.addEventListener('mousedown',function(e){ var li=e.target.closest('li[data-u]'); if(li){ e.preventDefault(); go(li.getAttribute('data-u')); } });
+  inp.addEventListener('blur',function(){ setTimeout(function(){list.hidden=true},120); });
+  sel.addEventListener('change',function(){ go(sel.value); });
+  f.addEventListener('submit',function(e){ e.preventDefault(); if(inp.value.trim()){ var m=(act>-1&&cur[act])?cur[act]:match(inp.value)[0]; if(m) return go(m[1]); } else if(sel.value){ return go(sel.value); }
+    f.classList.remove('fsx-shake'); void f.offsetWidth; f.classList.add('fsx-shake'); inp.focus(); });
+})();
+</script>
 </body>
 </html>
