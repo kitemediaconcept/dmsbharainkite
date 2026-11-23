@@ -7399,6 +7399,28 @@ input, select, textarea {
 <style id="cr-hero-blend">
   .msr-photo.cr-hero-img { mix-blend-mode:multiply; -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 80%,transparent 100%),linear-gradient(180deg,#000 72%,transparent 98%); mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 80%,transparent 100%),linear-gradient(180deg,#000 72%,transparent 98%); -webkit-mask-composite:source-in; mask-composite:intersect; }
 </style>
+<style id="bcx-css">
+  .bcx { width:min(1200px, calc(100% - 48px)); margin:clamp(28px,3vw,44px) auto 0; font-family:Inter, system-ui, sans-serif; }
+  .bcx-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+  .bcx-card { position:relative; overflow:hidden; display:flex; flex-direction:column; padding:0 0 22px; border-radius:26px; background:#fff; border:1px solid #e9eeeb; transition:box-shadow .4s ease, transform .4s cubic-bezier(.16,1,.3,1); }
+  .bcx-card:hover { transform:translateY(-3px); box-shadow:0 14px 30px rgba(7,63,44,.08); }
+  .bcx-img { position:relative; height:200px; margin-bottom:-56px; overflow:hidden; background:#fff; }
+  .bcx-img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.16,1,.3,1); }
+  .bcx-card:hover .bcx-img img { transform:scale(1.04); }
+  .bcx-img::after { content:""; position:absolute; inset:0 0 -2px 0; background:linear-gradient(180deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.75) 62%,rgba(255,255,255,.98) 80%,#fff 88%,#fff 100%); }
+  .bcx-card h3 { position:relative; z-index:1; margin:0 20px 8px; font:500 clamp(17px,1.35vw,19px)/1.25 Inter, system-ui, sans-serif; letter-spacing:-.4px; color:#0b1f16; }
+  .bcx-card p { position:relative; z-index:1; margin:0 20px; font:400 13.5px/1.5 Inter, system-ui, sans-serif; color:#6b726e; }
+  .bcx-band { display:flex; align-items:center; justify-content:space-between; gap:20px 32px; flex-wrap:wrap; margin-top:22px; padding:22px 28px; border-radius:22px; background:linear-gradient(135deg,#ffffff 0%,#f7faf8 55%,#eef6f1 100%); box-shadow:0 14px 34px rgba(7,63,44,.08), inset 0 0 0 1px rgba(7,63,44,.05); }
+  .bcx-band h3 { margin:0; font:500 clamp(19px,1.7vw,23px)/1.2 Inter, system-ui, sans-serif; letter-spacing:-.5px; color:#073f2c; }
+  .bcx-band p { margin:6px 0 0; font:400 14px/1.5 Inter, system-ui, sans-serif; color:#5a5f62; }
+  .bcx-band-a { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  @media (max-width:1000px) { .bcx-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:560px) { .bcx-grid { grid-template-columns:1fr; } .bcx-band { padding:20px; } }
+</style>
+<style id="crc-bcx-fit">
+  .crc-bcx { width:min(1200px,calc(100% - 48px)); margin:0 auto; }
+  .crc-bcx .bcx-card h3 { -webkit-text-fill-color:#0b1f16; background:none; }
+</style>
 </head>
 
 <body>
@@ -7594,53 +7616,7 @@ input, select, textarea {
       </div>
     </section>
 
-    <section class="crc-sec" aria-label="Company registration services">
-      <div class="crc-grid">
-        <article class="crc-card crc-ph" style="--i:0"><img class="crc-bg" src="assets/crc/formation.webp?v=3" alt="" loading="lazy" decoding="async">
-          <span class="crc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16"/><path d="M6 21V8l6-4 6 4v13"/><path d="M10 21v-5h4v5"/><path d="M9 11h.01M15 11h.01"/></svg></span>
-          <h3>Company formation</h3>
-          <p>Set up your new company in Bahrain with the right structure, licences and approvals.</p>
-          <a class="crc-cta" href="#contact">Enquire now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        </article>
-        <article class="crc-card crc-ph" style="--i:1"><img class="crc-bg" src="assets/crc/consult.webp?v=3" alt="" loading="lazy" decoding="async">
-          <span class="crc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></span>
-          <h3>Consultation</h3>
-          <p>Clear advice on the requirements and options that apply to your business.</p>
-          <a class="crc-cta" href="#contact">Enquire now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        </article>
-        <article class="crc-card crc-ph" style="--i:2"><img class="crc-bg" src="assets/crc/shares.webp?v=3" alt="" loading="lazy" decoding="async">
-          <span class="crc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v8l6 4"/></svg></span>
-          <h3>Transfer, issue or merge of shares</h3>
-          <p>Handle share transfers, new issues and mergers with the relevant authorities.</p>
-          <a class="crc-cta" href="#contact">Enquire now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        </article>
-        <article class="crc-card crc-ph" style="--i:3"><img class="crc-bg" src="assets/crc/activity.webp?v=3" alt="" loading="lazy" decoding="async">
-          <span class="crc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2"/><path d="m9 14 2 2 4-4"/></svg></span>
-          <h3>Change of company activity</h3>
-          <p>Add, remove or amend the commercial activities on your registration.</p>
-          <a class="crc-cta" href="#contact">Enquire now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        </article>
-        <article class="crc-card crc-ph" style="--i:4"><img class="crc-bg" src="assets/crc/address.webp?v=3" alt="" loading="lazy" decoding="async">
-          <span class="crc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-          <h3>Change of company address</h3>
-          <p>Update your registered company address with the authorities.</p>
-          <a class="crc-cta" href="#contact">Enquire now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        </article>
-        <article class="crc-card crc-ph" style="--i:5"><img class="crc-bg" src="assets/crc/board.webp?v=3" alt="" loading="lazy" decoding="async">
-          <span class="crc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M2.5 20c.6-3.7 2.8-5.5 5.5-5.5s4.9 1.8 5.5 5.5M14.5 14.7c2.6-.2 4.5 1.4 5 4.8"/></svg></span>
-          <h3>Change of authorised persons and Board of Directors</h3>
-          <p>Update signatories, authorised persons and board members.</p>
-          <a class="crc-cta" href="#contact">Enquire now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        </article>
-        <article class="crc-card crc-ph" style="--i:6"><img class="crc-bg" src="assets/crc/moa.webp?v=3" alt="" loading="lazy" decoding="async">
-          <span class="crc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="m9 14 2 2 4-4"/></svg></span>
-          <h3>Certified copy of Memorandum of Association (MOA) and Articles of Association (AOA)</h3>
-          <p>Obtain certified copies of your MOA and AOA for official use.</p>
-          <a class="crc-cta" href="#contact">Enquire now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
-        </article>
-      </div>
-
-    </section>
+    <section class="crc-sec" aria-label="Company registration services"><div class="bcx-wrap crc-bcx"><div class="bcx-grid"><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/crc/formation.webp?v=3" alt="" loading="lazy" decoding="async" style="object-position:right center"></div><h3>Company formation</h3><p>Set up your new company in Bahrain with the right structure, licences and approvals.</p></article><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/crc/consult.webp?v=3" alt="" loading="lazy" decoding="async" style="object-position:right center"></div><h3>Consultation</h3><p>Clear advice on the requirements and options that apply to your business.</p></article><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/crc/shares.webp?v=3" alt="" loading="lazy" decoding="async" style="object-position:right center"></div><h3>Transfer, issue or merge of shares</h3><p>Handle share transfers, new issues and mergers with the relevant authorities.</p></article><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/crc/activity.webp?v=3" alt="" loading="lazy" decoding="async" style="object-position:right center"></div><h3>Change of company activity</h3><p>Add, remove or amend the commercial activities on your registration.</p></article><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/crc/address.webp?v=3" alt="" loading="lazy" decoding="async" style="object-position:right center"></div><h3>Change of company address</h3><p>Update your registered company address with the authorities.</p></article><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/crc/board.webp?v=3" alt="" loading="lazy" decoding="async" style="object-position:right center"></div><h3>Change of authorised persons and Board of Directors</h3><p>Update signatories, authorised persons and board members.</p></article><article class="bcx-card"><div class="bcx-img" aria-hidden="true"><img src="assets/crc/moa.webp?v=3" alt="" loading="lazy" decoding="async" style="object-position:right center"></div><h3>Certified copy of Memorandum of Association (MOA) and Articles of Association (AOA)</h3><p>Obtain certified copies of your MOA and AOA for official use.</p></article></div></div></section>
 
     <!-- CTA -->
     <section class="cr-cta" aria-labelledby="cr-cta-title">
