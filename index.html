@@ -10845,54 +10845,19 @@ input, select, textarea {
     const places = [BH, [24.71, 46.68], [25.2, 55.27], [51.51, -0.13], [19.08, 72.88], [9.93, 76.27], [14.6, 120.98], [30.04, 31.24], [40.71, -74.0], [1.35, 103.82]];
     const markers = places.map((l, i) => ({ location: l, size: i === 0 ? 0.075 : 0.045 }));
     const arcs = places.slice(1).map((to) => ({ from: BH, to }));
-    let globe = null, raf = 0, inView = false, phi = 0.75, theta = 0.32, vel = 0, drag = null, speed = 1;
+    let globe = null, raf = 0, inView = false, phi = 4.05, theta = 0.32, vel = 0, drag = null, speed = 1;
     const sizeNow = () => Math.max(200, Math.round(canvas.closest(".visa-globe-stage").getBoundingClientRect().width));
     function start() {
       if (globe) return;
       try {
         const s = sizeNow(), dpr = Math.min(window.devicePixelRatio || 1, innerWidth < 640 ? 1.8 : 2);
-                globe = (function makeGlobe(cv, o) {
-          const gl = cv.getContext("webgl", { alpha: true, premultipliedAlpha: true, antialias: true });
-          if (!gl) throw new Error("no webgl");
-          const W = o.width * o.devicePixelRatio; cv.width = W; cv.height = W;
-          const stage = cv.parentElement; let ov = stage.querySelector(".vg-over");
-          if (!ov) { ov = document.createElement("canvas"); ov.className = "vg-over"; ov.style.cssText = "position:absolute;inset:0;width:100%;height:100%;pointer-events:none"; stage.appendChild(ov); }
-          ov.width = W; ov.height = W; const cx = ov.getContext("2d");
-          const R = 0.94;
-          const vs = "attribute vec2 p;varying vec2 v;void main(){v=p;gl_Position=vec4(p,0.,1.);}";
-          const fs = "precision highp float;varying vec2 v;uniform sampler2D t;uniform mat3 Mi;uniform float R;void main(){vec2 q=v/R;float r2=dot(q,q);if(r2>1.){gl_FragColor=vec4(0.);return;}vec3 n=vec3(q,sqrt(1.-r2));vec3 w=Mi*n;float lon=atan(w.x,w.z);float lat=asin(clamp(w.y,-1.,1.));vec3 c=texture2D(t,vec2(.5+lon/6.2831853,.5-lat/3.1415927)).rgb;vec3 L=normalize(vec3(-.5,.5,.8));float d=max(dot(n,L),0.);c*=.72+.42*d;float sp=pow(max(dot(reflect(-L,n),vec3(0.,0.,1.)),0.),24.);c+=sp*.35;float e=clamp((1.-sqrt(r2))*R*W/2.,0.,1.);gl_FragColor=vec4(c*e,e);}".replace("W/2.", (W/2).toFixed(1));
-          const sh = (ty, src) => { const x = gl.createShader(ty); gl.shaderSource(x, src); gl.compileShader(x); return x; };
-          const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
-          gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer()); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
-          const ap = gl.getAttribLocation(pr, "p"); gl.enableVertexAttribArray(ap); gl.vertexAttribPointer(ap, 2, gl.FLOAT, false, 0, 0);
-          gl.uniform1f(gl.getUniformLocation(pr, "R"), R); const uMi = gl.getUniformLocation(pr, "Mi");
-          gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA); gl.viewport(0, 0, W, W);
-          let ok = false, cur = { phi: o.phi, theta: o.theta };
-          const tx = gl.createTexture(), im = new Image();
-          im.onload = () => { gl.bindTexture(gl.TEXTURE_2D, tx); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE); ok = true; draw(); };
-          im.src = "assets/earth-political.webp";
-          const D = Math.PI / 180;
-          const vec = ([la, lo]) => [Math.cos(la*D)*Math.sin(lo*D), Math.sin(la*D), Math.cos(la*D)*Math.cos(lo*D)];
-          function M() { const p = -cur.phi, t = cur.theta, cp = Math.cos(p), sp = Math.sin(p), ct = Math.cos(t), st = Math.sin(t); return [[cp,0,sp],[st*sp,ct,-st*cp],[-ct*sp,st,ct*cp]]; }
-          const mul = (m, v) => [m[0][0]*v[0]+m[0][1]*v[1]+m[0][2]*v[2], m[1][0]*v[0]+m[1][1]*v[1]+m[1][2]*v[2], m[2][0]*v[0]+m[2][1]*v[1]+m[2][2]*v[2]];
-          function draw() {
-            if (!ok) return; const m = M();
-            gl.uniformMatrix3fv(uMi, false, new Float32Array([m[0][0],m[0][1],m[0][2],m[1][0],m[1][1],m[1][2],m[2][0],m[2][1],m[2][2]]));
-            gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-            cx.clearRect(0, 0, W, W); const rp = R * W / 2, c0 = W / 2;
-            const proj = (v) => { const r = mul(m, v); return [c0 + r[0]*rp, c0 - r[1]*rp, r[2]]; };
-            const bh = vec(places[0]);
-            cx.lineWidth = Math.max(1.5, W/320); cx.strokeStyle = "rgba(13,110,60,.85)";
-            places.slice(1).forEach((pl) => { const to = vec(pl); cx.beginPath(); let started = false;
-              for (let i = 0; i <= 40; i++) { const t = i/40; let v = [bh[0]*(1-t)+to[0]*t, bh[1]*(1-t)+to[1]*t, bh[2]*(1-t)+to[2]*t]; const L = Math.hypot(...v); const h = 1 + Math.sin(Math.PI*t)*0.1; v = v.map(x => x/L*h);
-                const q = proj(v); if (q[2] < 0.02) { started = false; continue; } if (!started) { cx.moveTo(q[0], q[1]); started = true; } else cx.lineTo(q[0], q[1]); }
-              cx.stroke(); });
-            places.forEach((pl, i) => { const q = proj(vec(pl)); if (q[2] < 0) return; cx.beginPath(); cx.arc(q[0], q[1], (i === 0 ? 7 : 4.5) * o.devicePixelRatio, 0, 7); cx.fillStyle = i === 0 ? "#0d9b49" : "#073f2c"; cx.fill(); cx.lineWidth = 2*o.devicePixelRatio; cx.strokeStyle = "#fff"; cx.stroke(); });
-          }
-          return { update(u) { cur = { ...cur, ...u }; draw(); }, destroy() { const e = gl.getExtension("WEBGL_lose_context"); e && e.loseContext(); cx.clearRect(0,0,W,W); } };
-        })(canvas, { devicePixelRatio: dpr, width: s, height: s, phi, theta });
+                globe = createGlobe(canvas, {
+          devicePixelRatio: dpr, width: s, height: s, phi, theta,
+          dark: 0, diffuse: 1.25, mapSamples: 16000, mapBrightness: 5.2, mapBaseBrightness: 0,
+          baseColor: [0.98, 0.98, 0.985], markerColor: [0.32, 0.33, 0.35], glowColor: [0.93, 0.93, 0.94],
+          markers, arcs, arcColor: [0.55, 0.56, 0.58], arcWidth: 0.5, arcHeight: 0.25, markerElevation: 0.02,
+          opacity: 0.86, scale: 1, offset: [0, 0]
+        });
         wrap.classList.add("is-live");
         loop();
       } catch (e) { globe = null; }
