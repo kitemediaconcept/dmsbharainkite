@@ -7453,6 +7453,10 @@ input, select, textarea {
   .dms-gold-stack .dgs-card .dgs-tab { transition:opacity .3s ease; box-shadow:0 -6px 16px rgba(0,40,20,.12); }
   .dms-gold-stack .dgs-card { transform-origin:center top; }
 </style>
+<style id="attest-desk-css">
+  html body .dms-gold-stack .dgs-attestation-img.dgs-attest-desk { max-width:100% !important; max-height:100% !important; width:100% !important; transform:none !important; filter:none !important; -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%),linear-gradient(180deg,#000 80%,transparent 100%) !important; mask-image:linear-gradient(90deg,transparent 0,#000 14%),linear-gradient(180deg,#000 80%,transparent 100%) !important; -webkit-mask-composite:source-in !important; mask-composite:intersect !important; }
+  html body .dms-gold-stack .dgs-card:hover .dgs-attest-desk { transform:scale(1.02) !important; }
+</style>
 </head>
 
 <body>
@@ -8219,9 +8223,9 @@ input, select, textarea {
             <div class="dgs-attestation-visual">
               <div class="dgs-attestation-scrim" aria-hidden="true"></div>
               <img
-                class="dgs-attestation-img"
-                src="assets/attest-bahrain-sticker.webp?v=2"
-                alt="Official Embassy of Bahrain stamp seal and attestation document"
+                class="dgs-attestation-img dgs-attest-desk"
+                src="assets/attest-desk.webp"
+                alt="Official stamping a Bahrain attestation document in a folder"
                 loading="lazy"
               >
             </div>
