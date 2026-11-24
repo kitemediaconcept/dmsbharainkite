@@ -7435,6 +7435,24 @@ input, select, textarea {
   html body .dms-gold-stack .dgs-card-family:not(.dgs-card-residence):not(.dgs-card-company):not(.dgs-card-saudi) .dgs-family-img { -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%) !important; mask-image:linear-gradient(90deg,transparent 0,#000 12%) !important; }
   .dms-gold-stack .dgs-card .dgs-residence-img { -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%) !important; mask-image:linear-gradient(90deg,transparent 0,#000 22%) !important; }
 </style>
+<style id="dgs-tab-css">
+  .dms-gold-stack { --stack-step: 58px !important; }
+  @media (max-width:900px) { .dms-gold-stack { --stack-step: 50px !important; } .dms-gold-stack .dgs-slot { top:calc(78px + var(--i) * 50px) !important; } }
+  .dms-gold-stack .dgs-tab { position:absolute; left:0; right:0; top:0; z-index:20; height:56px; display:flex; align-items:center; gap:12px; padding:0 22px; border-radius:inherit; border-bottom-left-radius:0; border-bottom-right-radius:0; background:#00733f url("assets/gold-card-bg.webp") center top/cover no-repeat; box-shadow:inset 0 -1px 0 rgba(255,255,255,.12); font-family:Inter,"Helvetica Neue",Arial,sans-serif; color:#fff; opacity:0; pointer-events:none; transition:opacity .25s ease; }
+  .dms-gold-stack .dgs-card.dgs-covered .dgs-tab { opacity:1; }
+  .dms-gold-stack .dgs-tab i { flex:0 0 28px; width:28px; height:28px; border-radius:8px; display:grid; place-items:center; background:#fff; }
+  .dms-gold-stack .dgs-tab i svg { width:15px; height:15px; fill:none; stroke:#0d9b49; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+  .dms-gold-stack .dgs-tab span { flex:1; min-width:0; font-size:15px; font-weight:500; letter-spacing:-.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:rgba(255,255,255,.85); }
+  .dms-gold-stack .dgs-tab b { font-weight:600; color:#fff; }
+  .dms-gold-stack .dgs-tab em { font-style:normal; font-size:11.5px; font-weight:600; letter-spacing:.5px; padding:4px 10px; border-radius:999px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25); color:#fff; }
+  @media (max-width:640px) { .dms-gold-stack .dgs-tab { height:48px; padding:0 16px; } .dms-gold-stack .dgs-tab span { font-size:13.5px; } }
+</style>
+<style id="dgs-cover-tidy">
+  .dms-gold-stack .dgs-card > *:not(.dgs-tab) { transition:opacity .3s ease; }
+  .dms-gold-stack .dgs-card.dgs-covered > *:not(.dgs-tab) { opacity:0 !important; }
+  .dms-gold-stack .dgs-card .dgs-tab { transition:opacity .3s ease; box-shadow:0 -6px 16px rgba(0,40,20,.12); }
+  .dms-gold-stack .dgs-card { transform-origin:center top; }
+</style>
 </head>
 
 <body>
@@ -8049,7 +8067,7 @@ input, select, textarea {
     <div class="dgs-inner">
 
       <div class="dgs-slot" style="--i: 0;">
-        <article class="dgs-card dgs-card-golden">
+        <article class="dgs-card dgs-card-golden"><div class="dgs-tab" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i><span><b>Your next chapter.</b> A place to call home.</span><em>01 / 07</em></div>
           <div class="dgs-golden-layout">
 
             <div class="dgs-copy">
@@ -8101,7 +8119,7 @@ input, select, textarea {
 
 
       <div class="dgs-slot" style="--i: 1;">
-        <article class="dgs-card dgs-card-attestation dgs-card-family dgs-card-company">
+        <article class="dgs-card dgs-card-attestation dgs-card-family dgs-card-company"><div class="dgs-tab" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16"/><path d="M15 10h4a1 1 0 0 1 1 1v10M3 21h18"/></svg></i><span><b>Company Formation</b> in Bahrain.</span><em>02 / 07</em></div>
           <div class="dgs-attestation-grid">
             <div class="dgs-attestation-copy">
               <span class="dgs-eyebrow">BUSINESS SETUP</span>
@@ -8133,7 +8151,7 @@ input, select, textarea {
       </div>
 
       <div class="dgs-slot" style="--i: 2;">
-        <article class="dgs-card dgs-card-global-visa">
+        <article class="dgs-card dgs-card-global-visa"><div class="dgs-tab" aria-hidden="true"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></i><span><b>Global Visa</b> Service</span><em>03 / 07</em></div>
           <div class="visa-card">
             <div class="visa-content">
               <span class="dgs-eyebrow">GLOBAL TRAVEL &amp; MOBILITY</span>
@@ -8175,7 +8193,7 @@ input, select, textarea {
       </div>
 
       <div class="dgs-slot" style="--i: 3;">
-        <article class="dgs-card dgs-card-attestation">
+        <article class="dgs-card dgs-card-attestation"><div class="dgs-tab" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M8 20h8M12 4v9"/><path d="M6 13h12v4H6z"/></svg></i><span><b>Document Attestation.</b> Certified &amp; Approved.</span><em>04 / 07</em></div>
           <div class="dgs-attestation-grid">
             <div class="dgs-attestation-copy">
               <span class="dgs-eyebrow">LEGALIZATION &amp; AUTHENTICATION</span>
@@ -8214,7 +8232,7 @@ input, select, textarea {
 
       <div class="dgs-slot" style="--i: 4;">
         <!-- MANAGEMENT & ADMINISTRATION SERVICES -->
-        <article class="dgs-card dgs-card-attestation dgs-card-family dgs-card-residence">
+        <article class="dgs-card dgs-card-attestation dgs-card-family dgs-card-residence"><div class="dgs-tab" aria-hidden="true"><i><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></i><span><b>Management and Administration</b> Consultancy.</span><em>05 / 07</em></div>
           <div class="dgs-attestation-grid">
             <div class="dgs-attestation-copy">
               <span class="dgs-eyebrow">MANAGEMENT AND ADMINISTRATION</span>
@@ -8252,7 +8270,7 @@ input, select, textarea {
 
       <div class="dgs-slot" style="--i: 5;">
         <!-- FOURTH CARD: FAMILY VISA FOR KSA IQAMA HOLDERS -->
-        <article class="dgs-card dgs-card-attestation dgs-card-family">
+        <article class="dgs-card dgs-card-attestation dgs-card-family"><div class="dgs-tab" aria-hidden="true"><i><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.3"/><path d="M15 19a4.5 4.5 0 0 1 6.5-4"/></svg></i><span><b>Family Residence Visa</b> for KSA Iqama Holders.</span><em>06 / 07</em></div>
           <div class="dgs-attestation-grid">
             <div class="dgs-attestation-copy">
               <span class="dgs-eyebrow">SERVICES FOR KSA IQAMA HOLDERS</span>
@@ -8290,7 +8308,7 @@ input, select, textarea {
       </div>
 
       <div class="dgs-slot" style="--i: 6;">
-        <article class="dgs-card dgs-card-attestation dgs-card-family dgs-card-saudi">
+        <article class="dgs-card dgs-card-attestation dgs-card-family dgs-card-saudi"><div class="dgs-tab" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M21 3 10 14"/><path d="m21 3-7 18-4-7-7-4z"/></svg></i><span><b>Saudi Visa</b> Services.</span><em>07 / 07</em></div>
           <div class="dgs-attestation-grid">
             <div class="dgs-attestation-copy">
               <span class="dgs-eyebrow">KINGDOM OF SAUDI ARABIA</span>
@@ -10697,7 +10715,7 @@ input, select, textarea {
         }
 
         const topOffset = 90;
-        const step = 20;
+        const step = 58;
 
         slots.forEach((slot, index) => {
           const rect = slot.getBoundingClientRect();
@@ -10718,6 +10736,12 @@ input, select, textarea {
           }
           
           const card = cards[index];
+          if (card && nextSlot) { const nr = nextSlot.getBoundingClientRect(); card.classList.toggle("dgs-covered", nr.top < rect.top + 120); }
+          if (card && card.classList.contains("dgs-covered")) {
+            let depth = 0;
+            for (let k = index + 1; k < slots.length; k++) { depth++; const c2 = cards[k]; if (!c2 || !c2.classList.contains("dgs-covered")) break; }
+            scale = Math.max(0.82, 1 - depth * 0.016);
+          }
           if (card) {
             card.style.transform = `scale(${scale.toFixed(4)})`;
             card.style.filter = `brightness(${brightness.toFixed(3)})`;
