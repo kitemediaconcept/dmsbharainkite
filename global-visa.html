@@ -7600,6 +7600,13 @@ input, select, textarea {
   .gvd-photo > .gvd-grade { background:linear-gradient(180deg,rgba(255,255,255,0) 52%,rgba(255,255,255,.55) 64%,rgba(255,255,255,.9) 76%,#fff 86%) !important; }
   .gvd-grade::before { backdrop-filter:blur(6px) !important; -webkit-backdrop-filter:blur(6px) !important; -webkit-mask-image:linear-gradient(180deg,transparent 56%,#000 76%) !important; mask-image:linear-gradient(180deg,transparent 56%,#000 76%) !important; }
 </style>
+<style id="gvcp-css">
+  .gv-cta-plane { position:relative; overflow:hidden; display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); align-items:center; gap:24px; text-align:left !important; }
+  .gvcp-img { width:108%; max-width:none; height:auto; max-height:none; object-fit:contain; mix-blend-mode:multiply; transform:translateX(-12%); }
+  .gvcp-copy .dms-sp { margin-left:0 !important; }
+  .gvcp-copy .cta3 { justify-content:flex-start !important; }
+  @media (max-width:860px) { .gv-cta-plane { grid-template-columns:1fr; text-align:center !important; } .gvcp-img { max-height:200px; transform:none; margin:0 auto; } .gvcp-copy .dms-sp { margin-left:auto !important; } .gvcp-copy .cta3 { justify-content:center !important; } }
+</style>
 </head>
 
 <body>
@@ -7927,10 +7934,12 @@ input, select, textarea {
     </section>
 
     <!-- CTA -->
-    <section class="cr-cta" aria-labelledby="gv-cta-title">
-      <h2 class="dms-sh" id="gv-cta-title">Planning to travel?</h2>
+    <section class="cr-cta gv-cta-plane" aria-labelledby="gv-cta-title">
+      <img class="gvcp-img" src="assets/gv-cta-plane.webp" alt="" aria-hidden="true" width="1200" height="670" loading="lazy" decoding="async">
+      <div class="gvcp-copy"><h2 class="dms-sh" id="gv-cta-title">Planning to travel?</h2>
       <p class="dms-sp">Tell us where you are going and our team will guide you through the requirements and the application.</p>
       <div class="cta3"><a class="cta3-wa" href="https://wa.me/97317290001?text=Hello%20DMS%2C%20I%20need%20help%20with%20Global%20Visa." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.2z"/><path d="M8.9 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.1.1-.2.3 0 .5.5.9 1.4 1.8 2.4 2.3.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4 0 .5-.2 1.2-.7 1.6-.5.4-1.2.6-2 .4-3-.8-5.3-3.1-6-6-.2-.8 0-1.5.4-2z" fill="currentColor" stroke="none"/></svg>WhatsApp us</a><a class="cta3-alt" href="mailto:info@dmsbahrain.com?subject=Global%20Visa%20enquiry"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>Email us</a><a class="cta3-alt" href="tel:+97317290001"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call us</a></div>
+    </div>
     </section>
   </main>
 
