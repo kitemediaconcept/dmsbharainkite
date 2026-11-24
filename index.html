@@ -7461,6 +7461,10 @@ input, select, textarea {
   html body .dms-gold-stack .dgs-card-residence .dgs-residence-visual { display:flex !important; align-items:flex-end !important; justify-content:flex-end !important; }
   html body .dms-gold-stack .dgs-card-residence .dgs-residence-img { position:absolute !important; inset:auto 0 0 auto !important; width:112% !important; max-width:none !important; height:auto !important; max-height:none !important; object-fit:contain !important; object-position:right bottom !important; transform:none !important; -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%),linear-gradient(180deg,#000 82%,transparent 100%) !important; mask-image:linear-gradient(90deg,transparent 0,#000 12%),linear-gradient(180deg,#000 82%,transparent 100%) !important; -webkit-mask-composite:source-in !important; mask-composite:intersect !important; }
 </style>
+<style id="family-cutout-fit">
+  html body .dms-gold-stack .dgs-card-family:not(.dgs-card-residence):not(.dgs-card-company):not(.dgs-card-saudi) .dgs-family-img { position:absolute !important; inset:auto 0 0 auto !important; width:100% !important; height:auto !important; max-width:none !important; max-height:none !important; object-fit:contain !important; object-position:right bottom !important; transform:none !important; -webkit-mask-image:linear-gradient(180deg,#000 86%,transparent 100%) !important; mask-image:linear-gradient(180deg,#000 86%,transparent 100%) !important; }
+  @media (max-width:900px) { html body .dms-gold-stack .dgs-card-family:not(.dgs-card-residence):not(.dgs-card-company):not(.dgs-card-saudi) .dgs-family-visual .dgs-family-img { inset:auto 0 0 0 !important; width:100% !important; height:auto !important; } }
+</style>
 </head>
 
 <body>
@@ -8306,7 +8310,7 @@ input, select, textarea {
               <!-- EDIT: change this image to update the card -->
               <img
                 class="dgs-attestation-img dgs-family-img"
-                src="assets/family-beach-v2.webp?v=2"
+                src="assets/family-cutout.webp?v=2"
                 alt="Family enjoying the beach in Bahrain with the Manama skyline behind"
                 loading="lazy"
               >
