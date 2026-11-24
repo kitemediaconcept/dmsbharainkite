@@ -7403,6 +7403,81 @@ input, select, textarea {
   .cta3 a svg { width:18px !important; height:18px !important; flex:0 0 18px !important; }
   .cta3 a.cta3-wa svg { transform:scale(1.12); }
 </style>
+<style id="msr-css">
+  .msr { padding:clamp(100px,8vw,112px) 0 clamp(28px,4vw,56px); background:#fff; }
+  .msr-wrap { width:min(1280px,100% - 48px); margin:0 auto; }
+  .msr-top { display:grid; grid-template-columns:1.25fr 1fr; gap:40px; align-items:end; margin-bottom:clamp(24px,3vw,40px); }
+  .msr-title { margin:0; font:600 clamp(40px,5.2vw,72px)/1.02 Inter, system-ui, sans-serif; letter-spacing:-.045em; color:#0b1f16; }
+  .msr-title span { background:linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .msr-side { max-width:420px; justify-self:end; padding-bottom:8px; }
+  .msr-desc { margin:0 0 20px; font:400 15px/1.55 Inter, system-ui, sans-serif; color:#5d6862; }
+  .msr-btns { display:flex; gap:10px; flex-wrap:wrap; }
+  .msr-btn { display:inline-flex; align-items:center; gap:10px; padding:7px 7px 7px 18px; border:0; border-radius:999px; background:linear-gradient(135deg,#19b35a,#0d9b49 45%,#073f2c); color:#fff; font:600 14px Inter, system-ui, sans-serif; cursor:pointer; text-decoration:none; box-shadow:0 10px 24px rgba(13,155,73,.28); transition:transform .3s ease, box-shadow .3s ease; }
+  .msr-btn:hover { transform:translateY(-2px); box-shadow:0 16px 32px rgba(13,155,73,.36); }
+  .msr-btn i { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:#fff; color:#0d9b49; }
+  .msr-btn svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+  .msr-btn.is-ghost { background:#fff; color:#0b1f16; box-shadow:inset 0 0 0 1px #d6e3dc; padding:7px 18px; }
+  .msr-btn.is-ghost:hover { box-shadow:inset 0 0 0 1px #0d9b49; }
+  .msr-band { position:relative; overflow:hidden; border-radius:28px; aspect-ratio:1280/440; background:radial-gradient(90% 120% at 30% 100%,#3ccf7a 0%,rgba(60,207,122,0) 60%),linear-gradient(120deg,#073f2c 0%,#0d9b49 55%,#3ccf7a 100%); isolation:isolate; animation:msr-in 1.2s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes msr-in { from { opacity:0; transform:translateY(18px); } }
+  .msr-photo { position:absolute; left:0; bottom:0; height:96%; width:auto; max-width:none; z-index:3; animation:msr-photo 1.4s .15s cubic-bezier(.16,1,.3,1) both; }
+  .msr-tags { position:absolute; right:3%; top:50%; transform:translateY(-62%); z-index:4; width:min(34%,400px); display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; }
+  .msr-tag { display:inline-flex; align-items:center; gap:7px; padding:4px 12px 4px 4px; border-radius:999px; background:rgba(255,255,255,.92); border:1px solid rgba(255,255,255,.7); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:0 8px 20px rgba(4,46,28,.18); text-decoration:none; color:#0b1f16; font:600 12.5px/1 Inter, system-ui, sans-serif; letter-spacing:-.005em; white-space:nowrap; opacity:0; animation:msr-tag-in .8s calc(.5s + var(--d)) cubic-bezier(.16,1,.3,1) forwards; transition:transform .25s ease, box-shadow .25s ease; }
+  button.msr-tag { cursor:pointer; }
+  .msr-tag:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(4,46,28,.26); }
+  .msr-tag i { flex:none; display:grid; place-items:center; width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,#19b35a,#0d9b49 45%,#073f2c); color:#fff; }
+  .msr-tag svg { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+  @keyframes msr-tag-in { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+  @media (max-width:1100px) { .msr-tags { width:38%; gap:6px; } .msr-tag { font-size:11.5px; padding:3px 10px 3px 3px; } .msr-tag i { width:21px; height:21px; } }
+  @media (max-width:860px) {
+    .msr-band { aspect-ratio:auto !important; display:flex; flex-direction:column; }
+    .msr-tags { position:static; transform:none; width:auto; justify-content:flex-start; padding:18px 16px 4px; gap:7px; }
+    .msr-tag { font-size:12px; }
+    .msr-photo { position:relative !important; height:300px !important; width:auto !important; align-self:flex-start; }
+  }
+  @media (max-width:520px) { .msr-photo { height:240px !important; left:-14%; } }
+  @keyframes msr-photo { from { opacity:0; transform:translateY(24px); } }
+  .msr-glow { position:absolute; right:-10%; top:-30%; width:60%; aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.28),rgba(255,255,255,0) 65%); animation:msr-pulse 7s ease-in-out infinite; z-index:1; }
+  @keyframes msr-pulse { 50% { transform:scale(1.08); opacity:.7; } }
+  .msr-tile { position:absolute; border-radius:6px; background:linear-gradient(140deg,rgba(255,255,255,.22),rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); box-shadow:0 12px 30px rgba(0,0,0,.25); animation:msr-float 9s ease-in-out infinite; z-index:2; }
+  @keyframes msr-float { 50% { transform:translateY(-14px) rotate(var(--r2)); } }
+  @media (max-width:860px) {
+    .msr-top { grid-template-columns:1fr; gap:18px; }
+    .msr-side { justify-self:start; max-width:none; }
+    .msr-band { aspect-ratio:4/3; border-radius:22px; } .msr-photo { top:auto; bottom:0; height:88%; width:auto; }
+  }
+  @media (max-width:520px) { .msr-wrap { width:calc(100% - 32px); } .msr-band { aspect-ratio:1/1; } .msr-photo { top:auto; bottom:0; height:80%; width:auto; left:-14%; } }
+  @media (prefers-reduced-motion: reduce) { .msr-band, .msr-tile, .msr-photo, .msr-glow { animation:none; } .msr-tag { animation:none; opacity:1; } }
+</style>
+<style id="lmra-band-white">
+  .msr-band { background:radial-gradient(60% 90% at 18% 50%,rgba(60,207,122,.16),transparent 70%), radial-gradient(50% 80% at 100% 0%,rgba(60,207,122,.08),transparent 70%), linear-gradient(135deg,#fff 0%,#f6fbf8 60%,#eaf6ef 100%) !important; box-shadow:0 18px 44px rgba(7,63,44,.08), inset 0 0 0 1px rgba(13,155,73,.08); }
+  .msr-band .msr-glow { background:radial-gradient(circle,rgba(60,207,122,.14),rgba(60,207,122,0) 65%) !important; }
+  .msr-photo.ut-hero-img { left:7% !important; top:50% !important; bottom:auto !important; width:auto !important; height:72% !important; transform:translateY(-50%); animation:none !important; }
+  @media (max-width:860px) { .msr-photo.ut-hero-img { position:relative !important; left:auto !important; top:auto !important; transform:none; height:220px !important; width:auto !important; margin:28px auto 0; align-self:center !important; } }
+</style>
+<style id="lmra-msr-fix">@media (min-width:861px){ .msr-tags { flex-direction:column; align-items:flex-end; } } .bahrain-subpage-main { padding-top:0 !important; } .bahrain-subpage-main > .msr { margin-top:0; } .msr-title { font-size:clamp(34px,4vw,54px) !important; }</style>
+<style id="tag-uniform">
+  @media (min-width:861px) {
+    .msr-tags { display:grid !important; grid-template-columns:max-content; justify-content:end; justify-items:stretch; width:auto !important; }
+    .msr-tags .msr-tag { justify-content:flex-start; }
+  }
+  @media (min-width:761px) {
+    .gdb-tags { display:grid !important; grid-template-columns:max-content; justify-items:stretch; }
+    .gdb-tags .gdb-tag { justify-content:flex-start; }
+  }
+</style>
+<style id="tags-white">
+  .msr .msr-tags .msr-tag { color:#0b1f16 !important; background:rgba(255,255,255,.78) !important; border:1px solid rgba(255,255,255,.9) !important; box-shadow:0 8px 22px rgba(7,63,44,.08), inset 0 1px 0 rgba(255,255,255,.9) !important; text-shadow:none !important; -webkit-backdrop-filter:blur(14px) saturate(160%); backdrop-filter:blur(14px) saturate(160%); }
+  .msr .msr-tags .msr-tag:hover { background:#fff !important; }
+  .msr .msr-tags .msr-tag i { background:linear-gradient(135deg,#19b35a,#0d9b49) !important; }
+  .msr .msr-tags .msr-tag i svg { stroke:#fff !important; }
+</style>
+<style id="fj-msr">
+  .msr-photo.fj-hero-img { inset:0 !important; width:100% !important; height:100% !important; object-fit:cover; object-position:center 6%; animation:none !important; z-index:0; }
+  .fj-msr .msr-band::after { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,0) 38%); pointer-events:none; }
+  @media (min-width:861px) { .fj-msr .msr-tags { right:auto !important; left:4% !important; justify-content:start !important; align-items:flex-start !important; } }
+  @media (max-width:860px) { .msr-photo.fj-hero-img { position:relative !important; height:260px !important; } .fj-msr .msr-band::after { display:none; } }
+</style>
 </head>
 
 <body>
@@ -7964,28 +8039,22 @@ input, select, textarea {
 
   <main id="main">
     <!-- MANAGEMENT CONSULTANCY HERO -->
-    <section class="mch mcb" aria-labelledby="fj-title">
-      <svg class="mcb-blob" viewBox="0 0 600 520" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="mcb-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ccf7a"/><stop offset=".45" stop-color="#0d9b49"/><stop offset="1" stop-color="#073f2c"/></linearGradient>
-          <radialGradient id="mcb-r1" cx=".85" cy=".1" r=".6"><stop offset="0" stop-color="#7ee8a8" stop-opacity=".55"/><stop offset="1" stop-color="#7ee8a8" stop-opacity="0"/></radialGradient>
-          <radialGradient id="mcb-r2" cx=".25" cy=".95" r=".55"><stop offset="0" stop-color="#03281b" stop-opacity=".45"/><stop offset="1" stop-color="#03281b" stop-opacity="0"/></radialGradient>
-        </defs>
-        <path id="mcb-shape" fill="url(#mcb-g)" d="M150 0 H600 V520 H60 C70 380 100 200 150 0 Z"/>
-        <path fill="url(#mcb-r1)" d="M150 0 H600 V520 H60 C70 380 100 200 150 0 Z"/>
-        <path fill="url(#mcb-r2)" d="M150 0 H600 V520 H60 C70 380 100 200 150 0 Z"/>
-      </svg>
-      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><clipPath id="ss-blob-clip" clipPathUnits="objectBoundingBox"><path d="M.25 0 H1 V1 H.1 C.1167 .7308 .1667 .3846 .25 0 Z"/></clipPath></svg>
-      <div class="mcb-in">
-        <div class="mch-copy mcb-copy">
-          <h1 id="fj-title" class="mcb-title"><span>Bring your family closer.</span><br>Bahrain residence for KSA Iqama holders.</h1>
-          <p class="mcb-tag">Professional assistance for eligible KSA Iqama holders seeking Bahrain residence options for their family members.</p>
-          <div class="mch-actions mcb-actions">
-            <a class="mch-btn" href="#fj-support">Our support</a>
-            <a class="mch-link" href="#contact">Talk to DMS</a>
+    <section class="msr fj-msr" aria-labelledby="fj-title">
+      <div class="msr-wrap">
+        <div class="msr-top">
+          <h1 class="msr-title" id="fj-title">Bring your family closer. <br>Bahrain residence for <span>KSA Iqama holders.</span></h1>
+          <div class="msr-side">
+            <p class="msr-desc">Professional assistance for eligible KSA Iqama holders seeking Bahrain residence options for their family members.</p>
+            <div class="msr-btns">
+              <a class="msr-btn" href="#fj-support">Our support<i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></i></a>
+              <a class="msr-btn is-ghost" href="#contact">Talk to DMS</a>
+            </div>
           </div>
         </div>
-        <div class="ss-photo-win"><img class="mcb-people fj-photo" src="assets/fj-hero-family.webp" alt="Family enjoying the beach in Bahrain" width="1300" height="809" fetchpriority="high" decoding="async"></div>
+        <div class="msr-band">
+          <img class="msr-photo fj-hero-img" src="assets/fj-hero-family.webp" alt="Family enjoying the beach in Bahrain" width="1300" height="809" fetchpriority="high" decoding="async">
+          <div class="msr-tags"><a class="msr-tag" href="#fj-support" style="--d:0.00s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M14 20a4 4 0 0 1 8 0"/></svg></i>Spouse &amp; children</a><a class="msr-tag" href="#fj-support" style="--d:0.10s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></i>Document preparation</a><a class="msr-tag" href="#fj-support" style="--d:0.20s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h12"/><path d="m12 6 6 6-6 6"/></svg></i>Application submission</a><a class="msr-tag" href="#fj-support" style="--d:0.30s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i>Follow-up with authorities</a><a class="msr-tag" href="#fj-support" style="--d:0.40s"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9H4z"/><path d="M10 20v-5h4v5"/></svg></i>Residence permit</a></div>
+        </div>
       </div>
     </section>
 
