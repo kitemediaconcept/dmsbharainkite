@@ -7390,6 +7390,16 @@ input, select, textarea {
 .abcr-link:hover { color:#0d9b49; }
 @media (max-width:860px) { .abcr { grid-template-columns:1fr; } }
 </style>
+<style id="lrc-cta-css">
+.lrc-row { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:10px; }
+.lrc-row .abx-lmra { margin-top:0; text-decoration:none; transition:transform .3s ease, box-shadow .3s ease; }
+.lrc-row .abx-lmra:hover { transform:translateY(-2px); }
+.lrc-cta { display:inline-flex; align-items:center; gap:10px; height:46px; padding:0 8px 0 20px; border-radius:9999px; background:linear-gradient(135deg,#19b35a,#073f2c); color:#fff; font:600 15px/1 Inter,system-ui,sans-serif; text-decoration:none; box-shadow:0 12px 26px rgba(13,155,73,.28); transition:transform .3s ease; }
+.lrc-cta:hover { transform:translateY(-2px); }
+.lrc-cta i { width:32px; height:32px; border-radius:50%; display:grid; place-items:center; background:#fff; color:#0d9b49; }
+.lrc-cta svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+.abr-glass .lrc-row { margin-top:22px; }
+</style>
 </head>
 
 <body>
@@ -7656,7 +7666,7 @@ input, select, textarea {
           <p>Diplomat Management Services Co. W.L.L. is a strategic business support and government relations partner in the Kingdom of Bahrain, specializing in government relations services (GRO) and global visa assistance. With more than 40 years of experience, we help businesses and individuals navigate compliance requirements, employee administration and procedures involving local government authorities and foreign embassies in Bahrain.</p>
           <p>Our approach combines practical expertise, clear guidance and a commitment to professional service. By simplifying complex processes and coordinating essential administrative requirements, we give our clients more time to focus on their priorities and grow their businesses.</p>
         
-          <span class="abx-lmra"><img src="assets/rec-lmra.png" alt="Labour Market Regulatory Authority" width="512" height="75" loading="lazy" decoding="async"><span>LMRA Registration Center</span></span>
+          <div class="lrc-row"><a class="abx-lmra" href="lmra-registration-centre.html"><img src="assets/rec-lmra.png" alt="Labour Market Regulatory Authority" width="512" height="75" loading="lazy" decoding="async"><span>LMRA Registration Center</span></a><a class="lrc-cta" href="lmra-registration-centre.html">Visit LMRA Registration Centre<i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></i></a></div>
         </div>
       </div>
       <div class="abx-facts">
