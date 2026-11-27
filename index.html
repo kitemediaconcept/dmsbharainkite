@@ -7495,6 +7495,10 @@ input, select, textarea {
 .hrec .hrec-cap::before { display:none !important; content:none !important; }
 @media (max-width:700px) { .hrec .hrec-logo { width:240px !important; height:60px !important; } }
 </style>
+<style id="dgs-fit-css">
+@media (min-width:901px){ .dms-gold-stack { --stack-step:46px !important; } .dms-gold-stack .dgs-tab { height:46px !important; } }
+.dms-gold-stack .dgs-card { zoom:var(--dgs-z,1); }
+</style>
 </head>
 
 <body>
@@ -11193,6 +11197,14 @@ b.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-red
   f.addEventListener('submit',function(e){ e.preventDefault(); if(inp.value.trim()){ var m=(act>-1&&cur[act])?cur[act]:match(inp.value)[0]; if(m) return go(m[1]); } else if(sel.value){ return go(sel.value); }
     f.classList.remove('fsx-shake'); void f.offsetWidth; f.classList.add('fsx-shake'); inp.focus(); });
 })();
+</script>
+<script id="dgs-fit-js">
+(()=>{const st=document.querySelector('.dms-gold-stack');if(!st)return;
+const fit=()=>{const sl=[...st.querySelectorAll('.dgs-slot')];if(!sl.length)return;st.style.setProperty('--dgs-z','1');
+const last=sl[sl.length-1];const top=parseFloat(getComputedStyle(last).top)||0;
+const h=Math.max(...sl.map(x=>x.querySelector('.dgs-card').offsetHeight));
+const avail=innerHeight-top-16;const z=Math.max(.6,Math.min(1,avail/h));st.style.setProperty('--dgs-z',z.toFixed(3));};
+fit();addEventListener('resize',fit);addEventListener('load',fit);})();
 </script>
 </body>
 </html>
