@@ -7505,6 +7505,20 @@ main:not(#_) .lmx-g .lmx-img, main:not(#_) .mlx-card .mlx-img { width:100% !impo
 main .lmx-g .lmx-img::after, main .mlx-card .mlx-img::after { bottom:-1px !important; box-shadow:0 1px 0 #fff; }
 main .lmx-g .lmx-img img, main .mlx-card .mlx-img img { -webkit-mask-image:linear-gradient(180deg,#000 45%,rgba(0,0,0,.35) 75%,transparent 98%) !important; mask-image:linear-gradient(180deg,#000 45%,rgba(0,0,0,.35) 75%,transparent 98%) !important; } main .lmx-g .lmx-img::after, main .mlx-card .mlx-img::after { left:-3px !important; right:-3px !important; width:auto !important; }
 </style>
+<style id="cq-dd-css">
+.cq-dd { position:relative; }
+.cq-dd > select { position:absolute; opacity:0; pointer-events:none; width:1px; height:1px; }
+.cq-dd-btn { background-image:none !important; width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px; text-align:left; cursor:pointer; font:inherit; color:inherit; }
+.cq-dd-btn svg { width:16px; height:16px; flex:none; fill:none; stroke:#0d9b49; stroke-width:2; transition:transform .25s; }
+.cq-dd.is-open .cq-dd-btn svg { transform:rotate(180deg); }
+.cq-dd-list { position:absolute; left:0; right:0; top:calc(100% + 8px); z-index:50; max-height:320px; overflow:auto; margin:0; padding:8px; list-style:none; border-radius:20px;
+  background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(236,250,242,.72)); -webkit-backdrop-filter:blur(18px) saturate(160%); backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9), inset 0 0 0 1px rgba(13,155,73,.14), 0 22px 50px rgba(7,63,44,.18); opacity:0; transform:translateY(-6px); visibility:hidden; transition:opacity .2s, transform .2s, visibility .2s; }
+.cq-dd.is-open .cq-dd-list { opacity:1; transform:none; visibility:visible; }
+.cq-dd-list li { padding:10px 14px; border-radius:12px; font-size:15px; color:#0b1f16; cursor:pointer; }
+.cq-dd-list li:hover, .cq-dd-list li.is-hl { background:rgba(25,179,90,.12); color:#073f2c; }
+.cq-dd-list li[aria-selected="true"] { background:linear-gradient(135deg,rgba(25,179,90,.9),rgba(7,63,44,.9)); color:#fff; box-shadow:inset 0 1px 0 rgba(255,255,255,.3); }
+</style>
 </head>
 
 <body>
@@ -11208,6 +11222,21 @@ const last=sl[sl.length-1];const top=parseFloat(getComputedStyle(last).top)||0;
 const h=Math.max(...sl.map(x=>x.querySelector('.dgs-card').offsetHeight));
 const avail=innerHeight-top-16;const z=Math.max(.6,Math.min(1,avail/h));st.style.setProperty('--dgs-z',z.toFixed(3));};
 fit();addEventListener('resize',fit);addEventListener('load',fit);})();
+</script>
+<script id="cq-dd-js">
+(()=>{document.querySelectorAll('.cq-f select').forEach(sel=>{const lab=sel.closest('.cq-f');const w=document.createElement('div');w.className='cq-dd';sel.parentNode.insertBefore(w,sel);w.appendChild(sel);
+const btn=document.createElement('button');btn.type='button';btn.className='cq-dd-btn '+sel.className;btn.setAttribute('aria-haspopup','listbox');btn.setAttribute('aria-expanded','false');
+const cs=getComputedStyle(sel);['padding','borderRadius','backgroundColor','border','height','fontSize','boxShadow','minHeight'].forEach(k=>btn.style[k]=cs[k]);
+const txt=document.createElement('span');btn.append(txt);btn.insertAdjacentHTML('beforeend','<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>');
+const ul=document.createElement('ul');ul.className='cq-dd-list';ul.setAttribute('role','listbox');
+[...sel.options].forEach((o,i)=>{const li=document.createElement('li');li.textContent=o.text;li.setAttribute('role','option');li.dataset.i=i;ul.append(li);});
+w.append(btn,ul);
+const sync=()=>{txt.textContent=sel.options[sel.selectedIndex].text;[...ul.children].forEach((li,i)=>li.setAttribute('aria-selected',i===sel.selectedIndex));};
+const open=v=>{w.classList.toggle('is-open',v);btn.setAttribute('aria-expanded',v);};
+btn.addEventListener('click',()=>open(!w.classList.contains('is-open')));
+ul.addEventListener('click',e=>{const li=e.target.closest('li');if(!li)return;sel.selectedIndex=+li.dataset.i;sel.dispatchEvent(new Event('change',{bubbles:true}));sync();open(false);btn.focus();});
+btn.addEventListener('keydown',e=>{let i=sel.selectedIndex;if(e.key==='ArrowDown'){i=Math.min(sel.options.length-1,i+1)}else if(e.key==='ArrowUp'){i=Math.max(0,i-1)}else if(e.key==='Escape'){open(false);return}else return;e.preventDefault();sel.selectedIndex=i;sync();});
+document.addEventListener('click',e=>{if(!w.contains(e.target))open(false)});sel.addEventListener('change',sync);sync();});})();
 </script>
 </body>
 </html>
